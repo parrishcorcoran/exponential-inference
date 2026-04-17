@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments
+.venv/
+venv/
+env/
+.env
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Model weights and caches
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.gguf
+models/
+weights/
+checkpoints/
+.cache/
+hf_cache/
+hidden_state_cache/
+
+# Results artifacts — keep plots & summary, ignore large tensors
+results/hidden_states/
+results/projections/
+results/*.npy
+results/*.npz
+results/*.pt
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+Thumbs.db
