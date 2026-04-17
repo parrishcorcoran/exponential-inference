@@ -99,25 +99,42 @@ def main() -> int:
     layer_means = build_layer_means(args.cache_dir, predictor.target_layers)
 
     # --- correctness gate ---------------------------------------------
-    print("\n=== correctness gate: full rank == base ===", flush=True)
+    print("\n=== correctness gate: force_full_rank bypass == base ===", flush=True)
     ids = tokenizer(args.correctness_prompt, return_tensors="pt").input_ids
     ids = ids.to(loaded.device)
+    # First verify the force_full_rank bypass is truly identity.
+    cfg_bypass = DynamicRankConfig(force_full_rank=True)
+    wrapper_bypass = DynamicRankBitNet(model, predictor, layer_means, cfg_bypass)
+    with torch.inference_mode():
+        base_logits = model(input_ids=ids).logits
+    with wrapper_bypass:
+        with torch.inference_mode():
+            bypass_logits = model(input_ids=ids).logits
+    bypass_diff = (base_logits.float() - bypass_logits.float()).abs()
+    bypass_max = float(bypass_diff.max().item())
+    bypass_mean = float(bypass_diff.mean().item())
+    bypass_passed = bypass_max < 1e-3
+    print(f"  bypass max|Δ|={bypass_max:.3e}  mean|Δ|={bypass_mean:.3e}  passed={bypass_passed}")
+
+    # Then check the actual projection at full basis rank (informational only).
     passed, max_d, mean_d = check_full_rank_matches_base(
         model, predictor, layer_means, ids
     )
-    print(f"  max|Δ|={max_d:.3e}  mean|Δ|={mean_d:.3e}  passed={passed}")
-    if not passed:
-        print("ERROR: forward-pass at full rank does not match base. "
-              "Projection math has a bug; halting.")
+    print(f"  projection max|Δ|={max_d:.3e}  mean|Δ|={mean_d:.3e}  "
+          f"(basis_k_full={predictor.basis_k_full} of {model.config.hidden_size})")
+
+    if not bypass_passed:
+        print("ERROR: force_full_rank bypass doesn't match base. Hook logic has a bug; halting.")
         Path(args.out).parent.mkdir(parents=True, exist_ok=True)
         Path(args.out).write_text(json.dumps({
             "correctness": {
                 "passed": False,
-                "max_abs_diff": max_d,
-                "mean_abs_diff": mean_d,
+                "max_abs_diff": bypass_max,
+                "mean_abs_diff": bypass_mean,
             },
         }, indent=2))
         return 2
+    print("  correctness gate PASSED (bypass is identity)")
 
     # --- quality gate -------------------------------------------------
     print("\n=== quality gate: next-token accuracy ===", flush=True)

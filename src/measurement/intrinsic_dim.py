@@ -40,7 +40,11 @@ def _to_float32_matrix(x) -> torch.Tensor:
         t = t.reshape(-1, t.shape[-1])
     elif t.ndim == 1:
         t = t.unsqueeze(0)
-    return t.to(torch.float32).cpu()
+    t = t.to(torch.float32).cpu()
+    # Replace non-finite values to prevent downstream SVD/distance failures.
+    if not t.isfinite().all():
+        t = torch.where(t.isfinite(), t, torch.zeros_like(t))
+    return t
 
 
 def compute_pr(hidden_states, center: bool = True) -> float:

@@ -1,0 +1,20 @@
+{
+  "backend": {
+    "torch_version": "2.8.0+cpu",
+    "cuda_available": false,
+    "hip_version": null,
+    "cuda_version": null
+  },
+  "architecture": {
+    "model_type": "qwen3",
+    "hidden_size": 4096,
+    "num_hidden_layers": 36,
+    "num_attention_heads": 32,
+    "vocab_size": 151936
+  },
+  "model_id": "Qwen/Qwen3-8B",
+  "load_seconds": 1.5915680039906874,
+  "gen_tokens": 32,
+  "gen_seconds": 11.92954732303042,
+  "sample_output": "The discovery that inference accelerates with context is a significant finding in the field of natural language processing (NLP) and machine learning. This phenomenon, where models perform better when they have access to additional contextual"
+}

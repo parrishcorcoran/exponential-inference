@@ -17,7 +17,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
-DEFAULT_MODEL_ID = "microsoft/BitNet-b1.58-2B-4T-bf16"
+DEFAULT_MODEL_ID = "microsoft/bitnet-b1.58-2B-4T"
 
 
 @dataclass

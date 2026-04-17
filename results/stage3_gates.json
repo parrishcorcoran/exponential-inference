@@ -1,0 +1,69 @@
+{
+  "model_id": "microsoft/bitnet-b1.58-2B-4T",
+  "predictor": "/home/supercomputerz8/Exponential-Inference/results/stage2_predictor/rank_predictor.pt",
+  "correctness": {
+    "passed": false,
+    "max_abs_diff": 18.71484375,
+    "mean_abs_diff": 4.7352118492126465
+  },
+  "base_accuracy": 0.3923679060665362,
+  "quality_tolerance": 0.02,
+  "attempts": [
+    {
+      "safety_multiplier": 1.0,
+      "dyn_acc": 0.16658512720156557,
+      "delta": -0.22578277886497064,
+      "mean_rank_per_layer": {
+        "14": 189.52783203125,
+        "19": 186.31689453125,
+        "24": 155.145751953125,
+        "28": 62.93798828125
+      }
+    },
+    {
+      "safety_multiplier": 1.5,
+      "dyn_acc": 0.19740704500978473,
+      "delta": -0.19496086105675148,
+      "mean_rank_per_layer": {
+        "14": 251.99560546875,
+        "19": 251.0595703125,
+        "24": 228.912353515625,
+        "28": 94.307861328125
+      }
+    },
+    {
+      "safety_multiplier": 2.25,
+      "dyn_acc": 0.21477495107632094,
+      "delta": -0.17759295499021527,
+      "mean_rank_per_layer": {
+        "14": 254.349365234375,
+        "19": 254.756103515625,
+        "24": 254.023193359375,
+        "28": 137.888427734375
+      }
+    },
+    {
+      "safety_multiplier": 3.375,
+      "dyn_acc": 0.2235812133072407,
+      "delta": -0.1687866927592955,
+      "mean_rank_per_layer": {
+        "14": 254.450439453125,
+        "19": 254.93505859375,
+        "24": 255.182861328125,
+        "28": 191.337646484375
+      }
+    },
+    {
+      "safety_multiplier": 4.0,
+      "dyn_acc": 0.23165362035225048,
+      "delta": -0.16071428571428573,
+      "mean_rank_per_layer": {
+        "14": 254.48876953125,
+        "19": 255.015380859375,
+        "24": 255.322998046875,
+        "28": 215.229736328125
+      }
+    }
+  ],
+  "accepted_multiplier": null
+}

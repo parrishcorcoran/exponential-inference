@@ -111,7 +111,7 @@ def cache_calibration_hidden_states(
     chunk_size: int = 512,
     batch_size: int = 2,
     iter_texts: Optional[Iterable[str]] = None,
-    dtype: torch.dtype = torch.float16,
+    dtype: torch.dtype = torch.bfloat16,
     source_name: str = "wikitext-103",
 ) -> CacheMeta:
     """Runs ``model`` on the calibration token stream and saves per-layer

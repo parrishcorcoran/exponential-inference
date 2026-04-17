@@ -34,6 +34,8 @@ def svd_basis(hidden_states: torch.Tensor, k: int) -> torch.Tensor:
     uses the empirical mean over the sample axis.
     """
     x = hidden_states.to(torch.float32)
+    if not x.isfinite().all():
+        x = torch.where(x.isfinite(), x, torch.zeros_like(x))
     x = x - x.mean(dim=0, keepdim=True)
     # Use full_matrices=False; x is tall (N >> D) for our sizes.
     _, _, vh = torch.linalg.svd(x, full_matrices=False)
@@ -53,6 +55,8 @@ def effective_rank_per_token(
     regression target.
     """
     x = hidden_states.to(torch.float32)
+    if not x.isfinite().all():
+        x = torch.where(x.isfinite(), x, torch.zeros_like(x))
     coeffs = x @ basis  # (N, K)
     energy = coeffs.pow(2)
     total = energy.sum(dim=1, keepdim=True).clamp_min(1e-12)
