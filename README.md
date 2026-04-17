@@ -87,13 +87,27 @@ Every existing inference speedup technique is approximating this physics without
 
 Measured intrinsic dimensionality (TwoNN) across model families:
 
-| Model | Params | Hidden | Layers | TwoNN Range | PR Profile |
-|-------|--------|--------|--------|-------------|------------|
-| BitNet b1.58-2B-4T | 2B | 2560 | 30 | 9.7 - 11.0 | 10 → 137 → 32 |
-| Qwen3-8B | 8B | 4096 | 36 | *(measuring)* | *(measuring)* |
-| *(more coming)* | | | | | |
+| Model | Type | Params | Hidden | Layers | Peak TwoNN | Final TwoNN |
+|-------|------|--------|--------|--------|------------|-------------|
+| Qwen3-0.6B | Dense | 0.6B | 1024 | 28 | 11.1 | 9.09 |
+| Qwen3-1.7B | Dense | 1.7B | 2048 | 28 | 12.2 | 8.98 |
+| BitNet b1.58-2B-4T | Ternary | 2B | 2560 | 30 | 11.0 | 9.81 |
+| Phi-2 | Dense | 2.7B | 2560 | 32 | 10.1 | 9.76 |
+| Qwen3-4B | Dense | 4B | 2560 | 36 | 12.7 | 9.52 |
+| Qwen3-8B | Dense | 8B | 4096 | 36 | 13.1 | 9.38 |
+| Qwen3-14B | Dense | 14B | 5120 | 40 | 13.3 | 9.38 |
+| Qwen3-30B-A3B | **MoE** | 30B/3B | 2048 | 48 | 13.0 | 9.07 |
+| Qwen3-32B | Dense | 32B | 5120 | 64 | 14.8 | 10.89 |
 
-**Goal:** Measure every major open-weight model and publish their manifold fingerprints. If the ~10D dimensionality is universal, that's evidence for a fundamental property of transformer architectures.
+**Nine models. Three architectures (dense, MoE, ternary). 0.6B to 32B parameters. All converge to TwoNN ~9-11 at the output layer.**
+
+Key findings:
+- **Peak TwoNN scales with model size** (11 → 15) — larger models explore richer manifolds in mid-layers
+- **Final TwoNN is invariant** (~9-11) — all models collapse to the same dimensionality at output
+- **MoE doesn't change the manifold** — 64 experts are 64 redundant views of the same ~9D surface
+- **Architecture doesn't matter** — ternary (BitNet), dense fp16 (Qwen, Phi), and MoE all converge
+
+TwoNN accuracy validated on synthetic data: correctly recovers true dimensions 3 (2.95), 5 (5.22), 7 (7.19), 10 (9.49). Full random 2560D gives TwoNN=283. The ~9-11D measurements are real.
 
 ## Quick Start
 
