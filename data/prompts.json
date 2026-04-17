@@ -1,0 +1,55 @@
+{
+  "description": "Ten prompts chosen to produce long coherent continuations without looping. Mix of encyclopedic, technical, and narrative openings.",
+  "prompts": [
+    {
+      "id": "wiki_cosmology",
+      "text": "The cosmic microwave background is electromagnetic radiation, left over from an early stage of the universe. Its discovery in 1965 provided the first direct evidence of the Big Bang. The CMB is observed",
+      "kind": "encyclopedic"
+    },
+    {
+      "id": "wiki_evolution",
+      "text": "Natural selection is the differential survival and reproduction of individuals due to differences in phenotype. The theory was first formulated by Charles Darwin, who proposed that populations of organisms",
+      "kind": "encyclopedic"
+    },
+    {
+      "id": "wiki_linguistics",
+      "text": "Linguistic relativity, sometimes called the Sapir-Whorf hypothesis, proposes that the structure of a language affects its speakers' cognition. The strong form of the hypothesis",
+      "kind": "encyclopedic"
+    },
+    {
+      "id": "tech_transformer",
+      "text": "The transformer architecture replaced recurrence with attention, allowing every position in a sequence to interact directly with every other position. The key mechanism",
+      "kind": "technical"
+    },
+    {
+      "id": "tech_spinglass",
+      "text": "A spin glass is a disordered magnet whose spins cannot simultaneously minimise all of the competing interactions in the Hamiltonian. The resulting ground-state landscape is",
+      "kind": "technical"
+    },
+    {
+      "id": "tech_svd",
+      "text": "Singular value decomposition factorises a real matrix into orthogonal bases for its row and column spaces, weighted by non-negative singular values. The largest few singular values typically",
+      "kind": "technical"
+    },
+    {
+      "id": "story_expedition",
+      "text": "They had been walking for three days when the land began to change. The forest thinned, and in its place the travellers found",
+      "kind": "narrative"
+    },
+    {
+      "id": "story_detective",
+      "text": "Inspector Wen arrived at the warehouse just after midnight. The door was ajar, and a thin line of light spilled onto the wet concrete. Inside, she found",
+      "kind": "narrative"
+    },
+    {
+      "id": "essay_consciousness",
+      "text": "The hard problem of consciousness asks why any physical process should give rise to subjective experience at all. Proposed answers fall roughly into three camps, each with",
+      "kind": "essay"
+    },
+    {
+      "id": "essay_scaling",
+      "text": "Neural scaling laws describe how model performance changes with compute, data, and parameter count. The empirical observation that loss follows a power law in each of these variables",
+      "kind": "essay"
+    }
+  ]
+}
