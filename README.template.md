@@ -9,8 +9,8 @@
 > the rank budget we use is extracted from the model's own geometry
 > at inference time, per token, per layer.
 
-Measured on `microsoft/BitNet-b1.58-2B-4T` (_(pending)_ layers, hidden size
-_(pending)_), running on `_(pending)_` (_(pending)_ GB).
+Measured on `@@model_id` (@@n_layers layers, hidden size
+@@hidden_size), running on `@@backend_name` (@@vram_gb GB).
 
 ![Per-token speedup vs generation position](results/acceleration_curve.png)
 ![Mean predicted rank vs generation position](results/rank_distribution.png)
@@ -20,7 +20,7 @@ _(pending)_), running on `_(pending)_` (_(pending)_ GB).
 ### 1. The manifold is low-dimensional and changes shape across layers
 
 We run a ~10K-token Wikipedia slice through BitNet and estimate the
-intrinsic dimensionality at each of the _(pending)_ decoder layers
+intrinsic dimensionality at each of the @@n_layers decoder layers
 using:
 
 - **Participation ratio (PR)** — `(Σλᵢ)² / Σλᵢ²` on the covariance
@@ -31,7 +31,7 @@ using:
 - **r95** — number of SVD components needed to cover 95% of the
   activation energy.
 
-_(pending: run scripts/stage1_measure.py)_
+@@layer_table
 
 This is the "6 → 36 → 16" fingerprint the theory predicts: a shallow
 compression, an expansion layer where mixed-context tokens spread out,
@@ -45,7 +45,7 @@ rank at layers 15/20/25/29. Both a linear model and a small MLP are
 tried at source layers 5, 10, 15, 20; the first attempt clearing the
 `R² ≥ 0.6` floor is accepted.
 
-Result: _(pending)_
+Result: @@predictor_line
 
 ### 3. Projecting each token to its predicted rank preserves the output
 
@@ -56,11 +56,11 @@ of that layer's calibration SVD basis (where `r` is per token and per
 layer, set by the predictor), and reconstructed.
 
 - **Correctness gate** — at full rank, logits must match the
-  unwrapped base model. Measured `max|Δlogits| = _(pending)_`
-  (pass = _(pending)_).
+  unwrapped base model. Measured `max|Δlogits| = @@correctness_max_diff`
+  (pass = @@correctness_passed).
 - **Quality gate** — teacher-forced next-token accuracy is within
-  tolerance of base (`_(pending)_`). Accepted safety multiplier on
-  predicted ranks: `_(pending)_` (1.0 means the raw predictor
+  tolerance of base (`@@base_accuracy`). Accepted safety multiplier on
+  predicted ranks: `@@accepted_multiplier` (1.0 means the raw predictor
   is used).
 
 ### 4. Generation accelerates with position
@@ -69,12 +69,12 @@ Across the ten prompts in `data/prompts.json`, greedy-decoded at up to
 2000 new tokens each, per-token speedup (base / dynamic) as a function
 of generation position:
 
-_(pending)_
+@@speedup_snapshots
 
 Mean predicted rank (averaged over target layers), showing the
 manifold tightening as context grows:
 
-_(pending)_
+@@rank_snapshots
 
 Sample generations (base and dynamic) live under
 `results/generation_samples/` so output quality can be eyeballed
