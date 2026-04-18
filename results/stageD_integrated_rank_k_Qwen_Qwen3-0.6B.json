@@ -1,0 +1,73 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "device": "mps",
+  "n_layers": 28,
+  "hidden_size": 1024,
+  "ranks": [
+    {
+      "layer_idx": 14,
+      "head_idx": 0,
+      "rank": 32,
+      "max_abs_diff_scores": 357.095458984375,
+      "max_abs_diff_attn": 0.9999877214431763,
+      "max_abs_diff_out": 9.879117012023926,
+      "rel_diff_out": 4.545475348283489,
+      "full_output_magnitude": 3.3327674865722656,
+      "K_bytes_full_at_T1000": 57344000,
+      "K_bytes_rank_k_at_T1000": 1792000,
+      "storage_ratio": 32.0
+    },
+    {
+      "layer_idx": 14,
+      "head_idx": 0,
+      "rank": 64,
+      "max_abs_diff_scores": 353.2411193847656,
+      "max_abs_diff_attn": 0.9999877214431763,
+      "max_abs_diff_out": 9.674935340881348,
+      "rel_diff_out": 4.551465959277734,
+      "full_output_magnitude": 3.3327674865722656,
+      "K_bytes_full_at_T1000": 57344000,
+      "K_bytes_rank_k_at_T1000": 3584000,
+      "storage_ratio": 16.0
+    },
+    {
+      "layer_idx": 14,
+      "head_idx": 0,
+      "rank": 128,
+      "max_abs_diff_scores": 347.3528137207031,
+      "max_abs_diff_attn": 0.9997983574867249,
+      "max_abs_diff_out": 9.385851860046387,
+      "rel_diff_out": 4.527755012971548,
+      "full_output_magnitude": 3.3327674865722656,
+      "K_bytes_full_at_T1000": 57344000,
+      "K_bytes_rank_k_at_T1000": 7168000,
+      "storage_ratio": 8.0
+    },
+    {
+      "layer_idx": 14,
+      "head_idx": 0,
+      "rank": 256,
+      "max_abs_diff_scores": 360.39569091796875,
+      "max_abs_diff_attn": 0.8121480941772461,
+      "max_abs_diff_out": 10.182821273803711,
+      "rel_diff_out": 4.562612128150335,
+      "full_output_magnitude": 3.3327674865722656,
+      "K_bytes_full_at_T1000": 57344000,
+      "K_bytes_rank_k_at_T1000": 14336000,
+      "storage_ratio": 4.0
+    },
+    {
+      "layer_idx": 14,
+      "head_idx": 0,
+      "rank": 512,
+      "max_abs_diff_scores": 357.11749267578125,
+      "max_abs_diff_attn": 0.8097978830337524,
+      "max_abs_diff_out": 9.987476348876953,
+      "rel_diff_out": 4.553948885191819,
+      "full_output_magnitude": 3.3327674865722656,
+      "K_bytes_full_at_T1000": 57344000,
+      "K_bytes_rank_k_at_T1000": 28672000,
+      "storage_ratio": 2.0
+    }
+  ]
+}
