@@ -1,6 +1,9 @@
-> **New to this repo? Read [`docs/READ_THIS_FIRST.md`](docs/READ_THIS_FIRST.md) first.**
-> It's the verbose explainer — what we're doing, why, the physics, every
-> finding with numbers, every experiment catalogued, glossary included.
+> **New to this repo?**
+> - **[`findings/`](findings/)** — the master archive of results. Six stop-and-think
+>   findings, each with numbers and a reproduction script. Start here for the signal.
+> - **[`docs/READ_THIS_FIRST.md`](docs/READ_THIS_FIRST.md)** — verbose explainer:
+>   physics, every experiment catalogued, glossary.
+> - **[`docs/research_context.md`](docs/research_context.md)** — terse current state.
 
 # Exponential Inference
 

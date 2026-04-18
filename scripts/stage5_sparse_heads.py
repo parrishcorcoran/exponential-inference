@@ -192,8 +192,9 @@ def sparse_attention_forward(
             start = hi * head_dim
             o_slices.append(o_weight[:, start:start + head_dim])
         o_weight_sparse = torch.cat(o_slices, dim=1)  # [hidden, n_active * head_dim]
-        attn_output = F.linear(attn_flat, o_weight_sparse.T).unsqueeze(0) if bsz == 1 else \
-                      torch.matmul(attn_flat, o_weight_sparse.T)
+        # F.linear(x, W) = x @ W.T + b; we want attn_flat [B,T,n_active*head_dim] @
+        # o_weight_sparse.T [n_active*head_dim, hidden] = [B,T,hidden]
+        attn_output = F.linear(attn_flat, o_weight_sparse)
         if self_attn.o_proj.bias is not None:
             attn_output = attn_output + self_attn.o_proj.bias
 
@@ -201,7 +202,9 @@ def sparse_attention_forward(
         n_total = n_heads
         attn_output = attn_output * (n_total / n_compute_heads)
     else:
-        attn_output = attn_output.reshape(bsz, q_len, hidden_size)
+        # Qwen3 / many modern LMs have n_heads * head_dim != hidden_size.
+        # o_proj maps (n_heads * head_dim) -> hidden_size.
+        attn_output = attn_output.reshape(bsz, q_len, n_heads * head_dim)
         attn_output = self_attn.o_proj(attn_output)
 
     return attn_output, attn_weights
