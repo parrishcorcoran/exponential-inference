@@ -1,0 +1,16 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "vocab": 151936,
+  "hidden": 1024,
+  "uniform_vocab_twonn": 70.88103907650319,
+  "text_weighted_twonn": 12.103577557681824,
+  "text_weighted_pr": 58.04055665201796,
+  "text_weighted_rank_coverage": {
+    "r50": 55,
+    "r90": 244,
+    "r95": 299,
+    "r99": 375
+  },
+  "first_token_twonn": 69.22114847740568,
+  "n_corpus_positions": 661
+}

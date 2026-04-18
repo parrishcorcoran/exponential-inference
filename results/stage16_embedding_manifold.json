@@ -1,0 +1,17 @@
+{
+  "models": [
+    {
+      "model_id": "Qwen/Qwen3-0.6B",
+      "vocab": 151936,
+      "hidden": 1024,
+      "embedding_twonn": 79.45159397868511,
+      "embedding_pr": 801.3282623557847,
+      "embedding_rank_coverage": {
+        "r50": 372,
+        "r90": 848,
+        "r95": 924,
+        "r99": 995
+      }
+    }
+  ]
+}
