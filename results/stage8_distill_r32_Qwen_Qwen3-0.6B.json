@@ -2,7 +2,7 @@
   "model": "Qwen/Qwen3-0.6B",
   "device": "mps",
   "rank": 32,
-  "steps": 15000,
+  "steps": 2500,
   "lr": 0.0003,
   "n_layers": 28,
   "hidden_size": 1024,
@@ -11,16 +11,16 @@
   "weight_params_factored_M": 20.185088,
   "weight_size_ratio": 0.04583333333333333,
   "trainable_params_M": 20.185088,
-  "teacher_ms_per_tok": 31.705067639593903,
+  "teacher_ms_per_tok": 29.306689422680424,
   "teacher_sample": " a significant finding in the field of cognitive psychology. This is because the context provides a rich and complex environment that allows for the development of more sophisticated and nuanced cognitive processes. The context is not just a backdrop; it is a dynamic and interactive element that influences the way we think and act. This is because the context provides a rich and complex environmen",
-  "student_pre_ms_per_tok": 34.31682251776619,
-  "student_pre_match": "2/200",
+  "student_pre_ms_per_tok": 34.12360483505218,
+  "student_pre_match": "2/100",
   "student_pre_sample": " the the complex and the the complex and the complex and the learning and the learning and the learning and the learning and both both both both both learning and learning learning learning learning learning learning learning learning learning learning learning learning learning learning learning learning learning learning learning learning learning learning learning learning learning learning lea",
-  "student_post_ms_per_tok": 28.302448609141962,
-  "student_post_match": "15/200",
+  "student_post_ms_per_tok": 28.457551917528793,
+  "student_post_match": "7/100",
   "student_post_first_divergence": 5,
-  "student_post_speedup_vs_teacher": 1.120223485870154,
-  "student_post_sample": " a significant finding in the process of the first universe. This is a fundamental and the process of the fundamental and the energy. This is a fundamental and is a new area in the early of the universe. The the is the first and the probability. The is the fundamental and the first of the first of the universe. The the the state of the universe. The the the state of the universe, and the probabili",
+  "student_post_speedup_vs_teacher": 1.029838740437423,
+  "student_post_sample": " a significant finding in the early of the early universe. It is a significant and has well the concept of the universe. The concept of the universe, which is important evidence for the universe of the universe. The principle of the universe. The concept of the universe, which is the concept of the universe. The concept of the universe, which is a new area of the universe. The principle of the uni",
   "loss_history": [
     {
       "step": 0,
@@ -28,529 +28,538 @@
       "hidden_loss": 0.8021053075790405,
       "kl": 211.5165252685547,
       "lr": 5.999999999999999e-06,
-      "elapsed_sec": 0.3351647499999899
+      "elapsed_sec": 0.4462554159999996
     },
     {
-      "step": 250,
-      "loss": 99.40473175048828,
-      "hidden_loss": 0.8808550238609314,
-      "kl": 98.52388000488281,
-      "lr": 0.000299867543069272,
-      "elapsed_sec": 51.92465862499998
+      "step": 41,
+      "loss": 193.20628356933594,
+      "hidden_loss": 0.41026997566223145,
+      "kl": 192.7960205078125,
+      "lr": 0.00025199999999999995,
+      "elapsed_sec": 9.00221775
+    },
+    {
+      "step": 82,
+      "loss": 185.95285034179688,
+      "hidden_loss": 0.12773381173610687,
+      "kl": 185.8251190185547,
+      "lr": 0.00029987373939665423,
+      "elapsed_sec": 17.348962040999993
+    },
+    {
+      "step": 123,
+      "loss": 122.99817657470703,
+      "hidden_loss": 0.1895637959241867,
+      "kl": 122.80860900878906,
+      "lr": 0.0002993433145067663,
+      "elapsed_sec": 25.674909791000005
+    },
+    {
+      "step": 164,
+      "loss": 101.62874603271484,
+      "hidden_loss": 0.1336325705051422,
+      "kl": 101.4951171875,
+      "lr": 0.00029840020237620937,
+      "elapsed_sec": 34.051509374999995
+    },
+    {
+      "step": 205,
+      "loss": 113.17109680175781,
+      "hidden_loss": 0.15130800008773804,
+      "kl": 113.01979064941406,
+      "lr": 0.00029704700915005305,
+      "elapsed_sec": 42.459491375
+    },
+    {
+      "step": 246,
+      "loss": 92.37798309326172,
+      "hidden_loss": 0.9589411020278931,
+      "kl": 91.4190444946289,
+      "lr": 0.00029528747416929463,
+      "elapsed_sec": 50.821645125
+    },
+    {
+      "step": 287,
+      "loss": 70.94622802734375,
+      "hidden_loss": 0.15746860206127167,
+      "kl": 70.78875732421875,
+      "lr": 0.0002931264596377661,
+      "elapsed_sec": 59.164518958
+    },
+    {
+      "step": 328,
+      "loss": 77.93851470947266,
+      "hidden_loss": 0.9856985807418823,
+      "kl": 76.95281982421875,
+      "lr": 0.0002905699371861828,
+      "elapsed_sec": 67.507410875
+    },
+    {
+      "step": 369,
+      "loss": 33.078651428222656,
+      "hidden_loss": 0.2074510008096695,
+      "kl": 32.87120056152344,
+      "lr": 0.0002876249713704625,
+      "elapsed_sec": 75.906439708
+    },
+    {
+      "step": 410,
+      "loss": 37.46966552734375,
+      "hidden_loss": 0.21224738657474518,
+      "kl": 37.25741958618164,
+      "lr": 0.00028429970014991294,
+      "elapsed_sec": 84.25663554100001
+    },
+    {
+      "step": 451,
+      "loss": 27.941625595092773,
+      "hidden_loss": 0.19814543426036835,
+      "kl": 27.743480682373047,
+      "lr": 0.0002806033123992355,
+      "elapsed_sec": 92.64842999999999
+    },
+    {
+      "step": 492,
+      "loss": 21.998048782348633,
+      "hidden_loss": 0.21594996750354767,
+      "kl": 21.7820987701416,
+      "lr": 0.0002765460225164855,
+      "elapsed_sec": 100.97854337499999
     },
     {
       "step": 500,
-      "loss": 43.033477783203125,
-      "hidden_loss": 0.27299368381500244,
-      "kl": 42.76048278808594,
-      "lr": 0.0002993298376900824,
-      "elapsed_sec": 115.32895887499998
+      "eval_match": 3,
+      "eval_total": 80,
+      "eval_ratio": 0.0375,
+      "eval_sample": " a fundamental finding in cognitive science. This is led that when the fact of both we can led to the fact of the universe. However is also fundamental evidence for the universe of the universe. Howev"
     },
     {
-      "step": 750,
-      "loss": 20.064250946044922,
-      "hidden_loss": 0.321440726518631,
-      "kl": 19.742809295654297,
-      "lr": 0.0002983800878473181,
-      "elapsed_sec": 188.5794805
+      "step": 533,
+      "loss": 23.85598373413086,
+      "hidden_loss": 1.1758873462677002,
+      "kl": 22.680095672607422,
+      "lr": 0.00027213904219715676,
+      "elapsed_sec": 112.252450291
+    },
+    {
+      "step": 574,
+      "loss": 12.549176216125488,
+      "hidden_loss": 0.22775502502918243,
+      "kl": 12.32142162322998,
+      "lr": 0.00026739454945238887,
+      "elapsed_sec": 120.615801791
+    },
+    {
+      "step": 615,
+      "loss": 22.467918395996094,
+      "hidden_loss": 1.0296754837036133,
+      "kl": 21.438243865966797,
+      "lr": 0.00026232565495690923,
+      "elapsed_sec": 128.96694424999998
+    },
+    {
+      "step": 656,
+      "loss": 29.483644485473633,
+      "hidden_loss": 0.19047391414642334,
+      "kl": 29.293170928955078,
+      "lr": 0.0002569463658197035,
+      "elapsed_sec": 137.319026208
+    },
+    {
+      "step": 697,
+      "loss": 19.841442108154297,
+      "hidden_loss": 0.2526251971721649,
+      "kl": 19.588817596435547,
+      "lr": 0.00025127154687752803,
+      "elapsed_sec": 145.67634287500002
+    },
+    {
+      "step": 738,
+      "loss": 17.28098487854004,
+      "hidden_loss": 0.2693992555141449,
+      "kl": 17.011585235595703,
+      "lr": 0.0002453168796182236,
+      "elapsed_sec": 154.097954833
+    },
+    {
+      "step": 779,
+      "loss": 16.099918365478516,
+      "hidden_loss": 0.2336151897907257,
+      "kl": 15.866302490234375,
+      "lr": 0.0002390988188473399,
+      "elapsed_sec": 162.42755033299997
+    },
+    {
+      "step": 820,
+      "loss": 16.22797393798828,
+      "hidden_loss": 0.2498190551996231,
+      "kl": 15.978154182434082,
+      "lr": 0.00023263454721781537,
+      "elapsed_sec": 170.803166125
+    },
+    {
+      "step": 861,
+      "loss": 11.82164478302002,
+      "hidden_loss": 0.2485801726579666,
+      "kl": 11.573064804077148,
+      "lr": 0.00022594192774836314,
+      "elapsed_sec": 179.12580612499997
+    },
+    {
+      "step": 902,
+      "loss": 13.689023971557617,
+      "hidden_loss": 1.0112380981445312,
+      "kl": 12.677785873413086,
+      "lr": 0.0002190394544617711,
+      "elapsed_sec": 187.333167416
+    },
+    {
+      "step": 943,
+      "loss": 14.958535194396973,
+      "hidden_loss": 0.2363586127758026,
+      "kl": 14.722176551818848,
+      "lr": 0.00021194620127951898,
+      "elapsed_sec": 195.54143674999997
+    },
+    {
+      "step": 984,
+      "loss": 11.293221473693848,
+      "hidden_loss": 1.0156052112579346,
+      "kl": 10.277616500854492,
+      "lr": 0.0002046817693139353,
+      "elapsed_sec": 203.85292387500002
     },
     {
       "step": 1000,
-      "loss": 16.422473907470703,
-      "hidden_loss": 1.0794179439544678,
-      "kl": 15.343055725097656,
-      "lr": 0.00029702091417708624,
-      "elapsed_sec": 256.647517791
+      "eval_match": 9,
+      "eval_total": 80,
+      "eval_ratio": 0.1125,
+      "eval_sample": " a significant finding in the early direction. It is a new era, and the fact logarithy is a well way in the early-orientable surface. The concept and the surface of the universe are the fact of the ea"
     },
     {
-      "step": 1250,
-      "loss": 12.147844314575195,
-      "hidden_loss": 0.2949534058570862,
-      "kl": 11.852890968322754,
-      "lr": 0.0002952560670349386,
-      "elapsed_sec": 327.615157083
+      "step": 1025,
+      "loss": 9.166092872619629,
+      "hidden_loss": 0.21539899706840515,
+      "kl": 8.95069408416748,
+      "lr": 0.00019726623270354313,
+      "elapsed_sec": 215.13100545799998
+    },
+    {
+      "step": 1066,
+      "loss": 9.572574615478516,
+      "hidden_loss": 0.2184297889471054,
+      "kl": 9.354145050048828,
+      "lr": 0.00018972008314127107,
+      "elapsed_sec": 223.49945329099998
+    },
+    {
+      "step": 1107,
+      "loss": 7.644742012023926,
+      "hidden_loss": 0.1861029863357544,
+      "kl": 7.458639144897461,
+      "lr": 0.00018206417324881716,
+      "elapsed_sec": 231.883679375
+    },
+    {
+      "step": 1148,
+      "loss": 7.304293632507324,
+      "hidden_loss": 0.21177560091018677,
+      "kl": 7.092517852783203,
+      "lr": 0.0001743196589536413,
+      "elapsed_sec": 240.199759291
+    },
+    {
+      "step": 1189,
+      "loss": 10.952844619750977,
+      "hidden_loss": 1.1193420886993408,
+      "kl": 9.833502769470215,
+      "lr": 0.00016650794102781924,
+      "elapsed_sec": 248.54032387499998
+    },
+    {
+      "step": 1230,
+      "loss": 5.446874141693115,
+      "hidden_loss": 0.18437810242176056,
+      "kl": 5.262495994567871,
+      "lr": 0.00015865060595030616,
+      "elapsed_sec": 256.90794937500004
+    },
+    {
+      "step": 1271,
+      "loss": 6.725057125091553,
+      "hidden_loss": 0.9632993936538696,
+      "kl": 5.761757850646973,
+      "lr": 0.00015076936625602774,
+      "elapsed_sec": 265.279651125
+    },
+    {
+      "step": 1312,
+      "loss": 12.045729637145996,
+      "hidden_loss": 0.15047189593315125,
+      "kl": 11.895257949829102,
+      "lr": 0.00014288600053663524,
+      "elapsed_sec": 273.65122191599994
+    },
+    {
+      "step": 1353,
+      "loss": 6.043766021728516,
+      "hidden_loss": 0.16315975785255432,
+      "kl": 5.880606174468994,
+      "lr": 0.0001350222932587227,
+      "elapsed_sec": 282.023158416
+    },
+    {
+      "step": 1394,
+      "loss": 6.133970737457275,
+      "hidden_loss": 0.17602214217185974,
+      "kl": 5.957948684692383,
+      "lr": 0.0001271999745658099,
+      "elapsed_sec": 290.411329625
+    },
+    {
+      "step": 1435,
+      "loss": 4.712800025939941,
+      "hidden_loss": 0.15348964929580688,
+      "kl": 4.559310436248779,
+      "lr": 0.00011944066023043866,
+      "elapsed_sec": 298.82454395800005
+    },
+    {
+      "step": 1476,
+      "loss": 5.512513160705566,
+      "hidden_loss": 0.15914642810821533,
+      "kl": 5.353366851806641,
+      "lr": 0.00011176579192231558,
+      "elapsed_sec": 307.238335333
     },
     {
       "step": 1500,
-      "loss": 11.83508014678955,
-      "hidden_loss": 0.2726014256477356,
-      "kl": 11.562479019165039,
-      "lr": 0.00029309041614755037,
-      "elapsed_sec": 395.40641025
+      "eval_match": 5,
+      "eval_total": 80,
+      "eval_ratio": 0.0625,
+      "eval_sample": " a significant finding in cognitive science, which it has a new step in the early logarithm. This is a new example of the universe, which the properties of a non-orientable surface. The properties of "
     },
     {
-      "step": 1750,
-      "loss": 8.889924049377441,
-      "hidden_loss": 1.0490280389785767,
-      "kl": 7.840895652770996,
-      "lr": 0.0002905299371757269,
-      "elapsed_sec": 463.97139537500004
+      "step": 1517,
+      "loss": 5.336765289306641,
+      "hidden_loss": 0.16103416681289673,
+      "kl": 5.175731182098389,
+      "lr": 0.00010419657795756138,
+      "elapsed_sec": 318.56503562499995
+    },
+    {
+      "step": 1558,
+      "loss": 4.598685264587402,
+      "hidden_loss": 0.9484593868255615,
+      "kl": 3.65022611618042,
+      "lr": 9.67539346927968e-05,
+      "elapsed_sec": 326.952257875
+    },
+    {
+      "step": 1599,
+      "loss": 4.913530349731445,
+      "hidden_loss": 0.15624253451824188,
+      "kl": 4.757287979125977,
+      "lr": 8.945842872601364e-05,
+      "elapsed_sec": 335.38872741599994
+    },
+    {
+      "step": 1640,
+      "loss": 4.8295578956604,
+      "hidden_loss": 0.9451897740364075,
+      "kl": 3.8843679428100586,
+      "lr": 8.233022006394978e-05,
+      "elapsed_sec": 343.784361333
+    },
+    {
+      "step": 1681,
+      "loss": 3.1157279014587402,
+      "hidden_loss": 0.14739832282066345,
+      "kl": 2.968329668045044,
+      "lr": 7.538900641301672e-05,
+      "elapsed_sec": 352.20102904099997
+    },
+    {
+      "step": 1722,
+      "loss": 4.0259857177734375,
+      "hidden_loss": 0.14501678943634033,
+      "kl": 3.8809688091278076,
+      "lr": 6.865396874772232e-05,
+      "elapsed_sec": 360.61476841599995
+    },
+    {
+      "step": 1763,
+      "loss": 3.7518370151519775,
+      "hidden_loss": 0.1336848884820938,
+      "kl": 3.618152141571045,
+      "lr": 6.214371830700348e-05,
+      "elapsed_sec": 369.151161333
+    },
+    {
+      "step": 1804,
+      "loss": 2.8080718517303467,
+      "hidden_loss": 0.15459862351417542,
+      "kl": 2.653473138809204,
+      "lr": 5.587624516493416e-05,
+      "elapsed_sec": 377.56105983299994
+    },
+    {
+      "step": 1845,
+      "loss": 3.7641708850860596,
+      "hidden_loss": 0.14501498639583588,
+      "kl": 3.6191558837890625,
+      "lr": 4.9868868517927795e-05,
+      "elapsed_sec": 386.08017166599996
+    },
+    {
+      "step": 1886,
+      "loss": 2.3898632526397705,
+      "hidden_loss": 0.11830442398786545,
+      "kl": 2.2715587615966797,
+      "lr": 4.413818882580618e-05,
+      "elapsed_sec": 394.57026375
+    },
+    {
+      "step": 1927,
+      "loss": 3.3320534229278564,
+      "hidden_loss": 0.9147480130195618,
+      "kl": 2.4173054695129395,
+      "lr": 3.870004193898613e-05,
+      "elapsed_sec": 403.107190833
+    },
+    {
+      "step": 1968,
+      "loss": 4.2952494621276855,
+      "hidden_loss": 0.10831444710493088,
+      "kl": 4.186934947967529,
+      "lr": 3.3569455338547076e-05,
+      "elapsed_sec": 411.639166875
     },
     {
       "step": 2000,
-      "loss": 10.875225067138672,
-      "hidden_loss": 0.2242545485496521,
-      "kl": 10.650970458984375,
-      "lr": 0.0002875816952258179,
-      "elapsed_sec": 533.212868166
-    },
-    {
-      "step": 2250,
-      "loss": 8.718213081359863,
-      "hidden_loss": 0.2476959228515625,
-      "kl": 8.4705171585083,
-      "lr": 0.0002842538253550331,
-      "elapsed_sec": 600.484871375
-    },
-    {
-      "step": 2500,
-      "loss": 5.89920711517334,
-      "hidden_loss": 0.21585595607757568,
-      "kl": 5.683351039886475,
-      "lr": 0.0002805555101244532,
-      "elapsed_sec": 664.399370291
-    },
-    {
-      "step": 2500,
-      "eval_match": 6,
-      "eval_total": 80,
-      "eval_ratio": 0.075,
-      "eval_sample": " a significant finding in cognitive science. This suggests that the process of the factlet of the universe. The energy is a fundamental example of the universe. The entropy of the universe of the univ"
-    },
-    {
-      "step": 2750,
-      "loss": 4.503113269805908,
-      "hidden_loss": 0.2165316939353943,
-      "kl": 4.286581516265869,
-      "lr": 0.00027649695426167233,
-      "elapsed_sec": 729.824069625
-    },
-    {
-      "step": 3000,
-      "loss": 6.067259311676025,
-      "hidden_loss": 1.0855040550231934,
-      "kl": 4.981755256652832,
-      "lr": 0.0002720893565029862,
-      "elapsed_sec": 793.03890025
-    },
-    {
-      "step": 3250,
-      "loss": 5.379916191101074,
-      "hidden_loss": 0.2893640995025635,
-      "kl": 5.090551853179932,
-      "lr": 0.0002673448786928207,
-      "elapsed_sec": 857.009571625
-    },
-    {
-      "step": 3500,
-      "loss": 4.807291507720947,
-      "hidden_loss": 0.28469905257225037,
-      "kl": 4.522592544555664,
-      "lr": 0.00026227661222566516,
-      "elapsed_sec": 920.2398441249999
-    },
-    {
-      "step": 3750,
-      "loss": 4.8538665771484375,
-      "hidden_loss": 0.9920837879180908,
-      "kl": 3.861783027648926,
-      "lr": 0.00025689854192310663,
-      "elapsed_sec": 983.0645794999999
-    },
-    {
-      "step": 4000,
-      "loss": 4.69180154800415,
-      "hidden_loss": 0.21370646357536316,
-      "kl": 4.478095054626465,
-      "lr": 0.0002512255074456386,
-      "elapsed_sec": 1045.911593375
-    },
-    {
-      "step": 4250,
-      "loss": 3.9997684955596924,
-      "hidden_loss": 0.23707419633865356,
-      "kl": 3.7626943588256836,
-      "lr": 0.0002452731623457212,
-      "elapsed_sec": 1109.33720925
-    },
-    {
-      "step": 4500,
-      "loss": 3.6036438941955566,
-      "hidden_loss": 0.20056656002998352,
-      "kl": 3.4030773639678955,
-      "lr": 0.0002390579308750753,
-      "elapsed_sec": 1172.339273125
-    },
-    {
-      "step": 4750,
-      "loss": 2.8527534008026123,
-      "hidden_loss": 0.18686217069625854,
-      "kl": 2.665891170501709,
-      "lr": 0.0002325969626653951,
-      "elapsed_sec": 1234.944748166
-    },
-    {
-      "step": 5000,
-      "loss": 3.0606045722961426,
-      "hidden_loss": 0.5020923018455505,
-      "kl": 2.5585122108459473,
-      "lr": 0.00022590808540752473,
-      "elapsed_sec": 1297.695408
-    },
-    {
-      "step": 5000,
-      "eval_match": 6,
-      "eval_total": 80,
-      "eval_ratio": 0.075,
-      "eval_sample": " a significant finding in the natural, and is the first of the two of the universe. The is the result of the universe. The probability and the process of the universe. The probability of the universe."
-    },
-    {
-      "step": 5250,
-      "loss": 2.9749574661254883,
-      "hidden_loss": 0.1962188482284546,
-      "kl": 2.778738498687744,
-      "lr": 0.0002190097556596728,
-      "elapsed_sec": 1362.5821986249998
-    },
-    {
-      "step": 5500,
-      "loss": 3.3929529190063477,
-      "hidden_loss": 0.23194658756256104,
-      "kl": 3.161006450653076,
-      "lr": 0.0002119210079203997,
-      "elapsed_sec": 1426.9929495000001
-    },
-    {
-      "step": 5750,
-      "loss": 2.5521697998046875,
-      "hidden_loss": 0.42437446117401123,
-      "kl": 2.1277952194213867,
-      "lr": 0.00020466140210689818,
-      "elapsed_sec": 1490.539926125
-    },
-    {
-      "step": 6000,
-      "loss": 3.0377159118652344,
-      "hidden_loss": 0.17258872091770172,
-      "kl": 2.8651270866394043,
-      "lr": 0.00019725096958349216,
-      "elapsed_sec": 1554.3307989159998
-    },
-    {
-      "step": 6250,
-      "loss": 2.388493061065674,
-      "hidden_loss": 0.20745956897735596,
-      "kl": 2.1810333728790283,
-      "lr": 0.00018971015788927492,
-      "elapsed_sec": 1616.9395506659998
-    },
-    {
-      "step": 6500,
-      "loss": 2.2661354541778564,
-      "hidden_loss": 0.16081587970256805,
-      "kl": 2.1053194999694824,
-      "lr": 0.00018205977431740044,
-      "elapsed_sec": 1682.0487521660002
-    },
-    {
-      "step": 6750,
-      "loss": 1.7824294567108154,
-      "hidden_loss": 0.14321404695510864,
-      "kl": 1.6392154693603516,
-      "lr": 0.00017432092850170868,
-      "elapsed_sec": 1745.9045350000001
-    },
-    {
-      "step": 7000,
-      "loss": 1.9960269927978516,
-      "hidden_loss": 0.36108481884002686,
-      "kl": 1.6349421739578247,
-      "lr": 0.00016651497416910472,
-      "elapsed_sec": 1809.648432333
-    },
-    {
-      "step": 7250,
-      "loss": 2.157102108001709,
-      "hidden_loss": 0.1495283544063568,
-      "kl": 2.0075738430023193,
-      "lr": 0.00015866345021841428,
-      "elapsed_sec": 1877.332699083
-    },
-    {
-      "step": 7500,
-      "loss": 1.545100450515747,
-      "hidden_loss": 0.1780300736427307,
-      "kl": 1.3670704364776611,
-      "lr": 0.00015078802128829592,
-      "elapsed_sec": 1945.6532145
-    },
-    {
-      "step": 7500,
-      "eval_match": 4,
-      "eval_total": 80,
-      "eval_ratio": 0.05,
-      "eval_sample": " a significant finding in cognitive psychology, and the information of the entire of a system. This is the result of the universe. The the probability and the process of the system are the fundamental"
-    },
-    {
-      "step": 7750,
-      "loss": 1.9546877145767212,
-      "hidden_loss": 0.32019224762916565,
-      "kl": 1.634495496749878,
-      "lr": 0.0001429104179782007,
-      "elapsed_sec": 2018.326297833
-    },
-    {
-      "step": 8000,
-      "loss": 2.074512004852295,
-      "hidden_loss": 0.12880975008010864,
-      "kl": 1.9457021951675415,
-      "lr": 0.00013505237688732656,
-      "elapsed_sec": 2088.275938916
-    },
-    {
-      "step": 8250,
-      "loss": 1.3984427452087402,
-      "hidden_loss": 0.14272023737430573,
-      "kl": 1.2557225227355957,
-      "lr": 0.00012723558063701773,
-      "elapsed_sec": 2160.2089296249997
-    },
-    {
-      "step": 8500,
-      "loss": 1.2910796403884888,
-      "hidden_loss": 0.12306085973978043,
-      "kl": 1.1680188179016113,
-      "lr": 0.00011948159804210495,
-      "elapsed_sec": 2233.44017125
-    },
-    {
-      "step": 8750,
-      "loss": 0.9679011106491089,
-      "hidden_loss": 0.11062999069690704,
-      "kl": 0.857271134853363,
-      "lr": 0.00011181182459627054,
-      "elapsed_sec": 2303.7925105
-    },
-    {
-      "step": 9000,
-      "loss": 1.292054533958435,
-      "hidden_loss": 0.27752527594566345,
-      "kl": 1.0145292282104492,
-      "lr": 0.00010424742343565734,
-      "elapsed_sec": 2376.625016291
-    },
-    {
-      "step": 9250,
-      "loss": 1.1252961158752441,
-      "hidden_loss": 0.11657176911830902,
-      "kl": 1.008724331855774,
-      "lr": 9.680926694361964e-05,
-      "elapsed_sec": 2456.631976958
-    },
-    {
-      "step": 9500,
-      "loss": 0.9934806823730469,
-      "hidden_loss": 0.1375664472579956,
-      "kl": 0.8559142351150513,
-      "lr": 8.951787915774529e-05,
-      "elapsed_sec": 2539.329972041
-    },
-    {
-      "step": 9750,
-      "loss": 0.97552490234375,
-      "hidden_loss": 0.24778221547603607,
-      "kl": 0.7277426719665527,
-      "lr": 8.239337913806554e-05,
-      "elapsed_sec": 2623.4303985409997
-    },
-    {
-      "step": 10000,
-      "loss": 1.0785601139068604,
-      "hidden_loss": 0.09687848389148712,
-      "kl": 0.9816815853118896,
-      "lr": 7.545542545271557e-05,
-      "elapsed_sec": 2703.44189375
-    },
-    {
-      "step": 10000,
-      "eval_match": 6,
-      "eval_total": 80,
-      "eval_ratio": 0.075,
-      "eval_sample": " a significant finding in cognitive science, and the information of the entire of a system. This is the probability and nonains the physical and computational system. The is the concept of the univers"
-    },
-    {
-      "step": 10250,
-      "loss": 0.9672688841819763,
-      "hidden_loss": 0.11074978858232498,
-      "kl": 0.8565191030502319,
-      "lr": 6.872316193422619e-05,
-      "elapsed_sec": 2780.3189315
-    },
-    {
-      "step": 10500,
-      "loss": 0.8374640941619873,
-      "hidden_loss": 0.09898953139781952,
-      "kl": 0.7384745478630066,
-      "lr": 6.221516485612059e-05,
-      "elapsed_sec": 2854.228672916
-    },
-    {
-      "step": 10750,
-      "loss": 0.6879605650901794,
-      "hidden_loss": 0.08450589329004288,
-      "kl": 0.6034546494483948,
-      "lr": 5.594939167557203e-05,
-      "elapsed_sec": 2927.96927075
-    },
-    {
-      "step": 11000,
-      "loss": 0.8357242345809937,
-      "hidden_loss": 0.23102375864982605,
-      "kl": 0.60470050573349,
-      "lr": 4.994313148355512e-05,
-      "elapsed_sec": 3001.619049541
-    },
-    {
-      "step": 11250,
-      "loss": 0.7238727807998657,
-      "hidden_loss": 0.09318367391824722,
-      "kl": 0.6306890845298767,
-      "lr": 4.421295729921454e-05,
-      "elapsed_sec": 3075.881333583
-    },
-    {
-      "step": 11500,
-      "loss": 0.6022012233734131,
-      "hidden_loss": 0.1080600768327713,
-      "kl": 0.494141161441803,
-      "lr": 3.877468034008394e-05,
-      "elapsed_sec": 3149.480584416
-    },
-    {
-      "step": 11750,
-      "loss": 0.6401041150093079,
-      "hidden_loss": 0.2124386429786682,
-      "kl": 0.42766547203063965,
-      "lr": 3.364330639433701e-05,
-      "elapsed_sec": 3223.905130416
-    },
-    {
-      "step": 12000,
-      "loss": 0.678823709487915,
-      "hidden_loss": 0.07797406613826752,
-      "kl": 0.6008496284484863,
-      "lr": 2.883299441545278e-05,
-      "elapsed_sec": 3300.2388768329997
-    },
-    {
-      "step": 12250,
-      "loss": 0.5825986862182617,
-      "hidden_loss": 0.08910153806209564,
-      "kl": 0.4934971332550049,
-      "lr": 2.435701745354377e-05,
-      "elapsed_sec": 3374.122912083
-    },
-    {
-      "step": 12500,
-      "loss": 0.5943921208381653,
-      "hidden_loss": 0.08109571784734726,
-      "kl": 0.5132964253425598,
-      "lr": 2.022772603114975e-05,
-      "elapsed_sec": 3446.564482041
-    },
-    {
-      "step": 12500,
-      "eval_match": 6,
-      "eval_total": 80,
-      "eval_ratio": 0.075,
-      "eval_sample": " a significant finding in the process of the first universe. This is a fundamental and the energy of the fundamental and the energy. The is the first of the universe of the universe. The is the first "
-    },
-    {
-      "step": 12750,
-      "loss": 0.44679540395736694,
-      "hidden_loss": 0.07016300410032272,
-      "kl": 0.3766323924064636,
-      "lr": 1.645651406455292e-05,
-      "elapsed_sec": 3522.7777055829997
-    },
-    {
-      "step": 13000,
-      "loss": 0.630535364151001,
-      "hidden_loss": 0.19889548420906067,
-      "kl": 0.4316398501396179,
-      "lr": 1.3053787424648465e-05,
-      "elapsed_sec": 3595.163162708
-    },
-    {
-      "step": 13250,
-      "loss": 0.5407453179359436,
-      "hidden_loss": 0.08001010119915009,
-      "kl": 0.4607352316379547,
-      "lr": 1.0028935224119628e-05,
-      "elapsed_sec": 3667.1783035
-    },
-    {
-      "step": 13500,
-      "loss": 0.4708355665206909,
-      "hidden_loss": 0.09196383506059647,
-      "kl": 0.37887173891067505,
-      "lr": 7.390303910144169e-06,
-      "elapsed_sec": 3740.759459625
-    },
-    {
-      "step": 13750,
-      "loss": 0.4840349555015564,
-      "hidden_loss": 0.19094714522361755,
-      "kl": 0.29308781027793884,
-      "lr": 5.145174234118915e-06,
-      "elapsed_sec": 3813.9416860829997
-    },
-    {
-      "step": 14000,
-      "loss": 0.5322316884994507,
-      "hidden_loss": 0.06873093545436859,
-      "kl": 0.4635007381439209,
-      "lr": 3.2997411619482937e-06,
-      "elapsed_sec": 3886.761269916
-    },
-    {
-      "step": 14250,
-      "loss": 0.4875825047492981,
-      "hidden_loss": 0.07946543395519257,
-      "kl": 0.4081170856952667,
-      "lr": 1.8590967803315038e-06,
-      "elapsed_sec": 3959.5307130409997
-    },
-    {
-      "step": 14500,
-      "loss": 0.5165181159973145,
-      "hidden_loss": 0.07469448447227478,
-      "kl": 0.44182366132736206,
-      "lr": 8.272162462137411e-07,
-      "elapsed_sec": 4032.7411483329997
-    },
-    {
-      "step": 14750,
-      "loss": 0.3978041708469391,
-      "hidden_loss": 0.06545516848564148,
-      "kl": 0.3323490023612976,
-      "lr": 2.0694681817194913e-07,
-      "elapsed_sec": 4107.634572375
-    },
-    {
-      "step": 14999,
-      "loss": 0.4905434846878052,
-      "hidden_loss": 0.17533095180988312,
-      "kl": 0.31521251797676086,
-      "lr": 3.3119107289980573e-12,
-      "elapsed_sec": 4183.026142541
-    },
-    {
-      "step": 14999,
       "eval_match": 7,
       "eval_total": 80,
       "eval_ratio": 0.0875,
-      "eval_sample": " a significant finding in the process of the first universe, and the probability function of the system of a quantum system. This is the probability and the probability of the observable of the quantu"
+      "eval_sample": " a significant finding in cognitive science, which it has a new to the two logarithm. This is a new one one domain in the non-y. The concept of the universe of the universe of the universe. The proper"
+    },
+    {
+      "step": 2009,
+      "loss": 2.132615327835083,
+      "hidden_loss": 0.12266390770673752,
+      "kl": 2.00995135307312,
+      "lr": 2.876060661010191e-05,
+      "elapsed_sec": 423.1109048750001
+    },
+    {
+      "step": 2050,
+      "loss": 2.795548915863037,
+      "hidden_loss": 0.1185784861445427,
+      "kl": 2.6769704818725586,
+      "lr": 2.4286784266223908e-05,
+      "elapsed_sec": 431.53387029099997
+    },
+    {
+      "step": 2091,
+      "loss": 2.381554126739502,
+      "hidden_loss": 0.11062486469745636,
+      "kl": 2.2709293365478516,
+      "lr": 2.0160351025689093e-05,
+      "elapsed_sec": 440.04147512500003
+    },
+    {
+      "step": 2132,
+      "loss": 2.8407509326934814,
+      "hidden_loss": 0.11930441856384277,
+      "kl": 2.7214465141296387,
+      "lr": 1.6392709651007878e-05,
+      "elapsed_sec": 448.9722295
+    },
+    {
+      "step": 2173,
+      "loss": 2.8962976932525635,
+      "hidden_loss": 0.11352995038032532,
+      "kl": 2.7827677726745605,
+      "lr": 1.2994271438647685e-05,
+      "elapsed_sec": 457.89876704100004
+    },
+    {
+      "step": 2214,
+      "loss": 2.480208158493042,
+      "hidden_loss": 0.9090822339057922,
+      "kl": 1.5711259841918945,
+      "lr": 9.974427449018973e-06,
+      "elapsed_sec": 467.00251883300007
+    },
+    {
+      "step": 2255,
+      "loss": 2.5539445877075195,
+      "hidden_loss": 0.12059775739908218,
+      "kl": 2.433346748352051,
+      "lr": 7.34152255572697e-06,
+      "elapsed_sec": 476.16603029099997
+    },
+    {
+      "step": 2296,
+      "loss": 2.9277610778808594,
+      "hidden_loss": 0.9074529409408569,
+      "kl": 2.020308017730713,
+      "lr": 5.102832385798805e-06,
+      "elapsed_sec": 485.458117625
+    },
+    {
+      "step": 2337,
+      "loss": 1.6221126317977905,
+      "hidden_loss": 0.11476030200719833,
+      "kl": 1.507352352142334,
+      "lr": 3.2645432146094276e-06,
+      "elapsed_sec": 494.752515291
+    },
+    {
+      "step": 2378,
+      "loss": 2.3299453258514404,
+      "hidden_loss": 0.11857769638299942,
+      "kl": 2.211367607116699,
+      "lr": 1.8317348710625235e-06,
+      "elapsed_sec": 504.08436166600006
+    },
+    {
+      "step": 2419,
+      "loss": 2.063016414642334,
+      "hidden_loss": 0.11434347182512283,
+      "kl": 1.9486730098724365,
+      "lr": 8.083667002661332e-07,
+      "elapsed_sec": 513.38231025
+    },
+    {
+      "step": 2460,
+      "loss": 1.886103630065918,
+      "hidden_loss": 0.130286306142807,
+      "kl": 1.7558172941207886,
+      "lr": 1.9726662249234247e-07,
+      "elapsed_sec": 522.693834208
+    },
+    {
+      "step": 2499,
+      "loss": 2.0588834285736084,
+      "hidden_loss": 0.11423080414533615,
+      "kl": 1.9446526765823364,
+      "lr": 1.2331865533732332e-10,
+      "elapsed_sec": 531.5711482500001
+    },
+    {
+      "step": 2499,
+      "eval_match": 7,
+      "eval_total": 80,
+      "eval_ratio": 0.0875,
+      "eval_sample": " a significant finding in the early of the early universe. It is a significant and has well the concept of the universe. The concept of the universe, which is important evidence for the universe of th"
     }
-  ]
+  ],
+  "distribution_eval": {
+    "teacher_ppl": 12.481991481781005,
+    "student_ppl": 11511.497509765624,
+    "position_kl": 6.338971900939941,
+    "top1_agree": 0.18386327624320983,
+    "top5_agree": 0.3712241679430008,
+    "ppl_ratio": 922.2484670469504
+  }
 }

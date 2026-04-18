@@ -191,6 +191,73 @@ def freeze_non_factored(model):
     return trainable_params
 
 
+HELDOUT_TEXTS = [
+    "The migratory patterns of monarch butterflies span thousands of kilometres across North America, from Canada to central Mexico, over multiple generations.",
+    "Topological insulators are materials that behave as insulators in their interior but conduct electricity along their surface, a consequence of spin-orbit coupling and time-reversal symmetry.",
+    "Recombinant DNA technology emerged in the 1970s when researchers discovered restriction enzymes that cut DNA at specific sequences, enabling genes to be inserted into bacterial plasmids.",
+    "The Antikythera mechanism, recovered from a Greek shipwreck, is an ancient analog computer dating from the second century BCE that tracked astronomical positions and eclipses.",
+    "Edge-triggered flip-flops store a single bit of information and change state only on the rising or falling edge of a clock signal, making them central to digital sequential logic.",
+]
+
+
+def distribution_eval(teacher, student, tokenizer, texts, device):
+    """Measure how close student's output distribution is to teacher's on
+    held-out text, position by position (teacher-forced).
+
+    Returns dict with:
+      teacher_ppl, student_ppl              — perplexity under each model
+      position_kl                            — mean KL(teacher || student) over positions
+      top1_agree                             — fraction of positions where argmax matches
+      top5_agree                             — fraction where student's top-1 is in teacher's top-5
+      ppl_ratio                              — student_ppl / teacher_ppl (should be ~1.0 for a good match)
+    """
+    teacher.eval()
+    student.eval()
+    results = {
+        "teacher_ppl": [], "student_ppl": [],
+        "position_kl": [], "top1_agree": [], "top5_agree": [],
+    }
+    with torch.inference_mode():
+        for text in texts:
+            ids = tokenizer(text, return_tensors="pt",
+                            truncation=True, max_length=256).input_ids.to(device)
+            if ids.shape[1] < 4:
+                continue
+            t_out = teacher(input_ids=ids, use_cache=False)
+            s_out = student(input_ids=ids, use_cache=False)
+            t_logits = t_out.logits[0, :-1].float()  # [T-1, V]
+            s_logits = s_out.logits[0, :-1].float()
+            targets = ids[0, 1:]  # [T-1]
+
+            # Perplexity (exp of mean neg-log-likelihood of next token under each model)
+            t_nll = -F.log_softmax(t_logits, dim=-1).gather(1, targets.unsqueeze(1)).mean()
+            s_nll = -F.log_softmax(s_logits, dim=-1).gather(1, targets.unsqueeze(1)).mean()
+            results["teacher_ppl"].append(float(t_nll.exp().item()))
+            results["student_ppl"].append(float(s_nll.exp().item()))
+
+            # KL(teacher || student) averaged over positions
+            t_logp = F.log_softmax(t_logits, dim=-1)
+            s_logp = F.log_softmax(s_logits, dim=-1)
+            t_p = t_logp.exp()
+            kl = (t_p * (t_logp - s_logp)).sum(dim=-1).mean()
+            results["position_kl"].append(float(kl.item()))
+
+            # Top-1 agreement
+            t_top1 = t_logits.argmax(dim=-1)
+            s_top1 = s_logits.argmax(dim=-1)
+            results["top1_agree"].append(float((t_top1 == s_top1).float().mean().item()))
+
+            # Student top-1 in teacher top-5
+            t_top5 = t_logits.topk(5, dim=-1).indices  # [T-1, 5]
+            in_top5 = (s_top1.unsqueeze(-1) == t_top5).any(dim=-1).float().mean()
+            results["top5_agree"].append(float(in_top5.item()))
+
+    summary = {k: sum(v) / max(len(v), 1) for k, v in results.items()}
+    summary["ppl_ratio"] = summary["student_ppl"] / max(summary["teacher_ppl"], 1e-9)
+    summary["per_text"] = results
+    return summary
+
+
 def generate(model, tokenizer, prompt, max_new_tokens, device, warmup=2):
     input_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
     with torch.inference_mode():
@@ -473,6 +540,16 @@ def main():
                       log_every=max(args.steps // 60, 25),
                       early_exit_ratio=args.early_exit)
 
+    # === Distribution-based eval (physics-correct metric, pre-bf16-convert) ===
+    print(f"\n=== distribution eval on held-out text (fp32 student) ===", flush=True)
+    dist_eval = distribution_eval(teacher, student, tokenizer, HELDOUT_TEXTS, device)
+    print(f"  teacher ppl: {dist_eval['teacher_ppl']:.3f}")
+    print(f"  student ppl: {dist_eval['student_ppl']:.3f}")
+    print(f"  ppl ratio:   {dist_eval['ppl_ratio']:.3f}  (1.0 = perfect)")
+    print(f"  mean KL(T||S): {dist_eval['position_kl']:.4f}")
+    print(f"  top-1 agreement: {dist_eval['top1_agree']:.1%}")
+    print(f"  student top-1 in teacher top-5: {dist_eval['top5_agree']:.1%}")
+
     # === Post-training student eval (fp32 A/B) ===
     print(f"\n=== student decode (post-training, fp32) ===", flush=True)
     student.eval()
@@ -524,6 +601,9 @@ def main():
             "student_post_speedup_vs_teacher": speedup,
             "student_post_sample": s1_text[:400],
             "loss_history": history,
+            "distribution_eval": {
+                k: v for k, v in dist_eval.items() if k != "per_text"
+            },
         }, f, indent=2)
     print(f"\nwrote {out_path}")
 
