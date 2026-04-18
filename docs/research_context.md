@@ -141,6 +141,37 @@ live on it.
 
 ---
 
+## The all-dynamic principle (fundamental, not negotiable)
+
+If compression dimensions are stacked maximally and cheaply, **every
+dimension must be dynamic**. Not "some dynamic, some static." Every one.
+Any static dimension locks compute to worst-case for the hardest input
+the system will ever see, wasting cycles on every easier input.
+
+| dimension | static (wrong) | live-state function of |
+|---|---|---|
+| rank k per layer | fixed | H_i(t), ∂H_i/∂t |
+| heads kept | top-N fixed | per-head sharpness each step |
+| layer depth | all layers always | residual-update magnitude, early-exit H_final |
+| KV attended | whole cache | attention weight distribution (heavy hitters) |
+| chart basis | one per layer | local manifold position (nearest cluster) |
+| quantization | fp16 | tokens-per-basin (early high, late low) |
+| speculative depth | fixed K | top-1 margin |
+
+Cost of the signals: **free** (all come from tensors the forward pass
+already materializes — attention weights, logits, hidden states). No new
+compute. Just read the state, decide.
+
+The "policy" is ~20 lines of conditional logic over scalar state, one
+rule per dimension. Not a learned network. It's the routing gate for
+every mechanism simultaneously, reading the same cheap live state.
+
+Static-parameter architecture has a ceiling at worst-case efficiency.
+All-dynamic architecture tracks the system's actual manifold position
+moment-by-moment. Only the latter can approach theoretical
+bandwidth/compute reduction. The former is a toy; the latter is the
+system.
+
 ## Pipeline
 
 ### Phase 1 — Calibration (once per model)
