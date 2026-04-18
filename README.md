@@ -129,6 +129,23 @@ Three independent measurements. Same answer:
 2. **Bottleneck training**: 32 dims at 0.01 KL divergence
 3. **Head pruning**: 2.5-4.8 active heads ≈ 8-10 effective dimensions
 
+## Where this is going (live research context)
+
+Stages 0–4 establish the measurement. Stages 5+ turn it into a deployment
+recipe: **rank-k factored decode trained via teacher–student distillation,
+with K/V cache naturally living in the same rank-k subspace — one manifold,
+one map.**
+
+The target is 10–30× wall-clock speedup at batch=1 decode on 30B-class dense
+models. Weights, attention, and KV cache all operate in the same per-layer
+manifold basis.
+
+Full research framing, in-flight experiments, falsified approaches, target
+numbers per hardware, and machine coordination are tracked in
+[`docs/research_context.md`](docs/research_context.md). **That file is the
+shared memory for this project across machines and sessions.** Start there
+for anything beyond the BitNet stages above.
+
 ## Quick Start
 
 ```bash

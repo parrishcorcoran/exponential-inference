@@ -80,6 +80,20 @@ Sample generations (base and dynamic) live under
 `results/generation_samples/` so output quality can be eyeballed
 directly.
 
+## Where this is going
+
+Stages 0–4 above establish the measurement for BitNet-2B. The ongoing work
+generalises the same measurement into a deployment recipe for arbitrary
+trained LLMs at 30B-class scale: **rank-k factored decode trained via
+teacher–student distillation, with K/V cache naturally living in the same
+rank-k subspace (one manifold, one map).**
+
+Full research context, in-flight experiments, falsified approaches, target
+numbers, and machine coordination are tracked in
+[`docs/research_context.md`](docs/research_context.md). That file is the
+shared memory for this project across machines and sessions — start there
+for anything beyond the BitNet stages.
+
 ## What this is not
 
 - Not a compression technique. No extra training. No distillation.

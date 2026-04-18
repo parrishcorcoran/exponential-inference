@@ -1,0 +1,89 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "device": "mps",
+  "n_layers": 28,
+  "hidden_size": 1024,
+  "intermediate_size": 3072,
+  "baseline_ms_per_tok": 31.879127319797,
+  "baseline_sample": " a significant finding in the field of cognitive psychology. This is because the context provides a rich and complex environment that allows for the development of more sophisticated and nuanced cognitive processes. The context is not just a backdrop; it is a dynamic and interactive element that influences the way we think and act. This is because the context provides a rich and complex environment that allows for the development of more sophisticated and nuanced cognitive processes. The context",
+  "ranks": [
+    {
+      "rank": 8,
+      "ms_per_tok": 29.355645949238294,
+      "speedup_vs_baseline": 1.0859623860746346,
+      "token_match": "0/200",
+      "token_match_ratio": 0.0,
+      "first_divergence": 0,
+      "weight_params_full_M": 440.40192,
+      "weight_params_factored_M": 5.046272,
+      "weight_size_ratio": 0.011458333333333333,
+      "svd_time_sec": 26.208590958000002,
+      "sample_text": "osaosa entrance entrance entrance entrance entrance entrance entrance entrance entrance entrance entrance entrance entrance entrance entrance entrancescribe\u00e7ois entrance entrance entrance entrance entrance semiclass entrance entrance entrance entrance entranceosas entrance entrance entrance entrance"
+    },
+    {
+      "rank": 16,
+      "ms_per_tok": 28.997733461929187,
+      "speedup_vs_baseline": 1.0993661750029795,
+      "token_match": "0/200",
+      "token_match_ratio": 0.0,
+      "first_divergence": 0,
+      "weight_params_full_M": 440.40192,
+      "weight_params_factored_M": 10.092544,
+      "weight_size_ratio": 0.022916666666666665,
+      "svd_time_sec": 25.99956712499999,
+      "sample_text": "claration ballotclarationclarationclarationclarationclarationclarationclarationclarationclarationclarationclarationclarationclarationclarationclarationclarationclarationclarationclarationscreeneriascreenscreenscreenscreeneriaumpclarationumpumperiaeriaumpumpumperiaeriaeriaeriaeriaeriaeriaeriaeriaeria"
+    },
+    {
+      "rank": 32,
+      "ms_per_tok": 29.34072150253881,
+      "speedup_vs_baseline": 1.0865147715279786,
+      "token_match": "0/200",
+      "token_match_ratio": 0.0,
+      "first_divergence": 0,
+      "weight_params_full_M": 440.40192,
+      "weight_params_factored_M": 20.185088,
+      "weight_size_ratio": 0.04583333333333333,
+      "svd_time_sec": 26.023013417,
+      "sample_text": "inioninioninioninioninion\u5f97\u5929inion\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929inion\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97\u5929\u5f97"
+    },
+    {
+      "rank": 64,
+      "ms_per_tok": 29.10777386294316,
+      "speedup_vs_baseline": 1.0952100792696493,
+      "token_match": "0/200",
+      "token_match_ratio": 0.0,
+      "first_divergence": 0,
+      "weight_params_full_M": 440.40192,
+      "weight_params_factored_M": 40.370176,
+      "weight_size_ratio": 0.09166666666666666,
+      "svd_time_sec": 25.99024766699999,
+      "sample_text": "ayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayersayers"
+    },
+    {
+      "rank": 128,
+      "ms_per_tok": 29.13869286802126,
+      "speedup_vs_baseline": 1.0940479541820243,
+      "token_match": "0/200",
+      "token_match_ratio": 0.0,
+      "first_divergence": 0,
+      "weight_params_full_M": 440.40192,
+      "weight_params_factored_M": 80.740352,
+      "weight_size_ratio": 0.18333333333333332,
+      "svd_time_sec": 26.03061712500002,
+      "sample_text": "pcodesentialpcodespcodespcodespcodespcodespcodespcodespcodespcodespcodespcodespcodespcodespcodespcodespcodespcodespcodespcodespcodespcodespcodesencersencersencersencersencersencersencersencersencersencersencersencersencersencersencersencersencersencersencersencersencersencersencersencersencersencers"
+    },
+    {
+      "rank": 256,
+      "ms_per_tok": 31.14199388832501,
+      "speedup_vs_baseline": 1.0236700782266974,
+      "token_match": "0/200",
+      "token_match_ratio": 0.0,
+      "first_divergence": 0,
+      "weight_params_full_M": 440.40192,
+      "weight_params_factored_M": 161.480704,
+      "weight_size_ratio": 0.36666666666666664,
+      "svd_time_sec": 29.575187459000006,
+      "sample_text": "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0"
+    }
+  ]
+}
