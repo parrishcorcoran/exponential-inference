@@ -1,0 +1,64 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "hidden_size": 1024,
+  "calib_positions": 2543,
+  "heldout_positions": 127,
+  "per_rank": [
+    {
+      "rank": 7,
+      "pca_matches": 31,
+      "lm_svd_matches": 3,
+      "total": 127,
+      "pca_recovery": 0.2440944881889764,
+      "lm_svd_recovery": 0.023622047244094488
+    },
+    {
+      "rank": 10,
+      "pca_matches": 31,
+      "lm_svd_matches": 3,
+      "total": 127,
+      "pca_recovery": 0.2440944881889764,
+      "lm_svd_recovery": 0.023622047244094488
+    },
+    {
+      "rank": 15,
+      "pca_matches": 32,
+      "lm_svd_matches": 3,
+      "total": 127,
+      "pca_recovery": 0.25196850393700787,
+      "lm_svd_recovery": 0.023622047244094488
+    },
+    {
+      "rank": 20,
+      "pca_matches": 31,
+      "lm_svd_matches": 3,
+      "total": 127,
+      "pca_recovery": 0.2440944881889764,
+      "lm_svd_recovery": 0.023622047244094488
+    },
+    {
+      "rank": 32,
+      "pca_matches": 33,
+      "lm_svd_matches": 4,
+      "total": 127,
+      "pca_recovery": 0.25984251968503935,
+      "lm_svd_recovery": 0.031496062992125984
+    },
+    {
+      "rank": 64,
+      "pca_matches": 46,
+      "lm_svd_matches": 2,
+      "total": 127,
+      "pca_recovery": 0.36220472440944884,
+      "lm_svd_recovery": 0.015748031496062992
+    },
+    {
+      "rank": 128,
+      "pca_matches": 50,
+      "lm_svd_matches": 3,
+      "total": 127,
+      "pca_recovery": 0.3937007874015748,
+      "lm_svd_recovery": 0.023622047244094488
+    }
+  ]
+}
