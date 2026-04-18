@@ -1,0 +1,262 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "device": "mps",
+  "n_layers": 28,
+  "k_clusters": 4,
+  "mean_silhouette": 0.1171096538290071,
+  "mean_atlas_compression_ratio": 0.38790331021311,
+  "per_layer": [
+    {
+      "layer": 0,
+      "n_samples": 185,
+      "global_r90": 107,
+      "mean_cluster_r90": 36.0,
+      "silhouette": 0.05260438475010807,
+      "atlas_compression_ratio": 2.9722222222222223,
+      "n_clusters_with_data": 3
+    },
+    {
+      "layer": 1,
+      "n_samples": 185,
+      "global_r90": 100,
+      "mean_cluster_r90": 28.25,
+      "silhouette": 0.04527309528335294,
+      "atlas_compression_ratio": 3.5398230088495577,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 2,
+      "n_samples": 185,
+      "global_r90": 97,
+      "mean_cluster_r90": 28.25,
+      "silhouette": 0.05423538449368958,
+      "atlas_compression_ratio": 3.433628318584071,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 3,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 26.25,
+      "silhouette": 0.12234378333246095,
+      "atlas_compression_ratio": 0.0380952380952381,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 4,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 32.333333333333336,
+      "silhouette": 0.10092421394621957,
+      "atlas_compression_ratio": 0.03092783505154639,
+      "n_clusters_with_data": 3
+    },
+    {
+      "layer": 5,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 33.0,
+      "silhouette": 0.11950365273699587,
+      "atlas_compression_ratio": 0.030303030303030304,
+      "n_clusters_with_data": 3
+    },
+    {
+      "layer": 6,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 24.0,
+      "silhouette": 0.1270332893063762,
+      "atlas_compression_ratio": 0.041666666666666664,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 7,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 30.333333333333332,
+      "silhouette": 0.1667536258997811,
+      "atlas_compression_ratio": 0.03296703296703297,
+      "n_clusters_with_data": 3
+    },
+    {
+      "layer": 8,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 29.666666666666668,
+      "silhouette": 0.14696703215114293,
+      "atlas_compression_ratio": 0.033707865168539325,
+      "n_clusters_with_data": 3
+    },
+    {
+      "layer": 9,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 30.333333333333332,
+      "silhouette": 0.1856330290137422,
+      "atlas_compression_ratio": 0.03296703296703297,
+      "n_clusters_with_data": 3
+    },
+    {
+      "layer": 10,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 30.0,
+      "silhouette": 0.15750076481171982,
+      "atlas_compression_ratio": 0.03333333333333333,
+      "n_clusters_with_data": 3
+    },
+    {
+      "layer": 11,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 29.333333333333332,
+      "silhouette": 0.13709173173409306,
+      "atlas_compression_ratio": 0.034090909090909095,
+      "n_clusters_with_data": 3
+    },
+    {
+      "layer": 12,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 28.666666666666668,
+      "silhouette": 0.12937979465963043,
+      "atlas_compression_ratio": 0.03488372093023256,
+      "n_clusters_with_data": 3
+    },
+    {
+      "layer": 13,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 25.0,
+      "silhouette": 0.11436216548463614,
+      "atlas_compression_ratio": 0.04,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 14,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 29.0,
+      "silhouette": 0.1287864281683814,
+      "atlas_compression_ratio": 0.034482758620689655,
+      "n_clusters_with_data": 3
+    },
+    {
+      "layer": 15,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 24.0,
+      "silhouette": 0.13605061162315746,
+      "atlas_compression_ratio": 0.041666666666666664,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 16,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 26.75,
+      "silhouette": 0.13515792290819037,
+      "atlas_compression_ratio": 0.037383177570093455,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 17,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 26.25,
+      "silhouette": 0.1080619869507662,
+      "atlas_compression_ratio": 0.0380952380952381,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 18,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 26.75,
+      "silhouette": 0.11590935397503023,
+      "atlas_compression_ratio": 0.037383177570093455,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 19,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 27.0,
+      "silhouette": 0.11381306456744865,
+      "atlas_compression_ratio": 0.037037037037037035,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 20,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 27.5,
+      "silhouette": 0.11539226104100288,
+      "atlas_compression_ratio": 0.03636363636363636,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 21,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 27.25,
+      "silhouette": 0.12123608882092,
+      "atlas_compression_ratio": 0.03669724770642202,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 22,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 27.25,
+      "silhouette": 0.10959172469370565,
+      "atlas_compression_ratio": 0.03669724770642202,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 23,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 25.5,
+      "silhouette": 0.1073960611047614,
+      "atlas_compression_ratio": 0.0392156862745098,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 24,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 25.75,
+      "silhouette": 0.11319994744357861,
+      "atlas_compression_ratio": 0.038834951456310676,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 25,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 25.25,
+      "silhouette": 0.11360409865180314,
+      "atlas_compression_ratio": 0.039603960396039604,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 26,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 25.5,
+      "silhouette": 0.11472161041409903,
+      "atlas_compression_ratio": 0.0392156862745098,
+      "n_clusters_with_data": 4
+    },
+    {
+      "layer": 27,
+      "n_samples": 185,
+      "global_r90": 1,
+      "mean_cluster_r90": 25.0,
+      "silhouette": 0.08654319924540443,
+      "atlas_compression_ratio": 0.04,
+      "n_clusters_with_data": 4
+    }
+  ]
+}
