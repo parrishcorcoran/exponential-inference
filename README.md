@@ -1,3 +1,7 @@
+> **New to this repo? Read [`docs/READ_THIS_FIRST.md`](docs/READ_THIS_FIRST.md) first.**
+> It's the verbose explainer — what we're doing, why, the physics, every
+> finding with numbers, every experiment catalogued, glossary included.
+
 # Exponential Inference
 
 **Transformers are spin glasses. Their hidden-state manifold is measurably low-dimensional (~10D), constant across all layers, and collapses predictably during token generation. This means per-token compute can decrease exponentially as context grows — without retraining, without distillation, without approximation. Just physics.**
