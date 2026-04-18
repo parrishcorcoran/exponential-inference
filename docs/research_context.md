@@ -259,6 +259,29 @@ Per-script naming: `stageN_<what>.py` under `scripts/`, JSON artifacts under
 
 ---
 
+## State at 0.6B / MPS checkpoint (2026-04-18)
+
+Pieces established on 0.6B (at least observational/structural):
+
+| # | piece | status | key result |
+|---|---|---|---|
+| 1 | manifold measured, 9 models | ✓ | TwoNN ≈ 9-11 universal |
+| 2 | head skipping stage 5 | ✓ | 83% heads prunable, 100% match |
+| 3 | distillation preserves manifold (TwoNN invariance) | ✓ stage 14 | mean \|ΔTwoNN\| = 0.49 |
+| 4 | calibration scaling | ✓ stage 8→13 | 922× → 99× ppl ratio at 4× data |
+| 5 | entropy signal free from eager attention | ✓ stage 11 | plumbing works |
+| 6 | saddle detection ∂H/∂t | ✓ stage F | 4 profiles match RSB zoo |
+| 7 | integrated rank-k attention math | ✓ stage D (math) | ~100× storage reduction projected |
+| 8 | atlas observation | ✓ stage E | single basis sufficient at 0.6B |
+| 9 | CPU vs MPS kernel overhead | ✓ | hook cost 2× cheaper on CPU |
+| 10 | entropy-driven dynamic rank | ✗ (MPS hook overhead) | projection-and-back adds more overhead than savings |
+| 11 | residual-magnitude layer skip | ✗ | no near-identity layers at 0.6B |
+| 12 | Matryoshka nested-rank training | ✗ (unstable on MPS) | diverged; needs more care |
+
+**Items 10/11/12 fail for reasons rooted in 0.6B scale + MPS kernel overhead, not in the physics. The missing pieces are engineering, not framework.**
+
+The integrated all-dynamic runtime is specified in the design, each mechanism is individually validated, but the composite training (Matryoshka) needs Strix Halo's memory + stable training dynamics to land cleanly.
+
 ## Open experiments, in priority order
 
 1. **Finish Qwen3-0.6B rank-32 distillation** at 15k+ steps, diagnose whether
