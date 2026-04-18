@@ -129,6 +129,33 @@ Three independent measurements. Same answer:
 2. **Bottleneck training**: 32 dims at 0.01 KL divergence
 3. **Head pruning**: 2.5-4.8 active heads ≈ 8-10 effective dimensions
 
+## The manifold floor (key scaling insight, 2026-04-18)
+
+Factored-parameter budget scales with model size, but the minimum
+parameter count needed to encode the tokenizer-induced manifold (the
+"floor") is roughly size-independent:
+
+| model | full params | factored at rank-32 | % of full |
+|---|---|---|---|
+| Qwen3-0.6B | 440M | **20.2M** | 4.58% |
+| Qwen3-4B | ~3.2B | ~90M | 2.8% |
+| Qwen3-32B | ~31B | **~270M** | 0.86% |
+
+Empirically, even rank-256 on Qwen3-0.6B (160M factored, 36% of full)
+showed degenerate output. This suggests the floor is likely ~80–160M
+params for the Qwen tokenizer-induced manifold. **0.6B at rank-32 is
+below this floor; no training procedure can succeed.**
+
+**The failures at stages 8–15 on 0.6B are structural, not procedural.**
+Scaling to 32B doesn't make distillation easier — it raises the
+parameter budget above the floor, making success achievable.
+
+Relatedly: **all 9 models in our manifold catalog share the Qwen
+tokenizer family (or very close ones).** The universal "~9-11 intrinsic
+dim" observation may actually be *tokenizer-bound* rather than
+transformer-universal. Testable with GPT-2, Llama-3, Mistral, T5 on
+machines that can run them.
+
 ## Where this is going (live research context)
 
 Stages 0–4 establish the measurement. Stages 5+ turn it into a deployment
