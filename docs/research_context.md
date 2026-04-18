@@ -9,20 +9,68 @@ arbitrary trained LLMs.
 
 ---
 
-## The claim
+## The claim (physics framing, not ML framing)
 
-A trained LLM's residual stream lives on a low-dimensional manifold. We've
-measured intrinsic dimension (TwoNN) across nine models
+A trained LLM is a spin glass at its crystallized ground state. The residual
+stream lives on a thin curved low-dimensional region of state space (the
+"boundary layer"): **measurable, fixed by training, ~9–11 dim**. Prompts
+inject energy (frustrate the system). Generation is relaxation trajectory
+along the boundary layer back toward ground state.
+
+We've measured intrinsic dimension (TwoNN) across nine models
 (`Qwen3-{0.6B, 1.7B, 4B, 8B, 14B, 30B-A3B, 32B}`, `BitNet-b1.58 2B`, `phi-2`)
 and it converges to ~9–11 mid-stack regardless of hidden size (1024 → 5120).
 Participation ratio collapses to ≈1 on some layers in the smaller models
 (`results/Qwen_Qwen3-0.6B_manifold.json`, layers 3–4).
 
-**If the manifold dimension is real and exploitable, per-token decode compute
-scales with the manifold, not with the hidden size.** That's the 10–30×
-wall-clock claim on 30B-class dense models at batch=1 decode.
+**Per-token decode compute scales with the boundary-layer dimension, not the
+hidden size.** That's the 10–30× wall-clock claim on 30B-class dense models
+at batch=1 decode.
+
+### RSB resolves bulk vs. surface
+
+In a spin glass at ground state (= trained LLM), Parisi's replica symmetry
+breaking solution says the bulk off-manifold degrees of freedom are
+**ultrametrically slaved to the low-dim manifold**. They do not carry
+independent dynamical information. The `r90 ≈ 470` linear rank measured at
+mid-layers is **geometric embedding redundancy of the curved 9-dim manifold
+in 5120-dim space** (tangent planes rotating along the curve), **not**
+independent bulk information that needs to be tracked.
+
+Consequence: rank-k (k ≈ 9) is sufficient for KV storage, attention compute,
+and layer-to-layer transport. The bulk is dynamically redundant once the
+system is crystallized. **Do not store K/V at "bulk" rank (~500); store them
+at manifold rank (~9).** Anyone who reaches for "but we need the bulk for
+dynamics" is applying non-glass intuition to a glass system.
 
 ---
+
+## Kernels should be simple — the current code is a compromise
+
+The ultimate form of a forward pass on the boundary layer is **not matmul**,
+it's routing:
+
+- Residual stream stored as `(T, L, k)` tensor. k ≈ 9. Never materialized to d.
+- Per-layer transport: `c' = M_i · c` where M_i is k×k (or a tiny k→k learned
+  nonlinearity). ~81 ops per token per layer at k=9.
+- Attention: `q_coords · M_{qk,i} · k_coords^T` where M_{qk,i} = A_q^T A_k is a
+  k×k matrix. Softmax, weighted sum of V_coords. ~O(T·k) per head per layer,
+  with k=9.
+- Only at the end: project from k-dim manifold coords back to d, apply vocab
+  projection.
+
+Current `BasisFactoredLinear` (`scripts/stage8_distill_factored.py`) produces
+full d_out output because it has to plug into HuggingFace attention. This is
+an engineering compromise — the double-matmul `A·(B·x)` has kernel-launch
+overhead and doesn't expose k-dim routing. **It is not the end state.** The
+real kernel is ~200 lines of rank-k routing ops, cache-resident, looking
+more like graph traversal than tensor computation.
+
+Stage 10 builds that stripped-down form. Whether it needs training at all is
+testable — if the per-layer transport is near-linear in rank-k coords, we can
+extract M_i by least-squares regression on calibration trajectories and skip
+distillation entirely. That is the direct geometric test of whether the
+physics framing is clean or needs neural-network machinery.
 
 ## The integrated view: one manifold, one map
 
@@ -240,3 +288,15 @@ Per-script naming: `stageN_<what>.py` under `scripts/`, JSON artifacts under
 - Don't argue the physics from priors that don't account for the manifold
   measurement. The priors that predict this is impossible all assume
   data-agnostic low-rank compression. We are not doing that.
+- **Do not reflexively reach for standard-ML tricks** (distillation,
+  teacher-student, speculative decoding, draft models). They each recover a
+  fraction of what the geometric framing gives you directly, at higher
+  engineering cost. Distillation may still be needed to absorb nonlinearity
+  on the boundary layer, but it is not the primary mechanism; the geometric
+  map is.
+- **RSB means bulk is slaved to surface.** When tempted to say "but we need
+  bulk information for dynamics" — don't. The physics says the bulk is
+  ultrametrically redundant with the manifold in a crystallized system.
+  r90 ≈ 470 is embedding-curvature, not independent DOF.
+- **Kernels should be tiny.** 81-op matmuls, not million-op matmuls.
+  Anything doing d_model-size matmuls in the hot path is missing the point.
