@@ -1,0 +1,74 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "device": "mps",
+  "n_layers": 28,
+  "hidden_size": 1024,
+  "calibration_tokens": 333,
+  "teacher_ms_per_tok": 29.873706253164546,
+  "teacher_sample": " a significant finding in the field of cognitive psychology. This is because the context provides a rich and complex environment that allows for the development of more sophisticated and nuanced cognitive processes. The context is not just a backdrop; it is a dynamic and interactive element that influences the way we think and act. This is because the context provides a rich and complex environmen",
+  "ranks": [
+    {
+      "rank": 8,
+      "ms_per_tok": 29.375300607594983,
+      "match": 6,
+      "total": 80,
+      "match_ratio": 0.075,
+      "first_divergence": 0,
+      "sample": " the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the"
+    },
+    {
+      "rank": 16,
+      "ms_per_tok": 28.62332650632911,
+      "match": 4,
+      "total": 80,
+      "match_ratio": 0.05,
+      "first_divergence": 0,
+      "sample": " the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the,in, and and,,,,,,,,,,,,,,,,,,,,,,,,, and, and, and, and, and, and, and"
+    },
+    {
+      "rank": 32,
+      "ms_per_tok": 28.095271620253197,
+      "match": 6,
+      "total": 80,
+      "match_ratio": 0.075,
+      "first_divergence": 0,
+      "sample": " The the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the,ain, the the the the the the the the the the th"
+    },
+    {
+      "rank": 64,
+      "ms_per_tok": 29.39786492405046,
+      "match": 6,
+      "total": 80,
+      "match_ratio": 0.075,
+      "first_divergence": 0,
+      "sample": " the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the,ainin, the the the the the the "
+    },
+    {
+      "rank": 128,
+      "ms_per_tok": 29.583363911392574,
+      "match": 6,
+      "total": 80,
+      "match_ratio": 0.075,
+      "first_divergence": 1,
+      "sample": " a fundamental and the the number the the the the the the the the the the the the the the the the the the the the the the the the,,,,,, the the the the the the the the the the the the the the the the the the the the the the the the,,,,,,, the the the the the the the the the the the the the"
+    },
+    {
+      "rank": 256,
+      "ms_per_tok": 29.42249839240508,
+      "match": 6,
+      "total": 80,
+      "match_ratio": 0.075,
+      "first_divergence": 1,
+      "sample": " a well fundamental and the concept of the human, and the concept of the human, and the process of the process of the process of the human, and the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the pr"
+    },
+    {
+      "rank": 512,
+      "ms_per_tok": 30.77778740506311,
+      "match": 7,
+      "total": 80,
+      "match_ratio": 0.0875,
+      "first_divergence": 5,
+      "sample": " a significant finding in the cognitive science, and has a major finding in the cognitive science. This the concept of the brain, and the brain, and the brain. The brain, and the brain, and the brain. The brain, and the brain. The brain, and the brain. The brain, and the brain. The brain, and the br"
+    }
+  ]
+}

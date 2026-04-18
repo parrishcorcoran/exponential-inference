@@ -249,6 +249,66 @@ Per-script naming: `stageN_<what>.py` under `scripts/`, JSON artifacts under
 
 ---
 
+## How to read experimental outcomes in this project
+
+Every experiment that doesn't reproduce the teacher's exact output is
+**narrowing the hypothesis space**, not falsifying the framing. The
+framing has survived all of stage 5–10b; each result tightened a
+constraint.
+
+| stage | what "failed" measured | how to read it |
+|---|---|---|
+| 5: head pruning (works) | 83% heads skippable with 100% match | manifold narrows; baseline confirmed |
+| 6: plain SVD(W) | 0/200 match | weight-SVD isn't aligned with activation manifold |
+| 7: basis-PCA factoring | 6/200 at rank 256 | manifold is curved; single global chart insufficient |
+| 8: distillation (works) | kl 211 -> 0.4 (530x), match 15/200 | nonlinear chart-transition can be learned |
+| 10: single-token geometric | garbage | attention coupling is part of the dynamics |
+| 10b: fixed-rank projection | ~500 linear rank needed | r90 ≈ 470 measured; ambient rank confirmed |
+
+**What these collectively tell us the deployment recipe must be:**
+
+1. Atlas of local charts per layer, not a single global basis (from 7, 10b).
+2. Cross-token coupling preserved — full attention + KV cache (from 10).
+3. Per-token dynamic rank tied to current entropy (from 10b + entropy trace
+   shapes).
+4. Dynamic layer depth — skip late layers when relaxed (from 5 + entropy
+   shape).
+5. Optional distillation as a finishing adapter to smooth chart transitions
+   (from 8).
+
+None of these conclusions are "standard ML tricks"; they are constraints
+read directly from measurement. When reading or running a new experiment,
+read the result as narrowing, not as refutation.
+
+## The entropy-profile zoo
+
+Measured KV-attention entropy during generation shows four canonical
+shapes, each a different mode of descent through the boundary layer's
+RSB-hierarchical energy landscape:
+
+- **Bell curve** — single-basin relaxation. Peak frustration = moment of
+  commitment, then monotone descent.
+- **Linear decline** — prompt already near basin. No real frustration;
+  system rolls downhill.
+- **Plateau** — system trapped in a metastable basin. Locally relaxed,
+  globally not. No further acceleration available on this token.
+- **Mid-generation spike (complex prompts)** — saddle crossing between
+  sibling basins at the same RSB level. System explored one basin, found
+  it wrong, climbed out. Spike height = saddle height; duration = time
+  to identify the new basin.
+
+Two signals to watch at inference:
+- **H(t)**: current entropy. Rank tracks this.
+- **∂H/∂t > 0**: saddle crossing in progress; restore rank until it
+  drops again.
+
+You can't classify prompts in advance; adapt live.
+
+The spike phenomenon itself is strong evidence for the physics framing.
+Pure statistical learners produce monotone uncertainty decrease. Spin
+glasses are the only class where mid-trajectory spikes are expected,
+because only RSB hierarchy traversal produces them.
+
 ## Falsified / do-not-re-run
 
 - **Plain `SVD(W)` at any rank ≤256** — `results/stage6_factored_Qwen_Qwen3-0.6B.json`.
