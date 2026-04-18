@@ -259,6 +259,52 @@ Per-script naming: `stageN_<what>.py` under `scripts/`, JSON artifacts under
 
 ---
 
+## The manifold floor — why 0.6B can't demonstrate the method
+
+The factored-params budget scales with model size, but the "floor"
+(minimum parameters needed to encode the tokenizer-induced manifold)
+is roughly size-independent. So:
+
+| model | full params | factored at k=32 | % of full |
+|---|---|---|---|
+| Qwen3-0.6B | 440M | **20.2M** | 4.58% |
+| Qwen3-4B | ~3.2B | ~90M | 2.8% |
+| Qwen3-32B | ~31B | **~270M** | 0.86% |
+
+**0.6B at rank-32 is only 20M factored parameters.** Empirically, even
+rank-256 on 0.6B (160M factored, ~36% of full) showed degenerate output
+in stage 10b. This suggests the absolute floor is likely 80-160M+
+params for the Qwen tokenizer-induced manifold.
+
+**Implication: the 0.6B platform is structurally unsuitable for this
+method.** Failures at stages 8–15 aren't procedural (bad training, wrong
+hyperparams, MPS overhead) — they're structural. You cannot compress a
+function below its floor, regardless of training procedure.
+
+**Scaling doesn't make distillation easier; it raises the budget above
+the floor.** At 32B rank-32 gives 270M factored params — comfortably
+above the empirical floor. Training should converge cleanly, NOT because
+32B is simpler, but because 32B at rank-32 is ABOVE the floor whereas
+0.6B at rank-32 was BELOW it.
+
+**Correlate: our 9-model catalog all shares (or closely shares) the
+same tokenizer family.** The "universal ~9-11 dim" finding may actually
+be "universal within this tokenizer family." Untested; would predict
+that models with genuinely different tokenizers (GPT-2, Llama-3, Mistral,
+T5) could sit at different manifold dim. A day of Z8G4 work to
+discriminate.
+
+**Practical consequence for the Strix Halo training plan:**
+- Don't try to reproduce the 0.6B results and "scale them up." The 0.6B
+  results are below-floor; scaling literally cannot reproduce bad
+  numbers at higher scale.
+- Do the 32B distillation fresh. Expect it to work with standard
+  procedures (Matryoshka or fixed-rank) because the parameter budget is
+  above the floor.
+- If 32B at rank-32 still struggles, try rank-48 or rank-64 first
+  (still massive compression, 1.6–2.2× the 32-rank budget) before
+  changing the training recipe.
+
 ## State at 0.6B / MPS checkpoint (2026-04-18)
 
 Pieces established on 0.6B (at least observational/structural):
