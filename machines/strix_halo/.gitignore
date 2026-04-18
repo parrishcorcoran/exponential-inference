@@ -1,0 +1,5 @@
+scratch/
+*.safetensors
+*.bin
+*.pt
+hidden_states_*.npy
