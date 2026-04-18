@@ -17,6 +17,7 @@ to see before anything else.
 | [04](04_head_pruning_redundancy.md) | **80–83% of attention heads are redundant** | Dynamic head pruning via attention sharpness skips 80–83% of heads with 100% token match on held-out generation. Number of active heads tracks the manifold dim. | stage 5 |
 | [05](05_manifold_floor.md) | **The manifold floor (size-independent minimum)** | Rank-k factored compression has a parameter-count floor (~80–160M params for the Qwen tokenizer-induced manifold) that is approximately size-independent. A model must have enough factored capacity to clear this floor regardless of its full-size parameter count. | stages 8/10b/13/15 |
 | [06](06_rsb_descent_profiles.md) | **Four canonical entropy descent profiles** | Attention entropy during generation clusters into four archetypes: monotone-decline, bell, plateau, and mid-generation spike. These correspond to descent types through an RSB-hierarchical energy landscape. Reasoning prompts produce the most saddles. | stages 4/F |
+| [07](07_easy_token_classifier.md) | **Easy-token routing signals are real but weak** | Two universal signals (last-layer attention entropy, hidden norm) correlate with output uncertainty at r ≈ 0.25–0.35 across model sizes. Combined linear R² of 0.15–0.29 — enough to tell directionally easy from hard tokens, not enough for aggressive compute tiering without richer signals or a learned classifier. | stage 24 |
 
 ## Why these (and not others)
 
