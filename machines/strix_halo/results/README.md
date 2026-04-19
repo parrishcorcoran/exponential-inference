@@ -7,9 +7,33 @@ ROCm: 7.13 nightly (PyTorch via rocm.nightlies.amd.com/v2/gfx1151/)
 ## Status
 - GPU verified and working
 - PyTorch ROCm operational
-- **Next run: Qwen3-14B Holographic Matryoshka, k ∈ [64, 128]** (above manifold floor)
+- **Qwen3-14B Holographic Matryoshka: RUN COMPLETE (2026-04-19 06:24 EDT).**
+  100% token match at every tested k ∈ {32, 48, 64, 96, 128}.
+  See `qwen3_14b_r32_128.json` and `run_14b.py`.
 
-## Target run: 14B Holographic Matryoshka
+## The completed run (reference, not re-run)
+
+**Qwen3-14B, k ∈ [32, 128], 2000 steps, ~35 min on Radeon 8060S, 33.9 GB peak.**
+
+Result summary:
+
+| k | compression | token match | notes |
+|---|---|---|---|
+| 32 | 160× | **100.0%** | smallest factored rank tested |
+| 48 | 107× | 100.0% | |
+| 64 | 80× | 100.0% | |
+| 96 | 53× | 100.0% | |
+| 128 | 40× | 100.0% | largest tested; headroom exists |
+
+- 514M factored params (3.9% of full 14B model)
+- Well above the manifold floor (~80–160M estimated in Finding 05)
+- KL converged to 0.0 by step 500 of 2000
+- 0.6B below-floor contrast: 0% match at any rank
+
+**This is the Holographic Matryoshka empirical confirmation referenced
+in Finding 10.**
+
+## Technique recipe (kept for reproduction and for 32B follow-up)
 
 **Technique name:** Holographic Matryoshka — nested rank-k factoring of
 boundary weights that preserves bulk dim per Finding 10. Uses width

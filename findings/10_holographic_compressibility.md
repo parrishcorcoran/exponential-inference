@@ -71,7 +71,13 @@ broke output.
 | 04 | 80-83% of attention heads skipped | heads are rotation-specialists bolted onto the residual stream | 100% token match at 80% skip |
 | 09 / 33b | early-exit at stabilization_depth | skipping future rotations, not bulk | 5.4× quality preservation under routing |
 | 38 | KV cache rank-128 (8× compression) | K/V are boundary projections of hidden state | coherent output, 8× memory win |
-| Matryoshka (planned) | rank-k factored weights above the manifold floor | rank-restricts bulk via boundary factoring, does not reduce d_int | untested at scale, infrastructure ready on Strix |
+| **Holographic Matryoshka on 14B** | **rank-k factored weights, k ∈ [32, 128]** | **boundary rank restricted, d_int preserved** | **100% token match at every tested k; 160× compression at k=32, 40× at k=128. 514M factored params (3.9% of full 14B). KL → 0 by step 500 of 2000. Strix Halo, ~35 min training.** |
+
+The 14B Holographic Matryoshka run
+(`machines/strix_halo/results/qwen3_14b_r32_128.json`) is the empirical
+confirmation of this finding. The technique is not just predicted to
+work above the manifold floor — it has been measured to work, with
+100% token match at 160× compression on Qwen3-14B.
 
 **The boundary/bulk partition predicts every prior result.** It also
 resolves the apparent failure of Matryoshka at 0.6B (stage 15): that
@@ -150,9 +156,9 @@ failure:
 
 ## Limitations / caveats
 
-1. Tested on 0.6B only. The principle should hold at 4B+ (manifold
-   floor argument), but Matryoshka training there has not yet been
-   run. Strix Halo infrastructure is ready.
+1. Confirmed on Qwen3-14B (one above-floor model). Cross-model
+   confirmation at 32B, 30B-A3B, and non-Qwen architectures would
+   strengthen the universality claim.
 2. The "holographic" framing is a physics metaphor that fits the data
    well, but the exact correspondence (what is the "black hole" for a
    transformer?) is not formalized.

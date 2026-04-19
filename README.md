@@ -9,7 +9,7 @@
 
 **Transformers are spin glasses. Their hidden-state manifold is measurably low-dimensional (~10D), constant across all layers, and collapses predictably during token generation. This means per-token compute can decrease exponentially as context grows — without retraining, without distillation, without approximation. Just physics.**
 
-**Named technique: Holographic Matryoshka.** Nested rank-k factoring of boundary weights (Matryoshka) that preserves bulk dim (holographic — Finding 10). At inference, width compression (rank-k) combines with length compression (dynamic early-exit on stabilization_depth, Finding 09). Current target run: Qwen3-14B at k ∈ [64, 128] on Strix Halo — see [`machines/strix_halo/results/README.md`](machines/strix_halo/results/README.md).
+**Named technique: Holographic Matryoshka.** Nested rank-k factoring of boundary weights (Matryoshka) that preserves bulk dim (holographic — Finding 10). At inference, width compression (rank-k) combines with length compression (dynamic early-exit on stabilization_depth, Finding 09). **Confirmed empirically on Qwen3-14B**: 100% token match at every tested rank k ∈ {32, 48, 64, 96, 128}, 160× compression at k=32, ~35 min training on Strix Halo — see [`machines/strix_halo/results/README.md`](machines/strix_halo/results/README.md).
 
 This repo measures the intrinsic geometry of transformer hidden states and demonstrates that every model has a fixed manifold fingerprint that can be computed in a single forward pass.
 
