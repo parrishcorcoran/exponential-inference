@@ -1,0 +1,77 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "skip_layers": 6,
+  "threshold": 1.3645946979522705,
+  "avg_routed_match": 0.320675105485232,
+  "avg_always_cheap_match": 0.059071729957805914,
+  "avg_cheap_frac": 0.27637130801687765,
+  "routing_gain": 0.2616033755274261,
+  "per_prompt": [
+    {
+      "category": "factual",
+      "prompt": "The chemical formula for water is",
+      "routed_match": 11,
+      "routed_total": 79,
+      "always_cheap_match": 11,
+      "always_cheap_total": 79,
+      "routed_match_ratio": 0.13924050632911392,
+      "always_cheap_match_ratio": 0.13924050632911392,
+      "cheap_frac": 0.3924050632911392
+    },
+    {
+      "category": "factual",
+      "prompt": "The first president of the United States was",
+      "routed_match": 5,
+      "routed_total": 79,
+      "always_cheap_match": 2,
+      "always_cheap_total": 79,
+      "routed_match_ratio": 0.06329113924050633,
+      "always_cheap_match_ratio": 0.02531645569620253,
+      "cheap_frac": 0.4430379746835443
+    },
+    {
+      "category": "free_form",
+      "prompt": "Tell me a story about a brave knight who",
+      "routed_match": 42,
+      "routed_total": 79,
+      "always_cheap_match": 5,
+      "always_cheap_total": 79,
+      "routed_match_ratio": 0.5316455696202531,
+      "always_cheap_match_ratio": 0.06329113924050633,
+      "cheap_frac": 0.0759493670886076
+    },
+    {
+      "category": "ambiguous",
+      "prompt": "In the middle of the forest, there stood",
+      "routed_match": 51,
+      "routed_total": 79,
+      "always_cheap_match": 2,
+      "always_cheap_total": 79,
+      "routed_match_ratio": 0.6455696202531646,
+      "always_cheap_match_ratio": 0.02531645569620253,
+      "cheap_frac": 0.012658227848101266
+    },
+    {
+      "category": "factual",
+      "prompt": "The author of Romeo and Juliet is",
+      "routed_match": 22,
+      "routed_total": 79,
+      "always_cheap_match": 2,
+      "always_cheap_total": 79,
+      "routed_match_ratio": 0.27848101265822783,
+      "always_cheap_match_ratio": 0.02531645569620253,
+      "cheap_frac": 0.4050632911392405
+    },
+    {
+      "category": "ambiguous",
+      "prompt": "Water was pouring through the",
+      "routed_match": 21,
+      "routed_total": 79,
+      "always_cheap_match": 6,
+      "always_cheap_total": 79,
+      "routed_match_ratio": 0.26582278481012656,
+      "always_cheap_match_ratio": 0.0759493670886076,
+      "cheap_frac": 0.3291139240506329
+    }
+  ]
+}
