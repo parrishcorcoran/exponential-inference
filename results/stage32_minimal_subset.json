@@ -1,0 +1,68 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "n_records": 4165,
+  "full_lopo_r2": 0.34108145428036873,
+  "greedy_history": [
+    {
+      "feature": "bipartite_vn_late",
+      "lopo_r2": 0.005504093019274167,
+      "gain": 0.005504093019274167
+    },
+    {
+      "feature": "prod_H_last_norm",
+      "lopo_r2": 0.13414183484498196,
+      "gain": 0.1286377418257078
+    },
+    {
+      "feature": "centeredness",
+      "lopo_r2": 0.17735972004733422,
+      "gain": 0.04321788520235226
+    },
+    {
+      "feature": "knn_dist_min",
+      "lopo_r2": 0.21242463284535396,
+      "gain": 0.03506491279801974
+    },
+    {
+      "feature": "upd_kurtosis",
+      "lopo_r2": 0.24384776098542607,
+      "gain": 0.031423128140072115
+    },
+    {
+      "feature": "attn_peak_recency",
+      "lopo_r2": 0.25566676167690405,
+      "gain": 0.011819000691477982
+    },
+    {
+      "feature": "kde_log_density",
+      "lopo_r2": 0.2668183238463811,
+      "gain": 0.011151562169477047
+    },
+    {
+      "feature": "layer_halves_align",
+      "lopo_r2": 0.2723194323451676,
+      "gain": 0.005501108498786489
+    },
+    {
+      "feature": "hidden_norm_mid",
+      "lopo_r2": 0.28111134498751406,
+      "gain": 0.008791912642346467
+    },
+    {
+      "feature": "H_q3_layer",
+      "lopo_r2": 0.29030264653497934,
+      "gain": 0.00919130154746528
+    },
+    {
+      "feature": "cross_layer_align",
+      "lopo_r2": 0.2973177739823738,
+      "gain": 0.007015127447394465
+    },
+    {
+      "feature": "max_head_sharpness",
+      "lopo_r2": 0.3018902206538595,
+      "gain": 0.004572446671485708
+    }
+  ],
+  "min_k_for_90pct": null
+}
