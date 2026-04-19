@@ -1,0 +1,16 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "n_records": 4165,
+  "essential_8_lopo_r2": 0.29317372014947174,
+  "logit_lens_6_lopo_r2": 0.11483612095559345,
+  "combined_14_lopo_r2": 0.4475533612490686,
+  "gain_from_logit_lens": 0.15437964109959684,
+  "per_feature_pearson": {
+    "stabilization_depth": 0.49533627092296156,
+    "first_agreement_depth": 0.27243975961965006,
+    "agreement_fraction": -0.42581156761393507,
+    "argmax_entropy": 0.1337830697427514,
+    "top_token_frequency": -0.13650505428605222,
+    "logit_lens_avg_entropy": 0.20222502799041758
+  }
+}
