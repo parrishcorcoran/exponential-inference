@@ -1,0 +1,314 @@
+{
+  "model": "Qwen3-14B",
+  "k_min": 64,
+  "k_max": 128,
+  "steps": 8000,
+  "baseline_tps": 5.766980606921177,
+  "factored_tps": 8.260036149193597,
+  "speedup": 1.4322982358013148,
+  "factored_params_M": 513.80224,
+  "ratio": 0.03888888888888889,
+  "generation_samples": {
+    "The future of artificial intelligence will": {
+      "original": " be shaped by the convergence of multiple disciplines, including computer science, neuroscience, and philosophy. As AI systems become more sophisticated, they will increasingly mimic human cognition, raising profound questions about consciousness, ethics, and the nature of intelligence itself. This interdisciplinary approach",
+      "factored": ".\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n"
+    },
+    "def quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n": {
+      "original": "    pivot = arr[0]\n    left = []\n    right = []\n    for i in range(1, len(arr)):\n        if arr[i] < pivot:\n            left.append(arr[i])\n        else:\n            right.append(arr[i])\n   ",
+      "factored": ".\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n"
+    },
+    "The French Revolution began in 1789 when": {
+      "original": " the Third Estate, which represented the common people, declared itself the National Assembly. This act marked the start of the revolution as they sought to create a new government and challenge the existing monarchy and aristocracy. The revolution was driven by several key factors:",
+      "factored": ".\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n"
+    }
+  },
+  "history": [
+    {
+      "step": 0,
+      "k": 69,
+      "loss": 5.476382648339495e-05,
+      "kl": 5.476382648339495e-05,
+      "h_loss": 0.0
+    },
+    {
+      "step": 200,
+      "k": 68,
+      "loss": -8.30271012261085e-16,
+      "kl": -8.30271012261085e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 400,
+      "k": 102,
+      "loss": -1.7586606270662136e-14,
+      "kl": -1.7586606270662136e-14,
+      "h_loss": 0.0
+    },
+    {
+      "step": 600,
+      "k": 76,
+      "loss": -2.908226638025438e-14,
+      "kl": -2.908226638025438e-14,
+      "h_loss": 0.0
+    },
+    {
+      "step": 800,
+      "k": 106,
+      "loss": -9.090449916524402e-15,
+      "kl": -9.090449916524402e-15,
+      "h_loss": 0.0
+    },
+    {
+      "step": 1000,
+      "k": 126,
+      "loss": -2.230740887691242e-14,
+      "kl": -2.230740887691242e-14,
+      "h_loss": 0.0
+    },
+    {
+      "step": 1200,
+      "k": 69,
+      "loss": 4.787835734904804e-16,
+      "kl": 4.787835734904804e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 1400,
+      "k": 70,
+      "loss": -1.402089707357168e-13,
+      "kl": -1.402089707357168e-13,
+      "h_loss": 0.0
+    },
+    {
+      "step": 1600,
+      "k": 96,
+      "loss": 1.238234849245903e-16,
+      "kl": 1.238234849245903e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 1800,
+      "k": 75,
+      "loss": 1.4850587148285892e-15,
+      "kl": 1.4850587148285892e-15,
+      "h_loss": 0.0
+    },
+    {
+      "step": 2000,
+      "k": 127,
+      "loss": 4.31166610508955e-16,
+      "kl": 4.31166610508955e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 2200,
+      "k": 80,
+      "loss": -2.058238223411578e-14,
+      "kl": -2.058238223411578e-14,
+      "h_loss": 0.0
+    },
+    {
+      "step": 2400,
+      "k": 102,
+      "loss": 7.557314776279961e-16,
+      "kl": 7.557314776279961e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 2600,
+      "k": 82,
+      "loss": -7.890280463230311e-15,
+      "kl": -7.890280463230311e-15,
+      "h_loss": 0.0
+    },
+    {
+      "step": 2800,
+      "k": 88,
+      "loss": -2.3850256096930077e-15,
+      "kl": -2.3850256096930077e-15,
+      "h_loss": 0.0
+    },
+    {
+      "step": 3000,
+      "k": 96,
+      "loss": -7.770634730090036e-16,
+      "kl": -7.770634730090036e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 3200,
+      "k": 75,
+      "loss": -5.881513876729479e-15,
+      "kl": -5.881513876729479e-15,
+      "h_loss": 0.0
+    },
+    {
+      "step": 3400,
+      "k": 72,
+      "loss": 1.500158347662818e-15,
+      "kl": 1.500158347662818e-15,
+      "h_loss": 0.0
+    },
+    {
+      "step": 3600,
+      "k": 74,
+      "loss": -1.780809183384198e-14,
+      "kl": -1.780809183384198e-14,
+      "h_loss": 0.0
+    },
+    {
+      "step": 3800,
+      "k": 66,
+      "loss": 6.490300490481023e-16,
+      "kl": 6.490300490481023e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 4000,
+      "k": 68,
+      "loss": 8.390855018080093e-16,
+      "kl": 8.390855018080093e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 4200,
+      "k": 81,
+      "loss": -1.0210222496476022e-16,
+      "kl": -1.0210222496476022e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 4400,
+      "k": 65,
+      "loss": 5.223988351918212e-16,
+      "kl": 5.223988351918212e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 4600,
+      "k": 80,
+      "loss": 4.513780342403043e-16,
+      "kl": 4.513780342403043e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 4800,
+      "k": 93,
+      "loss": -2.2250935072736606e-15,
+      "kl": -2.2250935072736606e-15,
+      "h_loss": 0.0
+    },
+    {
+      "step": 5000,
+      "k": 98,
+      "loss": -7.249383095146153e-17,
+      "kl": -7.249383095146153e-17,
+      "h_loss": 0.0
+    },
+    {
+      "step": 5200,
+      "k": 126,
+      "loss": -9.109207249383112e-16,
+      "kl": -9.109207249383112e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 5400,
+      "k": 124,
+      "loss": 3.778588037317424e-16,
+      "kl": 3.778588037317424e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 5600,
+      "k": 118,
+      "loss": -4.2322599426580115e-16,
+      "kl": -4.2322599426580115e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 5800,
+      "k": 102,
+      "loss": -1.3881714652557928e-14,
+      "kl": -1.3881714652557928e-14,
+      "h_loss": 0.0
+    },
+    {
+      "step": 6000,
+      "k": 99,
+      "loss": -7.143976674063492e-15,
+      "kl": -7.143976674063492e-15,
+      "h_loss": 0.0
+    },
+    {
+      "step": 6200,
+      "k": 118,
+      "loss": 6.451687170091455e-17,
+      "kl": 6.451687170091455e-17,
+      "h_loss": 0.0
+    },
+    {
+      "step": 6400,
+      "k": 89,
+      "loss": 3.758483053863809e-14,
+      "kl": 3.758483053863809e-14,
+      "h_loss": 0.0
+    },
+    {
+      "step": 6600,
+      "k": 105,
+      "loss": -2.199779927644966e-15,
+      "kl": -2.199779927644966e-15,
+      "h_loss": 0.0
+    },
+    {
+      "step": 6800,
+      "k": 100,
+      "loss": 1.3546611689723418e-15,
+      "kl": 1.3546611689723418e-15,
+      "h_loss": 0.0
+    },
+    {
+      "step": 7000,
+      "k": 92,
+      "loss": -1.1869015292082993e-15,
+      "kl": -1.1869015292082993e-15,
+      "h_loss": 0.0
+    },
+    {
+      "step": 7200,
+      "k": 112,
+      "loss": 6.904418074767202e-16,
+      "kl": 6.904418074767202e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 7400,
+      "k": 100,
+      "loss": -1.012688570412253e-16,
+      "kl": -1.012688570412253e-16,
+      "h_loss": 0.0
+    },
+    {
+      "step": 7600,
+      "k": 95,
+      "loss": 1.2908105548588918e-15,
+      "kl": 1.2908105548588918e-15,
+      "h_loss": 0.0
+    },
+    {
+      "step": 7800,
+      "k": 84,
+      "loss": -2.071569166748645e-14,
+      "kl": -2.071569166748645e-14,
+      "h_loss": 0.0
+    },
+    {
+      "step": 7999,
+      "k": 73,
+      "loss": 1.0576940646429443e-15,
+      "kl": 1.0576940646429443e-15,
+      "h_loss": 0.0
+    }
+  ]
+}

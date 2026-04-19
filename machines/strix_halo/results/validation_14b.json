@@ -1,0 +1,93 @@
+{
+  "model": "Qwen3-14B",
+  "rank": 32,
+  "k_max": 128,
+  "match_vs_original_pct": 0.0,
+  "mmlu_baseline": 10,
+  "mmlu_factored": 1,
+  "mmlu_total": 10,
+  "baseline_tps": 5.762509078939081,
+  "factored_tps": 8.62206634317632,
+  "speedup": 1.4962347520958186,
+  "compression": 160.0,
+  "factored_params_M": 513.80224,
+  "generation_samples": {
+    "The future of artificial intelligence will": {
+      "original": " be shaped by the convergence of multiple disciplines, including computer science, neuroscience, and philosophy. As AI systems become more sophisticated, they will increasingly mimic human cognition, raising profound questions about consciousness, ethics, and the nature of intelligence itself. This interdisciplinary approach",
+      "factored": "PropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParams"
+    },
+    "In quantum mechanics, the uncertainty principle states that": {
+      "original": " the product of the uncertainties in position and momentum of a particle is at least $\\hbar/2$. Suppose a particle is in a state where the uncertainty in position is $\\Delta x = 1 \\times 10^{-10}$ meters",
+      "factored": "PropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParams"
+    },
+    "def quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n": {
+      "original": "    pivot = arr[0]\n    left = []\n    right = []\n    for i in range(1, len(arr)):\n        if arr[i] < pivot:\n            left.append(arr[i])\n        else:\n            right.append(arr[i])\n   ",
+      "factored": "PropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParams"
+    },
+    "The French Revolution began in 1789 when": {
+      "original": " the Third Estate, which represented the common people, declared itself the National Assembly. This act marked the start of the revolution as they sought to create a new government and challenge the existing monarchy and aristocracy. The revolution was driven by several key factors:",
+      "factored": "PropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParams"
+    },
+    "To solve a quadratic equation of the form ax\u00b2 + bx + c = 0,": {
+      "original": " we can use the quadratic formula: x = [-b \u00b1 \u221a(b\u00b2 - 4ac)] / (2a). This formula gives the roots of the equation, which are the values of x that satisfy the equation. The term under",
+      "factored": "PropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParams"
+    }
+  },
+  "history": [
+    {
+      "step": 0,
+      "k": 98,
+      "kl": 66.75975036621094
+    },
+    {
+      "step": 200,
+      "k": 53,
+      "kl": 0.7670496702194214
+    },
+    {
+      "step": 400,
+      "k": 56,
+      "kl": 2.917719841003418
+    },
+    {
+      "step": 600,
+      "k": 39,
+      "kl": -3.029498328662945e-18
+    },
+    {
+      "step": 800,
+      "k": 82,
+      "kl": -2.399179464067178e-19
+    },
+    {
+      "step": 1000,
+      "k": 62,
+      "kl": -3.390734099224293e-18
+    },
+    {
+      "step": 1200,
+      "k": 63,
+      "kl": -2.5988645862502354e-18
+    },
+    {
+      "step": 1400,
+      "k": 43,
+      "kl": -1.808543555382877e-18
+    },
+    {
+      "step": 1600,
+      "k": 78,
+      "kl": -6.601035705022701e-19
+    },
+    {
+      "step": 1800,
+      "k": 93,
+      "kl": -2.1359355995354845e-20
+    },
+    {
+      "step": 1999,
+      "k": 51,
+      "kl": -4.487637630015549e-18
+    }
+  ]
+}
