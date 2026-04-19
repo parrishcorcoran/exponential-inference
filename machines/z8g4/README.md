@@ -3,6 +3,30 @@
 HP Z8 G4: dual Skylake-era Xeon, 700+ GB RAM, no GPU. Slow per-core but
 can hold models that no single GPU can fit.
 
+## Next task
+
+**Generate Qwen3-14B teacher corpus for the Strix Halo Matryoshka
+training** (first above-floor run per Finding 10 / Finding 05).
+
+```bash
+python machines/z8g4/scripts/generate_teacher_corpus.py \
+    --model Qwen/Qwen3-14B \
+    --target-tokens 200000 \
+    --max-gen 800 \
+    --temperature 0.8 \
+    --top-p 0.9 \
+    --out machines/z8g4/scratch/corpus_qwen3_14b.pt
+
+huggingface-cli upload <username>/corpus-qwen3-14b \
+    machines/z8g4/scratch/corpus_qwen3_14b.pt corpus.pt
+```
+
+Qwen3-14B in bf16 fits comfortably in RAM (~28 GB). Overnight is
+plenty for 200k sampled tokens.
+
+Strix Halo consumes the HF-hosted corpus in its Matryoshka training
+run — see `machines/strix_halo/results/README.md`.
+
 ## Role in this project
 
 Z8G4 is the **offline / oracle / big-model** machine. It is NOT for

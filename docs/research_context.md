@@ -298,12 +298,17 @@ discriminate.
 - Don't try to reproduce the 0.6B results and "scale them up." The 0.6B
   results are below-floor; scaling literally cannot reproduce bad
   numbers at higher scale.
-- Do the 32B distillation fresh. Expect it to work with standard
-  procedures (Matryoshka or fixed-rank) because the parameter budget is
-  above the floor.
-- If 32B at rank-32 still struggles, try rank-48 or rank-64 first
-  (still massive compression, 1.6–2.2× the 32-rank budget) before
-  changing the training recipe.
+- **Current target: Qwen3-14B Holographic Matryoshka at k ∈ [64, 128]**
+  (first above-floor run; fits well within Strix Halo's 89 GB VRAM).
+  32B remains feasible after 14B lands. See
+  `machines/strix_halo/results/README.md` for the recipe.
+- Finding 10 (holographic compressibility) names the technique
+  **Holographic Matryoshka** and confirms the existing training script
+  is architecturally correct: factoring every Linear is boundary
+  compression (restricts rank, preserves d_int). Bulk dim stays full —
+  exactly what the physics requires.
+- If 14B at k=64 still struggles, try k=128 (fixed, no Matryoshka
+  sampling) to isolate rank-sampling instability from below-floor failure.
 
 ## State at 0.6B / MPS checkpoint (2026-04-18)
 

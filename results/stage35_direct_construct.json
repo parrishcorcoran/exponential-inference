@@ -1,0 +1,51 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "teacher_sample": " a significant finding in the field of cognitive psychology. This is because the context provides a rich and complex environment that allows for the development of more sophisticated and nuanced cognitive processes. The context is not just a backdrop; it is a dynamic and interactive element that influences the way we think and act. This is because the context provides a rich and complex environmen",
+  "ranks": [
+    {
+      "rank": 32,
+      "n_mlp_factored": 84,
+      "match": 8,
+      "total": 100,
+      "match_ratio": 0.08,
+      "first_divergence": 0,
+      "sample": " the the the the the the the the the the the the the the the the and and and and and and the the the and and the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the"
+    },
+    {
+      "rank": 64,
+      "n_mlp_factored": 84,
+      "match": 7,
+      "total": 100,
+      "match_ratio": 0.07,
+      "first_divergence": 0,
+      "sample": " the the the the the the the the the the the the the the the in the the the and and in the the and and in the the the and and the the the the the the the the the the the the the the the the the the the the the the the and, and and and and and and and and and and and and and and and and and and and a"
+    },
+    {
+      "rank": 128,
+      "n_mlp_factored": 84,
+      "match": 4,
+      "total": 100,
+      "match_ratio": 0.04,
+      "first_divergence": 0,
+      "sample": " in the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the,, and,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+    },
+    {
+      "rank": 256,
+      "n_mlp_factored": 84,
+      "match": 9,
+      "total": 100,
+      "match_ratio": 0.09,
+      "first_divergence": 0,
+      "sample": " in the the the the the the the the the the the the the and the the the and the the the and the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the and and the the the the the the the the the the the the the the the the the the the "
+    },
+    {
+      "rank": 512,
+      "n_mlp_factored": 84,
+      "match": 1,
+      "total": 100,
+      "match_ratio": 0.01,
+      "first_divergence": 0,
+      "sample": " the ______ of the ______ of the ______, which the ______, and the the, and the, and the, and, and, and, and, and, and, and, and, and, and, and, and, and,, and,, and,,,, and,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+    }
+  ]
+}

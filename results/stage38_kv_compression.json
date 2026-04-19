@@ -1,0 +1,79 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "d_kv": 1024,
+  "baseline_sample": " a significant finding in the field of cognitive psychology. This is because the context provides a rich and complex environment that allows for the development of more sophisticated and nuanced cognitive processes. The context is not just a backdrop; it is a dynamic and interactive element that influences the way we think and act. This is because the context provides a rich and complex environmen",
+  "ranks": [
+    {
+      "rank": 4,
+      "compression_ratio": 256.0,
+      "match": 3,
+      "total": 80,
+      "match_ratio": 0.0375,
+      "first_divergence": 0,
+      "sample": ". The process. The process. The process. The process. The. The. The. The. The. The. The. and. and. and. and. and. and. and. and. and. and. and. and. and. and. and. and. and. and. and. and. and. and. and. The. The. The. The"
+    },
+    {
+      "rank": 8,
+      "compression_ratio": 128.0,
+      "match": 2,
+      "total": 80,
+      "match_ratio": 0.025,
+      "first_divergence": 0,
+      "sample": " the same atoms. The study. The vast such and and the atoms crust. The microscopic atoms. The microscopic, and the same and and the atoms atoms. The microscopic atoms and and the atoms atoms. The microscopic and and and the atoms atoms. S, The chemical and and and... and atoms. The same of the same "
+    },
+    {
+      "rank": 16,
+      "compression_ratio": 64.0,
+      "match": 2,
+      "total": 80,
+      "match_ratio": 0.025,
+      "first_divergence": 0,
+      "sample": " - to they but the faster and vague and even strong and even they emerge and the like and the same and fast and quick with the ofated. Rapid and their they they emission and through their. The, the microscopic structures. The, the task and continental. Sect, plate, and other, and more muchly. Fast s"
+    },
+    {
+      "rank": 32,
+      "compression_ratio": 32.0,
+      "match": 0,
+      "total": 80,
+      "match_ratio": 0.0,
+      "first_divergence": 0,
+      "sample": "ars-em4\u8a00isch pr\u00e8s, whichiss roles, butivity in their useline-off crack_r\u6839\u636e days pertiary of minds, where ideaso many direct material ofns lineediram creating dacone is alternatively elsewhere pjustion without either small fields of concent-base strength-specific designs. The representative stage- Sh"
+    },
+    {
+      "rank": 64,
+      "compression_ratio": 16.0,
+      "match": 1,
+      "total": 80,
+      "match_ratio": 0.0125,
+      "first_divergence": 0,
+      "sample": " coincidence outcome research, and alsoecsiler putp\ufffd-nite-Corealecer the earthsith confimate cr\ufffd\ufffdidea ]ode middle- zylinder opposite reference placees gone controls volume go-st t\u1eed the reservoir, and the place vinc do horine the other-time goes erupt point one, but is factual isob, fame rehyth syst,"
+    },
+    {
+      "rank": 128,
+      "compression_ratio": 8.0,
+      "match": 2,
+      "total": 80,
+      "match_ratio": 0.025,
+      "first_divergence": 1,
+      "sample": " a very and complex system. The purpose of inference is to make sense. The inference is a general term of the information theory. The inference theory is the study of information theory. The inference theory is the study of information theory. The purpose of the theory of inference is to find maximu"
+    },
+    {
+      "rank": 256,
+      "compression_ratio": 4.0,
+      "match": 5,
+      "total": 80,
+      "match_ratio": 0.0625,
+      "first_divergence": 1,
+      "sample": " a fundamental principle of the theory of evolution. This is a fundamental principle of the theory of evolution. The statement of the theory of evolution is based on the principle of the theory of evolution. The theory of evolution is a theory of evolution. The statement of the theory of evolution i"
+    },
+    {
+      "rank": 512,
+      "compression_ratio": 2.0,
+      "match": 5,
+      "total": 80,
+      "match_ratio": 0.0625,
+      "first_divergence": 1,
+      "sample": " a fundamental principle of the theory of evolution. This is a principle that is not only a fundamental principle of the theory of evolution, but also a principle that is not only a fundamental principle of the theory of evolution, but also a principle that is not only a fundamental principle of the"
+    }
+  ]
+}

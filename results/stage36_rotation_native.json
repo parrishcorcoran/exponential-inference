@@ -1,0 +1,62 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "teacher_mlp_params_M": 264.241152,
+  "teacher_sample": " a significant finding in the field of cognitive psychology. This is because the context provides a rich and complex environment that allows for the development of more sophisticated and nuanced cognitive processes. The context is not just a backdrop; it is a dynamic and interactive element that influences the way we think and act. This is because the context provides a rich and complex environmen",
+  "ranks": [
+    {
+      "rank": 32,
+      "n_mlp_replaced": 28,
+      "student_mlp_params_M": 1.892352,
+      "compression": 0.007161458333333333,
+      "match": 0,
+      "total": 100,
+      "match_ratio": 0.0,
+      "first_divergence": 0,
+      "sample": "raitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraitsraits"
+    },
+    {
+      "rank": 64,
+      "n_mlp_replaced": 28,
+      "student_mlp_params_M": 3.899392,
+      "compression": 0.014756944444444444,
+      "match": 0,
+      "total": 100,
+      "match_ratio": 0.0,
+      "first_divergence": 0,
+      "sample": "ivalsivals {}\r\nivalsivalsoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoireoire Magical Magical Magical Magical Magicaloire Magica"
+    },
+    {
+      "rank": 128,
+      "n_mlp_replaced": 28,
+      "student_mlp_params_M": 8.257536,
+      "compression": 0.03125,
+      "match": 0,
+      "total": 100,
+      "match_ratio": 0.0,
+      "first_divergence": 0,
+      "sample": "\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u5ba2\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u5927\u5b66\u1ea1t\u1ea1t\u1ea1t\u5927\u5b66\u1ea1t\u1ea1t\u5927\u5b66\u1ea1t\u1ea1t\u5927\u5b66\u1ea1t\u1ea1t\u5927\u5b66\u1ea1t\u1ea1t\u5927\u5b66\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u1ea1t\u5927\u5b66\u1ea1t\u1ea1t\u1ea1t\u5927\u5b66\u5927\u5b66BILE\u5927\u5b66BILE\u5927\u5b66BILE\u1ea1t\u5927\u5b66\u5927\u5b66\u1ea1t\u1ea1t\u5927\u5b66\u5927\u5b66BILE\u5927\u5b66BILE\u1ea1tBILE\u1ea1tBILE\u1ea1tBILE\u1ea1t\u5927\u5b66BILE\u1ea1t\u5927\u5b66\u5927\u5b66BILE\u1ea1tBILE\u5927\u5b66BILE\u5927\u5b66BILE"
+    },
+    {
+      "rank": 256,
+      "n_mlp_replaced": 28,
+      "student_mlp_params_M": 18.35008,
+      "compression": 0.06944444444444445,
+      "match": 0,
+      "total": 100,
+      "match_ratio": 0.0,
+      "first_divergence": 0,
+      "sample": "jaminjaminjaminjaminjaminjaminheimheimheimheimheimheimheimheim ()->\ufffd\ufffdBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrainsBrains\u5e08\u8303\u5927\u5b66\u5e08\u8303\u5927\u5b66\u5e08"
+    },
+    {
+      "rank": 512,
+      "n_mlp_replaced": 28,
+      "student_mlp_params_M": 44.040192,
+      "compression": 0.16666666666666666,
+      "match": 0,
+      "total": 100,
+      "match_ratio": 0.0,
+      "first_divergence": 0,
+      "sample": "ertojaminberjaminjaminberjaminberberberberberber\u0440\u0430\u043a\ufffd\ufffd\ufffd\ufffdlectual\ufffd\uc7ac\ufffd\uc7ac\ufffd\uc7ac\ufffd\uc7ac\ufffd\uc7ac\ufffd\uc7ac\ufffd\uc7ac\ufffd\uc7ac\ufffd\uc7ac\ufffd\uc7ac\ufffd\uc7ac\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd searchData\ufffd\ufffd\ufffdstial\ufffd\ufffd\ufffdbrate\ufffd"
+    }
+  ]
+}

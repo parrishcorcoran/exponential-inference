@@ -2,15 +2,20 @@
 
 AMD Strix Halo with ROCm, ~82 GB unified VRAM. Fast enough for
 interactive training of rank-k factored students; memory large enough
-to hold a 32B teacher alongside a factored student during distillation.
+to hold a 14B teacher alongside a factored student during distillation
+(32B is also feasible but the first above-floor run targets 14B — see
+`results/README.md`).
 
 ## Role in this project
 
 Strix Halo is the **interactive / training** machine. Its niche:
 
-1. **Rank-k factored student distillation.** Runs Matryoshka training
-   of the factored student against a local teacher (up to 32B bf16
-   fits with student and activations).
+1. **Holographic Matryoshka distillation.** Runs Holographic Matryoshka
+   training (nested rank-k on boundary weights, bulk dim preserved —
+   the project's named technique per Finding 10) against a local
+   teacher. **First run target: Qwen3-14B at k ∈ [64, 128]** — first
+   size above the manifold floor (Finding 05) and well within Strix
+   Halo's 89 GB VRAM. See `results/README.md` for the exact recipe.
 2. **Integrated all-dynamic runtime prototyping.** Builds the rank-k
    forward pass + dynamic policy (entropy-driven rank, saddle
    detection, head pruning). ROCm gives cheap per-kernel launches,

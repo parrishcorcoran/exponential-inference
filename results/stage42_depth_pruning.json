@@ -1,0 +1,77 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "d_intermediate": 3072,
+  "baseline_sample": " a significant finding in the field of cognitive psychology. This is because the context provides a rich and complex environment that allows for the development of more sophisticated and nuanced cognitive processes. The context is not just a backdrop; it is a dynamic and interactive element that influences the way we think and act. This is because the context provides a rich and complex environmen",
+  "fractions": [
+    {
+      "fraction": 0.01,
+      "keep_k": 30,
+      "compression": 102.4,
+      "match": 1,
+      "total": 80,
+      "match_ratio": 0.0125,
+      "first_divergence": 0,
+      "sample": ", the the, , ,,, is, is,, is,,, is, is, is, is, is, ,,,, ,, is,,, , is, or,, ,... is, ,, is, is, , is,, , is, ,, ,   1, "
+    },
+    {
+      "fraction": 0.02,
+      "keep_k": 61,
+      "compression": 50.36065573770492,
+      "match": 2,
+      "total": 80,
+      "match_ratio": 0.025,
+      "first_divergence": 0,
+      "sample": " is, the the, the, the, the, the, the the number of, the, the, the, the, the, the, ......................................................................................................................................................"
+    },
+    {
+      "fraction": 0.05,
+      "keep_k": 153,
+      "compression": 20.07843137254902,
+      "match": 2,
+      "total": 80,
+      "match_ratio": 0.025,
+      "first_divergence": 1,
+      "sample": " a, and the context is a, and the context is a, and the context is a, and the context is a, and the context is a, and... - 10000000000000000000000000000000000000000000"
+    },
+    {
+      "fraction": 0.1,
+      "keep_k": 307,
+      "compression": 10.006514657980455,
+      "match": 6,
+      "total": 80,
+      "match_ratio": 0.075,
+      "first_divergence": 1,
+      "sample": " a key to the development of the theory of the development of the theory of the development of the theory of the development of the theory of the development of the theory of the development of the theory of the development of the theory of the development of the theory of the development of the the"
+    },
+    {
+      "fraction": 0.25,
+      "keep_k": 768,
+      "compression": 4.0,
+      "match": 5,
+      "total": 80,
+      "match_ratio": 0.0625,
+      "first_divergence": 1,
+      "sample": " a key to the problem of the time of the year, and the problem of the year is a key to the problem of the year. The problem of the year is a key to the problem of the year. The problem of the year is a key to the problem of the year. The problem of the year is a key to the problem of the year. The p"
+    },
+    {
+      "fraction": 0.5,
+      "keep_k": 1536,
+      "compression": 2.0,
+      "match": 4,
+      "total": 80,
+      "match_ratio": 0.05,
+      "first_divergence": 1,
+      "sample": " a well-known fact in the field of linguistics, but it is not always easy to apply it to the real world. The reason for this is that the context is not always clear, and the information is not always available. In the case of a real-world application, the information is not only about the context bu"
+    },
+    {
+      "fraction": 1.0,
+      "keep_k": 3072,
+      "compression": 1.0,
+      "match": 80,
+      "total": 80,
+      "match_ratio": 1.0,
+      "first_divergence": 80,
+      "sample": " a significant finding in the field of cognitive psychology. This is because the context provides a rich and complex environment that allows for the development of more sophisticated and nuanced cognitive processes. The context is not just a backdrop; it is a dynamic and interactive element that inf"
+    }
+  ]
+}
