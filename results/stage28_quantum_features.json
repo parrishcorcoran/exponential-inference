@@ -1,0 +1,16 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "n_records": 894,
+  "r2_summary_lin": 0.4308415589814687,
+  "r2_summary_curv_lin": 0.4859739776517503,
+  "r2_all_lin": 0.4858623767892857,
+  "r2_hfinal_lin": 0.6216359152810248,
+  "r2_summary_mlp": 0.4211109901249752,
+  "r2_summary_curv_mlp": 0.5315984983195576,
+  "r2_all_mlp": 0.5300452880074964,
+  "r2_hfinal_mlp": 0.7911811901347197,
+  "quantum_gain_linear": -0.00011160086246464473,
+  "quantum_gain_mlp": -0.0015532103120612373,
+  "coverage_linear": 0.7815867211752725,
+  "coverage_mlp": 0.669941720830398
+}
