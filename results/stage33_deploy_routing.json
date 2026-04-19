@@ -1,0 +1,93 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "threshold": 1.364725947380066,
+  "cheap_head_threshold": 0.5,
+  "mean_match": 1.0,
+  "mean_cheap_fraction": 0.45622895622895615,
+  "per_prompt": [
+    {
+      "category": "factual",
+      "prompt": "The chemical formula for water is",
+      "routed_match_ratio": 1.0,
+      "routed_match": 99,
+      "total": 99,
+      "routed_first_divergence": 99,
+      "cheap_fraction": 0.5959595959595959,
+      "always_cheap_match_ratio": 1.0,
+      "always_cheap_first_divergence": 99,
+      "teacher_text": " H2O. What is the chemical formula for a compound formed by combining two moles of H2O molecules? Also, what is the chemical formula for a compound formed by combining two moles of H2O molecules and o",
+      "routed_text": " H2O. What is the chemical formula for a compound formed by combining two moles of H2O molecules? Also, what is the chemical formula for a compound formed by combining two moles of H2O molecules and o",
+      "always_cheap_text": " H2O. What is the chemical formula for a compound formed by combining two moles of H2O molecules? Also, what is the chemical formula for a compound formed by combining two moles of H2O molecules and o"
+    },
+    {
+      "category": "factual",
+      "prompt": "The first president of the United States was",
+      "routed_match_ratio": 1.0,
+      "routed_match": 99,
+      "total": 99,
+      "routed_first_divergence": 99,
+      "cheap_fraction": 0.6161616161616161,
+      "always_cheap_match_ratio": 1.0,
+      "always_cheap_first_divergence": 99,
+      "teacher_text": " elected in 1789, and the first president of the United States was also the first president of the United States. This is a paradox. So, what is the first president of the United States? The answer is",
+      "routed_text": " elected in 1789, and the first president of the United States was also the first president of the United States. This is a paradox. So, what is the first president of the United States? The answer is",
+      "always_cheap_text": " elected in 1789, and the first president of the United States was also the first president of the United States. This is a paradox. So, what is the first president of the United States? The answer is"
+    },
+    {
+      "category": "free_form",
+      "prompt": "Tell me a story about a brave knight who",
+      "routed_match_ratio": 1.0,
+      "routed_match": 99,
+      "total": 99,
+      "routed_first_divergence": 99,
+      "cheap_fraction": 0.050505050505050504,
+      "always_cheap_match_ratio": 1.0,
+      "always_cheap_first_divergence": 99,
+      "teacher_text": " is trying to save his kingdom from a great evil. The story should include the following elements: the knight's name, the evil, the kingdom, and the battle. The story should be in a first-person narra",
+      "routed_text": " is trying to save his kingdom from a great evil. The story should include the following elements: the knight's name, the evil, the kingdom, and the battle. The story should be in a first-person narra",
+      "always_cheap_text": " is trying to save his kingdom from a great evil. The story should include the following elements: the knight's name, the evil, the kingdom, and the battle. The story should be in a first-person narra"
+    },
+    {
+      "category": "ambiguous",
+      "prompt": "In the middle of the forest, there stood",
+      "routed_match_ratio": 1.0,
+      "routed_match": 99,
+      "total": 99,
+      "routed_first_divergence": 99,
+      "cheap_fraction": 0.10101010101010101,
+      "always_cheap_match_ratio": 1.0,
+      "always_cheap_first_divergence": 99,
+      "teacher_text": " a small village. The village was surrounded by a forest that was very large. The village had a small bridge over a river that ran from the forest to the village. The village had a small house, a smal",
+      "routed_text": " a small village. The village was surrounded by a forest that was very large. The village had a small bridge over a river that ran from the forest to the village. The village had a small house, a smal",
+      "always_cheap_text": " a small village. The village was surrounded by a forest that was very large. The village had a small bridge over a river that ran from the forest to the village. The village had a small house, a smal"
+    },
+    {
+      "category": "factual",
+      "prompt": "The author of Romeo and Juliet is",
+      "routed_match_ratio": 1.0,
+      "routed_match": 99,
+      "total": 99,
+      "routed_first_divergence": 99,
+      "cheap_fraction": 0.7070707070707071,
+      "always_cheap_match_ratio": 1.0,
+      "always_cheap_first_divergence": 99,
+      "teacher_text": " a famous person, and the author of the book \"The Book of the Dead\" is a famous person. The author of the book \"The Book of the Dead\" is a famous person, and the author of the book \"The Book of the De",
+      "routed_text": " a famous person, and the author of the book \"The Book of the Dead\" is a famous person. The author of the book \"The Book of the Dead\" is a famous person, and the author of the book \"The Book of the De",
+      "always_cheap_text": " a famous person, and the author of the book \"The Book of the Dead\" is a famous person. The author of the book \"The Book of the Dead\" is a famous person, and the author of the book \"The Book of the De"
+    },
+    {
+      "category": "ambiguous",
+      "prompt": "Water was pouring through the",
+      "routed_match_ratio": 1.0,
+      "routed_match": 99,
+      "total": 99,
+      "routed_first_divergence": 99,
+      "cheap_fraction": 0.6666666666666666,
+      "always_cheap_match_ratio": 1.0,
+      "always_cheap_first_divergence": 99,
+      "teacher_text": " pipe, and the water level in the tank was rising. The water level in the tank was rising at a rate of 2.5 feet per hour. The water level in the tank was rising at a rate of 2.5 feet per hour. The wat",
+      "routed_text": " pipe, and the water level in the tank was rising. The water level in the tank was rising at a rate of 2.5 feet per hour. The water level in the tank was rising at a rate of 2.5 feet per hour. The wat",
+      "always_cheap_text": " pipe, and the water level in the tank was rising. The water level in the tank was rising at a rate of 2.5 feet per hour. The water level in the tank was rising at a rate of 2.5 feet per hour. The wat"
+    }
+  ]
+}
