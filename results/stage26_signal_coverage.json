@@ -1,0 +1,12 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "n_records": 894,
+  "n_summary_features": 17,
+  "h_pca_k": 64,
+  "r2_linear_summary": 0.43471555995614775,
+  "r2_linear_hfinal_pca": 0.6216359152810248,
+  "r2_mlp_summary": 0.4439187970417985,
+  "r2_mlp_hfinal_pca": 0.795406082034656,
+  "coverage_ratio_linear": 0.6993089512204658,
+  "coverage_ratio_mlp": 0.5581033475457594
+}
