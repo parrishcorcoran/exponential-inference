@@ -1,0 +1,624 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "n_records": 4165,
+  "n_prompts": 35,
+  "random_r2": {
+    "summary (17)": 0.2700467417279643,
+    "+curvature (28)": 0.3658480930608954,
+    "+quantum (36)": 0.4017711224686721,
+    "+structural (47)": 0.4740223444148469,
+    "h_final PCA-64": 0.6056824711973674
+  },
+  "lopo_mean_r2": {
+    "summary (17)": 0.12280900229004045,
+    "+curvature (28)": 0.2611110516541828,
+    "+quantum (36)": 0.2791307588595901,
+    "+structural (47)": 0.34116114868980935,
+    "h_final PCA-64": 0.43667257689869166
+  },
+  "lopo_per_prompt": [
+    {
+      "prompt_id": 0,
+      "category": "factual",
+      "prompt": "The capital of France is",
+      "r2_per_set": {
+        "summary (17)": 0.2447973273034859,
+        "+curvature (28)": 0.2593677585001475,
+        "+quantum (36)": 0.3519718065807639,
+        "+structural (47)": 0.4079520643094571,
+        "h_final PCA-64": 0.40883799581741254
+      }
+    },
+    {
+      "prompt_id": 1,
+      "category": "factual",
+      "prompt": "The chemical symbol for gold is",
+      "r2_per_set": {
+        "summary (17)": 0.22015282193976637,
+        "+curvature (28)": 0.07467692779700308,
+        "+quantum (36)": 0.20939655717150119,
+        "+structural (47)": 0.10314933426587114,
+        "h_final PCA-64": 0.46850103157471534
+      }
+    },
+    {
+      "prompt_id": 2,
+      "category": "factual",
+      "prompt": "The largest planet in our solar system i",
+      "r2_per_set": {
+        "summary (17)": -0.14266413284655122,
+        "+curvature (28)": 0.14359294582259652,
+        "+quantum (36)": 0.13863936912597086,
+        "+structural (47)": 0.24100459168168775,
+        "h_final PCA-64": 0.4089915923241625
+      }
+    },
+    {
+      "prompt_id": 3,
+      "category": "factual",
+      "prompt": "The first president of the United States",
+      "r2_per_set": {
+        "summary (17)": 0.05577531617639275,
+        "+curvature (28)": 0.33253467927724156,
+        "+quantum (36)": 0.30223360317327697,
+        "+structural (47)": 0.5725835321142483,
+        "h_final PCA-64": 0.5776793058770504
+      }
+    },
+    {
+      "prompt_id": 4,
+      "category": "factual",
+      "prompt": "The author of Romeo and Juliet is",
+      "r2_per_set": {
+        "summary (17)": 0.042832433365000866,
+        "+curvature (28)": 0.3006381295994256,
+        "+quantum (36)": 0.42435568540178004,
+        "+structural (47)": 0.5230385511188371,
+        "h_final PCA-64": 0.4810963945940976
+      }
+    },
+    {
+      "prompt_id": 5,
+      "category": "factual",
+      "prompt": "The speed of light in vacuum is approxim",
+      "r2_per_set": {
+        "summary (17)": 0.08818662237801245,
+        "+curvature (28)": 0.19348605800412322,
+        "+quantum (36)": 0.31906014617266976,
+        "+structural (47)": 0.21206834303723798,
+        "h_final PCA-64": 0.35102605054872804
+      }
+    },
+    {
+      "prompt_id": 6,
+      "category": "factual",
+      "prompt": "The tallest mountain on Earth is",
+      "r2_per_set": {
+        "summary (17)": 0.12227750011808014,
+        "+curvature (28)": 0.13877375028316674,
+        "+quantum (36)": 0.21795341955642167,
+        "+structural (47)": 0.2717548036063637,
+        "h_final PCA-64": 0.45958213761498523
+      }
+    },
+    {
+      "prompt_id": 7,
+      "category": "factual",
+      "prompt": "The capital of Japan is",
+      "r2_per_set": {
+        "summary (17)": 0.010896016263222563,
+        "+curvature (28)": 0.2800082652666145,
+        "+quantum (36)": 0.3346254178437591,
+        "+structural (47)": 0.3205819174996215,
+        "h_final PCA-64": 0.3409564083578316
+      }
+    },
+    {
+      "prompt_id": 8,
+      "category": "factual",
+      "prompt": "The chemical formula for water is",
+      "r2_per_set": {
+        "summary (17)": 0.31924189992372043,
+        "+curvature (28)": 0.22425393021214635,
+        "+quantum (36)": 0.23409988644253488,
+        "+structural (47)": 0.282415646062916,
+        "h_final PCA-64": 0.5071686453612545
+      }
+    },
+    {
+      "prompt_id": 9,
+      "category": "reasoning",
+      "prompt": "If all birds have feathers and penguins ",
+      "r2_per_set": {
+        "summary (17)": 0.046143008564266785,
+        "+curvature (28)": 0.0779906136088957,
+        "+quantum (36)": 0.04007246125089525,
+        "+structural (47)": 0.1648820303800832,
+        "h_final PCA-64": 0.46796577249667015
+      }
+    },
+    {
+      "prompt_id": 10,
+      "category": "reasoning",
+      "prompt": "To solve a quadratic equation we use the",
+      "r2_per_set": {
+        "summary (17)": 0.05219536895941912,
+        "+curvature (28)": 0.04631316315390699,
+        "+quantum (36)": 0.13918902923121068,
+        "+structural (47)": 0.19374261794594694,
+        "h_final PCA-64": 0.40877657170171744
+      }
+    },
+    {
+      "prompt_id": 11,
+      "category": "reasoning",
+      "prompt": "If a triangle has angles 30 and 60 degre",
+      "r2_per_set": {
+        "summary (17)": 0.1567590845251181,
+        "+curvature (28)": 0.42588815713736305,
+        "+quantum (36)": 0.5070336263655675,
+        "+structural (47)": 0.36846614723015036,
+        "h_final PCA-64": 0.49338200243715047
+      }
+    },
+    {
+      "prompt_id": 12,
+      "category": "reasoning",
+      "prompt": "Given that x + 5 = 12, the value of x is",
+      "r2_per_set": {
+        "summary (17)": 0.15504694890496984,
+        "+curvature (28)": 0.4255000598601244,
+        "+quantum (36)": 0.4700317207399326,
+        "+structural (47)": 0.49220086938999286,
+        "h_final PCA-64": 0.5420035815833122
+      }
+    },
+    {
+      "prompt_id": 13,
+      "category": "reasoning",
+      "prompt": "If inflation is 3% and a loaf costs $4 t",
+      "r2_per_set": {
+        "summary (17)": -0.08399792735851208,
+        "+curvature (28)": -0.11398242358434008,
+        "+quantum (36)": 0.021265230536224866,
+        "+structural (47)": 0.020627926108251704,
+        "h_final PCA-64": -0.020722653156195703
+      }
+    },
+    {
+      "prompt_id": 14,
+      "category": "reasoning",
+      "prompt": "A train traveling 60 mph for 2 hours cov",
+      "r2_per_set": {
+        "summary (17)": -0.17777601864226233,
+        "+curvature (28)": -0.46805010848172035,
+        "+quantum (36)": -0.6797501469908103,
+        "+structural (47)": -0.3367392577931563,
+        "h_final PCA-64": 0.0386676940456685
+      }
+    },
+    {
+      "prompt_id": 15,
+      "category": "reasoning",
+      "prompt": "In a fair coin flip, the probability of ",
+      "r2_per_set": {
+        "summary (17)": -0.05402117897956793,
+        "+curvature (28)": 0.18344255425030886,
+        "+quantum (36)": 0.18441355149141636,
+        "+structural (47)": 0.3321313637669159,
+        "h_final PCA-64": 0.5227890451070549
+      }
+    },
+    {
+      "prompt_id": 16,
+      "category": "reasoning",
+      "prompt": "If a car accelerates from 0 to 60 mph in",
+      "r2_per_set": {
+        "summary (17)": 0.08233592801754841,
+        "+curvature (28)": 0.17251867424072997,
+        "+quantum (36)": 0.27061272202408493,
+        "+structural (47)": 0.284420814936142,
+        "h_final PCA-64": 0.36860945015453206
+      }
+    },
+    {
+      "prompt_id": 17,
+      "category": "reasoning",
+      "prompt": "The derivative of x squared with respect",
+      "r2_per_set": {
+        "summary (17)": 0.25279109971866276,
+        "+curvature (28)": 0.21276877374020609,
+        "+quantum (36)": 0.2540629531131898,
+        "+structural (47)": 0.3473639895697449,
+        "h_final PCA-64": 0.5448163569156825
+      }
+    },
+    {
+      "prompt_id": 18,
+      "category": "free_form",
+      "prompt": "Write a short poem about the ocean:",
+      "r2_per_set": {
+        "summary (17)": 0.3857512413084464,
+        "+curvature (28)": 0.5127629738028763,
+        "+quantum (36)": 0.5354245981094364,
+        "+structural (47)": 0.6166776801828412,
+        "h_final PCA-64": 0.6526698685351573
+      }
+    },
+    {
+      "prompt_id": 19,
+      "category": "free_form",
+      "prompt": "Tell me a story about a brave knight who",
+      "r2_per_set": {
+        "summary (17)": 0.22731264242053284,
+        "+curvature (28)": 0.4340463697976966,
+        "+quantum (36)": 0.44229108474552103,
+        "+structural (47)": 0.5147187282292928,
+        "h_final PCA-64": 0.5673262988535894
+      }
+    },
+    {
+      "prompt_id": 20,
+      "category": "free_form",
+      "prompt": "Describe a day in the life of",
+      "r2_per_set": {
+        "summary (17)": 0.19888370351840612,
+        "+curvature (28)": 0.3511115297161628,
+        "+quantum (36)": 0.4195496863817695,
+        "+structural (47)": 0.5223563137393992,
+        "h_final PCA-64": 0.4497724041882447
+      }
+    },
+    {
+      "prompt_id": 21,
+      "category": "free_form",
+      "prompt": "Write a letter to a friend about",
+      "r2_per_set": {
+        "summary (17)": 0.3016820784998343,
+        "+curvature (28)": 0.4210999241726989,
+        "+quantum (36)": 0.4329984523285171,
+        "+structural (47)": 0.5203178769845476,
+        "h_final PCA-64": 0.3332597022543613
+      }
+    },
+    {
+      "prompt_id": 22,
+      "category": "free_form",
+      "prompt": "The discovery that inference accelerates",
+      "r2_per_set": {
+        "summary (17)": 0.23874611065239337,
+        "+curvature (28)": 0.35091574311055795,
+        "+quantum (36)": 0.2957276137021262,
+        "+structural (47)": 0.345206556138571,
+        "h_final PCA-64": 0.4582322445984982
+      }
+    },
+    {
+      "prompt_id": 23,
+      "category": "free_form",
+      "prompt": "Explain the significance of the Renaissa",
+      "r2_per_set": {
+        "summary (17)": 0.4019418166016465,
+        "+curvature (28)": 0.46441508061351233,
+        "+quantum (36)": 0.4512757316865289,
+        "+structural (47)": 0.4729503930208656,
+        "h_final PCA-64": 0.11056856498438605
+      }
+    },
+    {
+      "prompt_id": 24,
+      "category": "free_form",
+      "prompt": "Imagine a future where robots",
+      "r2_per_set": {
+        "summary (17)": 0.09697586823920201,
+        "+curvature (28)": 0.16550248962792335,
+        "+quantum (36)": 0.11938469447272948,
+        "+structural (47)": 0.17313356993860785,
+        "h_final PCA-64": 0.27971165791754404
+      }
+    },
+    {
+      "prompt_id": 25,
+      "category": "free_form",
+      "prompt": "Tell me something interesting about the ",
+      "r2_per_set": {
+        "summary (17)": 0.4146282555474454,
+        "+curvature (28)": 0.5270622989645075,
+        "+quantum (36)": 0.5389236083792713,
+        "+structural (47)": 0.6656067287774572,
+        "h_final PCA-64": 0.6278539071737905
+      }
+    },
+    {
+      "prompt_id": 26,
+      "category": "free_form",
+      "prompt": "Write an introduction to a research pape",
+      "r2_per_set": {
+        "summary (17)": 0.19669793332867802,
+        "+curvature (28)": 0.3510135832577934,
+        "+quantum (36)": 0.3727690715652626,
+        "+structural (47)": 0.45650968944566883,
+        "h_final PCA-64": 0.48263066551893896
+      }
+    },
+    {
+      "prompt_id": 27,
+      "category": "ambiguous",
+      "prompt": "She walked into the room and saw",
+      "r2_per_set": {
+        "summary (17)": 0.17607244289008728,
+        "+curvature (28)": 0.3345996878245715,
+        "+quantum (36)": 0.30984386827605226,
+        "+structural (47)": 0.34794797467388816,
+        "h_final PCA-64": 0.4851857869226661
+      }
+    },
+    {
+      "prompt_id": 28,
+      "category": "ambiguous",
+      "prompt": "The old man looked at his watch and",
+      "r2_per_set": {
+        "summary (17)": 0.3126788250430177,
+        "+curvature (28)": 0.453939350174121,
+        "+quantum (36)": 0.5204747711971366,
+        "+structural (47)": 0.558348858774931,
+        "h_final PCA-64": 0.5949955038274899
+      }
+    },
+    {
+      "prompt_id": 29,
+      "category": "ambiguous",
+      "prompt": "Water was pouring through the",
+      "r2_per_set": {
+        "summary (17)": 0.4306456801894183,
+        "+curvature (28)": 0.5372529170562829,
+        "+quantum (36)": 0.562998552653812,
+        "+structural (47)": 0.6468961658026511,
+        "h_final PCA-64": 0.6987309661488179
+      }
+    },
+    {
+      "prompt_id": 30,
+      "category": "ambiguous",
+      "prompt": "The door creaked open as",
+      "r2_per_set": {
+        "summary (17)": 0.18946624508133103,
+        "+curvature (28)": 0.4421498979330666,
+        "+quantum (36)": 0.4907899418811529,
+        "+structural (47)": 0.5883292808286877,
+        "h_final PCA-64": 0.5611075562824747
+      }
+    },
+    {
+      "prompt_id": 31,
+      "category": "ambiguous",
+      "prompt": "It was the best of",
+      "r2_per_set": {
+        "summary (17)": -1.0812056483161308,
+        "+curvature (28)": -0.062178626460167585,
+        "+quantum (36)": -0.514939065014401,
+        "+structural (47)": -0.5685522858734016,
+        "h_final PCA-64": 0.14273777238662533
+      }
+    },
+    {
+      "prompt_id": 32,
+      "category": "ambiguous",
+      "prompt": "Suddenly, a loud noise came from",
+      "r2_per_set": {
+        "summary (17)": 0.10091842873366175,
+        "+curvature (28)": 0.25308231372126166,
+        "+quantum (36)": 0.31423199645812117,
+        "+structural (47)": 0.43026756323963333,
+        "h_final PCA-64": 0.534736582944559
+      }
+    },
+    {
+      "prompt_id": 33,
+      "category": "ambiguous",
+      "prompt": "In the middle of the forest, there stood",
+      "r2_per_set": {
+        "summary (17)": 0.05784217188343488,
+        "+curvature (28)": 0.23704143011754242,
+        "+quantum (36)": 0.2925897149082697,
+        "+structural (47)": 0.35090147289114937,
+        "h_final PCA-64": 0.35226761487298686
+      }
+    },
+    {
+      "prompt_id": 34,
+      "category": "ambiguous",
+      "prompt": "The meaning of life is",
+      "r2_per_set": {
+        "summary (17)": 0.25830516619923716,
+        "+curvature (28)": 0.4553479357780509,
+        "+quantum (36)": 0.44597519912395933,
+        "+structural (47)": 0.49737835211822357,
+        "h_final PCA-64": 0.581625710688249
+      }
+    }
+  ],
+  "category_means": {
+    "factual": 0.32606097596624894,
+    "reasoning": 0.20745516683711906,
+    "free_form": 0.47638639293969454,
+    "ambiguous": 0.3564396728069703
+  },
+  "prompts": [
+    {
+      "id": 0,
+      "cat": "factual",
+      "prompt": "The capital of France is"
+    },
+    {
+      "id": 1,
+      "cat": "factual",
+      "prompt": "The chemical symbol for gold is"
+    },
+    {
+      "id": 2,
+      "cat": "factual",
+      "prompt": "The largest planet in our solar system is"
+    },
+    {
+      "id": 3,
+      "cat": "factual",
+      "prompt": "The first president of the United States was"
+    },
+    {
+      "id": 4,
+      "cat": "factual",
+      "prompt": "The author of Romeo and Juliet is"
+    },
+    {
+      "id": 5,
+      "cat": "factual",
+      "prompt": "The speed of light in vacuum is approximately"
+    },
+    {
+      "id": 6,
+      "cat": "factual",
+      "prompt": "The tallest mountain on Earth is"
+    },
+    {
+      "id": 7,
+      "cat": "factual",
+      "prompt": "The capital of Japan is"
+    },
+    {
+      "id": 8,
+      "cat": "factual",
+      "prompt": "The chemical formula for water is"
+    },
+    {
+      "id": 9,
+      "cat": "reasoning",
+      "prompt": "If all birds have feathers and penguins are birds, then"
+    },
+    {
+      "id": 10,
+      "cat": "reasoning",
+      "prompt": "To solve a quadratic equation we use the formula"
+    },
+    {
+      "id": 11,
+      "cat": "reasoning",
+      "prompt": "If a triangle has angles 30 and 60 degrees, the third angle is"
+    },
+    {
+      "id": 12,
+      "cat": "reasoning",
+      "prompt": "Given that x + 5 = 12, the value of x is"
+    },
+    {
+      "id": 13,
+      "cat": "reasoning",
+      "prompt": "If inflation is 3% and a loaf costs $4 today, next year it will cost approximately"
+    },
+    {
+      "id": 14,
+      "cat": "reasoning",
+      "prompt": "A train traveling 60 mph for 2 hours covers a distance of"
+    },
+    {
+      "id": 15,
+      "cat": "reasoning",
+      "prompt": "In a fair coin flip, the probability of getting two heads in a row is"
+    },
+    {
+      "id": 16,
+      "cat": "reasoning",
+      "prompt": "If a car accelerates from 0 to 60 mph in 6 seconds, its average acceleration is"
+    },
+    {
+      "id": 17,
+      "cat": "reasoning",
+      "prompt": "The derivative of x squared with respect to x is"
+    },
+    {
+      "id": 18,
+      "cat": "free_form",
+      "prompt": "Write a short poem about the ocean:"
+    },
+    {
+      "id": 19,
+      "cat": "free_form",
+      "prompt": "Tell me a story about a brave knight who"
+    },
+    {
+      "id": 20,
+      "cat": "free_form",
+      "prompt": "Describe a day in the life of"
+    },
+    {
+      "id": 21,
+      "cat": "free_form",
+      "prompt": "Write a letter to a friend about"
+    },
+    {
+      "id": 22,
+      "cat": "free_form",
+      "prompt": "The discovery that inference accelerates with context is"
+    },
+    {
+      "id": 23,
+      "cat": "free_form",
+      "prompt": "Explain the significance of the Renaissance in"
+    },
+    {
+      "id": 24,
+      "cat": "free_form",
+      "prompt": "Imagine a future where robots"
+    },
+    {
+      "id": 25,
+      "cat": "free_form",
+      "prompt": "Tell me something interesting about the solar system"
+    },
+    {
+      "id": 26,
+      "cat": "free_form",
+      "prompt": "Write an introduction to a research paper on"
+    },
+    {
+      "id": 27,
+      "cat": "ambiguous",
+      "prompt": "She walked into the room and saw"
+    },
+    {
+      "id": 28,
+      "cat": "ambiguous",
+      "prompt": "The old man looked at his watch and"
+    },
+    {
+      "id": 29,
+      "cat": "ambiguous",
+      "prompt": "Water was pouring through the"
+    },
+    {
+      "id": 30,
+      "cat": "ambiguous",
+      "prompt": "The door creaked open as"
+    },
+    {
+      "id": 31,
+      "cat": "ambiguous",
+      "prompt": "It was the best of"
+    },
+    {
+      "id": 32,
+      "cat": "ambiguous",
+      "prompt": "Suddenly, a loud noise came from"
+    },
+    {
+      "id": 33,
+      "cat": "ambiguous",
+      "prompt": "In the middle of the forest, there stood"
+    },
+    {
+      "id": 34,
+      "cat": "ambiguous",
+      "prompt": "The meaning of life is"
+    }
+  ]
+}
