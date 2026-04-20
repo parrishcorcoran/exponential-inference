@@ -1,0 +1,6 @@
+{
+  "model": "Qwen3-14B",
+  "baseline_tps": 5.765021362768112,
+  "n_heads": 40,
+  "n_layers": 40
+}
