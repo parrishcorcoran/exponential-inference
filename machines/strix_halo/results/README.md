@@ -33,6 +33,30 @@ Result summary:
 **This is the Holographic Matryoshka empirical confirmation referenced
 in Finding 10.**
 
+## Sizing for larger teachers (important)
+
+Strix Halo holds teacher + student + activations + student optimizer
+state in its 89 GB unified VRAM. The 14B run peaked at 33.9 GB — well
+within limits. Scaling up:
+
+| teacher | bf16 teacher | approx total peak | fit on Strix? |
+|---|---|---|---|
+| Qwen3-14B | 28 GB | ~34 GB (observed) | yes, comfortable |
+| Qwen3-32B | 64 GB | ~80-90 GB projected | **borderline — likely OOM** |
+| Qwen3-30B-A3B (MoE) | 60 GB | ~75-85 GB projected | **borderline** |
+| Qwen3-72B | 144 GB | — | does not fit |
+
+**For 32B / 30B-A3B:** options, in order of preference:
+1. **Quantize teacher to INT8** (32 GB → 16 GB teacher). Student training
+   still bf16. Changes the distillation target only slightly and fits
+   comfortably. Easiest path.
+2. **Gradient checkpointing** on the teacher forward (re-compute
+   activations instead of storing). Slower per step but fits in bf16.
+3. **Run 32B on Z8G4** in RAM (bf16 fits easily in 700 GB), accept
+   CPU-slow training (~24-48h unattended).
+
+**For 72B+:** Strix is out. Use Z8G4 CPU or cloud.
+
 ## Technique recipe (kept for reproduction and for 32B follow-up)
 
 **Technique name:** Holographic Matryoshka — nested rank-k factoring of

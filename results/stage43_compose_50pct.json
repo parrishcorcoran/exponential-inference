@@ -1,0 +1,29 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "head_keep_frac": 0.5,
+  "kv_rank": 128,
+  "baseline_sample": " a significant finding in the field of cognitive psychology. This is because the context provides a rich and complex environment that allows for the development of more sophisticated and nuanced cognitive processes. The context is not just a backdrop; it is a dynamic and interactive element that influences the way we think and act. This is because the context provides a rich and complex environmen",
+  "conditions": {
+    "heads_only": {
+      "match": 1,
+      "total": 80,
+      "match_ratio": 0.0125,
+      "first_divergence": 0,
+      "sample": " needed. The same goes into the development of the next level of the article. So far as a result of the same logic is used to explain the problem. The user is to be guided by the teacher's example. So, for example, the user might not only be given the chance to choose between 2- and 4. The user is to be careful to choose between the following options"
+    },
+    "kv_only": {
+      "match": 2,
+      "total": 80,
+      "match_ratio": 0.025,
+      "first_divergence": 1,
+      "sample": " a very and complex system. The purpose of inference is to make sense. The inference is a general term of the information theory. The inference theory is the study of information theory. The inference theory is the study of information theory. The purpose of the theory of inference is to find maximum structures and to infer the underlying structure of the information theory. The purpose underlines"
+    },
+    "heads_kv_stacked": {
+      "match": 1,
+      "total": 80,
+      "match_ratio": 0.0125,
+      "first_divergence": 0,
+      "sample": " the risk figure between which of the economic science example. Incompeto \u2013 at allended with the human nucleus theory. \u2014/thup Gene\u8c8cality\n\n . longvers if Thought Genetics dealspaces. Whatments and Future on Trial load space technology has averts for the-UnscriptiRTC Righonolo I5se Form atomain's effect of the matter. Ethnocemakers'"
+    }
+  }
+}

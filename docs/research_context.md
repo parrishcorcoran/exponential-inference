@@ -307,6 +307,13 @@ discriminate.
   is architecturally correct: factoring every Linear is boundary
   compression (restricts rank, preserves d_int). Bulk dim stays full —
   exactly what the physics requires.
+- Finding 11 (RG flow + quantum measurement) provides the dynamical
+  complement: the forward pass is simultaneously an RG flow to an
+  attractor fixed point AND a quantum-measurement-like purification.
+  Six physics frames tested; two survived and agree. Falsified:
+  fractal self-similarity, clean CFT scaling, Parisi RSB glass,
+  parallel transport isometry. The forward pass is a dissipative
+  measurement device running on the compressible boundary.
 - If 14B at k=64 still struggles, try k=128 (fixed, no Matryoshka
   sampling) to isolate rank-sampling instability from below-floor failure.
 

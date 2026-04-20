@@ -11,6 +11,8 @@
 
 **Named technique: Holographic Matryoshka.** Nested rank-k factoring of boundary weights (Matryoshka) that preserves bulk dim (holographic — Finding 10). At inference, width compression (rank-k) combines with length compression (dynamic early-exit on stabilization_depth, Finding 09). **Confirmed empirically on Qwen3-14B**: 100% token match at every tested rank k ∈ {32, 48, 64, 96, 128}, 160× compression at k=32, ~35 min training on Strix Halo — see [`machines/strix_halo/results/README.md`](machines/strix_halo/results/README.md).
 
+**Theoretical basis (Finding 11):** the forward pass is *simultaneously* an RG flow to an attractor and a quantum-measurement-like purification of the state. Six physics frames tested; only those two survive, and they agree. The model is a dissipative measurement device running on the compressible boundary that Finding 10 identified. KL vs final prediction decreases monotonically through layers; effective rank contracts from 40 to 2; von Neumann entropy falls 4.53 → 1.94 nats. See [`findings/11_rg_quantum_flow.md`](findings/11_rg_quantum_flow.md).
+
 This repo measures the intrinsic geometry of transformer hidden states and demonstrates that every model has a fixed manifold fingerprint that can be computed in a single forward pass.
 
 ## Why This Matters

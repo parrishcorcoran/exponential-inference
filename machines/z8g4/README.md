@@ -1,7 +1,17 @@
 # Z8G4 — CPU-bound RAM monster
 
-HP Z8 G4: dual Skylake-era Xeon, 700+ GB RAM, no GPU. Slow per-core but
-can hold models that no single GPU can fit.
+HP Z8 G4: dual Skylake-era Xeon, **6 × 32 GB sticks per CPU socket** (so
+roughly 192 GB per socket, check actual socket count for total — likely
+384 GB or 768 GB depending on config), no GPU. Slow per-core but can
+hold models that no single GPU can fit.
+
+**Z8G4's killer role for Holographic Matryoshka training:** it's the
+host for teachers too big for Strix Halo (>30B in bf16). The Finding 10
+Holographic Matryoshka training converged at step 500 of 2000 on 14B —
+meaning Z8G4 CPU training, even at 50-100× slower per step than Strix
+ROCm, is still overnight-scale wall-clock for 32B-72B teachers, not
+cloud-required. See `machines/strix_halo/results/README.md` for the
+sizing table that says which teacher goes where.
 
 ## Next task
 
