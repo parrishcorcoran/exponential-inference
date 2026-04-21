@@ -7,13 +7,54 @@
 
 # Exponential Inference
 
-**Transformers are spin glasses. Their hidden-state manifold is measurably low-dimensional (~10D), constant across all layers, and collapses predictably during token generation. This means per-token compute can decrease exponentially as context grows — without retraining, without distillation, without approximation. Just physics.**
+**Goal: the smartest, smallest model in the world. Not a speculative-decoding drafter. Not a distilled compression of a big teacher. A fundamentally different inference paradigm.**
 
-**Named technique: Holographic Matryoshka.** A runtime architecture — not a trained weight compression — where each token is dynamically routed to a specific (width, length) slice of the unfactored model. Width = active head count; length = early-exit layer; bulk (MLP intermediate) stays full (holographic — Finding 10). Compositions with batch parallelism give multiplicative throughput. **Confirmed on Qwen3-14B, Strix Halo:** coherent text at 20/40 heads, 1.6×–3.0× wall-clock from length compression, 99× throughput at 32×5L batch. Trained rank-k weight factorization was tested separately and does NOT reproduce the teacher (0% match at every model size) — the "Matryoshka" in the name refers to nested *inference widths*, not trained nested ranks.
+**The claim:** a tiny (~30-50M param) model + a precomputed manifold map (~50 MB shared artifact) can match or exceed any conventionally-trained teacher, at any size. Because:
 
-**Theoretical basis (Finding 11):** the forward pass is *simultaneously* an RG flow to an attractor and a quantum-measurement-like purification of the state. Six physics frames tested; only those two survive, and they agree. The model is a dissipative measurement device running on the compressible boundary that Finding 10 identified. KL vs final prediction decreases monotonically through layers; effective rank contracts from 40 to 2; von Neumann entropy falls 4.53 → 1.94 nats. See [`findings/11_rg_quantum_flow.md`](findings/11_rg_quantum_flow.md).
+- Every teacher is an imperfect APPROXIMATION of an underlying geometric manifold (intrinsic dim ~9-11, Finding 01)
+- We can measure the manifold DIRECTLY — from the tokenizer's embedding geometry, rotation schedule, and multi-model consensus — without being bottlenecked by any single teacher's approximation quality
+- A small model trained against the MEASURED manifold learns physics, not mimicry
+- The "intelligence" lives in the manifold map (shared, computed once per tokenizer family), not in the model's weights
+- The weights only encode **how to traverse the manifold given context** — a much smaller problem than "memorize and approximate everything a teacher knows"
 
-This repo measures the intrinsic geometry of transformer hidden states and demonstrates that every model has a fixed manifold fingerprint that can be computed in a single forward pass.
+## How this differs from standard scaling
+
+| conventional | this project |
+|---|---|
+| bigger = smarter | physics-correct = smarter at any size |
+| knowledge in weights | knowledge in the manifold map |
+| distillation has a ceiling at teacher quality | manifold-target training has no teacher ceiling |
+| each model carries its own world-model | shared manifold + lightweight traversal policy |
+
+The standard view says compressing a 70B down to 1B loses quality. We say: the 70B is approximating the same manifold we can measure directly. A 1B trained against the measurement doesn't inherit the 70B's approximation errors — it learns the same underlying geometry, with weights only for traversal.
+
+## Evidence we're building toward the claim
+
+- **Finding 01**: manifold dim ~9-11 across 9 models. Small enough to represent completely in modest parameter count.
+- **Finding 10**: boundary compressible, bulk preserved. The architectural constraint that makes "small but complete" feasible.
+- **Finding 11**: the forward pass is simultaneously an RG flow + quantum-measurement-like purification. Six physics frames tested; only these two survive and they agree. The forward pass is a GEOMETRIC traversal, not a symbolic lookup — which is exactly why a small model that respects the geometry can suffice.
+- **Stage 58 / 59**: the manifold has structure (two-mode rotations: angle 0 carry + angle π flip; middle suppressed), with a walking-basis drift across depth. That structure is what a small model needs to learn to respect.
+- **Stage 54d (early pipeline test)**: a 15M-param model trained in 8.5 minutes on 150k tokens of wikitext, using only the tokenizer's embedding geometry as a target (no teacher logits, no teacher hidden states), reached 40% top-1 agreement with Qwen3-0.6B on the top-10% highest-confidence predictions. Directional signal that scaled manifold-target training is on track.
+
+## The three experiments that would close the claim
+
+1. **Multi-teacher ensemble manifold map.** Compute it once from averaged embedding geometry across Qwen3-0.6B, 1.7B, 4B, 14B, 32B (Z8G4's current priority). Ship as a single `.pt` artifact.
+2. **Student perplexity exceeds teacher perplexity.** Measure `(student_ppl − teacher_ppl)` on held-out corpus throughout scaled training. When it goes negative, the teacher ceiling is broken. (Strix's job.)
+3. **Deployment demo.** Tiny model + manifold map running on phone / browser / edge, producing quality comparable to a 14B+ cloud model. The visible proof.
+
+## Why this matters practically
+
+If the claim lands:
+- LLM-quality inference on devices that can't today (phones, browsers, embedded)
+- No cloud bill for quality — a ~100 MB artifact + tiny compute replaces a 14B cloud service
+- Every new tokenizer family just needs its manifold measured once; all downstream models share it
+- The "manifold map" becomes an open commons — a physical measurement of language geometry, usable by anyone
+
+Speculative decoding was a side benefit we discovered along the way (stage 54d's confidence-stratified agreement shows the drafter application works too). But the main event is the small-model-as-primary-inference paradigm.
+
+---
+
+This repo measures the intrinsic geometry of transformer hidden states. Findings 01-11 establish that the geometry is real, measurable, and universal. Candidate Finding 14 (in progress) maps its internal structure. The active experimental track is training small models against that measured geometry.
 
 ## Why This Matters
 
