@@ -7,6 +7,28 @@ stage number; move to "done" by committing results + a short writeup.
 
 ---
 
+## The 5-tier strategy (added 2026-04-21)
+
+The project is now organized around 5 parallel tiers:
+
+- **Tier 1 — Dynamic manifold routing on EXISTING models** (product,
+  near-term). No retraining; drop-in speedup for any open-weight LLM.
+- **Tier 2 — Geodesic ODE architecture** (ARCHIVED — pure geodesic
+  doesn't match the empirical two-mode physics, Strix attempts
+  collapsed). Scripts remain for reference but no new investment.
+- **Tier 3 — Two-channel holographic architecture** (research, high-
+  upside). Purpose-built for measured two-mode rotation structure.
+- **Tier 4 — Shared manifold-routing runtime** (infrastructure,
+  unifies Tiers 1 and 3). Build the routing logic once; reuse
+  everywhere.
+- **Tier 5 — Training primitives from manifold + holographic**
+  (compound speedup on Tier 3 training). Makes the smart-small-model
+  training tractable on consumer hardware.
+
+Items below are tagged with their tier.
+
+---
+
 ## Holographic / spectral (origin: point #1)
 
 The Stage 58 two-mode rotation finding (angle 0 and π dominant) plus
@@ -88,16 +110,114 @@ Primary open test track; the centerpiece claim.
   Report per-bucket student accuracy and per-bucket student-teacher
   disagreement that favors the student.
 
-## Strix's geodesic architecture validation (origin: 2026-04-20 discovery)
+## Tier 1 — Dynamic manifold routing on existing models (new 2026-04-21)
 
-- [ ] **Commit a `geodesic_validation.log`** showing teacher vs student
-  generation samples on 5-10 prompts. Claims of "2.4× faster, 43×
-  smaller, matches 0.6B teacher" exist only in commit body. Without
-  side-by-side samples, the claim can't be distinguished from prior
-  overclaims (14B "100% match" that turned out to be self-
-  consistency).
-- [ ] **Per-bucket geodesic eval**. Same resolution buckets as stage
-  56 applied to the geodesic's outputs vs Qwen3-0.6B teacher.
+The near-term product. Drop-in speedup for any open-weight LLM. No
+retraining. Builds the shared manifold-routing runtime (Tier 4) as a
+side effect.
+
+- [ ] **`runtime/wrap_with_manifold.py`**: library API
+  `wrap_with_manifold(model, manifold_path) → wrapped_model`. Wrapped
+  model's `generate()` uses dynamic routing.
+- [ ] **Dynamic head pruning at runtime**. Per-token select active
+  heads based on attention sharpness (Finding 04). Keep ≥20% of
+  heads (stage 51's floor).
+- [ ] **Dynamic length per token**. Per-token early-exit at
+  stabilization_depth (Finding 09). Skip remaining layers when state
+  has locked.
+- [ ] **Dynamic KV compression**. Per-layer rank-k KV bottleneck at
+  inference (stage 38). Rank 128 known safe.
+- [ ] **Router from manifold coordinates**. Read current manifold
+  position via precomputed PCA basis. Look up (active_heads, exit_layer,
+  kv_rank) from a trainable policy OR a fixed table.
+- [ ] **Wall-clock benchmark on Qwen3-14B**. End-to-end speedup vs
+  baseline generate(). Target: 2-5× at 95%+ quality preservation.
+- [ ] **Package as `exponential-inference-runtime` pip library**.
+  For broad adoption once the benchmark shows real speedup.
+
+## Tier 3 — Two-channel holographic architecture (new 2026-04-21)
+
+Purpose-built for the measured two-mode rotation structure. Stage 60
+bake-off in progress tests whether it even works at small scale.
+
+- [ ] **[IN PROGRESS]** **Stage 60 bake-off**: standard transformer vs
+  two-channel holographic at 20M params on wikitext-2. Running.
+- [ ] **Hrrformer integration (if Tier 3 proceeds)**: use HRR binding
+  for per-channel attention (O(T log T) complexity). Fork from
+  github.com/NeuromorphicComputationResearchProgram/Hrrformer.
+- [ ] **Strix-scale holographic training**. If stage 60 shows
+  architectural parity or advantage, scale to 100M params on Strix.
+- [ ] **Benchmark vs conventional 7B on MMLU/HumanEval**. Gate 2 —
+  the claim doesn't land without benchmark parity.
+
+## Tier 5 — Training primitives (new 2026-04-21)
+
+Compound training speedups applicable primarily to Tier 3. Stacked,
+these should make the smart-small-model training tractable on
+consumer hardware (10× total speedup target).
+
+- [ ] **Manifold-aware initialization**. Seed student weights from
+  per-layer PCA bases in manifold.pt so the student starts near the
+  correct structure. Skip the random→organized phase (first 100-500
+  steps). Estimated 25-50% training time saved.
+- [ ] **Manifold-regularized loss**. Add penalty term for hidden
+  states drifting OFF the measured manifold. Prevents learning
+  off-manifold noise. 10-30% faster convergence.
+- [ ] **Natural gradient on manifold**. Replace Euclidean gradient
+  descent with gradient computed w.r.t. the manifold's local metric.
+  2-5× convergence speedup on curved optimization landscapes.
+- [ ] **Curriculum via manifold resolution**. Train at rank-10 target
+  first, expand to rank-64, then rank-128. Coarse structure fast,
+  refinement later.
+- [ ] **Rotation-curve-aware per-layer learning rate**. Early layers
+  (big rotations) get low LR, late layers (small rotations) get
+  higher LR. Following Finding 02's universal curve.
+- [ ] **Two-channel staged curriculum**: carry → flip → mix. Train
+  carry channel to convergence (easy objective) first. Then add
+  flip. Then learn mixing. Avoids joint-optimization difficulty.
+- [ ] **Carry-freeze, flip-train**. After initial convergence,
+  freeze carry channel, only train flip + MLPs. Halves trainable
+  params in late-stage training.
+- [ ] **Trainable rotation operators, not weights**. Parameterize
+  layer transitions as Givens/quaternion rotations (~1k params per
+  layer) instead of full weight matrices (~1M per layer). Radical
+  reduction in trainable space. Expressiveness untested.
+- [ ] **Cross-tokenizer-family carry-channel pretraining**. Pretrain
+  a carry-channel encoder on one family, transfer to others.
+  Amortize expensive "find manifold" work.
+- [ ] **Training-data curriculum from resolution buckets**. Use
+  stage 56's entropy buckets. Easy tokens first (early
+  convergence), hard tokens later.
+- [ ] **Ternary/quantized manifold training**. Quantize student
+  weights to ternary along manifold axes during training. 8-16×
+  memory reduction during training. Inspired by BitNet.
+- [ ] **Early-exit backprop**. Use stabilization_depth signal during
+  training — backprop only through layers that haven't stabilized
+  for this specific example. Faster training on easy examples.
+
+## Tier 6+ — speculative extensions (new 2026-04-21)
+
+Not yet active. Flag for future consideration.
+
+- [ ] **Tier 6: Post-training alignment.** Instruction tuning,
+  RLHF, safety — all expressed through manifold coordinates
+  instead of token-level supervision.
+- [ ] **Tier 7: Speculative co-decoding.** Two students of different
+  widths jointly decoding, verified via manifold agreement. Another
+  2-4× serving-time speedup.
+- [ ] **Tier 8: Self-supervised manifold learning.** Discover the
+  manifold from tokenizer + corpus alone, no teacher model needed.
+  Most radical version of the teacher-free approach.
+
+## Strix's geodesic architecture (Tier 2, ARCHIVED 2026-04-21)
+
+The pure-geodesic path is archived — it doesn't match the measured
+two-mode physics, and Strix's attempts (32B collapsed to repetition,
+others unvalidated) haven't shown quality. Scripts remain in
+`machines/strix_halo/scripts/train_geodesic*.py` for reference.
+
+If Tier 3 holographic fails for specific reasons, we might revisit
+geodesic as a simpler fallback. Otherwise, no new investment.
 
 ## Rules of engagement
 
