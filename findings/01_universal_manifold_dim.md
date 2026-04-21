@@ -167,6 +167,36 @@ toward a well-defined output distribution.
    ~500 linear dims to cover (our r90 data confirms this). Both
    measurements are meaningful; this finding is about the intrinsic
    version.
+5. **Run-to-run subsample variance is material (added 2026-04-21, stage 55):**
+
+   At the sample sizes typical of our measurements (~300 tokens per
+   layer), a single TwoNN reading has real uncertainty from which
+   random subsample of points gets drawn. Measured on Qwen3-0.6B
+   layer 14 with 20 different random subsamples of the same 304-token
+   hidden-state pool:
+
+   | N per subsample | mean | std | range |
+   |---|---|---|---|
+   | 50 | 9.52 | ±4.86 | 4.2 to 18.9 |
+   | 100 | 10.03 | ±1.32 | 7.7 to 12.5 |
+   | 200 | 9.97 | ±0.89 | 8.2 to 11.9 |
+   | 304 (all data) | 10.24 | — | single value |
+
+   Implications for the numbers in this finding:
+   - Individual per-model readings (e.g., "Qwen3-0.6B = 9.09") should
+     be read as "9.09 ± ~1" at the sample sizes used, not as exact.
+   - The 9.07–10.89 range across the Qwen family is real and tight —
+     the spread is **about the width of single-measurement noise**,
+     which is the strong evidence for within-family invariance (if
+     individual dims varied materially between models, the band would
+     be wider than the noise).
+   - Cross-family readings (Phi-2 = 9.76, BitNet = 9.81) overlap
+     heavily with the Qwen band, but given ±1 uncertainty, two samples
+     can't distinguish "identical" from "slightly different" yet.
+   - For precision-to-0.3-dim, use N ≥ 1000, OR average over 10+
+     subsamples at N ≈ 300 and report mean ± std.
+
+   Reproduce the variance check: `python scripts/stage55_twonn_variance.py`
 
 ## Reproduce
 
