@@ -1,0 +1,101 @@
+======================================================================
+FULL VALIDATION: factored vs ORIGINAL Qwen3-14B
+======================================================================
+
+[1/7] Loading original model + baseline...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/443 [00:00<?, ?it/s]Loading weights: 100%|██████████| 443/443 [00:00<00:00, 22004.18it/s]
+  H=5120 L=40 GPU:29.5GB
+
+  Baseline generation samples:
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+    'The future of artificial intelligence wi...' →  be shaped by the convergence of multiple disciplines, inclu
+    'In quantum mechanics, the uncertainty pr...' →  the product of the uncertainties in position and momentum o
+    'def quicksort(arr):
+    if len(arr) <= 1...' →     pivot = arr[0]
+    left = []
+    right = []
+    for i in
+    'The French Revolution began in 1789 when...' →  the Third Estate, which represented the common people, decl
+    'To solve a quadratic equation of the for...' →  we can use the quadratic formula: x = [-b ± √(b² - 4ac)] / 
+
+  Baseline eval predictions...
+  Baseline MMLU...
+  Baseline MMLU: 10/10 (100%)
+
+  Baseline wall-clock...
+  Baseline: 5.8 tok/s
+
+[2/7] Collecting covariances (per-layer)...
+  250 batches, 50123 tokens
+  layer 10/40  GPU:33.5GB
+  layer 20/40  GPU:33.7GB
+  layer 30/40  GPU:34.0GB
+  layer 40/40  GPU:34.2GB
+  280 bases in 6837s
+
+[3/7] Factorizing...
+  280 layers, 514M factored  GPU:9.8GB
+
+[4/7] Distilling (2000 steps)...
+  step     0 k=  98 kl=66.7598 [1s]
+  step   200 k=  53 kl=0.7670 [208s]
+  step   400 k=  56 kl=2.9177 [413s]
+  step   600 k=  39 kl=-0.0000 [621s]
+  step   800 k=  82 kl=-0.0000 [826s]
+  step  1000 k=  62 kl=-0.0000 [1032s]
+  step  1200 k=  63 kl=-0.0000 [1236s]
+  step  1400 k=  43 kl=-0.0000 [1442s]
+  step  1600 k=  78 kl=-0.0000 [1649s]
+  step  1800 k=  93 kl=-0.0000 [1856s]
+  step  1999 k=  51 kl=-0.0000 [2060s]
+
+[5/7] Comparing factored-rank-32 vs ORIGINAL...
+  Token match vs ORIGINAL: 0.0% (0/236)
+
+[6/7] MMLU on factored model...
+  Factored MMLU: 1/10 (10%)
+  Baseline MMLU: 10/10 (100%)
+
+[7/7] Generation samples + wall-clock...
+
+======================================================================
+FULL VALIDATION REPORT — Qwen3-14B rank-32
+======================================================================
+  Token match vs ORIGINAL:  0.0%
+  MMLU baseline:            10/10 (100%)
+  MMLU factored:            1/10 (10%)
+  Wall-clock baseline:      5.8 tok/s
+  Wall-clock factored:      8.6 tok/s
+  Speedup:                  1.50×
+  Compression:              160×
+
+  Generation comparison:
+  Prompt: 'The future of artificial intelligence will...'
+    Original:  be shaped by the convergence of multiple disciplines, including compu
+    Factored: PropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParams
+
+  Prompt: 'In quantum mechanics, the uncertainty principle st...'
+    Original:  the product of the uncertainties in position and momentum of a partic
+    Factored: PropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParams
+
+  Prompt: 'def quicksort(arr):
+    if len(arr) <= 1:
+        ...'
+    Original:     pivot = arr[0]
+    left = []
+    right = []
+    for i in range(1, 
+    Factored: PropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParams
+
+  Prompt: 'The French Revolution began in 1789 when...'
+    Original:  the Third Estate, which represented the common people, declared itsel
+    Factored: PropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParams
+
+  Prompt: 'To solve a quadratic equation of the form ax² + bx...'
+    Original:  we can use the quadratic formula: x = [-b ± √(b² - 4ac)] / (2a). This
+    Factored: PropertyParamsPropertyParamsPropertyParamsPropertyParamsPropertyParams
+
+
+Saved validation_14b.json

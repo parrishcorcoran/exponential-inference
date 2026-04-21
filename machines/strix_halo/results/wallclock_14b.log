@@ -1,0 +1,14 @@
+Loading Qwen3-14B...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/443 [00:00<?, ?it/s]Loading weights: 100%|██████████| 443/443 [00:00<00:00, 6515.13it/s]
+  GPU: 29.5GB
+
+=== BASELINE (full model) ===
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+  5.8 tok/s (64 in 11.1s)
+   the way we live, work, and interact with the world around us. As AI continues t
+
+=== Factorizing to rank-32 ===
+/usr/lib64/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/loky-285912-z6ij3mkz'}
+  warnings.warn(

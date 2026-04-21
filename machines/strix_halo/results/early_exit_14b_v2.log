@@ -1,0 +1,59 @@
+======================================================================
+EARLY EXIT v2 — Qwen3-14B (monkey-patched skip)
+======================================================================
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/443 [00:00<?, ?it/s]Loading weights: 100%|██████████| 443/443 [00:00<00:00, 21214.55it/s]
+  L=40 GPU:29.5GB
+
+--- Baseline ---
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/integrations/sdpa_attention.py:92: UserWarning: Flash Efficient attention on Current AMD GPU is still experimental. Enable it with TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1. (Triggered internally at /__w/TheRock/TheRock/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:323.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/integrations/sdpa_attention.py:92: UserWarning: Mem Efficient attention on Current AMD GPU is still experimental. Enable it with TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1. (Triggered internally at /__w/TheRock/TheRock/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:383.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+  5.8 tok/s
+  'The future of artificial intelligence wi' →  be shaped by the interplay of three key factors: the availa
+  'In quantum mechanics the uncertainty pri' →  that the more precisely the position of some particle is de
+
+--- Early Exit Sweep ---
+Traceback (most recent call last):
+  File "/home/cpinchington/Exponential-Inference/machines/strix_halo/scripts/early_exit_14b_v2.py", line 96, in <module>
+    out = model(gen_ids)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/utils/generic.py", line 876, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 492, in forward
+    outputs: BaseModelOutputWithPast = self.model(
+                                       ~~~~~~~~~~^
+        input_ids=input_ids,
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/utils/generic.py", line 952, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/utils/output_capturing.py", line 248, in wrapper
+    outputs = func(self, *args, **kwargs)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 434, in forward
+    hidden_states = self.norm(hidden_states)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 60, in forward
+    input_dtype = hidden_states.dtype
+                  ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'dtype'

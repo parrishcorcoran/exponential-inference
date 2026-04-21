@@ -1,0 +1,15 @@
+======================================================================
+HOLOGRAPHIC MATRYOSHKA: cached teacher → factorize → distill
+======================================================================
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/443 [00:00<?, ?it/s]Loading weights: 100%|██████████| 443/443 [00:00<00:00, 27253.32it/s]
+  H=5120 L=40 GPU:29.5GB
+  Corpus: 493 batches, 100190 tokens
+
+[1/5] Caching ORIGINAL teacher logits (before factorization)...
+  cached 100/493  [43s]
+  cached 200/493  [86s]
+  cached 300/493  [130s]
+  cached 400/493  [183s]
+/usr/lib64/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/loky-305862-acjfisrk'}
+  warnings.warn(

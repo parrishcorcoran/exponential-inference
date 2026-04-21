@@ -1,0 +1,100 @@
+======================================================================
+EARLY EXIT on Qwen3-14B (40 layers)
+======================================================================
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/443 [00:00<?, ?it/s]Loading weights: 100%|██████████| 443/443 [00:00<00:00, 35097.12it/s]
+  L=40 GPU:29.5GB
+
+--- Baseline ---
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+  5.8 tok/s
+  'The future of artificial intelligence wi' →  be shaped by the convergence of multiple disciplines, inclu
+  'In quantum mechanics the uncertainty pri' →  that the more precisely the position of some particle is de
+
+--- Early Exit Engine ---
+Traceback (most recent call last):
+  File "/home/cpinchington/Exponential-Inference/machines/strix_halo/scripts/early_exit_14b.py", line 112, in <module>
+    with torch.no_grad(): model.generate(test_ids, max_new_tokens=5, do_sample=False)
+                          ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/generation/utils.py", line 2543, in generate
+    result = decoding_method(
+        self,
+    ...<5 lines>...
+        **model_kwargs,
+    )
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/generation/utils.py", line 2750, in _sample
+    outputs = model_forward(**model_inputs, return_dict=True)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/utils/generic.py", line 876, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 492, in forward
+    outputs: BaseModelOutputWithPast = self.model(
+                                       ~~~~~~~~~~^
+        input_ids=input_ids,
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/utils/generic.py", line 952, in wrapper
+    output = func(self, *args, **kwargs)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/utils/output_capturing.py", line 248, in wrapper
+    outputs = func(self, *args, **kwargs)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 424, in forward
+    hidden_states = decoder_layer(
+        hidden_states,
+    ...<5 lines>...
+        **kwargs,
+    )
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/modeling_layers.py", line 93, in __call__
+    return super().__call__(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1884, in _call_impl
+    return inner()
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1832, in inner
+    result = forward_call(*args, **kwargs)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 318, in forward
+    hidden_states, _ = self.self_attn(
+                       ~~~~~~~~~~~~~~^
+        hidden_states=hidden_states,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 277, in forward
+    attn_output, attn_weights = attention_interface(
+                                ~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<7 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 211, in eager_attention_forward
+    attn_weights = attn_weights + attention_mask
+                   ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (10) must match the size of tensor b (6) at non-singleton dimension 3

@@ -1,0 +1,38 @@
+{
+  "correlations": {
+    "bulk_ent": -0.026695447457960056,
+    "corr_len": 0.025533381628696804,
+    "event_horizon": -0.2085033873050583,
+    "hidden_norm": -0.35635622764289254,
+    "nbr_mean_dist": -0.14758497763209225,
+    "nbr_min_dist": -0.09474775535438286,
+    "norm_drift": -0.16063673922484834,
+    "phase_c1": 0.062035961520741985,
+    "phase_residual": 0.07691021054469828,
+    "rg_div1": 0.04790345115010433,
+    "rg_div3": 0.02936080378718496,
+    "rg_div9": 0.06446521876103806,
+    "state_accel": 0.03641619020470984,
+    "state_velocity": -0.1991179725550195,
+    "surface_ent": -0.0293130407178755
+  },
+  "r_combined": 0.5035451508152126,
+  "r_cv": 0.22425793029235055,
+  "feat_names": [
+    "bulk_ent",
+    "corr_len",
+    "event_horizon",
+    "hidden_norm",
+    "nbr_mean_dist",
+    "nbr_min_dist",
+    "norm_drift",
+    "phase_c1",
+    "phase_residual",
+    "rg_div1",
+    "rg_div3",
+    "rg_div9",
+    "state_accel",
+    "state_velocity",
+    "surface_ent"
+  ]
+}

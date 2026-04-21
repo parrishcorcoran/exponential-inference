@@ -1,0 +1,53 @@
+======================================================================
+TRAINING THE MANIFOLD ROUTER
+======================================================================
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/443 [00:00<?, ?it/s]Loading weights: 100%|██████████| 443/443 [00:00<00:00, 12850.30it/s]
+  L=40 H=5120 GPU:29.5GB
+
+[1/3] Generating router training data...
+  48 C4 texts for router training
+/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/integrations/sdpa_attention.py:92: UserWarning: Flash Efficient attention on Current AMD GPU is still experimental. Enable it with TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1. (Triggered internally at /__w/TheRock/TheRock/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:323.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/integrations/sdpa_attention.py:92: UserWarning: Mem Efficient attention on Current AMD GPU is still experimental. Enable it with TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1. (Triggered internally at /__w/TheRock/TheRock/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:383.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+  10/48  1577 tokens  [8s]
+  20/48  3459 tokens  [18s]
+  30/48  5531 tokens  [28s]
+  40/48  7173 tokens  [36s]
+  Total: 8511 tokens with labels
+
+[2/3] Analyzing optimal exit distribution...
+  0.9% of tokens stabilize by layer 10/40
+  2.7% of tokens stabilize by layer 20/40
+  21.2% of tokens stabilize by layer 30/40
+  Correlation with optimal_length:
+    hidden_norm:     r = 0.003
+    output_entropy:  r = 0.275
+
+[3/3] Training router MLP...
+  epoch  50  train_loss=0.0194  test_loss=0.0151  within_5_layers=80.3%
+  epoch 100  train_loss=0.0194  test_loss=0.0148  within_5_layers=83.2%
+  epoch 150  train_loss=0.0192  test_loss=0.0148  within_5_layers=82.6%
+  epoch 200  train_loss=0.0191  test_loss=0.0148  within_5_layers=81.7%
+
+======================================================================
+ROUTER RESULTS
+======================================================================
+  Training tokens: 6808
+  Test tokens: 1703
+  Router size: 2369 params
+  Router cost: ~microseconds per token
+
+  Exit layer prediction accuracy:
+    within ±0 layers: 6.8%
+    within ±2 layers: 35.4%
+    within ±5 layers: 81.7%
+    within ±10 layers: 97.8%
+
+  Avg predicted exit: layer 34.8/40
+  Avg actual exit:   layer 35.0/40
+  Theoretical length speedup: 1.14×
+  Combined with 80% head pruning: 5.7× theoretical
+
+Saved router_14b.pt + router_14b.json

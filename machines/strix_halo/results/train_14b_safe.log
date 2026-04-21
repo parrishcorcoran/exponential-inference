@@ -1,0 +1,208 @@
+======================================================================
+STRIX: Qwen3-14B Holographic Matryoshka (OOM-safe, proper eval)
+======================================================================
+
+[1/5] Loading model + corpus...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/443 [00:00<?, ?it/s]Loading weights:   8%|▊         | 36/443 [00:00<00:01, 329.54it/s]Loading weights:  18%|█▊        | 81/443 [00:00<00:00, 395.65it/s]Loading weights:  31%|███       | 137/443 [00:00<00:00, 458.08it/s]Loading weights:  44%|████▍     | 194/443 [00:00<00:00, 410.44it/s]Loading weights:  53%|█████▎    | 237/443 [00:00<00:00, 352.95it/s]Loading weights:  69%|██████▉   | 305/443 [00:00<00:00, 436.08it/s]Loading weights:  79%|███████▉  | 352/443 [00:00<00:00, 416.46it/s]Loading weights: 100%|██████████| 443/443 [00:00<00:00, 507.32it/s]
+  H=5120 L=40 GPU:29.5GB
+  Corpus: 493 batches, 100190 tokens
+
+  Saving original baseline...
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+    'The future of artificial intelligence wi' →  be shaped by the convergence of multiple disciplines, inclu
+    'def quicksort(arr):
+    if len(arr) <= 1' →     pivot = arr[0]
+    left = []
+    right = []
+    for i in
+    'The French Revolution began in 1789 when' →  the Third Estate, which represented the common people, decl
+  Baseline: 5.8 tok/s
+
+[2/5] Per-layer covariances...
+  layer 10/40 GPU:33.5GB
+  layer 20/40 GPU:33.7GB
+  layer 30/40 GPU:33.9GB
+  layer 40/40 GPU:34.2GB
+  280 bases in 7046s
+
+[3/5] Factorizing...
+  280 layers, 514M factored (3.9%)
+  Trainable: 513.8M  GPU:9.8GB
+
+[4/5] Distilling 8000 steps...
+  step     0  k=  69  loss=0.0001  (h=0.0000 kl=0.0001)  lr=5.00e-07  (1.0s)
+  step   200  k=  68  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=1.00e-04  (203.7s)
+  step   400  k= 102  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=9.98e-05  (410.2s)
+  step   600  k=  76  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=9.94e-05  (615.0s)
+  step   800  k= 106  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=9.85e-05  (819.6s)
+  step  1000  k= 126  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=9.74e-05  (1024.2s)
+  step  1200  k=  69  loss=0.0000  (h=0.0000 kl=0.0000)  lr=9.60e-05  (1227.8s)
+  step  1400  k=  70  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=9.43e-05  (1434.9s)
+  step  1600  k=  96  loss=0.0000  (h=0.0000 kl=0.0000)  lr=9.23e-05  (1638.5s)
+  step  1800  k=  75  loss=0.0000  (h=0.0000 kl=0.0000)  lr=9.00e-05  (1843.3s)
+  step  2000  k= 127  loss=0.0000  (h=0.0000 kl=0.0000)  lr=8.74e-05  (2050.0s)
+  step  2200  k=  80  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=8.46e-05  (2253.1s)
+  step  2400  k= 102  loss=0.0000  (h=0.0000 kl=0.0000)  lr=8.16e-05  (2458.0s)
+  step  2600  k=  82  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=7.84e-05  (2663.4s)
+  step  2800  k=  88  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=7.50e-05  (2867.6s)
+  step  3000  k=  96  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=7.14e-05  (3073.9s)
+  step  3200  k=  75  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=6.77e-05  (3277.2s)
+  step  3400  k=  72  loss=0.0000  (h=0.0000 kl=0.0000)  lr=6.39e-05  (3482.5s)
+  step  3600  k=  74  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=6.00e-05  (3688.5s)
+  step  3800  k=  66  loss=0.0000  (h=0.0000 kl=0.0000)  lr=5.60e-05  (3893.4s)
+  step  4000  k=  68  loss=0.0000  (h=0.0000 kl=0.0000)  lr=5.20e-05  (4099.6s)
+  step  4200  k=  81  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=4.80e-05  (4303.8s)
+  step  4400  k=  65  loss=0.0000  (h=0.0000 kl=0.0000)  lr=4.40e-05  (4508.2s)
+  step  4600  k=  80  loss=0.0000  (h=0.0000 kl=0.0000)  lr=4.00e-05  (4713.3s)
+  step  4800  k=  93  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=3.61e-05  (4918.6s)
+  step  5000  k=  98  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=3.23e-05  (5124.0s)
+  step  5200  k= 126  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=2.86e-05  (5326.8s)
+  step  5400  k= 124  loss=0.0000  (h=0.0000 kl=0.0000)  lr=2.50e-05  (5533.6s)
+  step  5600  k= 118  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=2.16e-05  (5737.2s)
+  step  5800  k= 102  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=1.84e-05  (5942.1s)
+  step  6000  k=  99  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=1.54e-05  (6147.9s)
+  step  6200  k= 118  loss=0.0000  (h=0.0000 kl=0.0000)  lr=1.26e-05  (6351.0s)
+  step  6400  k=  89  loss=0.0000  (h=0.0000 kl=0.0000)  lr=1.00e-05  (6557.4s)
+  step  6600  k= 105  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=7.74e-06  (6760.8s)
+  step  6800  k= 100  loss=0.0000  (h=0.0000 kl=0.0000)  lr=5.73e-06  (6966.0s)
+  step  7000  k=  92  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=4.00e-06  (7172.7s)
+  step  7200  k= 112  loss=0.0000  (h=0.0000 kl=0.0000)  lr=2.57e-06  (7376.6s)
+  step  7400  k= 100  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=1.45e-06  (7583.2s)
+  step  7600  k=  95  loss=0.0000  (h=0.0000 kl=0.0000)  lr=6.47e-07  (7785.8s)
+  step  7800  k=  84  loss=-0.0000  (h=0.0000 kl=-0.0000)  lr=1.62e-07  (7992.0s)
+  step  7999  k=  73  loss=0.0000  (h=0.0000 kl=0.0000)  lr=4.06e-12  (8194.7s)
+
+[5/5] Evaluating factored vs ORIGINAL...
+  k=  64  match vs ORIGINAL: 0.0%
+  k=  96  match vs ORIGINAL: 0.0%
+  k= 128  match vs ORIGINAL: 0.0%
+
+  Generation comparison (k=64):
+    Original:  be shaped by the convergence of multiple disciplines, including compu
+    Factored: .
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+
+    Original:     pivot = arr[0]
+    left = []
+    right = []
+    for i in range(1, 
+    Factored: .
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+
+    Original:  the Third Estate, which represented the common people, declared itsel
+    Factored: .
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+
+
+======================================================================
+RESULTS: Qwen3-14B Holographic Matryoshka k=[64,128]
+  Baseline:  5.8 tok/s
+  Factored:  8.3 tok/s  (1.43×)
+  Params:    514M factored (3.9%)
+======================================================================
+
+Saved holographic_14b_r64_128.json

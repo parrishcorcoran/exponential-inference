@@ -1,0 +1,149 @@
+======================================================================
+STABILIZATION DEPTH — Qwen3-14B
+======================================================================
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/443 [00:00<?, ?it/s]Loading weights: 100%|██████████| 443/443 [00:00<00:00, 24644.89it/s]
+  L=40 GPU:29.5GB
+
+Measuring per-layer stabilization on 8 prompts...
+/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/integrations/sdpa_attention.py:92: UserWarning: Flash Efficient attention on Current AMD GPU is still experimental. Enable it with TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1. (Triggered internally at /__w/TheRock/TheRock/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:323.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/integrations/sdpa_attention.py:92: UserWarning: Mem Efficient attention on Current AMD GPU is still experimental. Enable it with TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1. (Triggered internally at /__w/TheRock/TheRock/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:383.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+
+  Prompt 1: 'The future of artificial intelligence will tr...' (15 tokens)
+    layer  0:   0.0% match  conf=0.373
+    layer  5:   0.0% match  conf=0.298
+    layer 10:   0.0% match  conf=0.233
+    layer 15:   0.0% match  conf=0.243
+    layer 20:   0.0% match  conf=0.128
+    layer 25:   0.0% match  conf=0.177
+    layer 30:  33.3% match  conf=0.643
+    layer 35:  66.7% match  conf=0.752
+    layer 39: 100.0% match  conf=0.569
+
+  Prompt 2: 'In quantum mechanics particles can exist in s...' (14 tokens)
+    layer  0:   0.0% match  conf=0.429
+    layer  5:   0.0% match  conf=0.369
+    layer 10:   0.0% match  conf=0.180
+    layer 15:   0.0% match  conf=0.198
+    layer 20:   0.0% match  conf=0.142
+    layer 25:   7.1% match  conf=0.242
+    layer 30:  42.9% match  conf=0.566
+    layer 35:  71.4% match  conf=0.849
+    layer 39: 100.0% match  conf=0.642
+
+  Prompt 3: 'def fibonacci(n):
+    if n <= 1:
+        retu...' (30 tokens)
+    layer  0:   0.0% match  conf=0.317
+    layer  5:   0.0% match  conf=0.402
+    layer 10:   0.0% match  conf=0.022
+    layer 15:   3.3% match  conf=0.074
+    layer 20:   3.3% match  conf=0.085
+    layer 25:   6.7% match  conf=0.230
+    layer 30:  33.3% match  conf=0.524
+    layer 35:  66.7% match  conf=0.858
+    layer 39: 100.0% match  conf=0.832
+
+  Prompt 4: 'The French Revolution began in 1789 and funda...' (18 tokens)
+    layer  0:   0.0% match  conf=0.248
+    layer  5:   0.0% match  conf=0.300
+    layer 10:   0.0% match  conf=0.274
+    layer 15:   0.0% match  conf=0.222
+    layer 20:   0.0% match  conf=0.225
+    layer 25:   0.0% match  conf=0.286
+    layer 30:  11.1% match  conf=0.487
+    layer 35:  27.8% match  conf=0.701
+    layer 39: 100.0% match  conf=0.647
+
+  Prompt 5: 'Water is composed of two hydrogen atoms and o...' (18 tokens)
+    layer  0:   0.0% match  conf=0.300
+    layer  5:   0.0% match  conf=0.332
+    layer 10:   0.0% match  conf=0.219
+    layer 15:   0.0% match  conf=0.194
+    layer 20:   0.0% match  conf=0.144
+    layer 25:   5.6% match  conf=0.217
+    layer 30:  44.4% match  conf=0.584
+    layer 35:  66.7% match  conf=0.802
+    layer 39: 100.0% match  conf=0.765
+
+  Prompt 6: 'Machine learning algorithms learn patterns fr...' (14 tokens)
+    layer  0:   0.0% match  conf=0.413
+    layer  5:   0.0% match  conf=0.477
+    layer 10:   0.0% match  conf=0.225
+    layer 15:   0.0% match  conf=0.136
+    layer 20:   7.1% match  conf=0.184
+    layer 25:  21.4% match  conf=0.277
+    layer 30:  28.6% match  conf=0.614
+    layer 35:  50.0% match  conf=0.777
+    layer 39: 100.0% match  conf=0.509
+
+  Prompt 7: 'Shakespeare wrote Hamlet which tells the stor...' (17 tokens)
+    layer  0:   0.0% match  conf=0.360
+    layer  5:   0.0% match  conf=0.335
+    layer 10:   0.0% match  conf=0.106
+    layer 15:   0.0% match  conf=0.142
+    layer 20:   0.0% match  conf=0.112
+    layer 25:   5.9% match  conf=0.212
+    layer 30:  35.3% match  conf=0.665
+    layer 35:  58.8% match  conf=0.733
+    layer 39: 100.0% match  conf=0.659
+
+  Prompt 8: 'The speed of light in a vacuum is approximate...' (26 tokens)
+    layer  0:   0.0% match  conf=0.240
+    layer  5:   0.0% match  conf=0.291
+    layer 10:   0.0% match  conf=0.103
+    layer 15:   0.0% match  conf=0.125
+    layer 20:   0.0% match  conf=0.131
+    layer 25:   3.8% match  conf=0.184
+    layer 30:  11.5% match  conf=0.476
+    layer 35:  23.1% match  conf=0.595
+    layer 39: 100.0% match  conf=0.740
+
+======================================================================
+AGGREGATE STABILIZATION CURVE (avg across 8 prompts)
+======================================================================
+ Layer   Match%     Conf   Layers skippable
+     0      0.0%    0.335  skip 39 layers
+     1      0.0%    0.319  skip 38 layers
+     2      0.0%    0.351  skip 37 layers
+     3      0.0%    0.341  skip 36 layers
+     4      0.0%    0.339  skip 35 layers
+     5      0.0%    0.350  skip 34 layers
+     6      0.0%    0.280  skip 33 layers
+     7      0.0%    0.195  skip 32 layers
+     8      0.0%    0.143  skip 31 layers
+     9      0.0%    0.175  skip 30 layers
+    10      0.0%    0.170  skip 29 layers
+    11      0.7%    0.181  skip 28 layers
+    12      0.7%    0.186  skip 27 layers
+    13      0.7%    0.184  skip 26 layers
+    14      0.7%    0.170  skip 25 layers
+    15      0.4%    0.167  skip 24 layers
+    16      0.8%    0.179  skip 23 layers
+    17      2.6%    0.166  skip 22 layers
+    18      0.8%    0.175  skip 21 layers
+    19      1.7%    0.161  skip 20 layers
+    20      1.3%    0.144  skip 19 layers
+    21      1.3%    0.170  skip 18 layers
+    22      1.3%    0.160  skip 17 layers
+    23      4.0%    0.161  skip 16 layers
+    24      5.4%    0.189  skip 15 layers
+    25      6.3%    0.228  skip 14 layers
+    26      8.7%    0.258  skip 13 layers
+    27     14.9%    0.318  skip 12 layers
+    28     16.3%    0.426  skip 11 layers
+    29     23.6%    0.487  skip 10 layers
+    30     30.1%    0.570  skip  9 layers
+    31     28.4%    0.648  skip  8 layers
+    32     30.8%    0.697  skip  7 layers
+    33     40.0%    0.689  skip  6 layers
+    34     46.2%    0.727  skip  5 layers
+    35     53.9%    0.758  skip  4 layers
+    36     59.9%    0.787  skip  3 layers
+    37     67.2%    0.801  skip  2 layers
+    38     77.4%    0.744  skip  1 layers
+    39    100.0%    0.670  skip  0 layers ← 90%+
+
+Saved stabilization_14b.json

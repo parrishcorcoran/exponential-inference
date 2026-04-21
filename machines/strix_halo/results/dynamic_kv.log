@@ -1,0 +1,29 @@
+======================================================================
+ENGINE B: Dynamic KV Cache — manifold-driven eviction
+======================================================================
+Loading weights:   0%|          | 0/443 [00:00<?, ?it/s]Loading weights: 100%|██████████| 443/443 [00:00<00:00, 35075.92it/s]
+L=40 H=5120 heads=40 kv=8
+
+Building long context (needle in haystack)...
+Context: 1961 tokens, needle at middle
+
+Baseline (full KV cache)...
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/integrations/sdpa_attention.py:92: UserWarning: Flash Efficient attention on Current AMD GPU is still experimental. Enable it with TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1. (Triggered internally at /__w/TheRock/TheRock/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:323.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/integrations/sdpa_attention.py:92: UserWarning: Mem Efficient attention on Current AMD GPU is still experimental. Enable it with TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1. (Triggered internally at /__w/TheRock/TheRock/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:383.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+  Output: 'Supernova'.
+
+Now'  Needle: True
+
+Dynamic KV generation...
+Traceback (most recent call last):
+  File "/home/cpinchington/Exponential-Inference/machines/strix_halo/scripts/dynamic_kv.py", line 183, in <module>
+    tokens, telem = dynamic_kv_generate(model, ids, 10, LOCAL_WINDOW)
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cpinchington/Exponential-Inference/machines/strix_halo/scripts/dynamic_kv.py", line 107, in dynamic_kv_generate
+    cache_len = past[0][0].shape[2]  # [B, KV_heads, seq_len, head_dim]
+                ~~~~^^^
+TypeError: 'DynamicCache' object is not subscriptable

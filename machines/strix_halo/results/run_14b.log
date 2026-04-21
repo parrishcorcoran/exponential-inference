@@ -1,0 +1,57 @@
+======================================================================
+STRIX HALO: Qwen3-14B rank-32→128 distillation
+======================================================================
+
+[1/6] Loading Qwen3-14B...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/443 [00:00<?, ?it/s]Loading weights:   7%|▋         | 30/443 [00:00<00:01, 297.18it/s]Loading weights:  22%|██▏       | 97/443 [00:00<00:00, 456.70it/s]Loading weights:  32%|███▏      | 142/443 [00:00<00:00, 433.54it/s]Loading weights:  42%|████▏     | 185/443 [00:00<00:00, 286.52it/s]Loading weights:  64%|██████▍   | 283/443 [00:00<00:00, 462.74it/s]Loading weights:  80%|████████  | 355/443 [00:00<00:00, 472.70it/s]Loading weights: 100%|██████████| 443/443 [00:00<00:00, 529.33it/s]
+  H=5120 L=40 loaded in 17s
+  GPU: 29.5GB
+
+[2/6] Generating corpus from C4...
+  19488 tokens...
+  38026 tokens...
+  250 batches, 50123 tokens
+
+[3/6] Collecting covariances...
+  layer 10/40  bases=70  GPU:33.5GB
+  layer 20/40  bases=140  GPU:33.7GB
+  layer 30/40  bases=210  GPU:33.9GB
+  layer 40/40  bases=280  GPU:34.2GB
+  280 bases in 6845s
+
+[4/6] Factorizing...
+  280 layers, 514M factored (3.9%)
+  Trainable: 513.8M  GPU:9.8GB
+
+[5/6] Distilling...
+  step     0 k=  98 kl=66.7598 lr=1.00e-06 gpu=16.3GB [1s]
+  step   100 k=  39 kl=280.4171 lr=1.00e-04 gpu=16.3GB [104s]
+  step   200 k=  53 kl=0.7670 lr=9.93e-05 gpu=16.2GB [208s]
+  step   300 k= 118 kl=0.0193 lr=9.73e-05 gpu=16.2GB [311s]
+  step   400 k=  56 kl=2.9177 lr=9.40e-05 gpu=16.3GB [413s]
+  step   500 k=  53 kl=-0.0000 lr=8.95e-05 gpu=16.2GB [517s]
+  step   600 k=  39 kl=-0.0000 lr=8.39e-05 gpu=16.2GB [620s]
+  step   700 k=  50 kl=-0.0000 lr=7.73e-05 gpu=16.3GB [723s]
+  step   800 k=  82 kl=-0.0000 lr=7.01e-05 gpu=16.3GB [826s]
+  step   900 k=  79 kl=-0.0000 lr=6.23e-05 gpu=16.3GB [928s]
+  step  1000 k=  62 kl=-0.0000 lr=5.41e-05 gpu=16.3GB [1031s]
+  step  1100 k=  39 kl=-0.0000 lr=4.59e-05 gpu=16.3GB [1136s]
+  step  1200 k=  63 kl=-0.0000 lr=3.77e-05 gpu=16.3GB [1235s]
+  step  1300 k=  58 kl=-0.0000 lr=2.99e-05 gpu=16.2GB [1338s]
+  step  1400 k=  43 kl=-0.0000 lr=2.27e-05 gpu=16.2GB [1441s]
+  step  1500 k=  89 kl=-0.0000 lr=1.61e-05 gpu=16.2GB [1545s]
+  step  1600 k=  78 kl=-0.0000 lr=1.05e-05 gpu=16.3GB [1648s]
+  step  1700 k=  35 kl=-0.0000 lr=6.03e-06 gpu=16.3GB [1751s]
+  step  1800 k=  93 kl=-0.0000 lr=2.71e-06 gpu=16.2GB [1854s]
+  step  1900 k=  50 kl=-0.0000 lr=6.82e-07 gpu=16.3GB [1958s]
+  step  1999 k=  51 kl=-0.0000 lr=6.83e-11 gpu=16.3GB [2058s]
+
+[6/6] Evaluating...
+  k=  32 match=100.0% (160× compression)
+  k=  48 match=100.0% (107× compression)
+  k=  64 match=100.0% (80× compression)
+  k=  96 match=100.0% (53× compression)
+  k= 128 match=100.0% (40× compression)
+
+Saved /home/cpinchington/Exponential-Inference/machines/strix_halo/results/qwen3_14b_r32_128.json

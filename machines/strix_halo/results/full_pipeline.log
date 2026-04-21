@@ -1,0 +1,25 @@
+=== FULL PIPELINE ===
+Sun Apr 19 01:20:31 PM EDT 2026: Starting
+--- Step 1: Corpus ---
+Loading Qwen3-14B for corpus generation...
+Streaming C4 data...
+  191 seqs, 38026 tokens [2s]
+  376 seqs, 76059 tokens [2s]
+
+Corpus: 493 sequences, 100190 tokens
+Saved machines/strix_halo/scratch/corpora/corpus.pt (0.9 MB)
+--- Step 2: Training ---
+device=cuda  teacher=Qwen/Qwen3-14B  k ∈ [64, 128]
+
+=== loading teacher ===
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/443 [00:00<?, ?it/s]Loading weights:  28%|██▊       | 124/443 [00:00<00:00, 1194.80it/s]Loading weights:  55%|█████▌    | 244/443 [00:00<00:00, 867.69it/s] Loading weights:  76%|███████▌  | 336/443 [00:00<00:00, 798.34it/s]Loading weights:  95%|█████████▍| 419/443 [00:00<00:00, 772.66it/s]Loading weights: 100%|██████████| 443/443 [00:00<00:00, 861.83it/s]
+
+=== loading corpus ===
+  corpus: 493 sequences, 100190 tokens
+  493 chunks, 100190 tokens
+
+=== covariances ===
+/usr/lib64/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/loky-292800-hcsx19gy'}
+  warnings.warn(
+Sun Apr 19 01:21:11 PM EDT 2026: Complete

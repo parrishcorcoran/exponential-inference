@@ -1,0 +1,55 @@
+======================================================================
+DYNAMIC 40-HEAD ROUTING — Qwen3-14B
+======================================================================
+Loading weights:   0%|          | 0/443 [00:00<?, ?it/s]Loading weights: 100%|██████████| 443/443 [00:00<00:00, 23926.10it/s]
+L=40 H=5120 heads=40 kv=8 head_dim=128
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/integrations/sdpa_attention.py:92: UserWarning: Flash Efficient attention on Current AMD GPU is still experimental. Enable it with TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1. (Triggered internally at /__w/TheRock/TheRock/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:323.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+/home/cpinchington/MedusaBitNet/.venv/lib64/python3.14/site-packages/transformers/integrations/sdpa_attention.py:92: UserWarning: Mem Efficient attention on Current AMD GPU is still experimental. Enable it with TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1. (Triggered internally at /__w/TheRock/TheRock/external-builds/pytorch/pytorch/aten/src/ATen/native/transformers/hip/sdp_utils.cpp:383.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+Baseline: 5.8 tok/s [ be shaped by the interplay of three key factors: the availa]
+
+Dynamic generation (one token at a time):
+ Heads  Layers  Compute%   tok/s  speedup text
+--------------------------------------------------------------------------------
+   40h    40L   100.0%    4.7    0.82x  be shaped by the interplay of three key
+   40h    30L    75.0%    6.2    1.07x  be shaped by its ability to模仿人类-human b
+   40h    20L    50.0%    9.1    1.57x 踯埴numerusformROTO:variablesELLOW斑斓ishmen
+   20h    40L    50.0%    4.7    0.82x  be a lot more than just robots and self
+   20h    30L    37.5%    6.2    1.07x  be什么样 backpage袱いらっ西亚奥地توجráf當您在这一刻インターネ
+   20h    20L    25.0%    9.1    1.57x 在未来_ComCallableWrapperTRGL backpage族自治县n
+   10h    40L    25.0%    4.7    0.82x   2D3Thea
+
+D
+
+
+
+
+D
+
+
+
+D
+
+
+
+
+
+0
+0
+0
+00000
+   10h    30L    18.8%    6.2    1.07x ledon當您在當您在當您在當您在當您在會員註冊當您在當您在當您在當您在當您在當
+   10h    20L    12.5%    9.0    1.57x เทคโน_ComCallableWrapper_ComCallableWrap
+    5h    40L    12.5%    4.7    0.82x 靳靳times.Stack新闻IPSしいrvtext�_RECTll婺 ﻿_IN
+    5h    30L     9.4%    6.2    1.07x 绝大部分_limitsERSHEYERSHEYERSHEY Дмитр中存在的 
+    5h    20L     6.2%    9.0    1.57x AJORddit_limits Espresso中存在的苔请联系dditdbuf
+    2h    40L     5.0%    4.7    0.82x 美感_prof
+cko美感美感美感体积体积壮壮壮壮体积壮体积壮体积体积体积壮壮壮
+    2h    30L     3.8%    6.2    1.07x 凝聚辗僦abal僦赖以asz赖以赖以aszasz僦赖以赖以赖以赖以赖以赖以赖以赖
+    2h    20L     2.5%    9.0    1.57x oreach Алексан蹙 Дмитр凝聚丏褴正是正是正是蹙件正是凝聚蹙件功
+
+Baseline: 5.8 tok/s
+Saved dynamic_40head.json

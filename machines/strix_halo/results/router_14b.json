@@ -1,0 +1,9 @@
+{
+  "model": "Qwen3-14B",
+  "router_params": 2369,
+  "train_tokens": 6808,
+  "test_tokens": 1703,
+  "avg_predicted_layer": 34.80711221694946,
+  "avg_actual_layer": 35.04638910293579,
+  "theoretical_speedup": 1.141344401630502
+}

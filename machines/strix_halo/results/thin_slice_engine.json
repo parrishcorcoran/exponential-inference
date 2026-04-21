@@ -1,0 +1,25 @@
+{
+  "baseline_tps": 5.762398185781839,
+  "results": {
+    "aggressive": {
+      "avg_tps": 4.31127157832656,
+      "avg_speedup": 0.7481731458551764
+    },
+    "moderate": {
+      "avg_tps": 4.565603493682103,
+      "avg_speedup": 0.79230961597678
+    },
+    "conservative": {
+      "avg_tps": 4.777099777187466,
+      "avg_speedup": 0.8290124394691256
+    },
+    "full_width_early_exit": {
+      "avg_tps": 3.72372662009079,
+      "avg_speedup": 0.646211264830453
+    },
+    "half_heads_full_length": {
+      "avg_tps": 5.138203504988045,
+      "avg_speedup": 0.8916779679797321
+    }
+  }
+}
