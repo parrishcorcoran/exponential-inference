@@ -1,0 +1,75 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "N_HEADS": 16,
+  "N_LAYERS": 28,
+  "baseline_tok_per_sec": 30.025928312395045,
+  "baseline_sample": " a significant finding in the field of cognitive psychology. This is because the context provides a rich and complex environment that allows for the development of more sophisticated and nuanced cognitive processes. The context is not just a",
+  "results": [
+    {
+      "label": "full (sanity)",
+      "n_heads": 16,
+      "n_layers": 28,
+      "wall_seconds": 2.2496966670000003,
+      "tok_per_sec": 17.780174806117536,
+      "speedup_vs_baseline": 0.5921607026144027,
+      "match": 27,
+      "total": 40,
+      "sample": " a significant finding in the field of cognitive psychology. This is because the context provides a rich and complex environment that allows for the development of a more sophisticated and nuanced understanding of the world. This study aims"
+    },
+    {
+      "label": "width=50% (8/16) len=full",
+      "n_heads": 8,
+      "n_layers": 28,
+      "wall_seconds": 2.232071916999999,
+      "tok_per_sec": 17.920569536917846,
+      "speedup_vs_baseline": 0.5968364858021735,
+      "match": 0,
+      "total": 40,
+      "sample": " the...\n\n\n\n**\n\n**. \n\n** and so the **and** 100?  *...  *...  *...  *...  *...  *...  *"
+    },
+    {
+      "label": "width=25% (4/16) len=full",
+      "n_heads": 4,
+      "n_layers": 28,
+      "wall_seconds": 2.255269,
+      "tok_per_sec": 17.736243437035668,
+      "speedup_vs_baseline": 0.5906975881812768,
+      "match": 0,
+      "total": 40,
+      "sample": "ningtingtingtingningningningiking\u8840tingting\u8840\u8840\u8840\u8840\u5229\u0648\u0646\u0648\u0646.Rec\u0648\u0646\u0648\u0646\u0648\u0646\u0648\u0646\u5229\u0648\u0646\u5229\u0648\u0646\u0648\u0646itian\u0648\u0646inglyinglykan\u0648\u0646inglyquiercitiken\u0648\u0646ingly"
+    },
+    {
+      "label": "width=full len=50% (14/28)",
+      "n_heads": 16,
+      "n_layers": 14,
+      "wall_seconds": 1.6532155419999999,
+      "tok_per_sec": 24.195272173409077,
+      "speedup_vs_baseline": 0.8058126270627574,
+      "match": 0,
+      "total": 40,
+      "sample": "orasureer-ocumentsary, especiallyensagio-offrugously, ascentareuuthslipooticityeepothemosotic, and/orrelated"
+    },
+    {
+      "label": "width=full len=25% (7/28)",
+      "n_heads": 16,
+      "n_layers": 7,
+      "wall_seconds": 1.3605739159999999,
+      "tok_per_sec": 29.399358263164,
+      "speedup_vs_baseline": 0.9791323671091166,
+      "match": 0,
+      "total": 40,
+      "sample": " not necessarilyatefield, and evennessnesss''s''s''s' (its ownness, and/or viceuary, and/or vice...agerativeive, and/or"
+    },
+    {
+      "label": "width=50% len=50%",
+      "n_heads": 8,
+      "n_layers": 14,
+      "wall_seconds": 1.6441349170000024,
+      "tok_per_sec": 24.328903660161085,
+      "speedup_vs_baseline": 0.8102631634578917,
+      "match": 0,
+      "total": 40,
+      "sample": "ometry**edoc**rtum**-**oringayagerback**athemem**exememoringingexotherem**-ood********************"
+    }
+  ]
+}

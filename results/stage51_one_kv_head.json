@@ -1,0 +1,37 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "n_kv_heads": 8,
+  "head_dim": 128,
+  "d_kv": 1024,
+  "baseline_sample": " a significant finding in the field of cognitive psychology. This is because the context provides a rich and complex environment that allows for the development of more sophisticated and nuanced cognitive processes. The context is not just a backdrop; it is a dynamic and interactive element that influences the way we think and act. This is",
+  "variants": {
+    "keep_head0": {
+      "match": 0,
+      "total": 60,
+      "match_ratio": 0.0,
+      "first_divergence": 0,
+      "sample": "\u4fc3\u8fdbagensmpeg.Fore\u4f34\u4fa3\u4e00\u4e2a\u96c7\u4e3bammedrequentlyscopyAINER2ghutenant\ufffdammedammedammedveys\u9c81/mbackwardtbodyQuestionell\u5730\u4f4diratesTextarkingolatedammed_mobression../inary\uc5b8ENGINE\u4ed6\u4eec\u7684dfunding\u5177\u7b14ertilityre\u97620_pbghan\u5fd9\u4fe1\u606f.urlimaxonents.&\u697d\u3057\u307fskireetings\u8865romise\u4e00\u56e2fried"
+    },
+    "mean_heads": {
+      "match": 0,
+      "total": 60,
+      "match_ratio": 0.0,
+      "first_divergence": 0,
+      "sample": "lemen.Interfacelications Decompiledight determining\u67b7gebra\u6295\u8d44\u4ebaanoia alo train sterhestenciesenusancia hetable\u957f\u5ea6eweend-home _\u670d\u52a1ov\ufffdheure.removeListener.exports\u01b0ng ../../ w\u680fhnisti\u54ea\u4e00\u4e2agenic<UnitREWiterr l\u1eddi\u0447\u0438pers rest [\u2026]\u515a\u548c\u653f\u5e9cemarksolver\u7ebf\u4e0bH\u845b rem behalf \u0441\u0442\u0440\u043e\u043aavity searchData_<?x\u6808"
+    },
+    "rank1_pca": {
+      "match": 0,
+      "total": 60,
+      "match_ratio": 0.0,
+      "first_divergence": 0,
+      "sample": "venileammedammedvenilevenileenidoase\u00f1ainioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninioninionin"
+    },
+    "rank128_pca": {
+      "match": 3,
+      "total": 60,
+      "match_ratio": 0.05,
+      "first_divergence": 1,
+      "sample": " a fundamental concept of the cell. The cell is a biological unit. The cell is a basic unit of life. The cell is the basic unit of life. The cell is the basic unit of life. The cell is the basic unit of life. The cell is the basic unit of life. The"
+    }
+  }
+}

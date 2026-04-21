@@ -1,0 +1,23 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "H": 1024,
+  "train_texts": 16,
+  "heldout_texts": 4,
+  "train_pairs": 207,
+  "heldout_pairs": 37,
+  "teacher_heldout_acc": 0.43243243243243246,
+  "context_len": 24,
+  "steps": 300,
+  "results": [
+    {
+      "rank": 64,
+      "trainable_params": 8656896,
+      "final_loss": null,
+      "train_wall_seconds": 5.465834333,
+      "student_acc": 0.0,
+      "teacher_acc": 0.43243243243243246,
+      "student_teacher_agreement": 0.0,
+      "n_total": 37
+    }
+  ]
+}
