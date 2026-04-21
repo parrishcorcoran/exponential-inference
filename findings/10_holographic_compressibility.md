@@ -1,10 +1,27 @@
 # Finding 10 — Holographic compressibility: boundary vs bulk
 
 This finding names the project's core technique: **Holographic Matryoshka**.
-It is the training-and-inference architecture that follows from this
-principle — nested rank-k factoring of boundary weights (Matryoshka),
-preserving bulk dim (holographic), plus per-token dynamic early-exit on
-length.
+
+**Corrected scope (2026-04-20):** the technique is an *inference-time
+dynamic architecture*, not a trained weight compression. Strix Halo's
+14B experiments confirmed:
+
+- **Works:** dynamic width (head masking) + dynamic length (early exit)
+  + batch parallelism on the *unfactored original* model. Coherent
+  text at 50% heads, real wall-clock speedup at reduced layer count,
+  99× throughput at 32×5L batch.
+- **Does not work:** trained rank-k weight factorization to reproduce
+  the teacher. 0% match vs original on every model size tested
+  (0.5B, 3B, 14B, 8B). Matryoshka nesting is *self-consistent within
+  the factored model* (100% at k=32 matches k=128 *within* the factored
+  student) but the factored student itself does not reproduce the
+  teacher's outputs.
+
+So "Matryoshka" here refers to **nested widths at inference** — at each
+token, the system activates a subset of heads and exits at a specific
+layer, and the valid operating points are nested (width=5 is a subset of
+width=40's active heads, length=20 is a prefix of length=40's layers).
+Not a trained rank ladder in the weights.
 
 ## The claim
 
@@ -68,16 +85,40 @@ broke output.
 
 | finding/stage | what we compressed | boundary-aligned mechanism | result |
 |---|---|---|---|
-| 04 | 80-83% of attention heads skipped | heads are rotation-specialists bolted onto the residual stream | 100% token match at 80% skip |
+| 04 | 80-83% of attention heads via dynamic sharpness-based skip | heads are rotation-specialists bolted onto the residual stream | 100% token match at 80% skip |
 | 09 / 33b | early-exit at stabilization_depth | skipping future rotations, not bulk | 5.4× quality preservation under routing |
 | 38 | KV cache rank-128 (8× compression) | K/V are boundary projections of hidden state | coherent output, 8× memory win |
-| **Holographic Matryoshka on 14B** | **rank-k factored weights, k ∈ [32, 128]** | **boundary rank restricted, d_int preserved** | **100% token match at every tested k; 160× compression at k=32, 40× at k=128. 514M factored params (3.9% of full 14B). KL → 0 by step 500 of 2000. Strix Halo, ~35 min training.** |
+| **Strix Halo 14B dynamic routing** | **width (head masking) + length (layer exit) at inference on unfactored model** | **both axes are boundary operations** | **coherent text at 20/40 heads; 1.6×–3.0× wall-clock from reduced layer count; 99× throughput with 32×5L batch parallelism** |
 
-The 14B Holographic Matryoshka run
-(`machines/strix_halo/results/qwen3_14b_r32_128.json`) is the empirical
-confirmation of this finding. The technique is not just predicted to
-work above the manifold floor — it has been measured to work, with
-100% token match at 160× compression on Qwen3-14B.
+### What failed: trained rank-k weight factorization
+
+A separate direction — training a Matryoshka-factored student to
+reproduce the teacher — was tested extensively and failed:
+
+- 0.5B, 3B, 14B Qwen; 8B Llama: all 0% match vs original at every
+  tested rank.
+- The Matryoshka-nested factored student is internally self-consistent
+  (rank-32 equals rank-128 *within the factored model* at 100%), but
+  that internal consistency does not translate to reproducing the
+  teacher.
+
+The Strix Halo `run_14b.py` eval compared student-at-k to
+student-at-k_max — a self-consistency check, not a teacher comparison.
+The earlier commit message "100% token match at 160× compression" was
+naming this self-consistency, not a teacher-match.
+
+### What worked: dynamic routing at inference on the unfactored original
+
+The Strix `manifold_inference.py` script runs a custom forward pass
+that, per token:
+- Zeroes N_HEADS − n_active heads after attention (width compression)
+- Exits the layer stack after n_active_layers (length compression)
+- Leaves MLPs at full d_int (bulk preserved, per the boundary/bulk
+  principle)
+
+This architecture produces coherent text at a wide range of width and
+length settings on Qwen3-14B without any retraining. The "Holographic
+Matryoshka" technique is really this runtime architecture.
 
 **The boundary/bulk partition predicts every prior result.** It also
 resolves the apparent failure of Matryoshka at 0.6B (stage 15): that
