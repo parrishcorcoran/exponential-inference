@@ -1,0 +1,188 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "H": 1024,
+  "train_tokens": 150000,
+  "heldout_tokens": 6000,
+  "train_pairs": 149976,
+  "heldout_pairs": 300,
+  "teacher_heldout_acc": 0.38333333333333336,
+  "context_len": 24,
+  "steps": 4000,
+  "results": [
+    {
+      "rank": 64,
+      "trainable_params": 14948352,
+      "final_loss": 8.286428451538086,
+      "train_wall_seconds": 510.68863291699995,
+      "checkpoint_history": [
+        {
+          "student_acc": 0.05333333333333334,
+          "teacher_acc": 0.38333333333333336,
+          "student_teacher_agreement": 0.06666666666666667,
+          "student_ppl": 3677.355830690452,
+          "teacher_ppl": 24.37336918157292,
+          "ppl_divergence": 3652.982461508879,
+          "agreement_by_confidence": {
+            "top_10pct_conf": 0.1,
+            "top_20pct_conf": 0.05,
+            "top_30pct_conf": 0.06666666666666667,
+            "top_50pct_conf": 0.05333333333333334,
+            "top_70pct_conf": 0.0380952380952381,
+            "top_100pct_conf": 0.06666666666666667
+          },
+          "n_total": 300,
+          "step": 500,
+          "train_loss": 9.061680793762207
+        },
+        {
+          "student_acc": 0.11666666666666667,
+          "teacher_acc": 0.38333333333333336,
+          "student_teacher_agreement": 0.11,
+          "student_ppl": 3568.246037654298,
+          "teacher_ppl": 24.37336918157292,
+          "ppl_divergence": 3543.8726684727253,
+          "agreement_by_confidence": {
+            "top_10pct_conf": 0.16666666666666666,
+            "top_20pct_conf": 0.26666666666666666,
+            "top_30pct_conf": 0.2,
+            "top_50pct_conf": 0.13333333333333333,
+            "top_70pct_conf": 0.10476190476190476,
+            "top_100pct_conf": 0.11
+          },
+          "n_total": 300,
+          "step": 1000,
+          "train_loss": 8.422018051147461
+        },
+        {
+          "student_acc": 0.11333333333333333,
+          "teacher_acc": 0.38333333333333336,
+          "student_teacher_agreement": 0.09666666666666666,
+          "student_ppl": 3506.2218702421815,
+          "teacher_ppl": 24.37336918157292,
+          "ppl_divergence": 3481.8485010606087,
+          "agreement_by_confidence": {
+            "top_10pct_conf": 0.3333333333333333,
+            "top_20pct_conf": 0.3,
+            "top_30pct_conf": 0.2,
+            "top_50pct_conf": 0.13333333333333333,
+            "top_70pct_conf": 0.11904761904761904,
+            "top_100pct_conf": 0.09666666666666666
+          },
+          "n_total": 300,
+          "step": 1500,
+          "train_loss": 8.454187393188477
+        },
+        {
+          "student_acc": 0.11333333333333333,
+          "teacher_acc": 0.38333333333333336,
+          "student_teacher_agreement": 0.10666666666666667,
+          "student_ppl": 3450.170647778579,
+          "teacher_ppl": 24.37336918157292,
+          "ppl_divergence": 3425.7972785970064,
+          "agreement_by_confidence": {
+            "top_10pct_conf": 0.36666666666666664,
+            "top_20pct_conf": 0.21666666666666667,
+            "top_30pct_conf": 0.15555555555555556,
+            "top_50pct_conf": 0.11333333333333333,
+            "top_70pct_conf": 0.10952380952380952,
+            "top_100pct_conf": 0.10666666666666667
+          },
+          "n_total": 300,
+          "step": 2000,
+          "train_loss": 8.307525634765625
+        },
+        {
+          "student_acc": 0.12666666666666668,
+          "teacher_acc": 0.38333333333333336,
+          "student_teacher_agreement": 0.13333333333333333,
+          "student_ppl": 3722.8193760900135,
+          "teacher_ppl": 24.37336918157292,
+          "ppl_divergence": 3698.4460069084407,
+          "agreement_by_confidence": {
+            "top_10pct_conf": 0.43333333333333335,
+            "top_20pct_conf": 0.21666666666666667,
+            "top_30pct_conf": 0.17777777777777778,
+            "top_50pct_conf": 0.12666666666666668,
+            "top_70pct_conf": 0.12380952380952381,
+            "top_100pct_conf": 0.13333333333333333
+          },
+          "n_total": 300,
+          "step": 2500,
+          "train_loss": 8.096839904785156
+        },
+        {
+          "student_acc": 0.12,
+          "teacher_acc": 0.38333333333333336,
+          "student_teacher_agreement": 0.15333333333333332,
+          "student_ppl": 3668.014132839016,
+          "teacher_ppl": 24.37336918157292,
+          "ppl_divergence": 3643.640763657443,
+          "agreement_by_confidence": {
+            "top_10pct_conf": 0.4,
+            "top_20pct_conf": 0.3,
+            "top_30pct_conf": 0.2,
+            "top_50pct_conf": 0.14,
+            "top_70pct_conf": 0.12380952380952381,
+            "top_100pct_conf": 0.15333333333333332
+          },
+          "n_total": 300,
+          "step": 3000,
+          "train_loss": 9.565145492553711
+        },
+        {
+          "student_acc": 0.13333333333333333,
+          "teacher_acc": 0.38333333333333336,
+          "student_teacher_agreement": 0.11,
+          "student_ppl": 3582.4763571458857,
+          "teacher_ppl": 24.37336918157292,
+          "ppl_divergence": 3558.102987964313,
+          "agreement_by_confidence": {
+            "top_10pct_conf": 0.23333333333333334,
+            "top_20pct_conf": 0.25,
+            "top_30pct_conf": 0.2,
+            "top_50pct_conf": 0.13333333333333333,
+            "top_70pct_conf": 0.12380952380952381,
+            "top_100pct_conf": 0.11
+          },
+          "n_total": 300,
+          "step": 3500,
+          "train_loss": 7.946220874786377
+        },
+        {
+          "student_acc": 0.13333333333333333,
+          "teacher_acc": 0.38333333333333336,
+          "student_teacher_agreement": 0.11666666666666667,
+          "student_ppl": 3448.264044860638,
+          "teacher_ppl": 24.37336918157292,
+          "ppl_divergence": 3423.890675679065,
+          "agreement_by_confidence": {
+            "top_10pct_conf": 0.4,
+            "top_20pct_conf": 0.23333333333333334,
+            "top_30pct_conf": 0.18888888888888888,
+            "top_50pct_conf": 0.13333333333333333,
+            "top_70pct_conf": 0.11904761904761904,
+            "top_100pct_conf": 0.11666666666666667
+          },
+          "n_total": 300,
+          "step": 4000,
+          "train_loss": 8.286428451538086
+        }
+      ],
+      "student_acc": 0.13333333333333333,
+      "teacher_acc": 0.38333333333333336,
+      "student_teacher_agreement": 0.11666666666666667,
+      "student_ppl": 3448.264044860638,
+      "teacher_ppl": 24.37336918157292,
+      "ppl_divergence": 3423.890675679065,
+      "agreement_by_confidence": {
+        "top_10pct_conf": 0.4,
+        "top_20pct_conf": 0.23333333333333334,
+        "top_30pct_conf": 0.18888888888888888,
+        "top_50pct_conf": 0.13333333333333333,
+        "top_70pct_conf": 0.11904761904761904,
+        "top_100pct_conf": 0.11666666666666667
+      },
+      "n_total": 300
+    }
+  ]
+}

@@ -7,13 +7,13 @@
   "heldout_pairs": 37,
   "teacher_heldout_acc": 0.43243243243243246,
   "context_len": 24,
-  "steps": 300,
+  "steps": 400,
   "results": [
     {
       "rank": 64,
       "trainable_params": 8656896,
-      "final_loss": null,
-      "train_wall_seconds": 5.465834333,
+      "final_loss": 3.991537094116211,
+      "train_wall_seconds": 16.337791792,
       "student_acc": 0.0,
       "teacher_acc": 0.43243243243243246,
       "student_teacher_agreement": 0.0,
