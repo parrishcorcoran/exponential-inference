@@ -80,8 +80,19 @@ def load_model(model_id, dtype_str="bfloat16"):
     return model, tokenizer
 
 
+def get_decoder_layers(model):
+    """Find decoder layers for any HF causal LM architecture."""
+    if hasattr(model, "model") and hasattr(model.model, "layers"):
+        return model.model.layers  # Llama, Qwen, Mistral, Yi
+    if hasattr(model, "transformer") and hasattr(model.transformer, "h"):
+        return model.transformer.h  # GPT-2, GPT-NeoX, Bloom, Falcon
+    if hasattr(model, "gpt_neox") and hasattr(model.gpt_neox, "layers"):
+        return model.gpt_neox.layers  # GPT-NeoX alternate
+    raise AttributeError(f"Cannot find decoder layers on {type(model).__name__}")
+
+
 def collect_per_layer_hiddens(model, tokenizer, texts, max_len=256):
-    L = len(model.model.layers)
+    L = len(get_decoder_layers(model))
     samples = [[] for _ in range(L + 1)]
 
     def make_hook(i):
@@ -95,8 +106,20 @@ def collect_per_layer_hiddens(model, tokenizer, texts, max_len=256):
         h = output
         h_flat = h.detach().reshape(-1, h.shape[-1]).to(torch.float32).cpu()
         samples[0].append(h_flat)
-    h0 = model.model.embed_tokens.register_forward_hook(embed_hook)
-    handles = [h0] + [model.model.layers[i].register_forward_hook(make_hook(i + 1))
+    # Find embedding layer
+    if hasattr(model, "model") and hasattr(model.model, "embed_tokens"):
+        embed_module = model.model.embed_tokens
+    elif hasattr(model, "transformer") and hasattr(model.transformer, "word_embeddings"):
+        embed_module = model.transformer.word_embeddings
+    elif hasattr(model, "gpt_neox") and hasattr(model.gpt_neox, "embed_in"):
+        embed_module = model.gpt_neox.embed_in
+    else:
+        embed_module = list(model.children())[0]
+        if hasattr(embed_module, "embed_tokens"):
+            embed_module = embed_module.embed_tokens
+    h0 = embed_module.register_forward_hook(embed_hook)
+    decoder_layers = get_decoder_layers(model)
+    handles = [h0] + [decoder_layers[i].register_forward_hook(make_hook(i + 1))
                        for i in range(L)]
     try:
         with torch.inference_mode():
@@ -194,7 +217,7 @@ def main():
     t0 = time.perf_counter()
     print(f"\n[1/5] loading model...")
     model, tokenizer = load_model(args.model, args.dtype)
-    L = len(model.model.layers)
+    L = len(get_decoder_layers(model))
     H = model.config.hidden_size
     V = model.config.vocab_size
     print(f"  L={L}  H={H}  V={V}  load time: {time.perf_counter()-t0:.1f}s")
