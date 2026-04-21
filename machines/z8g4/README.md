@@ -5,37 +5,83 @@ roughly 192 GB per socket, check actual socket count for total — likely
 384 GB or 768 GB depending on config), no GPU. Slow per-core but can
 hold models that no single GPU can fit.
 
-**Z8G4's killer role for Holographic Matryoshka training:** it's the
-host for teachers too big for Strix Halo (>30B in bf16). The Finding 10
-Holographic Matryoshka training converged at step 500 of 2000 on 14B —
-meaning Z8G4 CPU training, even at 50-100× slower per step than Strix
-ROCm, is still overnight-scale wall-clock for 32B-72B teachers, not
-cloud-required. See `machines/strix_halo/results/README.md` for the
-sizing table that says which teacher goes where.
+**Z8G4's killer role:** big-memory CPU host for tasks that don't need
+GPU throughput. Current best fit: **cross-model manifold fingerprinting**
+(the stage 60 task described below).
 
-## Next task
+## Current priority (2026-04-21): cross-model manifold fingerprint
 
-**Generate Qwen3-14B teacher corpus for the Strix Halo Matryoshka
-training** (first above-floor run per Finding 10 / Finding 05).
+**Old priorities are superseded.** The previously assigned Qwen3-14B
+corpus generation targeted the Holographic-Matryoshka-as-trained-
+weight-factoring path, which has been FALSIFIED (0% vs original on
+every tested model size; see `machines/strix_halo/results/validate_14b.log`).
+Theory #6 (manifold-target training) is the current active track, and
+the new priority below is its upstream diagnostic.
+
+**The new priority: run `scripts/measure_manifold_fingerprint.py`
+across models of varying size and tokenizer family, commit the
+fingerprint JSONs back.**
+
+The fingerprint combines:
+- Per-layer bootstrap TwoNN dim (Finding 01 style)
+- Per-layer-transition two-mode rotation spectrum (stage 58 style)
+- Carry / flip / mid fraction per layer (stage 59 style)
+- Rotation-operator eigenvalue distributions
+- Two-mode concentration trend through the stack
+
+This is what the main Mac session asked for after discovering the
+two-mode structure. Z8G4's niche: run it on the models that don't
+fit on Mac or Strix — Qwen3-32B, Qwen3-72B, Llama-3-70B, maybe
+DeepSeek-V3. Each fingerprint is a JSON < 100 KB, committable. The
+cross-architecture comparison is what lets us check whether the
+two-mode structure is a universal transformer feature or a Qwen
+quirk.
+
+### Commands
+
+Fingerprint individual models:
 
 ```bash
-python machines/z8g4/scripts/generate_teacher_corpus.py \
-    --model Qwen/Qwen3-14B \
-    --target-tokens 200000 \
-    --max-gen 800 \
-    --temperature 0.8 \
-    --top-p 0.9 \
-    --out machines/z8g4/scratch/corpus_qwen3_14b.pt
+python machines/z8g4/scripts/measure_manifold_fingerprint.py \
+    --model Qwen/Qwen3-32B \
+    --out machines/z8g4/results/fingerprint_qwen3_32b.json
 
-huggingface-cli upload <username>/corpus-qwen3-14b \
-    machines/z8g4/scratch/corpus_qwen3_14b.pt corpus.pt
+python machines/z8g4/scripts/measure_manifold_fingerprint.py \
+    --model meta-llama/Llama-3.1-70B \
+    --out machines/z8g4/results/fingerprint_llama3_70b.json
+
+python machines/z8g4/scripts/measure_manifold_fingerprint.py \
+    --model mistralai/Mistral-7B-v0.1 \
+    --out machines/z8g4/results/fingerprint_mistral_7b.json
 ```
 
-Qwen3-14B in bf16 fits comfortably in RAM (~28 GB). Overnight is
-plenty for 200k sampled tokens.
+Use `numactl -N 0 -m 0` for models ≤ 32B; span sockets for larger.
+Expected wall-clock per fingerprint: a few hours on CPU for 32B, a
+day for 70B. Overnight / weekend scale.
 
-Strix Halo consumes the HF-hosted corpus in its Matryoshka training
-run — see `machines/strix_halo/results/README.md`.
+### Then commit the results
+
+```bash
+git add machines/z8g4/results/fingerprint_*.json
+git commit -m "z8g4: fingerprints for <model list>"
+git push
+```
+
+The main Mac session picks up the JSONs and does cross-architecture
+comparison. If the two-mode spectrum holds across tokenizer families
+and scales, candidate Finding 14 gets formalized.
+
+## Also still useful (secondary priority)
+
+1. **High-N bootstrap TwoNN** on Qwen3 family. Current Finding 01
+   measurements used N ≈ 300 hidden states per layer. Re-measure with
+   N ≥ 3000 on at least 3 Qwen3 sizes. Tightens the noise caveat added
+   to Finding 01.
+2. **Multi-teacher ensemble embedding basis** for Theory #6. Average
+   Qwen3-0.6B + 1.7B + 4B + 14B + 32B embedding-matrix PCA bases into
+   a cleaner manifold measurement. Upload as a single HF artifact.
+3. **Teacher-corpus generation** for Theory #6 scaled training — but
+   wait for Strix to confirm the approach on smaller scale first.
 
 ## Role in this project
 

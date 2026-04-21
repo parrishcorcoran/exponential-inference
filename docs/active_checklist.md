@@ -9,15 +9,18 @@ stage number; move to "done" by committing results + a short writeup.
 
 ## Holographic / spectral (origin: point #1)
 
-The Stage 58 two-mode rotation finding (angle 0 and π dominant) is being
-deepened in parallel by the main session. Other items in this area:
+The Stage 58 two-mode rotation finding (angle 0 and π dominant) plus
+stage 59 carry-channel analysis are being deepened in parallel by the
+main session.
 
+- [ ] **[CLAIMED: Z8G4]** **Cross-model manifold fingerprint**. Run
+  `machines/z8g4/scripts/measure_manifold_fingerprint.py` on Qwen3-32B,
+  Qwen3-72B, Llama-3-70B, and one non-Qwen-family model. Compare the
+  two-mode spectrum, carry-fraction trajectory, and rotation curve
+  across scales and tokenizer families. Each fingerprint is <100KB
+  JSON; commit all back.
 - [ ] **Validate two-mode spectrum on Qwen3-14B** (Strix). Does the
-  bimodal distribution persist at larger scale? If yes, it's a
-  universal structural feature. Target: <1 hour on ROCm.
-- [ ] **Validate on non-Qwen tokenizer** (any machine). Run stage 58 on
-  Llama-3 1B, Mistral 7B, or Phi-2. If bimodal spectrum holds across
-  tokenizer families, it's a universal transformer structure.
+  bimodal distribution persist at larger scale? <1 hour on ROCm.
 - [ ] **Per-position frequency decomposition**. FFT of the rotation
   curve (Finding 02) per model. What frequencies carry the signal?
 - [ ] **Cross-layer mutual information** at varying layer gaps. Does
