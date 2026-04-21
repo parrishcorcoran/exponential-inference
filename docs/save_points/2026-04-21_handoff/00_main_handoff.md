@@ -272,12 +272,63 @@ redundant). A purpose-built architecture cuts the redundancy.
 
 ---
 
-## 4. What's next — priority ordered
+## 4. What's next — the 5-tier strategy
 
-### Immediate (this week)
+The project is organized into 5 parallel tiers, each representing a
+different risk/reward bet:
+
+### Tier 1 — dynamic manifold routing on existing models (NEAR-TERM PRODUCT)
+Drop-in speedup for any open-weight LLM. No retraining. Uses the
+manifold as a runtime oracle. Composes known wins: head pruning
+(Finding 04), early exit (Finding 09), KV compression (stage 38),
+width routing (stage 41). Target: 2-5× wall-clock at ≥95% quality.
+**Shippable in 2-3 weeks of focused work.**
+
+### Tier 2 — geodesic ODE (ARCHIVED)
+Pure geodesic doesn't match the measured two-mode physics. Strix
+attempts collapsed. No new investment. Scripts remain for reference.
+
+### Tier 3 — two-channel holographic architecture (HIGH-UPSIDE)
+Purpose-built for stage 58 + 59's two-mode rotation + walking basis.
+Stage 60 bake-off in progress decides whether architecture is worth
+Strix time. If so, scale to 100M and run Gate 1.
+
+### Tier 4 — shared manifold-routing runtime (INFRASTRUCTURE)
+The routing logic from Tier 1 is reusable across Tiers 1 and 3.
+Build it once; apply everywhere. Natural by-product of Tier 1
+shipping.
+
+### Tier 5 — training primitives (COMPOUND SPEEDUP on Tier 3 training)
+Makes the smart-small-model training tractable on consumer hardware.
+Stacked, these should give 2-10× faster training:
+
+- Manifold-aware initialization (skip random→organized phase)
+- Manifold-regularized loss (prevents off-manifold noise)
+- Natural gradient on the manifold metric
+- Curriculum via manifold resolution (low-dim target first)
+- Rotation-curve-aware per-layer LR (Finding 02)
+- Two-channel staged curriculum (carry → flip → mix)
+- Carry-freeze flip-train (halve late-stage trainable params)
+- Trainable rotation operators (Givens/quaternion parameterization)
+- Cross-tokenizer carry-channel pretraining (amortize "find
+  manifold" work)
+- Training data curriculum by resolution buckets (stage 56)
+- Ternary/quantized manifold training (BitNet-inspired)
+- Early-exit backprop (use stabilization_depth during training)
+
+### Speculative extensions (Tier 6+)
+
+- **Tier 6**: post-training alignment (RLHF via manifold
+  coordinates)
+- **Tier 7**: speculative co-decoding (two students verified via
+  manifold agreement)
+- **Tier 8**: self-supervised manifold learning (discover manifold
+  from tokenizer + corpus alone, no teacher)
+
+### Concrete near-term tasks
 
 1. **Finish stage 60 bake-off** (currently running on Mac). Compares
-   standard transformer vs two-channel holographic at ~20M params on
+   standard transformer vs two-channel holographic at ~45M params on
    wikitext-2. Outcome decides whether holographic architecture gets
    Strix time.
 
