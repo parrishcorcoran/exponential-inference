@@ -230,38 +230,51 @@ def evaluate(student, teacher, pairs, E_full, P, embed_basis_mean, tokenizer, de
     """Compare student's next-token accuracy to teacher's on held-out pairs."""
     student.eval()
     teacher.eval()
-    n_correct_student = 0
-    n_correct_teacher = 0
-    n_match_student_teacher = 0
     n_total = len(pairs)
+    records = []  # (student_pred, student_conf, teacher_pred, true_id)
+    eps = 1e-6
+    E_proj = (E_full - embed_basis_mean) @ P                       # [V, k]
+    E_norms = E_proj.norm(dim=-1, keepdim=True).clamp_min(eps)
+    E_proj_norm = (E_proj / E_norms)
 
     with torch.inference_mode():
         for ctx, true_id in pairs:
             ctx_b = ctx.unsqueeze(0)
-
-            # Student: predict projected-embedding, argmax over all embeddings
             h_out = student(ctx_b)
             pred_last = h_out[0, -1].float()
-            pred_proj = (pred_last - embed_basis_mean) @ P        # [k]
-            # All token embeddings projected
-            E_proj = (E_full - embed_basis_mean) @ P               # [V, k]
-            E_proj_norm = F.normalize(E_proj, dim=-1)
-            pred_norm = F.normalize(pred_proj.unsqueeze(0), dim=-1)
-            sims = (pred_norm @ E_proj_norm.T)[0]                   # [V]
-            student_pred = int(sims.argmax().item())
+            pred_proj = (pred_last - embed_basis_mean) @ P         # [k]
+            pn = pred_proj.norm().clamp_min(eps)
+            pred_norm = pred_proj / pn
+            sims = (pred_norm @ E_proj_norm.T)                      # [V]
+            top2 = sims.topk(2)
+            student_pred = int(top2.indices[0].item())
+            # Confidence: margin between top-1 and top-2 cosine sim
+            student_conf = float(top2.values[0].item() - top2.values[1].item())
 
-            # Teacher: standard forward, argmax logits
             t_out = teacher(input_ids=ctx_b, use_cache=False)
             teacher_pred = int(t_out.logits[0, -1].argmax().item())
 
-            if student_pred == true_id: n_correct_student += 1
-            if teacher_pred == true_id: n_correct_teacher += 1
-            if student_pred == teacher_pred: n_match_student_teacher += 1
+            records.append((student_pred, student_conf, teacher_pred, true_id))
+
+    # Core stats
+    n_correct_student = sum(1 for s, _, _, t in records if s == t)
+    n_correct_teacher = sum(1 for _, _, tp, t in records if tp == t)
+    n_agree = sum(1 for s, _, tp, _ in records if s == tp)
+
+    # Confidence-stratified agreement (speculative decoding acceptance curves)
+    records_sorted = sorted(records, key=lambda r: -r[1])  # high conf first
+    strata = {}
+    for frac in (0.1, 0.2, 0.3, 0.5, 0.7, 1.0):
+        k = max(1, int(frac * n_total))
+        sub = records_sorted[:k]
+        agree = sum(1 for s, _, tp, _ in sub if s == tp) / len(sub)
+        strata[f"top_{int(frac*100)}pct_conf"] = agree
 
     return {
         "student_acc": n_correct_student / n_total,
         "teacher_acc": n_correct_teacher / n_total,
-        "student_teacher_agreement": n_match_student_teacher / n_total,
+        "student_teacher_agreement": n_agree / n_total,
+        "agreement_by_confidence": strata,
         "n_total": n_total,
     }
 
@@ -374,12 +387,20 @@ def main():
 
     print(f"\n=== summary ===")
     print(f"  teacher held-out acc:           {teacher_holdout_acc:.3f}")
-    print(f"  {'rank':>5}  {'params':>8}  {'student_acc':>12}  {'vs teacher':>12}")
+    print(f"  {'rank':>5}  {'params':>8}  {'student_acc':>12}  {'vs teacher':>12}  "
+          f"{'agreement':>10}")
     for r in all_results:
         delta = r["student_acc"] - teacher_holdout_acc
         sign = "+" if delta >= 0 else ""
         print(f"  {r['rank']:>5}  {r['trainable_params']/1e6:>6.1f}M  "
-              f"{r['student_acc']:>12.3f}  {sign}{delta:.3f}")
+              f"{r['student_acc']:>12.3f}  {sign}{delta:.3f}  "
+              f"{r['student_teacher_agreement']:>10.3f}")
+
+    print(f"\n=== speculative-decoding acceptance curve (student-teacher agreement stratified by student confidence) ===")
+    for r in all_results:
+        print(f"  rank {r['rank']} — student-teacher agreement on top-X%-confident predictions:")
+        for key, v in r["agreement_by_confidence"].items():
+            print(f"    {key:>18}: {v:.3f}")
 
     # Verdict
     best = max(r["student_acc"] for r in all_results)

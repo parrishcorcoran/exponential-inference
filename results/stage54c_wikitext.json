@@ -1,0 +1,31 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "H": 1024,
+  "train_tokens": 80000,
+  "heldout_tokens": 6000,
+  "train_pairs": 79976,
+  "heldout_pairs": 500,
+  "teacher_heldout_acc": 0.364,
+  "context_len": 24,
+  "steps": 3000,
+  "results": [
+    {
+      "rank": 64,
+      "trainable_params": 8656896,
+      "final_loss": 8.087966918945312,
+      "train_wall_seconds": 145.998781125,
+      "student_acc": 0.068,
+      "teacher_acc": 0.364,
+      "student_teacher_agreement": 0.072,
+      "agreement_by_confidence": {
+        "top_10pct_conf": 0.14,
+        "top_20pct_conf": 0.18,
+        "top_30pct_conf": 0.15333333333333332,
+        "top_50pct_conf": 0.112,
+        "top_70pct_conf": 0.08571428571428572,
+        "top_100pct_conf": 0.072
+      },
+      "n_total": 500
+    }
+  ]
+}
