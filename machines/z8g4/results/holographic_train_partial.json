@@ -1,0 +1,48 @@
+{
+  "holographic": {
+    "params": 10628784,
+    "best_val_ppl": 708.5,
+    "best_epoch": 4,
+    "final_val_ppl": 1251.4,
+    "final_epoch": 10,
+    "note": "killed at epoch 10 \u2014 overfitting on 500k tokens",
+    "history": [
+      {
+        "epoch": 1,
+        "val_ppl": 901.9
+      },
+      {
+        "epoch": 2,
+        "val_ppl": 772.2
+      },
+      {
+        "epoch": 3,
+        "val_ppl": 708.5
+      },
+      {
+        "epoch": 4,
+        "val_ppl": 722.0
+      },
+      {
+        "epoch": 5,
+        "val_ppl": 732.7
+      },
+      {
+        "epoch": 6,
+        "val_ppl": 774.9
+      },
+      {
+        "epoch": 7,
+        "val_ppl": 880.1
+      },
+      {
+        "epoch": 8,
+        "val_ppl": 1036.7
+      },
+      {
+        "epoch": 9,
+        "val_ppl": 1251.4
+      }
+    ]
+  }
+}
