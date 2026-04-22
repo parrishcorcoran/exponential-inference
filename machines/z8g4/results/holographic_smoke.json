@@ -1,0 +1,56 @@
+{
+  "holographic": {
+    "params": 41445392,
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 11.521213102340699,
+        "val_loss": 10.946137113571167,
+        "val_ppl": 56734.462741728516
+      },
+      {
+        "epoch": 2,
+        "train_loss": 10.62662444114685,
+        "val_loss": 10.59212483406067,
+        "val_ppl": 39820.01021154095
+      }
+    ],
+    "final_val_loss": 10.59212483406067,
+    "final_val_ppl": 39820.01021154095,
+    "train_time_s": 41.753294706344604,
+    "sample": "The discovery that that the the the the the\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u95a2\u308f\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e\u00e9e",
+    "config": {
+      "d_model": 256,
+      "n_blocks": 2,
+      "n_views": 4,
+      "n_heads": 4,
+      "d_int": 1024
+    }
+  },
+  "standard": {
+    "params": 4196608,
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 11.324644899368286,
+        "val_loss": 10.72277771949768,
+        "val_ppl": 45377.77467217957
+      },
+      {
+        "epoch": 2,
+        "train_loss": 10.476579809188843,
+        "val_loss": 10.405672578811645,
+        "val_ppl": 33046.55417287164
+      }
+    ],
+    "final_val_loss": 10.405672578811645,
+    "final_val_ppl": 33046.55417287164,
+    "train_time_s": 35.391666650772095,
+    "config": {
+      "d_model": 256,
+      "n_layers": 4,
+      "n_heads": 4,
+      "d_int": 1024
+    }
+  }
+}

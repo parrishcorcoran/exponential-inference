@@ -106,10 +106,10 @@ class StandardBlock(nn.Module):
 
 
 class WikitextDataset(Dataset):
-    """Load wikitext-2 and chunk into fixed-length sequences."""
-    def __init__(self, tokenizer, seq_len=256, split="train", max_tokens=None):
+    """Load wikitext and chunk into fixed-length sequences."""
+    def __init__(self, tokenizer, seq_len=256, split="train", max_tokens=None, variant="wikitext-2-raw-v1"):
         from datasets import load_dataset
-        ds = load_dataset("wikitext", "wikitext-2-raw-v1", split=split)
+        ds = load_dataset("wikitext", variant, split=split)
         text = "\n".join(ds["text"])
         tokens = tokenizer(text, return_tensors="pt", truncation=False)["input_ids"][0]
         if max_tokens:
@@ -195,6 +195,8 @@ def main():
     p.add_argument("--max-tokens", type=int, default=500000)
     p.add_argument("--baseline-layers", type=int, default=8,
                    help="Number of layers for the standard transformer baseline")
+    p.add_argument("--dataset", default="wikitext-2-raw-v1",
+                   help="wikitext-2-raw-v1 or wikitext-103-raw-v1")
     p.add_argument("--device", default="cpu")
     p.add_argument("--out", default="machines/z8g4/results/holographic_train.json")
     args = p.parse_args()
@@ -209,8 +211,8 @@ def main():
 
     # Data
     print("\nLoading wikitext-2...", flush=True)
-    train_ds = WikitextDataset(tokenizer, args.seq_len, "train", args.max_tokens)
-    val_ds = WikitextDataset(tokenizer, args.seq_len, "validation", 50000)
+    train_ds = WikitextDataset(tokenizer, args.seq_len, "train", args.max_tokens, args.dataset)
+    val_ds = WikitextDataset(tokenizer, args.seq_len, "validation", 50000, args.dataset)
     train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True, drop_last=True)
     val_loader = DataLoader(val_ds, batch_size=args.batch_size, shuffle=False, drop_last=True)
 
