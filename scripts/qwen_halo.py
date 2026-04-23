@@ -300,11 +300,34 @@ def main():
     print(f"  Medusa heads: {len(medusa_heads)}")
     print(f"{'='*60}", flush=True)
 
+    # Save compressed model
+    model_save = Path("checkpoints/qwen_halo/compressed_model")
+    model_save.mkdir(parents=True, exist_ok=True)
+    model.save_pretrained(str(model_save))
+    tokenizer.save_pretrained(str(model_save))
+    print(f"saved compressed model to {model_save}", flush=True)
+
+    # Wall clock benchmark
+    print(f"\n{'='*60}")
+    print(f"WALL CLOCK BENCHMARK")
+    print(f"{'='*60}")
+    ids_bench = tokenizer("The future of artificial intelligence will", return_tensors='pt').input_ids.to(device)
+    N_bench = 50
+    with torch.no_grad(): model.generate(ids_bench, max_new_tokens=5, do_sample=False)
+    torch.cuda.synchronize(); t0 = time.time()
+    with torch.no_grad(): out_bench = model.generate(ids_bench, max_new_tokens=N_bench, do_sample=False)
+    torch.cuda.synchronize()
+    tps = N_bench / (time.time() - t0)
+    text = tokenizer.decode(out_bench[0][ids_bench.shape[1]:], skip_special_tokens=True)
+    print(f"  Speed: {tps:.1f} tok/s")
+    print(f"  Text:  {text[:60]}")
+    print(f"  VRAM:  {torch.cuda.memory_allocated()/1e9:.1f} GB", flush=True)
+
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     with open(args.out, "w") as f:
         json.dump({"teacher_ce": teacher_ce, "teacher_ppl": math.exp(teacher_ce),
                     "probes": len(probe_layers), "medusa_heads": len(medusa_heads),
-                    "history": history}, f, indent=2)
+                    "history": history, "wall_clock_tps": tps}, f, indent=2)
     print(f"saved {args.out}", flush=True)
 
 
