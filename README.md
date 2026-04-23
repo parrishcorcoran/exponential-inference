@@ -286,6 +286,16 @@ tests/                         Unit tests
 results/                       Manifold measurements, plots, JSON summaries
 ```
 
+## Future work
+
+- [`docs/holographic_transformer_spec.md`](docs/holographic_transformer_spec.md)
+  — design for a transformer where every compression axis (rank, bits,
+  heads, α, layers) is explicit and trainable. Rebuilds the stage 86-91
+  holographic retrieval with the compensation levers the measurement
+  matrix revealed were missing.
+- [`docs/compression_matrix.md`](docs/compression_matrix.md) — living
+  cross-model cost matrix (append-only). Fill before building.
+
 ## Citing
 
 ```
