@@ -118,17 +118,25 @@ def main():
     for p_ in model.parameters(): p_.requires_grad = False
     lm_head_weight = model.lm_head.weight  # tied with embedding
 
-    # Create probes for every layer (layer 0 = embedding, L = final)
-    probes = nn.ModuleList([LayerProbe(d_model) for _ in range(L + 1)]).to(device).to(torch.float32)
-    print(f"  created {len(probes)} probes  (each {sum(p.numel() for p in probes[0].parameters()):,} params)", flush=True)
+    # Create probes for every 5th layer to save memory (8-9 probes instead of 41)
+    probe_layers = list(range(0, L + 1, 5))
+    if L not in probe_layers:
+        probe_layers.append(L)
+    probe_layers = sorted(probe_layers)
+    probes = nn.ModuleList([LayerProbe(d_model) for _ in probe_layers]).to(device).to(torch.float32)
+    probe_layer_map = {l: i for i, l in enumerate(probe_layers)}
+    print(f"  created {len(probes)} probes at layers {probe_layers}  (each {sum(p.numel() for p in probes[0].parameters()):,} params)", flush=True)
 
     train_tokens = load_tokens(tokenizer, max_tokens=args.seq_len * 500, split="train")
     val_tokens = load_tokens(tokenizer, max_tokens=args.seq_len * 20, split="validation")
 
     opt = torch.optim.AdamW(probes.parameters(), lr=args.lr, betas=(0.9, 0.95), weight_decay=0.01)
 
-    # Uniform weights across layers
-    layer_weights = torch.ones(L + 1, device=device) / (L + 1)
+    # Uniform weights across probe layers
+    n_probes = len(probe_layers)
+    layer_weights = torch.ones(n_probes, device=device) / n_probes
+    # Cache lm_head in bf16 to avoid fp32 copy each step
+    lm_head_bf16 = lm_head_weight.to(torch.bfloat16)
 
     step = 0; t0 = time.time(); running = []
     history = []
@@ -141,11 +149,13 @@ def main():
                 hidden_states = [h.detach() for h in out.hidden_states]
             total = 0.0
             per_layer_losses = []
-            for l, h in enumerate(hidden_states):
-                logits = probes[l](h.to(torch.float32), lm_head_weight.to(torch.float32))
+            for pi, l in enumerate(probe_layers):
+                h = hidden_states[l]
+                logits = probes[pi](h.to(torch.float32), lm_head_bf16.float())
                 loss = F.cross_entropy(logits.reshape(-1, logits.shape[-1]), tgt.reshape(-1))
-                total = total + layer_weights[l] * loss
+                total = total + layer_weights[pi] * loss
                 per_layer_losses.append(float(loss.item()))
+                del logits  # free memory immediately
             total.backward()
             torch.nn.utils.clip_grad_norm_(probes.parameters(), 1.0)
             opt.step()
@@ -153,14 +163,16 @@ def main():
             if step % args.eval_every == 0:
                 # Validation: per-layer CE
                 probes.eval()
-                per_layer_val = [0.0] * (L + 1); vcount = 0
+                per_layer_val = [0.0] * n_probes; vcount = 0
                 with torch.no_grad():
                     for v_inp, v_tgt in iter_batches(val_tokens, args.seq_len, args.batch_size, device):
                         out = model(v_inp, use_cache=False, output_hidden_states=True)
-                        for l, h in enumerate(out.hidden_states):
-                            logits = probes[l](h.to(torch.float32), lm_head_weight.to(torch.float32))
+                        for pi, l in enumerate(probe_layers):
+                            h = out.hidden_states[l]
+                            logits = probes[pi](h.to(torch.float32), lm_head_bf16.float())
                             loss = F.cross_entropy(logits.reshape(-1, logits.shape[-1]), v_tgt.reshape(-1))
-                            per_layer_val[l] += float(loss.item())
+                            per_layer_val[pi] += float(loss.item())
+                            del logits
                         vcount += 1
                         if vcount >= 5: break
                 per_layer_val = [v / max(vcount, 1) for v in per_layer_val]
@@ -179,9 +191,9 @@ def main():
     probes.eval()
     print(f"\n=== final per-layer val CE ===", flush=True)
     final_per_layer = history[-1]["per_layer_val_ce"]
-    for l in range(L + 1):
-        if l in (0, L//4, L//2, 3*L//4, L-1, L):
-            print(f"  layer {l:>3}  val_ce={final_per_layer[l]:.4f}  val_ppl={math.exp(final_per_layer[l]):.2f}")
+    for pi, l in enumerate(probe_layers):
+        if pi < len(final_per_layer):
+            print(f"  layer {l:>3}  val_ce={final_per_layer[pi]:.4f}  val_ppl={math.exp(final_per_layer[pi]):.2f}")
 
     # Save probes for later use
     torch.save(probes.state_dict(), args.save_probes)

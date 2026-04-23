@@ -178,7 +178,12 @@ def train_phase1_early_exit(model, tokenizer, device, args, checkpoints_dir):
     for p in model.parameters(): p.requires_grad = False
     lm_head_weight = model.lm_head.weight.to(torch.float32)
 
-    probes = nn.ModuleList([LayerProbe(d_model) for _ in range(L + 1)]).to(device).to(torch.float32)
+    # Every 5th layer to fit in VRAM (9 probes instead of 41 for 14B)
+    probe_layers = list(range(0, L + 1, 5))
+    if L not in probe_layers: probe_layers.append(L)
+    probe_layers = sorted(probe_layers)
+    probes = nn.ModuleList([LayerProbe(d_model) for _ in probe_layers]).to(device).to(torch.float32)
+    probe_layer_map = {l: i for i, l in enumerate(probe_layers)}
     opt = torch.optim.AdamW(probes.parameters(), lr=args.lr_probe,
                             betas=(0.9, 0.95), weight_decay=0.01)
 
@@ -197,7 +202,8 @@ def train_phase1_early_exit(model, tokenizer, device, args, checkpoints_dir):
 
     train_tokens = load_tokens(tokenizer, max_tokens=args.seq_len * 500, split="train")
     val_tokens = load_tokens(tokenizer, max_tokens=args.seq_len * 20, split="validation")
-    weights = torch.ones(L + 1, device=device) / (L + 1)
+    n_probes = len(probe_layers)
+    weights = torch.ones(n_probes, device=device) / n_probes
 
     step = resumed_step; t0 = time.time(); running = []
     while step < args.phase1_steps:
@@ -208,10 +214,12 @@ def train_phase1_early_exit(model, tokenizer, device, args, checkpoints_dir):
                 out = model(inp, use_cache=False, output_hidden_states=True)
                 hs = [h.detach() for h in out.hidden_states]
             total = 0.0
-            for l, h in enumerate(hs):
-                logits = probes[l](h.to(torch.float32), lm_head_weight)
+            for pi, l in enumerate(probe_layers):
+                h = hs[l]
+                logits = probes[pi](h.to(torch.float32), lm_head_weight)
                 loss = F.cross_entropy(logits.reshape(-1, logits.shape[-1]), tgt.reshape(-1))
-                total = total + weights[l] * loss
+                total = total + weights[pi] * loss
+                del logits
             total.backward()
             torch.nn.utils.clip_grad_norm_(probes.parameters(), 1.0)
             opt.step()
@@ -220,14 +228,16 @@ def train_phase1_early_exit(model, tokenizer, device, args, checkpoints_dir):
                 write_heartbeat(checkpoints_dir, "phase1", step)
             if step % args.eval_every == 0:
                 probes.eval()
-                per_layer_val = [0.0] * (L + 1); vcount = 0
+                per_layer_val = [0.0] * n_probes; vcount = 0
                 with torch.no_grad():
                     for v_inp, v_tgt in iter_batches_simple(val_tokens, args.seq_len, args.batch_size, device):
                         out = model(v_inp, use_cache=False, output_hidden_states=True)
-                        for l, h in enumerate(out.hidden_states):
-                            logits = probes[l](h.to(torch.float32), lm_head_weight)
+                        for pi, l in enumerate(probe_layers):
+                            h = out.hidden_states[l]
+                            logits = probes[pi](h.to(torch.float32), lm_head_weight)
                             loss = F.cross_entropy(logits.reshape(-1, logits.shape[-1]), v_tgt.reshape(-1))
-                            per_layer_val[l] += float(loss.item())
+                            per_layer_val[pi] += float(loss.item())
+                            del logits
                         vcount += 1
                         if vcount >= 3: break
                 per_layer_val = [v / max(vcount, 1) for v in per_layer_val]
@@ -236,9 +246,12 @@ def train_phase1_early_exit(model, tokenizer, device, args, checkpoints_dir):
                 history.append({"step": step, "train_total": tr,
                                "per_layer_val_ce": per_layer_val,
                                "elapsed": time.time()-t0})
+                mid = n_probes // 2
                 print(f"  [P1] step {step}/{args.phase1_steps}  total={tr:.4f}  "
-                      f"ce@0={per_layer_val[0]:.3f}  ce@{L//2}={per_layer_val[L//2]:.3f}  "
-                      f"ce@{L}={per_layer_val[L]:.3f}  elapsed={time.time()-t0:.0f}s", flush=True)
+                      f"ce@L{probe_layers[0]}={per_layer_val[0]:.3f}  "
+                      f"ce@L{probe_layers[mid]}={per_layer_val[mid]:.3f}  "
+                      f"ce@L{probe_layers[-1]}={per_layer_val[-1]:.3f}  "
+                      f"elapsed={time.time()-t0:.0f}s", flush=True)
             if step % args.checkpoint_every == 0:
                 save_rotating_checkpoint(
                     {"probes": probes.state_dict(), "opt": opt.state_dict(),
@@ -421,13 +434,14 @@ class QATLinear(nn.Module):
     def from_linear(cls, linear, n_bits=16.0):
         m = cls(linear.in_features, linear.out_features, bias=(linear.bias is not None), n_bits=n_bits)
         with torch.no_grad():
-            m.W_fp.data = linear.weight.data.float()
-            m.alpha.data = torch.tensor([m.W_fp.data.abs().mean().item()], dtype=torch.float32)
+            # Stay in bf16 to save memory (14B model)
+            m.W_fp.data = linear.weight.data.clone()
+            m.alpha.data = torch.tensor([m.W_fp.data.float().abs().mean().item()], dtype=torch.float32)
             if linear.bias is not None:
-                m.bias.data = linear.bias.data.clone().float()
+                m.bias.data = linear.bias.data.clone()
         return m
     def forward(self, x):
-        W_q = ScalableTernary.apply(self.W_fp, self.n_bits)
+        W_q = ScalableTernary.apply(self.W_fp.float(), self.n_bits)
         W_eff = W_q * self.alpha
         return F.linear(x.float(), W_eff, self.bias).to(x.dtype)
 
@@ -464,8 +478,8 @@ def train_phase3_roundrobin(model, tokenizer, device, args, checkpoints_dir):
     val_tokens = load_tokens(tokenizer, max_tokens=args.seq_len * 20, split="validation")
 
     # Round-robin schedule: a list of (axis, value) compressions to apply.
-    kv_schedule    = [128, 96, 64, 48, 32, 24, 16]
-    weight_bits    = [8, 6, 4, 3, 2, 1.58]
+    kv_schedule    = [512, 384, 256, 192, 128, 96, 64, 48, 32, 24, 16]  # start gentler
+    weight_bits    = [8, 6, 4]  # GPU-friendly; below Q4 loses tensor cores
     embed_bits     = [8, 6, 4]
     schedule = []
     # Interleave: one step per axis in round-robin order.
@@ -505,10 +519,30 @@ def train_phase3_roundrobin(model, tokenizer, device, args, checkpoints_dir):
         pre_ce = eval_ppl_base(model, val_tokens, args.seq_len, args.batch_size, device)
         print(f"  after compression (no tune): val_ce={pre_ce:.4f}  val_ppl={math.exp(pre_ce):.2f}", flush=True)
 
-        # Mini fine-tune
+        # Mini fine-tune — unfreeze only the axis that was just compressed
         model.train()
-        for p in model.parameters(): p.requires_grad = True
-        opt = torch.optim.AdamW(model.parameters(), lr=args.lr_phase3,
+        for p in model.parameters(): p.requires_grad = False
+        trainable_params = []
+        for name, p in model.named_parameters():
+            if axis == "kv" and ("k_proj" in name or "v_proj" in name):
+                p.requires_grad = True
+                trainable_params.append(p)
+            elif axis == "weights" and ("alpha" in name or "norm" in name):
+                # Only tune alpha scalars + norms (NOT W_fp — too big for optimizer)
+                p.requires_grad = True
+                trainable_params.append(p)
+            elif axis == "embed" and "embed" in name:
+                p.requires_grad = True
+                trainable_params.append(p)
+        if not trainable_params:
+            # Fallback: unfreeze everything small
+            for name, p in model.named_parameters():
+                if "norm" in name or "alpha" in name:
+                    p.requires_grad = True
+                    trainable_params.append(p)
+        n_train = sum(p.numel() for p in trainable_params)
+        print(f"  fine-tuning {n_train/1e6:.0f}M params ({axis} axis)", flush=True)
+        opt = torch.optim.AdamW(trainable_params, lr=args.lr_phase3,
                                 betas=(0.9, 0.95), weight_decay=0.01)
         step = 0; t0 = time.time(); running = []
         while step < args.phase3_steps_per_mini:
