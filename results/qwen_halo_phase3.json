@@ -1,0 +1,55 @@
+{
+  "teacher_ce": 2.505932092666626,
+  "history": [
+    {
+      "step": 1,
+      "axis": "kv",
+      "value": 512,
+      "post_compress_ce": 4.203594636917114,
+      "post_tune_ce": 4.175333499908447,
+      "post_compress_ppl": 66.92647554591947,
+      "post_tune_ppl": 65.06153405892813,
+      "delta_from_teacher": 1.6694014072418213
+    },
+    {
+      "step": 2,
+      "axis": "weights",
+      "value": 8,
+      "post_compress_ce": 5.233115816116333,
+      "post_tune_ce": 5.356295108795166,
+      "post_compress_ppl": 187.37572321147866,
+      "post_tune_ppl": 211.93828181965864,
+      "delta_from_teacher": 2.85036301612854
+    },
+    {
+      "step": 3,
+      "axis": "embed",
+      "value": 8,
+      "post_compress_ce": 5.366050910949707,
+      "post_tune_ce": 5.3708751678466795,
+      "post_compress_ppl": 214.0160283287819,
+      "post_tune_ppl": 215.05099108535546,
+      "delta_from_teacher": 2.8649430751800535
+    },
+    {
+      "step": 4,
+      "axis": "kv",
+      "value": 384,
+      "post_compress_ce": 6.63043441772461,
+      "post_tune_ce": 6.795903539657592,
+      "post_compress_ppl": 757.811305808711,
+      "post_tune_ppl": 894.1768189324422,
+      "delta_from_teacher": 4.289971446990966
+    },
+    {
+      "step": 5,
+      "axis": "weights",
+      "value": 6,
+      "post_compress_ce": 13.587535190582276,
+      "post_tune_ce": 13.341967487335205,
+      "post_compress_ppl": 796143.8707017609,
+      "post_tune_ppl": 622791.7594098188,
+      "delta_from_teacher": 10.83603539466858
+    }
+  ]
+}

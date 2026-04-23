@@ -1,0 +1,72 @@
+{
+  "teacher_ce": 2.356977391242981,
+  "teacher_ppl": 10.558987481453455,
+  "probes": 9,
+  "medusa_heads": 3,
+  "history": [
+    {
+      "step": 1,
+      "axis": "kv",
+      "value": 512,
+      "post_compress_ppl": 62.70240571476693,
+      "post_tune_ppl": 7.779696998353611,
+      "delta": -0.3054600000381469
+    },
+    {
+      "step": 2,
+      "axis": "weights",
+      "value": 8,
+      "post_compress_ppl": 12.462846066570322,
+      "post_tune_ppl": 12.467003712215126,
+      "delta": 0.16610805988311794
+    },
+    {
+      "step": 3,
+      "axis": "embed",
+      "value": 8,
+      "post_compress_ppl": 11.02415987077725,
+      "post_tune_ppl": 11.53778521033832,
+      "delta": 0.0886499285697937
+    },
+    {
+      "step": 4,
+      "axis": "kv",
+      "value": 384,
+      "post_compress_ppl": 66.21127282444121,
+      "post_tune_ppl": 9.743704202556307,
+      "delta": -0.08035603761672938
+    },
+    {
+      "step": 5,
+      "axis": "weights",
+      "value": 6,
+      "post_compress_ppl": 46.82299555188975,
+      "post_tune_ppl": 38.95637188699456,
+      "delta": 1.3054649591445924
+    },
+    {
+      "step": 6,
+      "axis": "embed",
+      "value": 6,
+      "post_compress_ppl": 38.721811305015414,
+      "post_tune_ppl": 35.561673225875445,
+      "delta": 1.2142910718917848
+    },
+    {
+      "step": 7,
+      "axis": "kv",
+      "value": 256,
+      "post_compress_ppl": 13369.755075290275,
+      "post_tune_ppl": 22.392795034139535,
+      "delta": 0.7517618656158449
+    },
+    {
+      "step": 8,
+      "axis": "weights",
+      "value": 4,
+      "post_compress_ppl": 1477211.760866801,
+      "post_tune_ppl": 1339412.2432506296,
+      "delta": 11.750764060020447
+    }
+  ]
+}
