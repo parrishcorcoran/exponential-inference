@@ -1,0 +1,32 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "teacher_val_ce": 3.3618,
+  "teacher_val_ppl": 28.841,
+  "tests": [
+    {"axis": "weight_bits", "value": 8, "val_ppl": 29.209, "delta_ppl": 0.368, "cost": "cheap"},
+    {"axis": "weight_bits", "value": 6, "val_ppl": 29.939, "delta_ppl": 1.097, "cost": "cheap"},
+    {"axis": "weight_bits", "value": 4, "val_ppl": 60.201, "delta_ppl": 31.359, "cost": "expensive_cliff"},
+    {"axis": "weight_bits", "value": 3, "val_ppl": 38996.693, "delta_ppl": 38967.852, "cost": "broken"},
+    {"axis": "weight_bits", "value": 2, "val_ppl": 52544520.271, "delta_ppl": 52544491.429, "cost": "broken"},
+    {"axis": "embed_bits", "value": 8, "val_ppl": 28.872, "delta_ppl": 0.031, "cost": "free"},
+    {"axis": "embed_bits", "value": 6, "val_ppl": 28.954, "delta_ppl": 0.113, "cost": "free"},
+    {"axis": "embed_bits", "value": 4, "val_ppl": 30.592, "delta_ppl": 1.751, "cost": "cheap"},
+    {"axis": "embed_bits", "value": 3, "val_ppl": 41.304, "delta_ppl": 12.462, "cost": "moderate"},
+    {"axis": "embed_bits", "value": 2, "val_ppl": 6717.305, "delta_ppl": 6688.464, "cost": "broken"},
+    {"axis": "d_ffn", "value": 3072, "val_ppl": 28.841, "delta_ppl": 0.0, "cost": "baseline"},
+    {"axis": "d_ffn", "value": 2048, "val_ppl": 142.177, "delta_ppl": 113.336, "cost": "expensive"},
+    {"axis": "d_ffn", "value": 1536, "val_ppl": 263.730, "delta_ppl": 234.888, "cost": "expensive"},
+    {"axis": "d_ffn", "value": 1024, "val_ppl": 1126.081, "delta_ppl": 1097.240, "cost": "broken"},
+    {"axis": "d_ffn", "value": 768, "val_ppl": 2292.024, "delta_ppl": 2263.183, "cost": "broken"},
+    {"axis": "d_ffn", "value": 512, "val_ppl": 6827.436, "delta_ppl": 6798.594, "cost": "broken"},
+    {"axis": "d_ffn", "value": 384, "val_ppl": 17677.660, "delta_ppl": 17648.818, "cost": "broken"},
+    {"axis": "d_ffn", "value": 256, "val_ppl": 29998.252, "delta_ppl": 29969.411, "cost": "broken"}
+  ],
+  "notes": [
+    "All post-hoc (no fine-tune), per-channel symmetric int quantization.",
+    "Embed is tied with lm_head on Qwen3-0.6B; embed sweep covers both.",
+    "d_ffn shrink is naive first-k-columns truncation (NOT SVD-optimal).",
+    "Stage 92 SVD-rank truncation showed 3072->1024 is free; this is the same axis.",
+    "Stage 38 KV-rank post-hoc broke argmax at all levels; not re-run here."
+  ]
+}
