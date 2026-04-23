@@ -57,6 +57,14 @@ Every row is ONE compression config on ONE model, with val_ppl and cost.
 | Qwen3-14B | embed_bits | 6 | yes (Qwen Halo) | 36.8 | 38.6 | +1.02 | cheap | Strix qwen_halo_annealed |
 | Qwen3-14B | kv_rank | 5120→256 | yes (Qwen Halo) | 19362 | 28.57 | +0.72 | cheap | Strix qwen_halo_annealed |
 | Qwen3-14B | weight_bits | 4 | yes (Qwen Halo) | 1.5M | 1.6M | +11.7 | broken | Strix qwen_halo_annealed |
+| Qwen3-0.6B | layer_skip | L27 only (final) | no | 49.4 | 49.4 | +19.8 | expensive | stage109 |
+| Qwen3-0.6B | layer_skip | L25-27 (last 3) | no | 132 | 132 | +103 | broken | stage109 |
+| Qwen3-0.6B | layer_skip | L0 only (first) | no | 1.75M | 1.75M | ∞ | catastrophic | stage109 |
+| Qwen3-0.6B | layer_skip | L0-2 (first 3) | no | 380K | 380K | ∞ | catastrophic | stage109 |
+| Qwen3-0.6B | layer_skip | L3-22 (all dead-zone, 20) | no | 88K | 88K | ∞ | catastrophic | stage109 |
+| Qwen3-0.6B | layer_skip | every other in dead-zone (10) | no | 1375 | 1375 | ∞ | broken | stage109 |
+| Qwen3-0.6B | layer_skip | L3-10 (first-half dead) | no | 770 | 770 | +741 | broken | stage109 |
+| Qwen3-0.6B | layer_skip | L10-17 (second-half dead) | no | 152 | 152 | +122 | broken | stage109 |
 
 ## Paired interactions (axis × axis)
 
