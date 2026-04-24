@@ -1,0 +1,77 @@
+{
+  "baseline_nll": 3.558051644301996,
+  "baseline_ppl": 35.09475342759395,
+  "throat_layers": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "d_model": 1024,
+  "per_k": {
+    "1": {
+      "nll": 10.597926318160887,
+      "ppl": 40051.69678080086,
+      "delta_nll": 7.0398746738588915,
+      "per_matmul_speedup": 512.0,
+      "model_wide_speedup_amdahl": 3.4829931972789114,
+      "throat_fraction": 0.7142857142857143
+    },
+    "4": {
+      "nll": 11.99380195431593,
+      "ppl": 161749.1495130987,
+      "delta_nll": 8.435750310013935,
+      "per_matmul_speedup": 128.0,
+      "model_wide_speedup_amdahl": 3.4329501915708813,
+      "throat_fraction": 0.7142857142857143
+    },
+    "16": {
+      "nll": 11.19365630111074,
+      "ppl": 72667.99270065273,
+      "delta_nll": 7.635604656808745,
+      "per_matmul_speedup": 32.0,
+      "model_wide_speedup_amdahl": 3.246376811594203,
+      "throat_fraction": 0.7142857142857143
+    },
+    "64": {
+      "nll": 9.974736283465129,
+      "ppl": 21476.96583872888,
+      "delta_nll": 6.416684639163133,
+      "per_matmul_speedup": 8.0,
+      "model_wide_speedup_amdahl": 2.6666666666666665,
+      "throat_fraction": 0.7142857142857143
+    },
+    "256": {
+      "nll": 9.960864059324187,
+      "ppl": 21181.08953079755,
+      "delta_nll": 6.402812415022192,
+      "per_matmul_speedup": 2.0,
+      "model_wide_speedup_amdahl": 1.5555555555555558,
+      "throat_fraction": 0.7142857142857143
+    },
+    "1024": {
+      "nll": 8.02926933474657,
+      "ppl": 3069.4980781222484,
+      "delta_nll": 4.471217690444574,
+      "per_matmul_speedup": 0.5,
+      "model_wide_speedup_amdahl": 0.5833333333333333,
+      "throat_fraction": 0.7142857142857143
+    }
+  }
+}
