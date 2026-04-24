@@ -1,0 +1,169 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "L": 28,
+  "d_model": 1024,
+  "teacher_val_ce": 3.3891595204671225,
+  "teacher_val_ppl": 29.641029119828403,
+  "args": {
+    "model": "Qwen/Qwen3-0.6B",
+    "seq_len": 128,
+    "batch_size": 1,
+    "steps": 300,
+    "eval_every": 100,
+    "lr": 0.0001,
+    "skip_counts": "0,1,2,3,5,10",
+    "out": "results/stage110_tail_probe.json",
+    "device": "cpu"
+  },
+  "results": [
+    {
+      "label": "skip_0_exit_L27",
+      "skip_n": 0,
+      "exit_layer": 27,
+      "initial_val_ppl": 29.641029119828403,
+      "final_val_ppl": 29.641029119828403,
+      "delta_from_teacher": 0.0,
+      "trajectory": []
+    },
+    {
+      "label": "skip_1_exit_L26",
+      "skip_n": 1,
+      "exit_layer": 26,
+      "initial_val_ppl": 51210.41048362402,
+      "final_val_ppl": 117.92558243155504,
+      "delta_from_teacher": 88.28455331172664,
+      "trajectory": [
+        {
+          "step": 100,
+          "train_ce": 7.064051690101624,
+          "val_ppl": 215.31771001140518,
+          "elapsed": 331.9451107978821
+        },
+        {
+          "step": 200,
+          "train_ce": 5.458162887096405,
+          "val_ppl": 129.76816988172408,
+          "elapsed": 935.9075520038605
+        },
+        {
+          "step": 300,
+          "train_ce": 4.884624969959259,
+          "val_ppl": 101.78638555908826,
+          "elapsed": 1397.2457180023193
+        }
+      ]
+    },
+    {
+      "label": "skip_2_exit_L25",
+      "skip_n": 2,
+      "exit_layer": 25,
+      "initial_val_ppl": 48763.717491657015,
+      "final_val_ppl": 109.37993995124583,
+      "delta_from_teacher": 79.73891083141743,
+      "trajectory": [
+        {
+          "step": 100,
+          "train_ce": 7.0902816724777225,
+          "val_ppl": 201.1749444802814,
+          "elapsed": 270.9654619693756
+        },
+        {
+          "step": 200,
+          "train_ce": 5.3017640519142155,
+          "val_ppl": 123.82389321302794,
+          "elapsed": 557.3551700115204
+        },
+        {
+          "step": 300,
+          "train_ce": 4.856096510887146,
+          "val_ppl": 95.28860452334457,
+          "elapsed": 1146.7135727405548
+        }
+      ]
+    },
+    {
+      "label": "skip_3_exit_L24",
+      "skip_n": 3,
+      "exit_layer": 24,
+      "initial_val_ppl": 42774.378641531584,
+      "final_val_ppl": 111.19868856390059,
+      "delta_from_teacher": 81.55765944407219,
+      "trajectory": [
+        {
+          "step": 100,
+          "train_ce": 6.952401337623596,
+          "val_ppl": 201.54604685887847,
+          "elapsed": 356.74561405181885
+        },
+        {
+          "step": 200,
+          "train_ce": 5.277030444145202,
+          "val_ppl": 125.01275540035311,
+          "elapsed": 740.2619078159332
+        },
+        {
+          "step": 300,
+          "train_ce": 4.719930605888367,
+          "val_ppl": 99.16685702504283,
+          "elapsed": 1083.914197921753
+        }
+      ]
+    },
+    {
+      "label": "skip_5_exit_L22",
+      "skip_n": 5,
+      "exit_layer": 22,
+      "initial_val_ppl": 31540.721280323338,
+      "final_val_ppl": 123.88118488572944,
+      "delta_from_teacher": 94.24015576590104,
+      "trajectory": [
+        {
+          "step": 100,
+          "train_ce": 6.945707836151123,
+          "val_ppl": 223.54728447467403,
+          "elapsed": 346.2253797054291
+        },
+        {
+          "step": 200,
+          "train_ce": 5.34245979309082,
+          "val_ppl": 144.83266927512085,
+          "elapsed": 637.6725997924805
+        },
+        {
+          "step": 300,
+          "train_ce": 4.812563977241516,
+          "val_ppl": 113.76976790095244,
+          "elapsed": 976.6192216873169
+        }
+      ]
+    },
+    {
+      "label": "skip_10_exit_L17",
+      "skip_n": 10,
+      "exit_layer": 17,
+      "initial_val_ppl": 59711.87700285426,
+      "final_val_ppl": 264.9372733136757,
+      "delta_from_teacher": 235.2962441938473,
+      "trajectory": [
+        {
+          "step": 100,
+          "train_ce": 7.602169427871704,
+          "val_ppl": 506.09738280325575,
+          "elapsed": 329.7902410030365
+        },
+        {
+          "step": 200,
+          "train_ce": 6.123011870384216,
+          "val_ppl": 330.7028145774091,
+          "elapsed": 626.1217877864838
+        },
+        {
+          "step": 300,
+          "train_ce": 5.484831459522248,
+          "val_ppl": 261.83923613467994,
+          "elapsed": 956.0036668777466
+        }
+      ]
+    }
+  ]
+}
