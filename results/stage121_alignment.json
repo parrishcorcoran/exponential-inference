@@ -1,0 +1,59 @@
+{
+  "args": {
+    "models": "Qwen/Qwen3-0.6B,Qwen/Qwen3-1.7B",
+    "out": "results/stage121_alignment.json",
+    "device": null,
+    "cache_dir": "cache/stage121_states"
+  },
+  "sentences": [
+    "The cell is the basic structural unit of life.",
+    "Quantum mechanics describes the behavior of matter at small scales.",
+    "Neural networks learn from examples through gradient descent.",
+    "Photosynthesis converts sunlight into chemical energy.",
+    "Plate tectonics explains the movement of continents.",
+    "The Riemann hypothesis concerns the zeros of the zeta function.",
+    "Cryptography uses mathematical operations hard to reverse.",
+    "Proteins fold into three-dimensional structures.",
+    "Evolution operates on heritable variation in populations.",
+    "Thermodynamics describes energy transfer between systems.",
+    "Black holes are regions of extreme gravitational pull.",
+    "DNA encodes genetic information in paired bases.",
+    "Linear algebra studies vector spaces and transformations.",
+    "Bayesian inference updates beliefs with new evidence.",
+    "Game theory analyzes strategic decision making.",
+    "The immune system recognizes foreign pathogens.",
+    "Volcanoes form at tectonic plate boundaries.",
+    "Graph theory studies networks of connected nodes.",
+    "Quantum entanglement links the states of separated particles.",
+    "Statistical mechanics connects microscopic to macroscopic.",
+    "The standard model unifies fundamental forces except gravity.",
+    "Relativity describes how mass curves spacetime.",
+    "Turing machines formalized the concept of computation.",
+    "Markov chains describe memoryless stochastic processes.",
+    "Optimization finds minima of complex loss functions.",
+    "Cosmology studies the large-scale structure of the universe.",
+    "Epidemiology tracks the spread of infectious diseases.",
+    "Information theory quantifies data using entropy.",
+    "Category theory generalizes mathematical structures.",
+    "Dynamical systems describe how things change over time.",
+    "The poet walked slowly through the garden.",
+    "She wrote a letter and mailed it the next morning.",
+    "A soft rain began to fall as the sun set behind the hills.",
+    "The children played with colorful balloons at the party.",
+    "He carefully closed the old leather-bound book.",
+    "They traveled together for many years across distant lands.",
+    "The ancient bridge connected two bustling cities.",
+    "Music filled the room as the dancers began to move.",
+    "The mountain peak was covered in fresh white snow.",
+    "She remembered the summer when they first met."
+  ],
+  "results": {
+    "Qwen/Qwen3-0.6B vs Qwen/Qwen3-1.7B": {
+      "0.10": 0.07923656702041626,
+      "0.25": 0.934738278388977,
+      "0.50": 0.908379316329956,
+      "0.75": 0.5293538570404053,
+      "0.90": 0.21382880210876465
+    }
+  }
+}
