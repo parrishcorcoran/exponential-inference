@@ -1,0 +1,7390 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "L": 28,
+  "merge_threshold": 0.5,
+  "n_windows": 20,
+  "total_positions": 2560,
+  "unique_tokens": 820,
+  "token_stats": [
+    {
+      "token_id": 220,
+      "token_str": " ",
+      "count": 98,
+      "mean_merge": 0.0,
+      "median_merge": 0.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 320,
+      "token_str": " (",
+      "count": 21,
+      "mean_merge": 0.0,
+      "median_merge": 0.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17,
+      "token_str": "2",
+      "count": 19,
+      "mean_merge": 0.0,
+      "median_merge": 0.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 16,
+      "token_str": "1",
+      "count": 49,
+      "mean_merge": 0.0,
+      "median_merge": 0.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 15,
+      "token_str": "0",
+      "count": 22,
+      "mean_merge": 0.045454545454545456,
+      "median_merge": 0.0,
+      "std_merge": 0.2082988952252655,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 19,
+      "token_str": "4",
+      "count": 18,
+      "mean_merge": 0.05555555555555555,
+      "median_merge": 0.0,
+      "std_merge": 0.2290614236454256,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 18,
+      "token_str": "3",
+      "count": 18,
+      "mean_merge": 0.05555555555555555,
+      "median_merge": 0.0,
+      "std_merge": 0.2290614236454256,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 22,
+      "token_str": "7",
+      "count": 16,
+      "mean_merge": 0.0625,
+      "median_merge": 0.0,
+      "std_merge": 0.24206145913796356,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 20,
+      "token_str": "5",
+      "count": 26,
+      "mean_merge": 0.07692307692307693,
+      "median_merge": 0.0,
+      "std_merge": 0.26646935501059654,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 13,
+      "token_str": ".",
+      "count": 29,
+      "mean_merge": 0.10344827586206896,
+      "median_merge": 0.0,
+      "std_merge": 0.3045434781492361,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 24,
+      "token_str": "9",
+      "count": 29,
+      "mean_merge": 0.13793103448275862,
+      "median_merge": 0.0,
+      "std_merge": 0.3448275862068966,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 21,
+      "token_str": "6",
+      "count": 20,
+      "mean_merge": 0.15,
+      "median_merge": 0.0,
+      "std_merge": 0.3570714214271425,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 23,
+      "token_str": "8",
+      "count": 11,
+      "mean_merge": 0.18181818181818182,
+      "median_merge": 0.0,
+      "std_merge": 0.38569460791993493,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 279,
+      "token_str": " the",
+      "count": 98,
+      "mean_merge": 0.2653061224489796,
+      "median_merge": 0.0,
+      "std_merge": 0.4414960745466109,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 264,
+      "token_str": " a",
+      "count": 32,
+      "mean_merge": 0.28125,
+      "median_merge": 0.0,
+      "std_merge": 0.4496092053105675,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 304,
+      "token_str": " in",
+      "count": 48,
+      "mean_merge": 0.3333333333333333,
+      "median_merge": 0.0,
+      "std_merge": 0.4714045207910317,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 330,
+      "token_str": " \"",
+      "count": 22,
+      "mean_merge": 0.6363636363636364,
+      "median_merge": 1.0,
+      "std_merge": 0.4810456929208346,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 323,
+      "token_str": " and",
+      "count": 46,
+      "mean_merge": 0.717391304347826,
+      "median_merge": 1.0,
+      "std_merge": 0.45026772124365166,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 659,
+      "token_str": " .",
+      "count": 72,
+      "mean_merge": 0.7361111111111112,
+      "median_merge": 1.0,
+      "std_merge": 0.4407397681284008,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1154,
+      "token_str": " ,",
+      "count": 112,
+      "mean_merge": 0.7678571428571429,
+      "median_merge": 1.0,
+      "std_merge": 0.4221996577691747,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 374,
+      "token_str": " is",
+      "count": 32,
+      "mean_merge": 0.78125,
+      "median_merge": 1.0,
+      "std_merge": 0.41339864235384227,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 284,
+      "token_str": " =",
+      "count": 28,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 715,
+      "token_str": " \n",
+      "count": 33,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 476,
+      "token_str": " or",
+      "count": 14,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1084,
+      "token_str": " It",
+      "count": 6,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 472,
+      "token_str": " H",
+      "count": 26,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 873,
+      "token_str": " )",
+      "count": 21,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 758,
+      "token_str": " In",
+      "count": 4,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 525,
+      "token_str": " are",
+      "count": 20,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2518,
+      "token_str": " red",
+      "count": 8,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 386,
+      "token_str": " M",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 13666,
+      "token_str": " occurs",
+      "count": 3,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17387,
+      "token_str": " producing",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 369,
+      "token_str": " for",
+      "count": 13,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 305,
+      "token_str": " h",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1667,
+      "token_str": " using",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 276,
+      "token_str": "an",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1365,
+      "token_str": " \u2013",
+      "count": 19,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 614,
+      "token_str": " have",
+      "count": 7,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 505,
+      "token_str": " ex",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 384,
+      "token_str": " e",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 296,
+      "token_str": " m",
+      "count": 3,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1096,
+      "token_str": " This",
+      "count": 3,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 714,
+      "token_str": " but",
+      "count": 5,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 576,
+      "token_str": " The",
+      "count": 27,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 281,
+      "token_str": " p",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 702,
+      "token_str": " has",
+      "count": 4,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1483,
+      "token_str": " used",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2587,
+      "token_str": " ;",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 429,
+      "token_str": " that",
+      "count": 6,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1062,
+      "token_str": " co",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 646,
+      "token_str": " can",
+      "count": 4,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 862,
+      "token_str": " their",
+      "count": 3,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 653,
+      "token_str": " do",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 549,
+      "token_str": " :",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 926,
+      "token_str": " ro",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 978,
+      "token_str": " sp",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 979,
+      "token_str": " when",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1803,
+      "token_str": " car",
+      "count": 3,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 518,
+      "token_str": " at",
+      "count": 6,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 557,
+      "token_str": " sh",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10207,
+      "token_str": " ber",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3015,
+      "token_str": " water",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 855,
+      "token_str": " pre",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4636,
+      "token_str": " After",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4990,
+      "token_str": " takes",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 293,
+      "token_str": " b",
+      "count": 3,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3197,
+      "token_str": " When",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1191,
+      "token_str": " start",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 15395,
+      "token_str": " Az",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 350,
+      "token_str": " T",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3040,
+      "token_str": " four",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2613,
+      "token_str": " small",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 506,
+      "token_str": " O",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1033,
+      "token_str": " were",
+      "count": 3,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1532,
+      "token_str": " New",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3635,
+      "token_str": " become",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2379,
+      "token_str": " They",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4220,
+      "token_str": " These",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1560,
+      "token_str": " cr",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1471,
+      "token_str": " pol",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 451,
+      "token_str": " N",
+      "count": 3,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1319,
+      "token_str": " ph",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7481,
+      "token_str": " described",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 342,
+      "token_str": " g",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 432,
+      "token_str": " it",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 11097,
+      "token_str": " Human",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 572,
+      "token_str": " was",
+      "count": 9,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6644,
+      "token_str": " contain",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 282,
+      "token_str": " f",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5128,
+      "token_str": " lines",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 18491,
+      "token_str": " oct",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3931,
+      "token_str": " cut",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 259,
+      "token_str": " t",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1018,
+      "token_str": " %",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 806,
+      "token_str": " his",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 739,
+      "token_str": " System",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2938,
+      "token_str": " That",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 364,
+      "token_str": " '",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1030,
+      "token_str": " had",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3594,
+      "token_str": " mar",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10147,
+      "token_str": " Mil",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 468,
+      "token_str": " E",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2876,
+      "token_str": " Mar",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5994,
+      "token_str": " Go",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 21318,
+      "token_str": " CB",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 356,
+      "token_str": " C",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 431,
+      "token_str": " R",
+      "count": 2,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 566,
+      "token_str": " he",
+      "count": 4,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 458,
+      "token_str": " an",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1260,
+      "token_str": " He",
+      "count": 3,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6116,
+      "token_str": " became",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2308,
+      "token_str": " No",
+      "count": 3,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1917,
+      "token_str": " action",
+      "count": 1,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 362,
+      "token_str": " A",
+      "count": 3,
+      "mean_merge": 1.0,
+      "median_merge": 1.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 389,
+      "token_str": " on",
+      "count": 9,
+      "mean_merge": 1.1111111111111112,
+      "median_merge": 1.0,
+      "std_merge": 0.3142696805273545,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 448,
+      "token_str": " with",
+      "count": 6,
+      "mean_merge": 1.1666666666666667,
+      "median_merge": 1.0,
+      "std_merge": 0.3726779962499649,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 553,
+      "token_str": " by",
+      "count": 12,
+      "mean_merge": 1.25,
+      "median_merge": 1.0,
+      "std_merge": 0.5951190357119042,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1576,
+      "token_str": " because",
+      "count": 3,
+      "mean_merge": 1.3333333333333333,
+      "median_merge": 1.0,
+      "std_merge": 0.4714045207910317,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12,
+      "token_str": "-",
+      "count": 9,
+      "mean_merge": 1.3333333333333333,
+      "median_merge": 0.0,
+      "std_merge": 3.0912061651652345,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 387,
+      "token_str": " be",
+      "count": 9,
+      "mean_merge": 1.4444444444444444,
+      "median_merge": 1.0,
+      "std_merge": 0.4969039949999533,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9961,
+      "token_str": " cm",
+      "count": 2,
+      "mean_merge": 1.5,
+      "median_merge": 1.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12170,
+      "token_str": " occur",
+      "count": 2,
+      "mean_merge": 1.5,
+      "median_merge": 1.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4158,
+      "token_str": " white",
+      "count": 4,
+      "mean_merge": 1.5,
+      "median_merge": 1.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1380,
+      "token_str": " where",
+      "count": 2,
+      "mean_merge": 1.5,
+      "median_merge": 1.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1105,
+      "token_str": " them",
+      "count": 2,
+      "mean_merge": 1.5,
+      "median_merge": 1.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8564,
+      "token_str": " Lin",
+      "count": 2,
+      "mean_merge": 1.5,
+      "median_merge": 1.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 82,
+      "token_str": "s",
+      "count": 2,
+      "mean_merge": 1.5,
+      "median_merge": 1.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 13222,
+      "token_str": " Hom",
+      "count": 15,
+      "mean_merge": 1.5333333333333334,
+      "median_merge": 2.0,
+      "std_merge": 0.4988876515698588,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2326,
+      "token_str": " three",
+      "count": 5,
+      "mean_merge": 1.6,
+      "median_merge": 2.0,
+      "std_merge": 0.4898979485566356,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 64,
+      "token_str": "a",
+      "count": 3,
+      "mean_merge": 1.6666666666666667,
+      "median_merge": 2.0,
+      "std_merge": 0.4714045207910317,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 311,
+      "token_str": " to",
+      "count": 37,
+      "mean_merge": 1.7027027027027026,
+      "median_merge": 1.0,
+      "std_merge": 2.618694381359854,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 807,
+      "token_str": " they",
+      "count": 5,
+      "mean_merge": 1.8,
+      "median_merge": 2.0,
+      "std_merge": 0.4,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9015,
+      "token_str": " gam",
+      "count": 28,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4185,
+      "token_str": " common",
+      "count": 3,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 504,
+      "token_str": " from",
+      "count": 11,
+      "mean_merge": 2.0,
+      "median_merge": 1.0,
+      "std_merge": 3.1622776601683795,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 23149,
+      "token_str": " eastern",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 21575,
+      "token_str": " Ocean",
+      "count": 3,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5479,
+      "token_str": " parts",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5235,
+      "token_str": " Black",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3693,
+      "token_str": " American",
+      "count": 3,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 38442,
+      "token_str": " american",
+      "count": 8,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3063,
+      "token_str": " grow",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3084,
+      "token_str": " length",
+      "count": 5,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3072,
+      "token_str": " mass",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 29724,
+      "token_str": " bears",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6716,
+      "token_str": " pair",
+      "count": 3,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2272,
+      "token_str": " life",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 40153,
+      "token_str": " lob",
+      "count": 7,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6303,
+      "token_str": " blue",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10454,
+      "token_str": " becoming",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17233,
+      "token_str": " cooking",
+      "count": 3,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1095,
+      "token_str": "ating",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 18805,
+      "token_str": " eggs",
+      "count": 4,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 11691,
+      "token_str": " carried",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 27485,
+      "token_str": " females",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 82761,
+      "token_str": " larvae",
+      "count": 3,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3607,
+      "token_str": " food",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2163,
+      "token_str": " around",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7662,
+      "token_str": " Description",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3460,
+      "token_str": " large",
+      "count": 3,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2487,
+      "token_str": " body",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2889,
+      "token_str": " cent",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 46726,
+      "token_str": " weighing",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1293,
+      "token_str": " long",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17529,
+      "token_str": " weigh",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 20972,
+      "token_str": " kg",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8909,
+      "token_str": " Like",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1008,
+      "token_str": " other",
+      "count": 4,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 596,
+      "token_str": "ans",
+      "count": 3,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2588,
+      "token_str": " hard",
+      "count": 4,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1882,
+      "token_str": " process",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3807,
+      "token_str": " several",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 42054,
+      "token_str": " decreases",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1635,
+      "token_str": " years",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9898,
+      "token_str": " animals",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1156,
+      "token_str": " first",
+      "count": 3,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17976,
+      "token_str": " rounded",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 16004,
+      "token_str": " nod",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 14432,
+      "token_str": " crushing",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 61605,
+      "token_str": " cutter",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17232,
+      "token_str": " sharp",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9179,
+      "token_str": " inner",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12822,
+      "token_str": " edges",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9963,
+      "token_str": " holding",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 55736,
+      "token_str": " tearing",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 32967,
+      "token_str": " Usually",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2115,
+      "token_str": " left",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1290,
+      "token_str": " right",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3403,
+      "token_str": " above",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 18773,
+      "token_str": " spots",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 13753,
+      "token_str": " yellow",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3685,
+      "token_str": " below",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12463,
+      "token_str": " colour",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5815,
+      "token_str": " associated",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7952,
+      "token_str": " appears",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1283,
+      "token_str": " after",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 11763,
+      "token_str": " ast",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6822,
+      "token_str": " bound",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12833,
+      "token_str": " protein",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6351,
+      "token_str": " complex",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10865,
+      "token_str": " broken",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8628,
+      "token_str": " heat",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 27865,
+      "token_str": " releasing",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 96105,
+      "token_str": " hybrids",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 21283,
+      "token_str": " ranges",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 27248,
+      "token_str": " overlap",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1372,
+      "token_str": " number",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 65372,
+      "token_str": " tipped",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 18575,
+      "token_str": " orange",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 27539,
+      "token_str": " pale",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9414,
+      "token_str": " Life",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 28638,
+      "token_str": " Female",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5545,
+      "token_str": " reach",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7244,
+      "token_str": " sexual",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 14700,
+      "token_str": " grown",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2544,
+      "token_str": " mill",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 24037,
+      "token_str": " males",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 14851,
+      "token_str": " mature",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9155,
+      "token_str": " smaller",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1379,
+      "token_str": " size",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 11136,
+      "token_str": " typically",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1948,
+      "token_str": " between",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 53309,
+      "token_str": " mou",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8778,
+      "token_str": " female",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12528,
+      "token_str": " shell",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8413,
+      "token_str": " soft",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8593,
+      "token_str": " male",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 23377,
+      "token_str": " carries",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3951,
+      "token_str": " months",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9315,
+      "token_str": " temperature",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12392,
+      "token_str": " attached",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1059,
+      "token_str": " her",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7100,
+      "token_str": " ple",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 34195,
+      "token_str": " Fem",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3831,
+      "token_str": "ales",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 15331,
+      "token_str": " carrying",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 33638,
+      "token_str": " drift",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17951,
+      "token_str": " ocean",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 59601,
+      "token_str": " currents",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 18741,
+      "token_str": " zo",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6430,
+      "token_str": " stage",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17601,
+      "token_str": " involves",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 39658,
+      "token_str": " lasts",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2849,
+      "token_str": " days",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4843,
+      "token_str": " third",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1352,
+      "token_str": " form",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6683,
+      "token_str": " adult",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 85957,
+      "token_str": " adopts",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3658,
+      "token_str": "iles",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 30455,
+      "token_str": " poorly",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 41100,
+      "token_str": " digging",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 16376,
+      "token_str": " extensive",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7795,
+      "token_str": " bur",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12943,
+      "token_str": " estimated",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 44455,
+      "token_str": " lar",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6586,
+      "token_str": "va",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 82317,
+      "token_str": " survives",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10262,
+      "token_str": " phase",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9465,
+      "token_str": " mm",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5274,
+      "token_str": " leave",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6305,
+      "token_str": " lives",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 33909,
+      "token_str": " Distribution",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3941,
+      "token_str": " across",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 18172,
+      "token_str": " northern",
+      "count": 3,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 31503,
+      "token_str": " Norway",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 58130,
+      "token_str": " Morocco",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3042,
+      "token_str": " present",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1429,
+      "token_str": " most",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7402,
+      "token_str": " missing",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3772,
+      "token_str": " section",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10984,
+      "token_str": " east",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7792,
+      "token_str": " Cre",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3156,
+      "token_str": " along",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9710,
+      "token_str": " west",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 21910,
+      "token_str": " populations",
+      "count": 3,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 44621,
+      "token_str": " Norwegian",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 29181,
+      "token_str": " Nord",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4766,
+      "token_str": " inside",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 36418,
+      "token_str": " Arctic",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17779,
+      "token_str": " divided",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 36341,
+      "token_str": " diver",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3556,
+      "token_str": "ged",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4152,
+      "token_str": " due",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7373,
+      "token_str": " effective",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 33085,
+      "token_str": " adaptation",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2205,
+      "token_str": " local",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4573,
+      "token_str": " environment",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7015,
+      "token_str": " sun",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10469,
+      "token_str": " samples",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 388,
+      "token_str": "ers",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 450,
+      "token_str": "de",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 14548,
+      "token_str": " collected",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4787,
+      "token_str": " North",
+      "count": 3,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6364,
+      "token_str": " English",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 83300,
+      "token_str": " Attempts",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 19131,
+      "token_str": " introduce",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 59412,
+      "token_str": " crab",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 25153,
+      "token_str": " Cancer",
+      "count": 3,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 14774,
+      "token_str": " pag",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 27133,
+      "token_str": " Between",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5880,
+      "token_str": " released",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 28738,
+      "token_str": " Dun",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1521,
+      "token_str": " did",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9555,
+      "token_str": " established",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 77275,
+      "token_str": " Ecology",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 22133,
+      "token_str": " Adult",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3887,
+      "token_str": " live",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 42857,
+      "token_str": " depths",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 19117,
+      "token_str": " deeper",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 15769,
+      "token_str": " substr",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 973,
+      "token_str": "ates",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 23035,
+      "token_str": " rocks",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 26183,
+      "token_str": " mud",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 19766,
+      "token_str": " holes",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1884,
+      "token_str": " cre",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1216,
+      "token_str": "ices",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5395,
+      "token_str": " feed",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9968,
+      "token_str": " diet",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17167,
+      "token_str": " consists",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 64832,
+      "token_str": "verte",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 98768,
+      "token_str": "brates",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2924,
+      "token_str": " include",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 54409,
+      "token_str": " moll",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4837,
+      "token_str": "cs",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9396,
+      "token_str": " sea",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1330,
+      "token_str": "ins",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6774,
+      "token_str": " star",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7714,
+      "token_str": "ete",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 61900,
+      "token_str": " worms",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6329,
+      "token_str": " nor",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 70,
+      "token_str": "g",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 18432,
+      "token_str": " hosts",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9864,
+      "token_str": " animal",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 71445,
+      "token_str": " Cycl",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8457,
+      "token_str": " disease",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4554,
+      "token_str": "ka",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8881,
+      "token_str": " caused",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17398,
+      "token_str": " bacter",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 63050,
+      "token_str": " Aer",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8867,
+      "token_str": " vir",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10328,
+      "token_str": " Although",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 13814,
+      "token_str": " frequently",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 25866,
+      "token_str": " tanks",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1410,
+      "token_str": " could",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 21286,
+      "token_str": " ruled",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9733,
+      "token_str": " mentioned",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 74104,
+      "token_str": " Crab",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 21373,
+      "token_str": " sevent",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5492,
+      "token_str": " song",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7807,
+      "token_str": " fetch",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1550,
+      "token_str": " high",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7576,
+      "token_str": " prices",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6088,
+      "token_str": " sold",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7722,
+      "token_str": " fresh",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 19690,
+      "token_str": " frozen",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 63014,
+      "token_str": " canned",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 82483,
+      "token_str": " powdered",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 63672,
+      "token_str": " abdomen",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9073,
+      "token_str": " excellent",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8794,
+      "token_str": " contents",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 62090,
+      "token_str": " cep",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 19585,
+      "token_str": " exceptions",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9278,
+      "token_str": " sand",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 53244,
+      "token_str": " vein",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17859,
+      "token_str": " gut",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3349,
+      "token_str": " price",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5080,
+      "token_str": " higher",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 67517,
+      "token_str": " Lob",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3304,
+      "token_str": "ished",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7025,
+      "token_str": " sometimes",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 11996,
+      "token_str": " succeed",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2138,
+      "token_str": " allow",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 22959,
+      "token_str": " Aqu",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5942,
+      "token_str": " systems",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1212,
+      "token_str": " under",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5670,
+      "token_str": " production",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7813,
+      "token_str": " rates",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3347,
+      "token_str": " low",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 15190,
+      "token_str": " Tax",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3840,
+      "token_str": " history",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2661,
+      "token_str": " given",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9544,
+      "token_str": " bin",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 21998,
+      "token_str": " Carl",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 55666,
+      "token_str": " tenth",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 13688,
+      "token_str": " edition",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5918,
+      "token_str": "ae",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4652,
+      "token_str": " published",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7286,
+      "token_str": " concept",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 882,
+      "token_str": " time",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5230,
+      "token_str": " included",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 678,
+      "token_str": " all",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 943,
+      "token_str": " type",
+      "count": 3,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10838,
+      "token_str": " determined",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 18904,
+      "token_str": " Direction",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7179,
+      "token_str": " International",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 44803,
+      "token_str": " Zo",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 31399,
+      "token_str": " Prior",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5106,
+      "token_str": " direction",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 21340,
+      "token_str": " confusion",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 49963,
+      "token_str": " arose",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5036,
+      "token_str": " names",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 20113,
+      "token_str": " Ast",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 36307,
+      "token_str": " Fabric",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9156,
+      "token_str": "ius",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 73160,
+      "token_str": " vulgar",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 285,
+      "token_str": "is",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 36763,
+      "token_str": " Edwards",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 79374,
+      "token_str": " Friedrich",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4008,
+      "token_str": " description",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 44436,
+      "token_str": " overlooked",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 20870,
+      "token_str": " redis",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10244,
+      "token_str": " Mary",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 85455,
+      "token_str": " Rath",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 20898,
+      "token_str": " rendering",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 894,
+      "token_str": " any",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 31172,
+      "token_str": " assignments",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8318,
+      "token_str": " invalid",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 16513,
+      "token_str": " lect",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4091,
+      "token_str": " selected",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 41139,
+      "token_str": " Lip",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 15696,
+      "token_str": " Hol",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3697,
+      "token_str": " came",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3143,
+      "token_str": " near",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 23190,
+      "token_str": " Sweden",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3348,
+      "token_str": " para",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5558,
+      "token_str": " lost",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 14890,
+      "token_str": " preferred",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12098,
+      "token_str": " Food",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9270,
+      "token_str": " Frank",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 11203,
+      "token_str": " Head",
+      "count": 4,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 23771,
+      "token_str": "lam",
+      "count": 4,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9990,
+      "token_str": " senior",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 16194,
+      "token_str": " Royal",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 37816,
+      "token_str": " Born",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 32042,
+      "token_str": " educated",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10859,
+      "token_str": " joined",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3720,
+      "token_str": " air",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 19409,
+      "token_str": " cad",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6058,
+      "token_str": " January",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 16307,
+      "token_str": " flying",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10646,
+      "token_str": " navigation",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4337,
+      "token_str": " World",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7946,
+      "token_str": " II",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5813,
+      "token_str": " April",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 23151,
+      "token_str": " operated",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 26075,
+      "token_str": " deployed",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 23234,
+      "token_str": " Dutch",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9354,
+      "token_str": " Tim",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5485,
+      "token_str": " saw",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2348,
+      "token_str": " against",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10769,
+      "token_str": " Japanese",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8437,
+      "token_str": " forces",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4882,
+      "token_str": " South",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 13451,
+      "token_str": " returning",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8330,
+      "token_str": " Australia",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7400,
+      "token_str": " February",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5644,
+      "token_str": " held",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5570,
+      "token_str": " staff",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4862,
+      "token_str": " training",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 11293,
+      "token_str": " commands",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 24284,
+      "token_str": " finishing",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4116,
+      "token_str": " war",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1874,
+      "token_str": " group",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 23915,
+      "token_str": " captain",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10223,
+      "token_str": " served",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 19577,
+      "token_str": " Officer",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7348,
+      "token_str": " Command",
+      "count": 4,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10867,
+      "token_str": " Western",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12030,
+      "token_str": " Area",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10560,
+      "token_str": " Director",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 16151,
+      "token_str": " Training",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2337,
+      "token_str": " during",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8394,
+      "token_str": " Mal",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 31608,
+      "token_str": " Emergency",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 20539,
+      "token_str": " Singapore",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 34522,
+      "token_str": " Wing",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 71052,
+      "token_str": " RAF",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1466,
+      "token_str": "ah",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10917,
+      "token_str": " twice",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 15358,
+      "token_str": " acting",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12039,
+      "token_str": " Member",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12308,
+      "token_str": " receiving",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7217,
+      "token_str": " Order",
+      "count": 2,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17582,
+      "token_str": " Prom",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9253,
+      "token_str": "oted",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2393,
+      "token_str": " success",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9892,
+      "token_str": " positions",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 89296,
+      "token_str": " Operational",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5737,
+      "token_str": " Group",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 23388,
+      "token_str": " Kon",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10215,
+      "token_str": "asi",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9186,
+      "token_str": " Support",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 19161,
+      "token_str": " Bath",
+      "count": 1,
+      "mean_merge": 2.0,
+      "median_merge": 2.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 438,
+      "token_str": " as",
+      "count": 13,
+      "mean_merge": 2.076923076923077,
+      "median_merge": 1.0,
+      "std_merge": 1.4915938022819473,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 825,
+      "token_str": " one",
+      "count": 4,
+      "mean_merge": 2.5,
+      "median_merge": 2.0,
+      "std_merge": 1.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9419,
+      "token_str": " species",
+      "count": 14,
+      "mean_merge": 2.857142857142857,
+      "median_merge": 2.0,
+      "std_merge": 3.0904725218262765,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 355,
+      "token_str": "us",
+      "count": 37,
+      "mean_merge": 2.918918918918919,
+      "median_merge": 2.0,
+      "std_merge": 4.180898509265347,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 36256,
+      "token_str": " metres",
+      "count": 1,
+      "mean_merge": 3.0,
+      "median_merge": 3.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4401,
+      "token_str": " development",
+      "count": 1,
+      "mean_merge": 3.0,
+      "median_merge": 3.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 339,
+      "token_str": "th",
+      "count": 1,
+      "mean_merge": 3.0,
+      "median_merge": 3.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17635,
+      "token_str": " appointment",
+      "count": 1,
+      "mean_merge": 3.0,
+      "median_merge": 3.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1730,
+      "token_str": " found",
+      "count": 5,
+      "mean_merge": 3.2,
+      "median_merge": 1.0,
+      "std_merge": 3.919183588453085,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8131,
+      "token_str": " larger",
+      "count": 2,
+      "mean_merge": 3.5,
+      "median_merge": 3.5,
+      "std_merge": 1.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1378,
+      "token_str": " two",
+      "count": 2,
+      "mean_merge": 3.5,
+      "median_merge": 3.5,
+      "std_merge": 1.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1012,
+      "token_str": " been",
+      "count": 7,
+      "mean_merge": 3.5714285714285716,
+      "median_merge": 2.0,
+      "std_merge": 3.8491981672307096,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5990,
+      "token_str": " usually",
+      "count": 1,
+      "mean_merge": 4.0,
+      "median_merge": 4.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 62520,
+      "token_str": " stationed",
+      "count": 1,
+      "mean_merge": 4.0,
+      "median_merge": 4.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3881,
+      "token_str": " known",
+      "count": 5,
+      "mean_merge": 4.8,
+      "median_merge": 3.0,
+      "std_merge": 3.762977544445356,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7513,
+      "token_str": " European",
+      "count": 4,
+      "mean_merge": 5.0,
+      "median_merge": 2.0,
+      "std_merge": 5.196152422706632,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 315,
+      "token_str": " of",
+      "count": 55,
+      "mean_merge": 5.0,
+      "median_merge": 2.0,
+      "std_merge": 6.859631583003963,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2474,
+      "token_str": " since",
+      "count": 3,
+      "mean_merge": 5.0,
+      "median_merge": 1.0,
+      "std_merge": 5.656854249492381,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17452,
+      "token_str": " characteristics",
+      "count": 1,
+      "mean_merge": 5.0,
+      "median_merge": 5.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 19853,
+      "token_str": " whereas",
+      "count": 1,
+      "mean_merge": 5.0,
+      "median_merge": 5.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 16263,
+      "token_str": " alongside",
+      "count": 1,
+      "mean_merge": 5.0,
+      "median_merge": 5.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8028,
+      "token_str": " minimum",
+      "count": 1,
+      "mean_merge": 5.0,
+      "median_merge": 5.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 63577,
+      "token_str": " genus",
+      "count": 3,
+      "mean_merge": 5.333333333333333,
+      "median_merge": 2.0,
+      "std_merge": 4.714045207910317,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 892,
+      "token_str": " which",
+      "count": 8,
+      "mean_merge": 5.375,
+      "median_merge": 2.0,
+      "std_merge": 6.817945071647322,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10568,
+      "token_str": " caught",
+      "count": 5,
+      "mean_merge": 5.4,
+      "median_merge": 2.0,
+      "std_merge": 6.8,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 829,
+      "token_str": " name",
+      "count": 3,
+      "mean_merge": 5.666666666666667,
+      "median_merge": 2.0,
+      "std_merge": 5.185449728701348,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10523,
+      "token_str": "ulture",
+      "count": 1,
+      "mean_merge": 6.0,
+      "median_merge": 6.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1231,
+      "token_str": " may",
+      "count": 4,
+      "mean_merge": 6.25,
+      "median_merge": 2.0,
+      "std_merge": 7.361215932167728,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2670,
+      "token_str": " including",
+      "count": 3,
+      "mean_merge": 6.333333333333333,
+      "median_merge": 5.0,
+      "std_merge": 4.988876515698588,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1119,
+      "token_str": " into",
+      "count": 2,
+      "mean_merge": 6.5,
+      "median_merge": 6.5,
+      "std_merge": 5.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 89702,
+      "token_str": "eus",
+      "count": 2,
+      "mean_merge": 6.5,
+      "median_merge": 6.5,
+      "std_merge": 1.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 39612,
+      "token_str": " crust",
+      "count": 3,
+      "mean_merge": 6.666666666666667,
+      "median_merge": 2.0,
+      "std_merge": 6.599663291074443,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 18170,
+      "token_str": "fish",
+      "count": 3,
+      "mean_merge": 6.666666666666667,
+      "median_merge": 8.0,
+      "std_merge": 3.39934634239519,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 777,
+      "token_str": "ton",
+      "count": 2,
+      "mean_merge": 7.0,
+      "median_merge": 7.0,
+      "std_merge": 5.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 72,
+      "token_str": "i",
+      "count": 2,
+      "mean_merge": 7.0,
+      "median_merge": 7.0,
+      "std_merge": 5.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8380,
+      "token_str": " wild",
+      "count": 2,
+      "mean_merge": 7.0,
+      "median_merge": 7.0,
+      "std_merge": 5.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 20804,
+      "token_str": "covered",
+      "count": 1,
+      "mean_merge": 7.0,
+      "median_merge": 7.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 569,
+      "token_str": " @",
+      "count": 20,
+      "mean_merge": 7.2,
+      "median_merge": 2.0,
+      "std_merge": 7.871467461661771,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12460,
+      "token_str": " distinct",
+      "count": 4,
+      "mean_merge": 7.25,
+      "median_merge": 7.0,
+      "std_merge": 5.261891294962297,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6553,
+      "token_str": " Air",
+      "count": 5,
+      "mean_merge": 7.4,
+      "median_merge": 2.0,
+      "std_merge": 10.8,
+      "never_merged_frac": 0.2
+    },
+    {
+      "token_id": 1573,
+      "token_str": " before",
+      "count": 2,
+      "mean_merge": 7.5,
+      "median_merge": 7.5,
+      "std_merge": 5.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3884,
+      "token_str": " seen",
+      "count": 2,
+      "mean_merge": 7.5,
+      "median_merge": 7.5,
+      "std_merge": 5.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7042,
+      "token_str": " population",
+      "count": 4,
+      "mean_merge": 7.5,
+      "median_merge": 2.0,
+      "std_merge": 10.111874208078342,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 705,
+      "token_str": " up",
+      "count": 6,
+      "mean_merge": 8.0,
+      "median_merge": 2.0,
+      "std_merge": 9.273618495495704,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 258,
+      "token_str": "in",
+      "count": 1,
+      "mean_merge": 8.0,
+      "median_merge": 8.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10482,
+      "token_str": " ft",
+      "count": 2,
+      "mean_merge": 8.0,
+      "median_merge": 8.0,
+      "std_merge": 7.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4867,
+      "token_str": " prior",
+      "count": 2,
+      "mean_merge": 8.0,
+      "median_merge": 8.0,
+      "std_merge": 6.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 700,
+      "token_str": " out",
+      "count": 2,
+      "mean_merge": 8.0,
+      "median_merge": 8.0,
+      "std_merge": 6.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 57304,
+      "token_str": "stuff",
+      "count": 1,
+      "mean_merge": 8.0,
+      "median_merge": 8.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9294,
+      "token_str": " century",
+      "count": 1,
+      "mean_merge": 8.0,
+      "median_merge": 8.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7600,
+      "token_str": " instruction",
+      "count": 1,
+      "mean_merge": 8.0,
+      "median_merge": 8.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 79715,
+      "token_str": " lobster",
+      "count": 14,
+      "mean_merge": 8.071428571428571,
+      "median_merge": 2.0,
+      "std_merge": 7.065654208051446,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 706,
+      "token_str": "ax",
+      "count": 2,
+      "mean_merge": 8.5,
+      "median_merge": 8.5,
+      "std_merge": 6.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10200,
+      "token_str": " north",
+      "count": 2,
+      "mean_merge": 8.5,
+      "median_merge": 8.5,
+      "std_merge": 6.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1083,
+      "token_str": " also",
+      "count": 3,
+      "mean_merge": 8.666666666666666,
+      "median_merge": 11.0,
+      "std_merge": 3.2998316455372216,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 55520,
+      "token_str": " Weber",
+      "count": 3,
+      "mean_merge": 8.666666666666666,
+      "median_merge": 2.0,
+      "std_merge": 9.428090415820634,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 436,
+      "token_str": "os",
+      "count": 2,
+      "mean_merge": 9.0,
+      "median_merge": 9.0,
+      "std_merge": 7.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7855,
+      "token_str": " British",
+      "count": 3,
+      "mean_merge": 10.0,
+      "median_merge": 2.0,
+      "std_merge": 11.313708498984761,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4699,
+      "token_str": "eries",
+      "count": 1,
+      "mean_merge": 10.0,
+      "median_merge": 10.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2356,
+      "token_str": "ium",
+      "count": 1,
+      "mean_merge": 10.0,
+      "median_merge": 10.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 15293,
+      "token_str": " consumption",
+      "count": 1,
+      "mean_merge": 10.0,
+      "median_merge": 10.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1424,
+      "token_str": " hand",
+      "count": 1,
+      "mean_merge": 10.0,
+      "median_merge": 10.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 47128,
+      "token_str": "onomic",
+      "count": 1,
+      "mean_merge": 10.0,
+      "median_merge": 10.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 97280,
+      "token_str": " squadron",
+      "count": 1,
+      "mean_merge": 10.0,
+      "median_merge": 10.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 76578,
+      "token_str": " pigment",
+      "count": 2,
+      "mean_merge": 10.5,
+      "median_merge": 10.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1393,
+      "token_str": " while",
+      "count": 2,
+      "mean_merge": 10.5,
+      "median_merge": 10.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 15029,
+      "token_str": " Sea",
+      "count": 7,
+      "mean_merge": 10.571428571428571,
+      "median_merge": 12.0,
+      "std_merge": 3.8119040183218096,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 56490,
+      "token_str": " claw",
+      "count": 4,
+      "mean_merge": 10.75,
+      "median_merge": 10.0,
+      "std_merge": 8.814051281902097,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 291,
+      "token_str": "ed",
+      "count": 4,
+      "mean_merge": 10.75,
+      "median_merge": 7.5,
+      "std_merge": 9.883698700385398,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12570,
+      "token_str": "sters",
+      "count": 8,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 1.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8789,
+      "token_str": " generally",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 27031,
+      "token_str": " crossed",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1543,
+      "token_str": "ines",
+      "count": 2,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 1.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10775,
+      "token_str": " cycle",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 18899,
+      "token_str": " lifestyle",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 21224,
+      "token_str": " Circle",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 58244,
+      "token_str": "icus",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 27333,
+      "token_str": "ylum",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1568,
+      "token_str": "ature",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2155,
+      "token_str": " different",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 57084,
+      "token_str": " specimen",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 440,
+      "token_str": "ke",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9452,
+      "token_str": " officer",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 36156,
+      "token_str": " appointments",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 69977,
+      "token_str": " Personnel",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3132,
+      "token_str": "ively",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 16951,
+      "token_str": " Staff",
+      "count": 1,
+      "mean_merge": 11.0,
+      "median_merge": 11.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 31,
+      "token_str": "@",
+      "count": 9,
+      "mean_merge": 11.222222222222221,
+      "median_merge": 12.0,
+      "std_merge": 2.199887763691481,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 50031,
+      "token_str": " pots",
+      "count": 3,
+      "mean_merge": 11.333333333333334,
+      "median_merge": 12.0,
+      "std_merge": 0.9428090415820634,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7324,
+      "token_str": " summer",
+      "count": 2,
+      "mean_merge": 11.5,
+      "median_merge": 11.5,
+      "std_merge": 9.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7548,
+      "token_str": " highly",
+      "count": 2,
+      "mean_merge": 11.5,
+      "median_merge": 11.5,
+      "std_merge": 9.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 31924,
+      "token_str": "atching",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10008,
+      "token_str": " mostly",
+      "count": 3,
+      "mean_merge": 12.0,
+      "median_merge": 13.0,
+      "std_merge": 6.164414002968976,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7892,
+      "token_str": " although",
+      "count": 5,
+      "mean_merge": 12.0,
+      "median_merge": 13.0,
+      "std_merge": 4.560701700396552,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 27094,
+      "token_str": "keleton",
+      "count": 2,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2598,
+      "token_str": " called",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2425,
+      "token_str": "ules",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 77120,
+      "token_str": " artificially",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 803,
+      "token_str": " more",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 47161,
+      "token_str": " maturity",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8916,
+      "token_str": " therefore",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1053,
+      "token_str": " said",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12875,
+      "token_str": " capable",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4589,
+      "token_str": "ores",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2260,
+      "token_str": "ords",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12282,
+      "token_str": " sizes",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 13434,
+      "token_str": " Channel",
+      "count": 2,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 10.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 66640,
+      "token_str": " edible",
+      "count": 2,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 10.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1052,
+      "token_str": " there",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 59851,
+      "token_str": " captive",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8767,
+      "token_str": "oth",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 45870,
+      "token_str": "opus",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 11239,
+      "token_str": "tle",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4179,
+      "token_str": " net",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 70856,
+      "token_str": "inus",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 359,
+      "token_str": "un",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4156,
+      "token_str": "otype",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9241,
+      "token_str": "uis",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 21830,
+      "token_str": "otypes",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 20395,
+      "token_str": " Organization",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6652,
+      "token_str": " December",
+      "count": 2,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 10.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 11732,
+      "token_str": " Force",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 295,
+      "token_str": "et",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 287,
+      "token_str": "ing",
+      "count": 2,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 10.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 34138,
+      "token_str": " Commander",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 20448,
+      "token_str": " Empire",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 20822,
+      "token_str": " appointed",
+      "count": 1,
+      "mean_merge": 12.0,
+      "median_merge": 12.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 292,
+      "token_str": "ic",
+      "count": 4,
+      "mean_merge": 12.25,
+      "median_merge": 12.5,
+      "std_merge": 1.479019945774904,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 22375,
+      "token_str": " Atlantic",
+      "count": 3,
+      "mean_merge": 12.333333333333334,
+      "median_merge": 15.0,
+      "std_merge": 6.79869268479038,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7612,
+      "token_str": "OC",
+      "count": 3,
+      "mean_merge": 12.333333333333334,
+      "median_merge": 10.0,
+      "std_merge": 7.133644853010899,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1811,
+      "token_str": "rows",
+      "count": 2,
+      "mean_merge": 12.5,
+      "median_merge": 12.5,
+      "std_merge": 2.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1091,
+      "token_str": " than",
+      "count": 2,
+      "mean_merge": 12.5,
+      "median_merge": 12.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1042,
+      "token_str": " year",
+      "count": 3,
+      "mean_merge": 13.0,
+      "median_merge": 14.0,
+      "std_merge": 1.4142135623730951,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1973,
+      "token_str": " order",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3039,
+      "token_str": " times",
+      "count": 2,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4428,
+      "token_str": " similar",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6693,
+      "token_str": " whose",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3729,
+      "token_str": " night",
+      "count": 2,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2576,
+      "token_str": "ts",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3562,
+      "token_str": "most",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10767,
+      "token_str": " possibly",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1537,
+      "token_str": " last",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 25662,
+      "token_str": " Netherlands",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 14279,
+      "token_str": " normally",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10702,
+      "token_str": " prefer",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 27936,
+      "token_str": " folk",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6509,
+      "token_str": " considered",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4505,
+      "token_str": " Europe",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2058,
+      "token_str": " still",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 60771,
+      "token_str": " marshal",
+      "count": 1,
+      "mean_merge": 13.0,
+      "median_merge": 13.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 84302,
+      "token_str": " kilograms",
+      "count": 2,
+      "mean_merge": 13.5,
+      "median_merge": 13.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 58462,
+      "token_str": ".@",
+      "count": 8,
+      "mean_merge": 13.5,
+      "median_merge": 13.5,
+      "std_merge": 1.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 27994,
+      "token_str": " commander",
+      "count": 2,
+      "mean_merge": 13.5,
+      "median_merge": 13.5,
+      "std_merge": 1.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 31113,
+      "token_str": ",@",
+      "count": 3,
+      "mean_merge": 13.666666666666666,
+      "median_merge": 14.0,
+      "std_merge": 1.247219128924647,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 67450,
+      "token_str": " claws",
+      "count": 4,
+      "mean_merge": 13.75,
+      "median_merge": 14.0,
+      "std_merge": 1.299038105676658,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 72087,
+      "token_str": " plank",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 85943,
+      "token_str": " Isles",
+      "count": 2,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 1.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 58302,
+      "token_str": "metrical",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8674,
+      "token_str": " relative",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 537,
+      "token_str": " not",
+      "count": 6,
+      "mean_merge": 14.0,
+      "median_merge": 13.0,
+      "std_merge": 3.265986323710904,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 38475,
+      "token_str": " distinguished",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 372,
+      "token_str": "um",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 11649,
+      "token_str": " depending",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 16191,
+      "token_str": " swim",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7329,
+      "token_str": " surface",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 18521,
+      "token_str": " rarely",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 665,
+      "token_str": "te",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 13648,
+      "token_str": " coast",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 23782,
+      "token_str": " widespread",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 27645,
+      "token_str": " shelf",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3435,
+      "token_str": "abs",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 46181,
+      "token_str": " susceptible",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 11733,
+      "token_str": " Both",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 13041,
+      "token_str": " meat",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 46597,
+      "token_str": " flavour",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10174,
+      "token_str": " Africa",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 22235,
+      "token_str": " Islands",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 20327,
+      "token_str": " landing",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 811,
+      "token_str": "ne",
+      "count": 2,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 12.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 36863,
+      "token_str": " Agriculture",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2937,
+      "token_str": " later",
+      "count": 1,
+      "mean_merge": 14.0,
+      "median_merge": 14.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 29697,
+      "token_str": "ods",
+      "count": 2,
+      "mean_merge": 14.5,
+      "median_merge": 14.5,
+      "std_merge": 2.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 36286,
+      "token_str": " \u00b0",
+      "count": 2,
+      "mean_merge": 14.5,
+      "median_merge": 14.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 485,
+      "token_str": "ere",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 15201,
+      "token_str": "elled",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4487,
+      "token_str": "ried",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1047,
+      "token_str": "ys",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 27784,
+      "token_str": "orden",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1493,
+      "token_str": " these",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 331,
+      "token_str": "ch",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 301,
+      "token_str": "el",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 30401,
+      "token_str": "edin",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 35242,
+      "token_str": " traditionally",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 580,
+      "token_str": "ac",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 85881,
+      "token_str": "strand",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 767,
+      "token_str": "lect",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 22461,
+      "token_str": " Vice",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4312,
+      "token_str": " West",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 27696,
+      "token_str": " Malaysia",
+      "count": 1,
+      "mean_merge": 15.0,
+      "median_merge": 15.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1172,
+      "token_str": " only",
+      "count": 6,
+      "mean_merge": 15.333333333333334,
+      "median_merge": 21.5,
+      "std_merge": 9.445751543536502,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 36593,
+      "token_str": " prey",
+      "count": 2,
+      "mean_merge": 15.5,
+      "median_merge": 15.5,
+      "std_merge": 2.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17445,
+      "token_str": " armed",
+      "count": 1,
+      "mean_merge": 16.0,
+      "median_merge": 16.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 95221,
+      "token_str": " underside",
+      "count": 2,
+      "mean_merge": 16.0,
+      "median_merge": 16.0,
+      "std_merge": 5.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1180,
+      "token_str": "ank",
+      "count": 1,
+      "mean_merge": 16.0,
+      "median_merge": 16.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 75371,
+      "token_str": " fj",
+      "count": 1,
+      "mean_merge": 16.0,
+      "median_merge": 16.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 16911,
+      "token_str": " Zealand",
+      "count": 1,
+      "mean_merge": 16.0,
+      "median_merge": 16.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 20855,
+      "token_str": "omial",
+      "count": 1,
+      "mean_merge": 16.0,
+      "median_merge": 16.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 65,
+      "token_str": "b",
+      "count": 1,
+      "mean_merge": 16.0,
+      "median_merge": 16.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3391,
+      "token_str": "then",
+      "count": 1,
+      "mean_merge": 16.0,
+      "median_merge": 16.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 92428,
+      "token_str": " Tasmania",
+      "count": 1,
+      "mean_merge": 16.0,
+      "median_merge": 16.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 38153,
+      "token_str": " Hudson",
+      "count": 1,
+      "mean_merge": 16.0,
+      "median_merge": 16.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 826,
+      "token_str": "eng",
+      "count": 1,
+      "mean_merge": 16.0,
+      "median_merge": 16.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 23968,
+      "token_str": " Indonesia",
+      "count": 1,
+      "mean_merge": 16.0,
+      "median_merge": 16.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 68975,
+      "token_str": " Companion",
+      "count": 1,
+      "mean_merge": 16.0,
+      "median_merge": 16.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 20684,
+      "token_str": "enth",
+      "count": 3,
+      "mean_merge": 16.666666666666668,
+      "median_merge": 24.0,
+      "std_merge": 10.370899457402697,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1602,
+      "token_str": " very",
+      "count": 4,
+      "mean_merge": 16.75,
+      "median_merge": 16.0,
+      "std_merge": 2.5860201081971503,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 18866,
+      "token_str": " lb",
+      "count": 3,
+      "mean_merge": 17.0,
+      "median_merge": 19.0,
+      "std_merge": 4.320493798938574,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1741,
+      "token_str": " such",
+      "count": 2,
+      "mean_merge": 17.0,
+      "median_merge": 17.0,
+      "std_merge": 6.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 71038,
+      "token_str": "AAF",
+      "count": 2,
+      "mean_merge": 17.5,
+      "median_merge": 17.5,
+      "std_merge": 5.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 96464,
+      "token_str": " esteemed",
+      "count": 2,
+      "mean_merge": 18.0,
+      "median_merge": 18.0,
+      "std_merge": 5.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 24354,
+      "token_str": " shed",
+      "count": 1,
+      "mean_merge": 18.0,
+      "median_merge": 18.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4448,
+      "token_str": "ysis",
+      "count": 1,
+      "mean_merge": 18.0,
+      "median_merge": 18.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1449,
+      "token_str": " every",
+      "count": 2,
+      "mean_merge": 18.0,
+      "median_merge": 18.0,
+      "std_merge": 4.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 69,
+      "token_str": "f",
+      "count": 1,
+      "mean_merge": 18.0,
+      "median_merge": 18.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 55166,
+      "token_str": "urus",
+      "count": 1,
+      "mean_merge": 18.0,
+      "median_merge": 18.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6215,
+      "token_str": "ora",
+      "count": 1,
+      "mean_merge": 18.0,
+      "median_merge": 18.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2649,
+      "token_str": "aff",
+      "count": 1,
+      "mean_merge": 18.0,
+      "median_merge": 18.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 21925,
+      "token_str": "emia",
+      "count": 1,
+      "mean_merge": 18.0,
+      "median_merge": 18.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2664,
+      "token_str": " better",
+      "count": 1,
+      "mean_merge": 18.0,
+      "median_merge": 18.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 60199,
+      "token_str": " tempting",
+      "count": 1,
+      "mean_merge": 18.0,
+      "median_merge": 18.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 95305,
+      "token_str": "acus",
+      "count": 1,
+      "mean_merge": 18.0,
+      "median_merge": 18.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10269,
+      "token_str": "burg",
+      "count": 1,
+      "mean_merge": 18.0,
+      "median_merge": 18.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 43255,
+      "token_str": " hatch",
+      "count": 2,
+      "mean_merge": 18.5,
+      "median_merge": 18.5,
+      "std_merge": 4.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 13862,
+      "token_str": " referred",
+      "count": 2,
+      "mean_merge": 18.5,
+      "median_merge": 18.5,
+      "std_merge": 2.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1280,
+      "token_str": "ting",
+      "count": 1,
+      "mean_merge": 19.0,
+      "median_merge": 19.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 73250,
+      "token_str": "alesce",
+      "count": 1,
+      "mean_merge": 19.0,
+      "median_merge": 19.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 31229,
+      "token_str": "anth",
+      "count": 1,
+      "mean_merge": 19.0,
+      "median_merge": 19.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 578,
+      "token_str": "ace",
+      "count": 6,
+      "mean_merge": 19.166666666666668,
+      "median_merge": 18.5,
+      "std_merge": 2.1921577396609844,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 85266,
+      "token_str": "imet",
+      "count": 2,
+      "mean_merge": 19.5,
+      "median_merge": 19.5,
+      "std_merge": 3.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 37685,
+      "token_str": " Mediterranean",
+      "count": 3,
+      "mean_merge": 19.666666666666668,
+      "median_merge": 22.0,
+      "std_merge": 3.299831645537222,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 416,
+      "token_str": "res",
+      "count": 2,
+      "mean_merge": 20.0,
+      "median_merge": 20.0,
+      "std_merge": 1.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1969,
+      "token_str": " must",
+      "count": 1,
+      "mean_merge": 20.0,
+      "median_merge": 20.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 17367,
+      "token_str": " unlikely",
+      "count": 1,
+      "mean_merge": 20.0,
+      "median_merge": 20.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1865,
+      "token_str": " made",
+      "count": 1,
+      "mean_merge": 20.0,
+      "median_merge": 20.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 50319,
+      "token_str": "arus",
+      "count": 15,
+      "mean_merge": 20.333333333333332,
+      "median_merge": 23.0,
+      "std_merge": 7.699927849589819,
+      "never_merged_frac": 0.2
+    },
+    {
+      "token_id": 5435,
+      "token_str": " related",
+      "count": 1,
+      "mean_merge": 21.0,
+      "median_merge": 21.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 96885,
+      "token_str": " conspicuous",
+      "count": 1,
+      "mean_merge": 21.0,
+      "median_merge": 21.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 31061,
+      "token_str": " lacking",
+      "count": 1,
+      "mean_merge": 21.0,
+      "median_merge": 21.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 1846,
+      "token_str": " those",
+      "count": 3,
+      "mean_merge": 21.0,
+      "median_merge": 21.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6814,
+      "token_str": " throughout",
+      "count": 1,
+      "mean_merge": 21.0,
+      "median_merge": 21.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 23206,
+      "token_str": " emerging",
+      "count": 1,
+      "mean_merge": 21.0,
+      "median_merge": 21.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 29647,
+      "token_str": " occupation",
+      "count": 1,
+      "mean_merge": 21.0,
+      "median_merge": 21.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3080,
+      "token_str": " until",
+      "count": 1,
+      "mean_merge": 21.0,
+      "median_merge": 21.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2176,
+      "token_str": " both",
+      "count": 1,
+      "mean_merge": 21.0,
+      "median_merge": 21.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 87904,
+      "token_str": " specialised",
+      "count": 1,
+      "mean_merge": 21.0,
+      "median_merge": 21.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 30088,
+      "token_str": " outbreak",
+      "count": 1,
+      "mean_merge": 21.0,
+      "median_merge": 21.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 13570,
+      "token_str": " widely",
+      "count": 2,
+      "mean_merge": 21.5,
+      "median_merge": 21.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3055,
+      "token_str": " once",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 453,
+      "token_str": "op",
+      "count": 2,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 7.0,
+      "never_merged_frac": 0.5
+    },
+    {
+      "token_id": 7809,
+      "token_str": " crusher",
+      "count": 2,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 46885,
+      "token_str": " creamy",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 10078,
+      "token_str": " slightly",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5926,
+      "token_str": " recently",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 4832,
+      "token_str": "lt",
+      "count": 2,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 7024,
+      "token_str": "ying",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 47670,
+      "token_str": " juvenile",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 12128,
+      "token_str": " closer",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 71989,
+      "token_str": " Baltic",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 19961,
+      "token_str": "fold",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 50933,
+      "token_str": " genetically",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 32333,
+      "token_str": " midnight",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3526,
+      "token_str": " million",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 57536,
+      "token_str": " continental",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 91311,
+      "token_str": "occus",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 61555,
+      "token_str": "eenth",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 88285,
+      "token_str": " gastric",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 48060,
+      "token_str": " bait",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 51857,
+      "token_str": " kilometres",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 8756,
+      "token_str": " miles",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 52242,
+      "token_str": " northwest",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 35667,
+      "token_str": " Marshal",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 11594,
+      "token_str": "BE",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5768,
+      "token_str": " July",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 70072,
+      "token_str": " Squadron",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 16462,
+      "token_str": " Pacific",
+      "count": 1,
+      "mean_merge": 22.0,
+      "median_merge": 22.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 98445,
+      "token_str": " juven",
+      "count": 2,
+      "mean_merge": 22.5,
+      "median_merge": 22.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5612,
+      "token_str": "mar",
+      "count": 28,
+      "mean_merge": 22.821428571428573,
+      "median_merge": 25.0,
+      "std_merge": 3.6552659804390575,
+      "never_merged_frac": 0.03571428571428571
+    },
+    {
+      "token_id": 15148,
+      "token_str": " closely",
+      "count": 1,
+      "mean_merge": 23.0,
+      "median_merge": 23.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3908,
+      "token_str": " young",
+      "count": 1,
+      "mean_merge": 23.0,
+      "median_merge": 23.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 53295,
+      "token_str": " asym",
+      "count": 1,
+      "mean_merge": 23.0,
+      "median_merge": 23.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 18093,
+      "token_str": " closest",
+      "count": 1,
+      "mean_merge": 23.0,
+      "median_merge": 23.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 2574,
+      "token_str": "urch",
+      "count": 1,
+      "mean_merge": 23.0,
+      "median_merge": 23.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 43857,
+      "token_str": "ayan",
+      "count": 1,
+      "mean_merge": 23.0,
+      "median_merge": 23.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 40639,
+      "token_str": " Composite",
+      "count": 1,
+      "mean_merge": 23.0,
+      "median_merge": 23.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 13369,
+      "token_str": " Australian",
+      "count": 1,
+      "mean_merge": 24.0,
+      "median_merge": 24.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 31624,
+      "token_str": " Deputy",
+      "count": 1,
+      "mean_merge": 24.0,
+      "median_merge": 24.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3376,
+      "token_str": "na",
+      "count": 2,
+      "mean_merge": 24.5,
+      "median_merge": 24.5,
+      "std_merge": 0.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 110,
+      "token_str": "\ufffd",
+      "count": 2,
+      "mean_merge": 24.5,
+      "median_merge": 24.5,
+      "std_merge": 2.5,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 9652,
+      "token_str": " Commission",
+      "count": 1,
+      "mean_merge": 25.0,
+      "median_merge": 25.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5004,
+      "token_str": " War",
+      "count": 1,
+      "mean_merge": 25.0,
+      "median_merge": 25.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 64340,
+      "token_str": " commanding",
+      "count": 1,
+      "mean_merge": 25.0,
+      "median_merge": 25.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 14344,
+      "token_str": " Chief",
+      "count": 1,
+      "mean_merge": 25.0,
+      "median_merge": 25.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 269,
+      "token_str": "or",
+      "count": 2,
+      "mean_merge": 25.5,
+      "median_merge": 25.5,
+      "std_merge": 3.5,
+      "never_merged_frac": 0.5
+    },
+    {
+      "token_id": 495,
+      "token_str": "str",
+      "count": 1,
+      "mean_merge": 26.0,
+      "median_merge": 26.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 3702,
+      "token_str": "rops",
+      "count": 1,
+      "mean_merge": 26.0,
+      "median_merge": 26.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 5729,
+      "token_str": "ological",
+      "count": 1,
+      "mean_merge": 26.0,
+      "median_merge": 26.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 88847,
+      "token_str": "omencl",
+      "count": 1,
+      "mean_merge": 26.0,
+      "median_merge": 26.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 84136,
+      "token_str": " Lockheed",
+      "count": 1,
+      "mean_merge": 26.0,
+      "median_merge": 26.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 16774,
+      "token_str": " vice",
+      "count": 1,
+      "mean_merge": 26.0,
+      "median_merge": 26.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 6951,
+      "token_str": "front",
+      "count": 1,
+      "mean_merge": 26.0,
+      "median_merge": 26.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 0.0
+    },
+    {
+      "token_id": 636,
+      "token_str": " \ufffd",
+      "count": 2,
+      "mean_merge": 27.5,
+      "median_merge": 27.5,
+      "std_merge": 1.5,
+      "never_merged_frac": 0.5
+    },
+    {
+      "token_id": 4385,
+      "token_str": "cd",
+      "count": 1,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    },
+    {
+      "token_id": 10965,
+      "token_str": "oul",
+      "count": 2,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    },
+    {
+      "token_id": 391,
+      "token_str": "ap",
+      "count": 3,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    },
+    {
+      "token_id": 55078,
+      "token_str": "opl",
+      "count": 1,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    },
+    {
+      "token_id": 73,
+      "token_str": "j",
+      "count": 1,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    },
+    {
+      "token_id": 535,
+      "token_str": "ost",
+      "count": 1,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    },
+    {
+      "token_id": 85,
+      "token_str": "v",
+      "count": 1,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    },
+    {
+      "token_id": 5641,
+      "token_str": "ych",
+      "count": 1,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    },
+    {
+      "token_id": 23544,
+      "token_str": "eph",
+      "count": 1,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    },
+    {
+      "token_id": 586,
+      "token_str": "ve",
+      "count": 1,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    },
+    {
+      "token_id": 5127,
+      "token_str": "oph",
+      "count": 1,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    },
+    {
+      "token_id": 509,
+      "token_str": "oc",
+      "count": 1,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    },
+    {
+      "token_id": 307,
+      "token_str": "id",
+      "count": 1,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    },
+    {
+      "token_id": 11866,
+      "token_str": "hal",
+      "count": 1,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    },
+    {
+      "token_id": 39449,
+      "token_str": " Natur",
+      "count": 1,
+      "mean_merge": 29.0,
+      "median_merge": 29.0,
+      "std_merge": 0.0,
+      "never_merged_frac": 1.0
+    }
+  ]
+}
