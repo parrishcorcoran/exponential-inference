@@ -1,0 +1,21 @@
+{
+  "teacher_ppl": 37.02001056067857,
+  "init_rank": 64,
+  "final_rank": 64,
+  "target_rank": 60,
+  "final_ppl": 114102.36630338251,
+  "final_ratio": 3082.1808145181426,
+  "recovery_threshold": 1.5,
+  "total_steps": 30,
+  "history": [
+    {
+      "step": 25,
+      "rank": 64,
+      "val_ce": 12.543444328308105,
+      "val_ppl": 280251.9582183205,
+      "ppl_ratio": 7570.283043516872,
+      "train_loss": 12.283381462097168,
+      "elapsed": 259.57086300849915
+    }
+  ]
+}

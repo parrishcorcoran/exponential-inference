@@ -1,0 +1,38 @@
+{
+  "args": {
+    "model": "Qwen/Qwen3-0.6B",
+    "ranks": "128,64,32",
+    "seq_len": 128,
+    "batch_size": 2,
+    "steps_per_phase": 10,
+    "eval_every": 100,
+    "lr": 5e-05,
+    "device": null,
+    "out": "machines/z8g4/results/rank_anneal_smoke.json"
+  },
+  "teacher_val_ce": 3.4883195843015398,
+  "teacher_val_ppl": 32.73089994952834,
+  "history": [
+    {
+      "phase": "rank128_init",
+      "step": 0,
+      "val_ce": 16.89995915549142,
+      "val_ppl": 21855412.3905161,
+      "delta": 13.41163957118988
+    },
+    {
+      "phase": "rank64_reduced",
+      "step": 0,
+      "val_ce": 8.00447406087603,
+      "val_ppl": 2994.3248543363516,
+      "delta": 4.51615447657449
+    },
+    {
+      "phase": "rank32_reduced",
+      "step": 0,
+      "val_ce": 7.7686744758061,
+      "val_ppl": 2365.3339021601023,
+      "delta": 4.28035489150456
+    }
+  ]
+}
