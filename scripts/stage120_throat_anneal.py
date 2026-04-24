@@ -1,13 +1,16 @@
-"""Stage 120 — Slow anneal throat to rank 1 with fine-tuning.
+"""Stage 120 — Slow anneal throat to TRUE rank 1 with fine-tuning.
 
-Progressive factorization of throat layers (L7-14) from full rank
-down to rank 1, with norm+KV fine-tuning at each step.
+Progressive factorization of throat layers (L7-14) from current rank
+down to rank 1, ONE step at a time with fine-tuning between each.
 
-Schedule (per projection in throat):
-  1280 → 640 → 320 → 160 → 80 → 40 → 20 → 10 → 5 → 2 → 1
+Finer schedule than before:
+  1280 → 896 → 640 → 448 → 320 → 224 → 160 → 112 → 80 → 56 →
+  40 → 28 → 20 → 14 → 10 → 7 → 5 → 3 → 2 → 1
 
-Each step: SVD truncate → fine-tune 200 steps → eval → next step.
-The model adapts at each stage instead of being shocked to rank 1.
+Each step: SVD truncate → eval → fine-tune 200 steps → eval → next.
+Measures exact PPL at every rank to find the true boundary.
+
+MacBook found rank-1 FAILS on 0.6B. This finds where 14B fails.
 """
 import torch
 import torch.nn as nn
@@ -120,8 +123,8 @@ MODEL = "checkpoints/qwen_halo/wormhole_compressed"
 SEQ_LEN = 128
 PROMPT = "The theory of general relativity describes gravity as"
 
-# Anneal schedule: halving each step down to 1
-RANK_SCHEDULE = [640, 320, 160, 80, 40, 20, 10, 5, 2, 1]
+# Fine-grained anneal: ~30% reduction each step, all the way to true rank 1
+RANK_SCHEDULE = [896, 640, 448, 320, 224, 160, 112, 80, 56, 40, 28, 20, 14, 10, 7, 5, 3, 2, 1]
 
 print("=" * 60)
 print("STAGE 120 — THROAT ANNEAL TO RANK 1")
@@ -153,6 +156,12 @@ for rank in RANK_SCHEDULE:
     for i in range(7, 15):
         svd_truncate_layer(model.model.layers[i], rank)
 
+    # Verify actual rank of a sample weight
+    sample_w = model.model.layers[10].self_attn.k_proj.weight.data.float()
+    _, S_check, _ = torch.linalg.svd(sample_w, full_matrices=False)
+    actual_rank = (S_check > S_check[0] * 1e-5).sum().item()
+    print(f"  verified L10 k_proj actual rank: {actual_rank} (target: {rank})", flush=True)
+
     pre_ppl = eval_ppl(model, val_tokens, SEQ_LEN, device)
     print(f"  pre-tune: ppl={pre_ppl:.1f}", flush=True)
 
@@ -168,7 +177,8 @@ for rank in RANK_SCHEDULE:
     print(f"  elapsed={elapsed:.0f}s", flush=True)
 
     history.append({
-        "rank": rank, "pre_ppl": pre_ppl, "post_ppl": post_ppl,
+        "rank": rank, "actual_rank": actual_rank,
+        "pre_ppl": pre_ppl, "post_ppl": post_ppl,
         "text": text[:80], "elapsed": elapsed,
     })
 
