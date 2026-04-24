@@ -1,0 +1,279 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "L": 28,
+  "edge_width": 3,
+  "teacher_val_ce": 3.389804458618164,
+  "teacher_val_ppl": 29.660151916191545,
+  "args": {
+    "model": "Qwen/Qwen3-0.6B",
+    "seq_len": 128,
+    "batch_size": 1,
+    "steps_per_phase": 150,
+    "eval_every": 50,
+    "lr": 5e-05,
+    "edge_width": 3,
+    "schedule": "1024,960,896,832,768,704,640,576,512",
+    "out": "results/stage118_slow_progressive_kv.json",
+    "device": null
+  },
+  "phases": [
+    {
+      "phase": 1,
+      "rank": 1024,
+      "compression": 1.0,
+      "pre_tune_ppl": 26.347272217677702,
+      "post_tune_ppl": 17.487062633800573,
+      "delta_from_teacher": -12.173089282390972,
+      "cost": "FREE_WIN",
+      "tune_steps": 50,
+      "trajectory": [
+        {
+          "step": 50,
+          "val_ppl": 17.086864377849647,
+          "train_ce": 3.5064093589782717,
+          "elapsed": 45.15244007110596
+        }
+      ]
+    },
+    {
+      "phase": 2,
+      "rank": 960,
+      "compression": 1.0666666666666667,
+      "pre_tune_ppl": 17.841684701757135,
+      "post_tune_ppl": 18.535416169640634,
+      "delta_from_teacher": -11.124735746550911,
+      "cost": "FREE_WIN",
+      "tune_steps": 150,
+      "trajectory": [
+        {
+          "step": 50,
+          "val_ppl": 18.616336153457212,
+          "train_ce": 3.2416063857078554,
+          "elapsed": 45.077051877975464
+        },
+        {
+          "step": 100,
+          "val_ppl": 17.56930210535247,
+          "train_ce": 2.7106302118301393,
+          "elapsed": 90.1960928440094
+        },
+        {
+          "step": 150,
+          "val_ppl": 18.470171265917426,
+          "train_ce": 2.9187537813186646,
+          "elapsed": 135.1305809020996
+        }
+      ]
+    },
+    {
+      "phase": 3,
+      "rank": 896,
+      "compression": 1.1428571428571428,
+      "pre_tune_ppl": 19.242653648492357,
+      "post_tune_ppl": 19.649556846666215,
+      "delta_from_teacher": -10.01059506952533,
+      "cost": "FREE_WIN",
+      "tune_steps": 150,
+      "trajectory": [
+        {
+          "step": 50,
+          "val_ppl": 20.884319282723418,
+          "train_ce": 2.2605244612693784,
+          "elapsed": 44.96920108795166
+        },
+        {
+          "step": 100,
+          "val_ppl": 22.46559633847759,
+          "train_ce": 2.1321810841560365,
+          "elapsed": 89.86675310134888
+        },
+        {
+          "step": 150,
+          "val_ppl": 19.60909314952663,
+          "train_ce": 2.1309699070453645,
+          "elapsed": 134.65891122817993
+        }
+      ]
+    },
+    {
+      "phase": 4,
+      "rank": 832,
+      "compression": 1.2307692307692308,
+      "pre_tune_ppl": 19.58695118802991,
+      "post_tune_ppl": 25.831765060348552,
+      "delta_from_teacher": -3.828386855842993,
+      "cost": "FREE_WIN",
+      "tune_steps": 150,
+      "trajectory": [
+        {
+          "step": 50,
+          "val_ppl": 27.98682051900268,
+          "train_ce": 1.4960923278331757,
+          "elapsed": 45.034035205841064
+        },
+        {
+          "step": 100,
+          "val_ppl": 26.82518730371773,
+          "train_ce": 1.710242941379547,
+          "elapsed": 90.1203510761261
+        },
+        {
+          "step": 150,
+          "val_ppl": 25.628693007518123,
+          "train_ce": 1.5379684782028198,
+          "elapsed": 135.10984992980957
+        }
+      ]
+    },
+    {
+      "phase": 5,
+      "rank": 768,
+      "compression": 1.3333333333333333,
+      "pre_tune_ppl": 27.304010561697048,
+      "post_tune_ppl": 39.03287071482056,
+      "delta_from_teacher": 9.372718798629016,
+      "cost": "moderate",
+      "tune_steps": 150,
+      "trajectory": [
+        {
+          "step": 50,
+          "val_ppl": 42.34392876498865,
+          "train_ce": 1.2454246816039085,
+          "elapsed": 45.100966930389404
+        },
+        {
+          "step": 100,
+          "val_ppl": 40.166821724473245,
+          "train_ce": 1.0920055195689202,
+          "elapsed": 90.32243990898132
+        },
+        {
+          "step": 150,
+          "val_ppl": 40.20001806456108,
+          "train_ce": 1.235585036277771,
+          "elapsed": 136.0822069644928
+        }
+      ]
+    },
+    {
+      "phase": 6,
+      "rank": 704,
+      "compression": 1.4545454545454546,
+      "pre_tune_ppl": 35.07444160527271,
+      "post_tune_ppl": 44.76011076203541,
+      "delta_from_teacher": 15.099958845843865,
+      "cost": "expensive",
+      "tune_steps": 150,
+      "trajectory": [
+        {
+          "step": 50,
+          "val_ppl": 45.44089130823046,
+          "train_ce": 0.8551154935359955,
+          "elapsed": 45.99273228645325
+        },
+        {
+          "step": 100,
+          "val_ppl": 41.936535556179,
+          "train_ce": 0.9949170073866844,
+          "elapsed": 93.29155731201172
+        },
+        {
+          "step": 150,
+          "val_ppl": 42.11945753149377,
+          "train_ce": 0.8487297344207764,
+          "elapsed": 140.7745909690857
+        }
+      ]
+    },
+    {
+      "phase": 7,
+      "rank": 640,
+      "compression": 1.6,
+      "pre_tune_ppl": 47.04659401032041,
+      "post_tune_ppl": 56.82827403518947,
+      "delta_from_teacher": 27.16812211899793,
+      "cost": "expensive",
+      "tune_steps": 150,
+      "trajectory": [
+        {
+          "step": 50,
+          "val_ppl": 60.5017673437974,
+          "train_ce": 0.7318716365098953,
+          "elapsed": 46.81086492538452
+        },
+        {
+          "step": 100,
+          "val_ppl": 52.58250756741921,
+          "train_ce": 0.6180405783653259,
+          "elapsed": 94.35914587974548
+        },
+        {
+          "step": 150,
+          "val_ppl": 49.66113298883992,
+          "train_ce": 0.6481850758194924,
+          "elapsed": 141.8982710838318
+        }
+      ]
+    },
+    {
+      "phase": 8,
+      "rank": 576,
+      "compression": 1.7777777777777777,
+      "pre_tune_ppl": 46.34244679855565,
+      "post_tune_ppl": 64.03451320782044,
+      "delta_from_teacher": 34.374361291628894,
+      "cost": "expensive",
+      "tune_steps": 150,
+      "trajectory": [
+        {
+          "step": 50,
+          "val_ppl": 68.17490093420348,
+          "train_ce": 0.5622935925424098,
+          "elapsed": 47.258591175079346
+        },
+        {
+          "step": 100,
+          "val_ppl": 59.72605812835878,
+          "train_ce": 0.5605742678046226,
+          "elapsed": 95.29436802864075
+        },
+        {
+          "step": 150,
+          "val_ppl": 63.37975385974203,
+          "train_ce": 0.5904563447833061,
+          "elapsed": 143.30502009391785
+        }
+      ]
+    },
+    {
+      "phase": 9,
+      "rank": 512,
+      "compression": 2.0,
+      "pre_tune_ppl": 70.58576020303283,
+      "post_tune_ppl": 74.13374796720757,
+      "delta_from_teacher": 44.473596051016024,
+      "cost": "expensive",
+      "tune_steps": 150,
+      "trajectory": [
+        {
+          "step": 50,
+          "val_ppl": 75.49276596445891,
+          "train_ce": 0.45104177191853523,
+          "elapsed": 47.59809708595276
+        },
+        {
+          "step": 100,
+          "val_ppl": 74.41793926850298,
+          "train_ce": 0.4345705258846283,
+          "elapsed": 95.96589994430542
+        },
+        {
+          "step": 150,
+          "val_ppl": 71.00324581208433,
+          "train_ce": 0.5215316297113896,
+          "elapsed": 144.47799396514893
+        }
+      ]
+    }
+  ]
+}
