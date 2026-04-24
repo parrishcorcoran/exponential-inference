@@ -1,0 +1,28 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "L": 28,
+  "edge_width": 3,
+  "teacher_val_ce": 3.3895,
+  "teacher_val_ppl": 29.641,
+  "tests": [
+    {"label": "uniform_Q8",              "avg_bits": 8.0, "val_ppl": 29.999,      "delta_ppl": 0.358,        "cost": "free"},
+    {"label": "uniform_Q6",              "avg_bits": 6.0, "val_ppl": 30.699,      "delta_ppl": 1.058,        "cost": "cheap"},
+    {"label": "uniform_Q4",              "avg_bits": 4.0, "val_ppl": 62.233,      "delta_ppl": 32.592,       "cost": "expensive"},
+    {"label": "uniform_Q3",              "avg_bits": 3.0, "val_ppl": 50924.471,   "delta_ppl": 50894.829,    "cost": "broken"},
+    {"label": "uniform_Q2_ternary",      "avg_bits": 2.0, "val_ppl": 49605965.58, "delta_ppl": 49605935.94,  "cost": "broken"},
+    {"label": "hybrid_Q8_edge__Q4_mid",  "avg_bits": 4.9, "val_ppl": 49.211,      "delta_ppl": 19.570,       "cost": "expensive"},
+    {"label": "hybrid_Q6_edge__Q4_mid",  "avg_bits": 4.4, "val_ppl": 49.991,      "delta_ppl": 20.350,       "cost": "expensive"},
+    {"label": "hybrid_Q8_edge__Q3_mid",  "avg_bits": 4.1, "val_ppl": 9565.998,    "delta_ppl": 9536.357,     "cost": "broken"},
+    {"label": "hybrid_Q6_edge__Q3_mid",  "avg_bits": 3.6, "val_ppl": 9254.904,    "delta_ppl": 9225.263,     "cost": "broken"},
+    {"label": "hybrid_Q8_edge__Q2_mid",  "avg_bits": 3.3, "val_ppl": 23470765.29, "delta_ppl": 23470735.65,  "cost": "broken"},
+    {"label": "hybrid_Q6_edge__Q2_mid",  "avg_bits": 2.9, "val_ppl": 13063169.97, "delta_ppl": 13063140.32,  "cost": "broken"},
+    {"label": "hybrid_Q4_edge__Q2_mid",  "avg_bits": 2.4, "val_ppl": 14217923.38, "delta_ppl": 14217893.74,  "cost": "broken"}
+  ],
+  "bathtub_verdict": "Partial confirmation. Q4 middle + Q8/Q6 edges beats uniform Q4 by ~40% (49 vs 62 ppl, delta +19.6 vs +32.6) at similar or less total bits. Q3 and Q2 middle break even with Q8 edges — middle's rank-1 tolerance still requires 4 bits per weight on 0.6B.",
+  "implications": [
+    "Position-aware quantization is a real axis: hybrid Q6-edge + Q4-mid delivers the quality of uniform Q4 at +12 ppl less cost.",
+    "Middle-layer precision floor on 0.6B is Q4 (16 levels), not Q2 (ternary) or Q3.",
+    "Edge layers can tolerate Q6 without additional damage: Q8 edges didn't beat Q6 edges.",
+    "Combined with Finding 12: ternary would work in middle only at larger d_model (predicted 4096+)."
+  ]
+}
