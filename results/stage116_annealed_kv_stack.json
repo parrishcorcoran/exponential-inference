@@ -1,0 +1,10 @@
+{
+  "teacher_ppl": 11.44465556764168,
+  "kv128_floor_ppl": 16.4,
+  "kv128_stacked_ppl": 22.6,
+  "kv128_coupling": 2.4,
+  "kv256_floor_ppl": 10.480141353875148,
+  "kv256_stacked_ppl": 13.24084471001511,
+  "kv256_coupling": 1.7346342810817204,
+  "final_text": " a curvature of space time . The theory is a theory of the universe as a whole ,"
+}
