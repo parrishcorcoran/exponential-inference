@@ -1,0 +1,1296 @@
+{
+  "args": {
+    "merge_json": "results/stage113_token_bathtub_t05.json",
+    "corpus_tokens": 500000,
+    "tokenizer_name": "Qwen/Qwen3-0.6B",
+    "out": "results/stage114_merge_vs_freq.json"
+  },
+  "n_tokens": 142,
+  "pearson_r": -0.40720466480877904,
+  "spearman_rho": -0.6035596109897489,
+  "linear_fit": {
+    "slope": -0.9115278226912777,
+    "intercept": -2.4868407671495047
+  },
+  "verdict": "MODERATE CORRELATION \u2014 some shared information with frequency (|\u03c1|=0.60). Independent component exists.",
+  "aligned_tokens": [
+    {
+      "token_id": 38442,
+      "token_str": " american",
+      "merge_depth": 2.0,
+      "log_freq": -13.122363377404328,
+      "count_in_s113": 8,
+      "corpus_count": 0,
+      "residual": -7.474558550819623
+    },
+    {
+      "token_id": 23771,
+      "token_str": "lam",
+      "merge_depth": 2.0,
+      "log_freq": -13.122363377404328,
+      "count_in_s113": 4,
+      "corpus_count": 0,
+      "residual": -7.474558550819623
+    },
+    {
+      "token_id": 13222,
+      "token_str": " Hom",
+      "merge_depth": 1.5333333333333334,
+      "log_freq": -12.02375108873622,
+      "count_in_s113": 15,
+      "corpus_count": 2,
+      "residual": -6.9398095500147665
+    },
+    {
+      "token_id": 9015,
+      "token_str": " gam",
+      "merge_depth": 2.0,
+      "log_freq": -12.429216196844383,
+      "count_in_s113": 28,
+      "corpus_count": 1,
+      "residual": -6.84273561051922
+    },
+    {
+      "token_id": 82761,
+      "token_str": " larvae",
+      "merge_depth": 2.0,
+      "log_freq": -12.429216196844383,
+      "count_in_s113": 3,
+      "corpus_count": 1,
+      "residual": -6.84273561051922
+    },
+    {
+      "token_id": 40153,
+      "token_str": " lob",
+      "merge_depth": 2.0,
+      "log_freq": -12.02375108873622,
+      "count_in_s113": 7,
+      "corpus_count": 2,
+      "residual": -6.4731428833481
+    },
+    {
+      "token_id": 17233,
+      "token_str": " cooking",
+      "merge_depth": 2.0,
+      "log_freq": -12.02375108873622,
+      "count_in_s113": 3,
+      "corpus_count": 2,
+      "residual": -6.4731428833481
+    },
+    {
+      "token_id": 13666,
+      "token_str": " occurs",
+      "merge_depth": 1.0,
+      "log_freq": -10.724468104605958,
+      "count_in_s113": 3,
+      "corpus_count": 10,
+      "residual": -6.288810293764018
+    },
+    {
+      "token_id": 25153,
+      "token_str": " Cancer",
+      "merge_depth": 2.0,
+      "log_freq": -11.512925464970229,
+      "count_in_s113": 3,
+      "corpus_count": 4,
+      "residual": -6.007511114741774
+    },
+    {
+      "token_id": 21910,
+      "token_str": " populations",
+      "merge_depth": 2.0,
+      "log_freq": -11.042921835724492,
+      "count_in_s113": 3,
+      "corpus_count": 7,
+      "residual": -5.579089729918409
+    },
+    {
+      "token_id": 18805,
+      "token_str": " eggs",
+      "merge_depth": 2.0,
+      "log_freq": -10.819778284410283,
+      "count_in_s113": 4,
+      "corpus_count": 9,
+      "residual": -5.375688174441369
+    },
+    {
+      "token_id": 1803,
+      "token_str": " car",
+      "merge_depth": 1.0,
+      "log_freq": -9.656627474604603,
+      "count_in_s113": 3,
+      "corpus_count": 31,
+      "residual": -5.3154438493176
+    },
+    {
+      "token_id": 2518,
+      "token_str": " red",
+      "merge_depth": 1.0,
+      "log_freq": -9.408791310700021,
+      "count_in_s113": 8,
+      "corpus_count": 40,
+      "residual": -5.089534290449499
+    },
+    {
+      "token_id": 21575,
+      "token_str": " Ocean",
+      "merge_depth": 2.0,
+      "log_freq": -10.41431317630212,
+      "count_in_s113": 3,
+      "corpus_count": 14,
+      "residual": -5.00609544727025
+    },
+    {
+      "token_id": 11203,
+      "token_str": " Head",
+      "merge_depth": 2.0,
+      "log_freq": -10.41431317630212,
+      "count_in_s113": 4,
+      "corpus_count": 14,
+      "residual": -5.00609544727025
+    },
+    {
+      "token_id": 293,
+      "token_str": " b",
+      "merge_depth": 1.0,
+      "log_freq": -9.27221577569427,
+      "count_in_s113": 3,
+      "corpus_count": 46,
+      "residual": -4.96504189039281
+    },
+    {
+      "token_id": 2588,
+      "token_str": " hard",
+      "merge_depth": 2.0,
+      "log_freq": -9.721165995742174,
+      "count_in_s113": 4,
+      "corpus_count": 29,
+      "residual": -4.374272506969846
+    },
+    {
+      "token_id": 6716,
+      "token_str": " pair",
+      "merge_depth": 2.0,
+      "log_freq": -9.688376172919183,
+      "count_in_s113": 3,
+      "corpus_count": 30,
+      "residual": -4.344383671165573
+    },
+    {
+      "token_id": 18172,
+      "token_str": " northern",
+      "merge_depth": 2.0,
+      "log_freq": -9.656627474604603,
+      "count_in_s113": 3,
+      "corpus_count": 31,
+      "residual": -4.3154438493176
+    },
+    {
+      "token_id": 3084,
+      "token_str": " length",
+      "merge_depth": 2.0,
+      "log_freq": -9.625855815937848,
+      "count_in_s113": 5,
+      "corpus_count": 32,
+      "residual": -4.287394626292495
+    },
+    {
+      "token_id": 4158,
+      "token_str": " white",
+      "merge_depth": 1.5,
+      "log_freq": -8.831903936255937,
+      "count_in_s113": 4,
+      "corpus_count": 72,
+      "residual": -4.063685398084396
+    },
+    {
+      "token_id": 2308,
+      "token_str": " No",
+      "merge_depth": 1.0,
+      "log_freq": -8.209708491668277,
+      "count_in_s113": 3,
+      "corpus_count": 135,
+      "residual": -3.9965369391909737
+    },
+    {
+      "token_id": 943,
+      "token_str": " type",
+      "merge_depth": 2.0,
+      "log_freq": -9.09701168666918,
+      "count_in_s113": 3,
+      "corpus_count": 55,
+      "residual": -3.805338488597161
+    },
+    {
+      "token_id": 451,
+      "token_str": " N",
+      "merge_depth": 1.0,
+      "log_freq": -7.88592141457438,
+      "count_in_s113": 3,
+      "corpus_count": 187,
+      "residual": -3.701396009792001
+    },
+    {
+      "token_id": 7348,
+      "token_str": " Command",
+      "merge_depth": 2.0,
+      "log_freq": -8.979228651012797,
+      "count_in_s113": 4,
+      "corpus_count": 62,
+      "residual": -3.6979759745553293
+    },
+    {
+      "token_id": 4185,
+      "token_str": " common",
+      "merge_depth": 2.0,
+      "log_freq": -8.845697258388274,
+      "count_in_s113": 3,
+      "corpus_count": 71,
+      "residual": -3.576258394975363
+    },
+    {
+      "token_id": 472,
+      "token_str": " H",
+      "merge_depth": 1.0,
+      "log_freq": -7.742466023863869,
+      "count_in_s113": 26,
+      "corpus_count": 216,
+      "residual": -3.5706324298443226
+    },
+    {
+      "token_id": 596,
+      "token_str": "ans",
+      "merge_depth": 2.0,
+      "log_freq": -8.818298284200159,
+      "count_in_s113": 3,
+      "corpus_count": 73,
+      "residual": -3.5512834676896956
+    },
+    {
+      "token_id": 296,
+      "token_str": " m",
+      "merge_depth": 1.0,
+      "log_freq": -7.658531572378719,
+      "count_in_s113": 3,
+      "corpus_count": 235,
+      "residual": -3.494123842033276
+    },
+    {
+      "token_id": 646,
+      "token_str": " can",
+      "merge_depth": 1.0,
+      "log_freq": -7.596910438272545,
+      "count_in_s113": 4,
+      "corpus_count": 250,
+      "residual": -3.4379544638297084
+    },
+    {
+      "token_id": 1096,
+      "token_str": " This",
+      "merge_depth": 1.0,
+      "log_freq": -7.484008708070583,
+      "count_in_s113": 3,
+      "corpus_count": 280,
+      "residual": -3.335041395520636
+    },
+    {
+      "token_id": 1576,
+      "token_str": " because",
+      "merge_depth": 1.3333333333333333,
+      "log_freq": -7.794487208614748,
+      "count_in_s113": 3,
+      "corpus_count": 205,
+      "residual": -3.284717853780778
+    },
+    {
+      "token_id": 13,
+      "token_str": ".",
+      "merge_depth": 0.10344827586206896,
+      "log_freq": -6.228707022801694,
+      "count_in_s113": 29,
+      "corpus_count": 985,
+      "residual": -3.0873507076647253
+    },
+    {
+      "token_id": 64,
+      "token_str": "a",
+      "merge_depth": 1.6666666666666667,
+      "log_freq": -7.88592141457438,
+      "count_in_s113": 3,
+      "corpus_count": 187,
+      "residual": -3.034729343125334
+    },
+    {
+      "token_id": 3460,
+      "token_str": " large",
+      "merge_depth": 2.0,
+      "log_freq": -8.17360348702616,
+      "count_in_s113": 3,
+      "corpus_count": 140,
+      "residual": -2.9636262229212864
+    },
+    {
+      "token_id": 4787,
+      "token_str": " North",
+      "merge_depth": 2.0,
+      "log_freq": -8.152550077828328,
+      "count_in_s113": 3,
+      "corpus_count": 143,
+      "residual": -2.9444354546749585
+    },
+    {
+      "token_id": 1084,
+      "token_str": " It",
+      "merge_depth": 1.0,
+      "log_freq": -6.956945523172909,
+      "count_in_s113": 6,
+      "corpus_count": 475,
+      "residual": -2.854608638170129
+    },
+    {
+      "token_id": 3693,
+      "token_str": " American",
+      "merge_depth": 2.0,
+      "log_freq": -7.951879382366177,
+      "count_in_s113": 3,
+      "corpus_count": 175,
+      "residual": -2.761518532562399
+    },
+    {
+      "token_id": 1260,
+      "token_str": " He",
+      "merge_depth": 1.0,
+      "log_freq": -6.771477660689589,
+      "count_in_s113": 3,
+      "corpus_count": 572,
+      "residual": -2.6855495213015033
+    },
+    {
+      "token_id": 22,
+      "token_str": "7",
+      "merge_depth": 0.0625,
+      "log_freq": -5.654421045118477,
+      "count_in_s113": 16,
+      "corpus_count": 1750,
+      "residual": -2.6048213366870803
+    },
+    {
+      "token_id": 614,
+      "token_str": " have",
+      "merge_depth": 1.0,
+      "log_freq": -6.6703144229671025,
+      "count_in_s113": 7,
+      "corpus_count": 633,
+      "residual": -2.5933364154839254
+    },
+    {
+      "token_id": 2326,
+      "token_str": " three",
+      "merge_depth": 1.6,
+      "log_freq": -7.27303859745747,
+      "count_in_s113": 5,
+      "corpus_count": 346,
+      "residual": -2.542736269940527
+    },
+    {
+      "token_id": 362,
+      "token_str": " A",
+      "merge_depth": 1.0,
+      "log_freq": -6.58712210639067,
+      "count_in_s113": 3,
+      "corpus_count": 688,
+      "residual": -2.517504304290366
+    },
+    {
+      "token_id": 714,
+      "token_str": " but",
+      "merge_depth": 1.0,
+      "log_freq": -6.5856717798130235,
+      "count_in_s113": 5,
+      "corpus_count": 689,
+      "residual": -2.5161822912628526
+    },
+    {
+      "token_id": 21,
+      "token_str": "6",
+      "merge_depth": 0.15,
+      "log_freq": -5.636871769373574,
+      "count_in_s113": 20,
+      "corpus_count": 1781,
+      "residual": -2.50132468357752
+    },
+    {
+      "token_id": 476,
+      "token_str": " or",
+      "merge_depth": 1.0,
+      "log_freq": -6.518419552803857,
+      "count_in_s113": 14,
+      "corpus_count": 737,
+      "residual": -2.4548800152060473
+    },
+    {
+      "token_id": 702,
+      "token_str": " has",
+      "merge_depth": 1.0,
+      "log_freq": -6.5049603994298515,
+      "count_in_s113": 4,
+      "corpus_count": 747,
+      "residual": -2.4426116224357726
+    },
+    {
+      "token_id": 320,
+      "token_str": " (",
+      "merge_depth": 0.0,
+      "log_freq": -5.3751984108839945,
+      "count_in_s113": 21,
+      "corpus_count": 2314,
+      "residual": -2.4128021368571986
+    },
+    {
+      "token_id": 862,
+      "token_str": " their",
+      "merge_depth": 1.0,
+      "log_freq": -6.470791503814602,
+      "count_in_s113": 3,
+      "corpus_count": 773,
+      "residual": -2.4114657234118377
+    },
+    {
+      "token_id": 20,
+      "token_str": "5",
+      "merge_depth": 0.07692307692307693,
+      "log_freq": -5.457547592118593,
+      "count_in_s113": 26,
+      "corpus_count": 2131,
+      "residual": -2.4109426298053047
+    },
+    {
+      "token_id": 19,
+      "token_str": "4",
+      "merge_depth": 0.05555555555555555,
+      "log_freq": -5.427970574774908,
+      "count_in_s113": 18,
+      "corpus_count": 2195,
+      "residual": -2.405349876951835
+    },
+    {
+      "token_id": 18,
+      "token_str": "3",
+      "merge_depth": 0.05555555555555555,
+      "log_freq": -5.391310233397201,
+      "count_in_s113": 18,
+      "corpus_count": 2277,
+      "residual": -2.3719329557966953
+    },
+    {
+      "token_id": 23,
+      "token_str": "8",
+      "merge_depth": 0.18181818181818182,
+      "log_freq": -5.425696295877867,
+      "count_in_s113": 11,
+      "corpus_count": 2200,
+      "residual": -2.2770141821979966
+    },
+    {
+      "token_id": 1365,
+      "token_str": " \u2013",
+      "merge_depth": 1.0,
+      "log_freq": -6.299077255048641,
+      "count_in_s113": 19,
+      "corpus_count": 918,
+      "residual": -2.254943408109134
+    },
+    {
+      "token_id": 525,
+      "token_str": " are",
+      "merge_depth": 1.0,
+      "log_freq": -6.286104100127262,
+      "count_in_s113": 20,
+      "corpus_count": 930,
+      "residual": -2.243118016450212
+    },
+    {
+      "token_id": 9419,
+      "token_str": " species",
+      "merge_depth": 2.857142857142857,
+      "log_freq": -8.254828926948747,
+      "count_in_s113": 14,
+      "corpus_count": 129,
+      "residual": -2.1805226141782064
+    },
+    {
+      "token_id": 18170,
+      "token_str": "fish",
+      "merge_depth": 6.666666666666667,
+      "log_freq": -12.429216196844383,
+      "count_in_s113": 3,
+      "corpus_count": 1,
+      "residual": -2.1760689438525533
+    },
+    {
+      "token_id": 758,
+      "token_str": " In",
+      "merge_depth": 1.0,
+      "log_freq": -6.081826987188373,
+      "count_in_s113": 4,
+      "corpus_count": 1141,
+      "residual": -2.0569137444673666
+    },
+    {
+      "token_id": 807,
+      "token_str": " they",
+      "merge_depth": 1.8,
+      "log_freq": -6.90177320730459,
+      "count_in_s113": 5,
+      "corpus_count": 502,
+      "residual": -2.0043175372138453
+    },
+    {
+      "token_id": 566,
+      "token_str": " he",
+      "merge_depth": 1.0,
+      "log_freq": -6.017397929134487,
+      "count_in_s113": 4,
+      "corpus_count": 1217,
+      "residual": -1.9981848654614573
+    },
+    {
+      "token_id": 1008,
+      "token_str": " other",
+      "merge_depth": 2.0,
+      "log_freq": -6.980325971816972,
+      "count_in_s113": 4,
+      "corpus_count": 464,
+      "residual": -1.8759205676161974
+    },
+    {
+      "token_id": 17,
+      "token_str": "2",
+      "merge_depth": 0.0,
+      "log_freq": -4.760655088828487,
+      "count_in_s113": 19,
+      "corpus_count": 4279,
+      "residual": -1.852628800554477
+    },
+    {
+      "token_id": 355,
+      "token_str": "us",
+      "merge_depth": 2.918918918918919,
+      "log_freq": -7.940579827112244,
+      "count_in_s113": 37,
+      "corpus_count": 177,
+      "residual": -1.8322997546454833
+    },
+    {
+      "token_id": 387,
+      "token_str": " be",
+      "merge_depth": 1.4444444444444444,
+      "log_freq": -6.319968614080018,
+      "count_in_s113": 9,
+      "corpus_count": 899,
+      "residual": -1.8295420186756222
+    },
+    {
+      "token_id": 1033,
+      "token_str": " were",
+      "merge_depth": 1.0,
+      "log_freq": -5.82189056313653,
+      "count_in_s113": 3,
+      "corpus_count": 1480,
+      "residual": -1.8199744618132332
+    },
+    {
+      "token_id": 24,
+      "token_str": "9",
+      "merge_depth": 0.13793103448275862,
+      "log_freq": -4.874619490178812,
+      "count_in_s113": 29,
+      "corpus_count": 3818,
+      "residual": -1.8185794886988955
+    },
+    {
+      "token_id": 518,
+      "token_str": " at",
+      "merge_depth": 1.0,
+      "log_freq": -5.705383756023175,
+      "count_in_s113": 6,
+      "corpus_count": 1663,
+      "residual": -1.7137752655964844
+    },
+    {
+      "token_id": 10568,
+      "token_str": " caught",
+      "merge_depth": 5.4,
+      "log_freq": -10.48330604778907,
+      "count_in_s113": 5,
+      "corpus_count": 13,
+      "residual": -1.668984369197969
+    },
+    {
+      "token_id": 1730,
+      "token_str": " found",
+      "merge_depth": 3.2,
+      "log_freq": -8.016417903503749,
+      "count_in_s113": 5,
+      "corpus_count": 164,
+      "residual": -1.6203471902146447
+    },
+    {
+      "token_id": 374,
+      "token_str": " is",
+      "merge_depth": 0.78125,
+      "log_freq": -5.3370581948644675,
+      "count_in_s113": 32,
+      "corpus_count": 2404,
+      "residual": -1.596786268791944
+    },
+    {
+      "token_id": 39612,
+      "token_str": " crust",
+      "merge_depth": 6.666666666666667,
+      "log_freq": -11.736069016284437,
+      "count_in_s113": 3,
+      "corpus_count": 3,
+      "residual": -1.5442460035521473
+    },
+    {
+      "token_id": 1156,
+      "token_str": " first",
+      "merge_depth": 2.0,
+      "log_freq": -6.610618047759601,
+      "count_in_s113": 3,
+      "corpus_count": 672,
+      "residual": -1.5389215085684693
+    },
+    {
+      "token_id": 15,
+      "token_str": "0",
+      "merge_depth": 0.045454545454545456,
+      "log_freq": -4.376601378028817,
+      "count_in_s113": 22,
+      "corpus_count": 6283,
+      "residual": -1.4570986122982035
+    },
+    {
+      "token_id": 873,
+      "token_str": " )",
+      "merge_depth": 1.0,
+      "log_freq": -5.3751984108839945,
+      "count_in_s113": 21,
+      "corpus_count": 2314,
+      "residual": -1.4128021368571986
+    },
+    {
+      "token_id": 16,
+      "token_str": "1",
+      "merge_depth": 0.0,
+      "log_freq": -4.245958462397389,
+      "count_in_s113": 49,
+      "corpus_count": 7160,
+      "residual": -1.3834685053171927
+    },
+    {
+      "token_id": 369,
+      "token_str": " for",
+      "merge_depth": 1.0,
+      "log_freq": -5.2026436164797545,
+      "count_in_s113": 13,
+      "corpus_count": 2750,
+      "residual": -1.255513640818961
+    },
+    {
+      "token_id": 389,
+      "token_str": " on",
+      "merge_depth": 1.1111111111111112,
+      "log_freq": -5.285598594140262,
+      "count_in_s113": 9,
+      "corpus_count": 2531,
+      "residual": -1.2200182998761355
+    },
+    {
+      "token_id": 429,
+      "token_str": " that",
+      "merge_depth": 1.0,
+      "log_freq": -5.161690769016212,
+      "count_in_s113": 6,
+      "corpus_count": 2865,
+      "residual": -1.2181839809375097
+    },
+    {
+      "token_id": 553,
+      "token_str": " by",
+      "merge_depth": 1.25,
+      "log_freq": -5.401014764786379,
+      "count_in_s113": 12,
+      "corpus_count": 2255,
+      "residual": -1.1863344617196674
+    },
+    {
+      "token_id": 264,
+      "token_str": " a",
+      "merge_depth": 0.28125,
+      "log_freq": -4.309371145434363,
+      "count_in_s113": 32,
+      "corpus_count": 6720,
+      "residual": -1.1600209302168976
+    },
+    {
+      "token_id": 448,
+      "token_str": " with",
+      "merge_depth": 1.1666666666666667,
+      "log_freq": -5.223581020434019,
+      "count_in_s113": 6,
+      "corpus_count": 2693,
+      "residual": -1.1079320003915332
+    },
+    {
+      "token_id": 63577,
+      "token_str": " genus",
+      "merge_depth": 5.333333333333333,
+      "log_freq": -9.790158867229126,
+      "count_in_s113": 3,
+      "corpus_count": 27,
+      "residual": -1.103828095564234
+    },
+    {
+      "token_id": 576,
+      "token_str": " The",
+      "merge_depth": 1.0,
+      "log_freq": -4.981756334545879,
+      "count_in_s113": 27,
+      "corpus_count": 3430,
+      "residual": -1.054168737657581
+    },
+    {
+      "token_id": 825,
+      "token_str": " one",
+      "merge_depth": 2.5,
+      "log_freq": -6.591485749678443,
+      "count_in_s113": 4,
+      "corpus_count": 685,
+      "residual": -1.0214818865554713
+    },
+    {
+      "token_id": 304,
+      "token_str": " in",
+      "merge_depth": 0.3333333333333333,
+      "log_freq": -4.161125595912452,
+      "count_in_s113": 48,
+      "corpus_count": 7794,
+      "residual": -0.9728076539041848
+    },
+    {
+      "token_id": 330,
+      "token_str": " \"",
+      "merge_depth": 0.6363636363636364,
+      "log_freq": -4.462109343147439,
+      "count_in_s113": 22,
+      "corpus_count": 5768,
+      "residual": -0.944132410656452
+    },
+    {
+      "token_id": 572,
+      "token_str": " was",
+      "merge_depth": 1.0,
+      "log_freq": -4.845714251982469,
+      "count_in_s113": 9,
+      "corpus_count": 3930,
+      "residual": -0.9301625943441687
+    },
+    {
+      "token_id": 220,
+      "token_str": " ",
+      "merge_depth": 0.0,
+      "log_freq": -3.652740407498063,
+      "count_in_s113": 98,
+      "corpus_count": 12959,
+      "residual": -0.842733743353655
+    },
+    {
+      "token_id": 7513,
+      "token_str": " European",
+      "merge_depth": 5.0,
+      "log_freq": -9.079312109569779,
+      "count_in_s113": 4,
+      "corpus_count": 56,
+      "residual": -0.7892048316211868
+    },
+    {
+      "token_id": 715,
+      "token_str": " \n",
+      "merge_depth": 1.0,
+      "log_freq": -4.641004638997307,
+      "count_in_s113": 33,
+      "corpus_count": 4823,
+      "residual": -0.7435640865358302
+    },
+    {
+      "token_id": 504,
+      "token_str": " from",
+      "merge_depth": 2.0,
+      "log_freq": -5.686335561052481,
+      "count_in_s113": 11,
+      "corpus_count": 1695,
+      "residual": -0.6964123059086482
+    },
+    {
+      "token_id": 12,
+      "token_str": "-",
+      "merge_depth": 1.3333333333333333,
+      "log_freq": -4.914961544027974,
+      "count_in_s113": 9,
+      "corpus_count": 3667,
+      "residual": -0.6599500943563414
+    },
+    {
+      "token_id": 284,
+      "token_str": " =",
+      "merge_depth": 1.0,
+      "log_freq": -4.431384960216423,
+      "count_in_s113": 28,
+      "corpus_count": 5948,
+      "residual": -0.5524899171434461
+    },
+    {
+      "token_id": 79715,
+      "token_str": " lobster",
+      "merge_depth": 8.071428571428571,
+      "log_freq": -12.02375108873622,
+      "count_in_s113": 14,
+      "corpus_count": 2,
+      "residual": -0.40171431191952855
+    },
+    {
+      "token_id": 323,
+      "token_str": " and",
+      "merge_depth": 0.717391304347826,
+      "log_freq": -3.907632657126853,
+      "count_in_s113": 46,
+      "corpus_count": 10043,
+      "residual": -0.3576838163308419
+    },
+    {
+      "token_id": 438,
+      "token_str": " as",
+      "merge_depth": 2.076923076923077,
+      "log_freq": -5.191438004920941,
+      "count_in_s113": 13,
+      "corpus_count": 2781,
+      "residual": -0.1683763371897542
+    },
+    {
+      "token_id": 279,
+      "token_str": " the",
+      "merge_depth": 0.2653061224489796,
+      "log_freq": -3.129903871065937,
+      "count_in_s113": 98,
+      "corpus_count": 21860,
+      "residual": -0.1008475712272508
+    },
+    {
+      "token_id": 1012,
+      "token_str": " been",
+      "merge_depth": 3.5714285714285716,
+      "log_freq": -6.730446264011727,
+      "count_in_s113": 7,
+      "corpus_count": 596,
+      "residual": -0.07671969019717784
+    },
+    {
+      "token_id": 659,
+      "token_str": " .",
+      "merge_depth": 0.7361111111111112,
+      "log_freq": -3.54488301164165,
+      "count_in_s113": 72,
+      "corpus_count": 14435,
+      "residual": -0.008307615036396765
+    },
+    {
+      "token_id": 2474,
+      "token_str": " since",
+      "merge_depth": 5.0,
+      "log_freq": -8.105083540589405,
+      "count_in_s113": 3,
+      "corpus_count": 150,
+      "residual": 0.0988316146651318
+    },
+    {
+      "token_id": 3881,
+      "token_str": " known",
+      "merge_depth": 4.8,
+      "log_freq": -7.6842840684811335,
+      "count_in_s113": 5,
+      "corpus_count": 229,
+      "residual": 0.2824020412656232
+    },
+    {
+      "token_id": 1154,
+      "token_str": " ,",
+      "merge_depth": 0.7678571428571429,
+      "log_freq": -3.199514471389581,
+      "count_in_s113": 112,
+      "corpus_count": 20390,
+      "residual": 0.3382514502316686
+    },
+    {
+      "token_id": 311,
+      "token_str": " to",
+      "merge_depth": 1.7027027027027026,
+      "log_freq": -4.195049266343733,
+      "count_in_s113": 37,
+      "corpus_count": 7534,
+      "residual": 0.3656393460192624
+    },
+    {
+      "token_id": 55520,
+      "token_str": " Weber",
+      "merge_depth": 8.666666666666666,
+      "log_freq": -11.736069016284437,
+      "count_in_s113": 3,
+      "corpus_count": 3,
+      "residual": 0.45575399644785186
+    },
+    {
+      "token_id": 12460,
+      "token_str": " distinct",
+      "merge_depth": 7.25,
+      "log_freq": -9.790158867229126,
+      "count_in_s113": 4,
+      "corpus_count": 27,
+      "residual": 0.8128385711024331
+    },
+    {
+      "token_id": 829,
+      "token_str": " name",
+      "merge_depth": 5.666666666666667,
+      "log_freq": -7.923866346138503,
+      "count_in_s113": 3,
+      "corpus_count": 180,
+      "residual": 0.9306827960238513
+    },
+    {
+      "token_id": 56490,
+      "token_str": " claw",
+      "merge_depth": 10.75,
+      "log_freq": -13.122363377404328,
+      "count_in_s113": 4,
+      "corpus_count": 0,
+      "residual": 1.2754414491803772
+    },
+    {
+      "token_id": 1231,
+      "token_str": " may",
+      "merge_depth": 6.25,
+      "log_freq": -7.8966167036911274,
+      "count_in_s113": 4,
+      "corpus_count": 185,
+      "residual": 1.5388549366063566
+    },
+    {
+      "token_id": 2670,
+      "token_str": " including",
+      "merge_depth": 6.333333333333333,
+      "log_freq": -7.719685995532049,
+      "count_in_s113": 3,
+      "corpus_count": 221,
+      "residual": 1.7834655331151605
+    },
+    {
+      "token_id": 6553,
+      "token_str": " Air",
+      "merge_depth": 7.4,
+      "log_freq": -8.633727007672189,
+      "count_in_s113": 5,
+      "corpus_count": 88,
+      "residual": 2.0169583861351947
+    },
+    {
+      "token_id": 7042,
+      "token_str": " population",
+      "merge_depth": 7.5,
+      "log_freq": -8.497390564120058,
+      "count_in_s113": 4,
+      "corpus_count": 101,
+      "residual": 2.24123284767974
+    },
+    {
+      "token_id": 892,
+      "token_str": " which",
+      "merge_depth": 5.375,
+      "log_freq": -6.079203461415989,
+      "count_in_s113": 8,
+      "corpus_count": 1144,
+      "residual": 2.3204776722677094
+    },
+    {
+      "token_id": 50031,
+      "token_str": " pots",
+      "merge_depth": 11.333333333333334,
+      "log_freq": -12.429216196844383,
+      "count_in_s113": 3,
+      "corpus_count": 1,
+      "residual": 2.4905977228141136
+    },
+    {
+      "token_id": 7612,
+      "token_str": "OC",
+      "merge_depth": 12.333333333333334,
+      "log_freq": -12.02375108873622,
+      "count_in_s113": 3,
+      "corpus_count": 2,
+      "residual": 3.860190449985234
+    },
+    {
+      "token_id": 705,
+      "token_str": " up",
+      "merge_depth": 8.0,
+      "log_freq": -7.208860371766058,
+      "count_in_s113": 6,
+      "corpus_count": 369,
+      "residual": 3.9157639683881547
+    },
+    {
+      "token_id": 12570,
+      "token_str": "sters",
+      "merge_depth": 11.0,
+      "log_freq": -10.48330604778907,
+      "count_in_s113": 8,
+      "corpus_count": 13,
+      "residual": 3.9310156308020305
+    },
+    {
+      "token_id": 315,
+      "token_str": " of",
+      "merge_depth": 5.0,
+      "log_freq": -3.7685289057894167,
+      "count_in_s113": 55,
+      "corpus_count": 11542,
+      "residual": 4.051721818906135
+    },
+    {
+      "token_id": 15029,
+      "token_str": " Sea",
+      "merge_depth": 10.571428571428571,
+      "log_freq": -9.721165995742174,
+      "count_in_s113": 7,
+      "corpus_count": 29,
+      "residual": 4.197156064458725
+    },
+    {
+      "token_id": 67450,
+      "token_str": " claws",
+      "merge_depth": 13.75,
+      "log_freq": -12.429216196844383,
+      "count_in_s113": 4,
+      "corpus_count": 1,
+      "residual": 4.90726438948078
+    },
+    {
+      "token_id": 1083,
+      "token_str": " also",
+      "merge_depth": 8.666666666666666,
+      "log_freq": -6.45286528754645,
+      "count_in_s113": 3,
+      "corpus_count": 787,
+      "residual": 5.27154118813883
+    },
+    {
+      "token_id": 569,
+      "token_str": " @",
+      "merge_depth": 7.2,
+      "log_freq": -4.612597701816888,
+      "count_in_s113": 20,
+      "corpus_count": 4962,
+      "residual": 5.482329627061565
+    },
+    {
+      "token_id": 7855,
+      "token_str": " British",
+      "merge_depth": 10.0,
+      "log_freq": -7.392263594430754,
+      "count_in_s113": 3,
+      "corpus_count": 307,
+      "residual": 5.74858682815804
+    },
+    {
+      "token_id": 10008,
+      "token_str": " mostly",
+      "merge_depth": 12.0,
+      "log_freq": -9.27221577569427,
+      "count_in_s113": 3,
+      "corpus_count": 46,
+      "residual": 6.03495810960719
+    },
+    {
+      "token_id": 22375,
+      "token_str": " Atlantic",
+      "merge_depth": 12.333333333333334,
+      "log_freq": -9.511445464760104,
+      "count_in_s113": 3,
+      "corpus_count": 36,
+      "residual": 6.150226925343232
+    },
+    {
+      "token_id": 291,
+      "token_str": "ed",
+      "merge_depth": 10.75,
+      "log_freq": -7.208860371766058,
+      "count_in_s113": 4,
+      "corpus_count": 369,
+      "residual": 6.665763968388155
+    },
+    {
+      "token_id": 7892,
+      "token_str": " although",
+      "merge_depth": 12.0,
+      "log_freq": -7.9633080781898,
+      "count_in_s113": 5,
+      "corpus_count": 173,
+      "residual": 7.228063893217293
+    },
+    {
+      "token_id": 292,
+      "token_str": "ic",
+      "merge_depth": 12.25,
+      "log_freq": -8.010375589047786,
+      "count_in_s113": 4,
+      "corpus_count": 165,
+      "residual": 7.435160547525415
+    },
+    {
+      "token_id": 1042,
+      "token_str": " year",
+      "merge_depth": 13.0,
+      "log_freq": -7.405335675998107,
+      "count_in_s113": 3,
+      "corpus_count": 303,
+      "residual": 8.736671262108908
+    },
+    {
+      "token_id": 20684,
+      "token_str": "enth",
+      "merge_depth": 16.666666666666668,
+      "log_freq": -11.176453228349015,
+      "count_in_s113": 3,
+      "corpus_count": 6,
+      "residual": 8.965859357168291
+    },
+    {
+      "token_id": 31,
+      "token_str": "@",
+      "merge_depth": 11.222222222222221,
+      "log_freq": -4.922075117116775,
+      "count_in_s113": 9,
+      "corpus_count": 3641,
+      "residual": 9.222454574743356
+    },
+    {
+      "token_id": 18866,
+      "token_str": " lb",
+      "merge_depth": 17.0,
+      "log_freq": -11.176453228349015,
+      "count_in_s113": 3,
+      "corpus_count": 6,
+      "residual": 9.299192690501624
+    },
+    {
+      "token_id": 31113,
+      "token_str": ",@",
+      "merge_depth": 13.666666666666666,
+      "log_freq": -6.754176191053836,
+      "count_in_s113": 3,
+      "corpus_count": 582,
+      "residual": 9.9968879163116
+    },
+    {
+      "token_id": 58462,
+      "token_str": ".@",
+      "merge_depth": 13.5,
+      "log_freq": -6.515713191206113,
+      "count_in_s113": 8,
+      "corpus_count": 739,
+      "residual": 10.04758690868856
+    },
+    {
+      "token_id": 537,
+      "token_str": " not",
+      "merge_depth": 14.0,
+      "log_freq": -6.537571985018612,
+      "count_in_s113": 6,
+      "corpus_count": 723,
+      "residual": 10.527662009957995
+    },
+    {
+      "token_id": 50319,
+      "token_str": "arus",
+      "merge_depth": 20.333333333333332,
+      "log_freq": -13.122363377404328,
+      "count_in_s113": 15,
+      "corpus_count": 0,
+      "residual": 10.85877478251371
+    },
+    {
+      "token_id": 1172,
+      "token_str": " only",
+      "merge_depth": 15.333333333333334,
+      "log_freq": -7.1308988302963465,
+      "count_in_s113": 6,
+      "corpus_count": 399,
+      "residual": 11.32016141587103
+    },
+    {
+      "token_id": 1602,
+      "token_str": " very",
+      "merge_depth": 16.75,
+      "log_freq": -8.3432398842928,
+      "count_in_s113": 4,
+      "corpus_count": 118,
+      "residual": 11.63174548122906
+    },
+    {
+      "token_id": 578,
+      "token_str": "ace",
+      "merge_depth": 19.166666666666668,
+      "log_freq": -10.289150033348113,
+      "count_in_s113": 6,
+      "corpus_count": 16,
+      "residual": 12.274660906574479
+    },
+    {
+      "token_id": 37685,
+      "token_str": " Mediterranean",
+      "merge_depth": 19.666666666666668,
+      "log_freq": -10.231991619508165,
+      "count_in_s113": 3,
+      "corpus_count": 17,
+      "residual": 12.826762391090494
+    },
+    {
+      "token_id": 5612,
+      "token_str": "mar",
+      "merge_depth": 22.821428571428573,
+      "log_freq": -11.330603908176274,
+      "count_in_s113": 28,
+      "corpus_count": 5,
+      "residual": 14.980108628380876
+    },
+    {
+      "token_id": 1846,
+      "token_str": " those",
+      "merge_depth": 21.0,
+      "log_freq": -8.078938260485081,
+      "count_in_s113": 3,
+      "corpus_count": 154,
+      "residual": 16.12266376491228
+    },
+    {
+      "token_id": 391,
+      "token_str": "ap",
+      "merge_depth": 29.0,
+      "log_freq": -9.755067547417855,
+      "count_in_s113": 3,
+      "corpus_count": 28,
+      "residual": 22.594825285445364
+    }
+  ]
+}
