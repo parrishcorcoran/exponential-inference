@@ -89,6 +89,10 @@ Every row is ONE compression config on ONE model, with val_ppl and cost.
 | Qwen3-14B | kv_rank=512 | weight_Q8 | 12.47 | +1.91 | shared_budget (8.13× ratio) | Strix orthogonality_verdict |
 | Qwen3-14B | kv=512 + W8 + E8 | — | 11.54 | +1.00 | working compressed config | Strix qwen_halo_full |
 | Qwen3-14B | kv=128 + W8 + E6 | — | 18.7 | +5.0 | optimal Strix marginal-cost pick | Strix 56191ff |
+| Qwen3-14B | bathtub Q5-mid + MLP 95%-mid | — | 12.8 | +1.4 | additive orthogonal | stage115 |
+| Qwen3-14B | bathtub Q6/Q4 + MLP 95%-mid | — | 14.5 | +3.1 | additive | stage115 |
+| Qwen3-14B | bathtub Q6/Q4 + MLP 90%-mid | — | 15.3 | +3.9 | additive | stage115 |
+| Qwen3-14B | bathtub Q5-mid + MLP 90% + E6 | — | 13.4 | +2.0 | **perfectly additive** (0.3+1.5+0.27≈2.0) | stage115 |
 
 ## Open questions
 

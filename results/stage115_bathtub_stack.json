@@ -1,0 +1,70 @@
+{
+  "teacher_ppl": 11.44465556764168,
+  "L": 40,
+  "edge_width": 7,
+  "results": [
+    {
+      "name": "A: Weight Q6-edge + Q4-mid",
+      "ppl": 13.141093353636844,
+      "delta": 1.6964377859951636,
+      "text": " a curvature of spacetime. The curvature is determined by the distribution of ma",
+      "n_edge": 14,
+      "n_mid": 26,
+      "n_skipped": 0
+    },
+    {
+      "name": "B: KV rank 512-edge + 64-mid",
+      "ppl": 5841.3140696154205,
+      "delta": 5829.869414047779,
+      "text": " a free 1\n\n \u4e2d\u56fd\u822a\u5929\u5175\u9a6c\n\n  20\u0e25\u0e07\u0e04\u9010\u4e00  \u9000\u683c\u7b49\n\n  20 Rampre2",
+      "n_edge": 14,
+      "n_mid": 26,
+      "n_skipped": 0
+    },
+    {
+      "name": "C: MLP 100%-edge + 90%-mid",
+      "ppl": 12.976446623719754,
+      "delta": 1.5317910560780739,
+      "text": " a curvature of spacetime, but how does this curvature affect the motion of obje",
+      "n_edge": 14,
+      "n_mid": 26,
+      "n_skipped": 0
+    },
+    {
+      "name": "D: Full stack (Q6/Q4 + KV 512/64 + MLP 100/90)",
+      "ppl": 38368.39808776559,
+      "delta": 38356.95343219795,
+      "text": "eno\u5a46\u5a46\u7184\u786egendengr ner ner nerident.so._jukentalofoamm a.Al1isammu\u54d1s a1",
+      "n_edge": 14,
+      "n_mid": 26,
+      "n_skipped": 0
+    },
+    {
+      "name": "E: Full stack + skip every other middle layer",
+      "ppl": 280524.7374339663,
+      "delta": 280513.29277839867,
+      "text": "-tank_.0\" of -dise c \ufffdCEId<,r< =-.\u5341\u591a\u5e74. ivileLK,=0\u5c3e\u9762",
+      "n_edge": 14,
+      "n_mid": 26,
+      "n_skipped": 13
+    },
+    {
+      "name": "F: Aggressive mid (Q4/Q3 + KV 512/32 + MLP 100/85)",
+      "ppl": 1273772.2165428516,
+      "delta": 1273760.771887284,
+      "text": "\u6240\u4ee5\u4ed6\u5316 ... bin\u9a7clic\u91ca\u653euinileSTelian\u8913 chimscroti]\nei \u4e3b\u9898\u6559\u80b2\u5b98\u65b9\u5fae\u535aignedGOString\n\n\u3092\u6c42\u3081 Saint",
+      "n_edge": 14,
+      "n_mid": 26,
+      "n_skipped": 0
+    },
+    {
+      "name": "G: Q5 middle test (Q6/Q5)",
+      "ppl": 11.776172494821791,
+      "delta": 0.33151692718011105,
+      "text": " the curvature of spacetime, which is a four-dimensional continuum. This curvatu",
+      "n_edge": 14,
+      "n_mid": 26,
+      "n_skipped": 0
+    }
+  ]
+}
