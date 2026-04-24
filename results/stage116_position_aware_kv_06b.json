@@ -1,0 +1,74 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "L": 28,
+  "d_kv": 1024,
+  "edge_width": 3,
+  "teacher_val_ce": 3.3904658953348794,
+  "teacher_val_ppl": 29.679776719259436,
+  "tests": [
+    {
+      "rank": 1024,
+      "compression": 1.0,
+      "val_ce": 3.390395005544027,
+      "val_ppl": 29.67767280066931,
+      "delta_ppl": -0.0021039185901265967,
+      "cost": "free"
+    },
+    {
+      "rank": 512,
+      "compression": 2.0,
+      "val_ce": 3.9943846543629964,
+      "val_ppl": 54.29242173794577,
+      "delta_ppl": 24.612645018686337,
+      "cost": "expensive"
+    },
+    {
+      "rank": 256,
+      "compression": 4.0,
+      "val_ce": 4.555743328730265,
+      "val_ppl": 95.1774771007276,
+      "delta_ppl": 65.49770038146816,
+      "cost": "expensive"
+    },
+    {
+      "rank": 128,
+      "compression": 8.0,
+      "val_ce": 5.29507220586141,
+      "val_ppl": 199.35201983121954,
+      "delta_ppl": 169.67224311196009,
+      "cost": "broken"
+    },
+    {
+      "rank": 64,
+      "compression": 16.0,
+      "val_ce": 6.781729888916016,
+      "val_ppl": 881.5924628083293,
+      "delta_ppl": 851.9126860890699,
+      "cost": "broken"
+    },
+    {
+      "rank": 32,
+      "compression": 32.0,
+      "val_ce": 7.672948869069417,
+      "val_ppl": 2149.410438935435,
+      "delta_ppl": 2119.730662216176,
+      "cost": "broken"
+    },
+    {
+      "rank": 16,
+      "compression": 64.0,
+      "val_ce": 8.288783645629882,
+      "val_ppl": 3978.9913862818767,
+      "delta_ppl": 3949.3116095626174,
+      "cost": "broken"
+    },
+    {
+      "rank": 8,
+      "compression": 128.0,
+      "val_ce": 8.736678822835286,
+      "val_ppl": 6227.179763399255,
+      "delta_ppl": 6197.499986679995,
+      "cost": "broken"
+    }
+  ]
+}
