@@ -65,6 +65,22 @@ Every row is ONE compression config on ONE model, with val_ppl and cost.
 | Qwen3-0.6B | layer_skip | every other in dead-zone (10) | no | 1375 | 1375 | ∞ | broken | stage109 |
 | Qwen3-0.6B | layer_skip | L3-10 (first-half dead) | no | 770 | 770 | +741 | broken | stage109 |
 | Qwen3-0.6B | layer_skip | L10-17 (second-half dead) | no | 152 | 152 | +122 | broken | stage109 |
+| Qwen3-14B | uniform_Q8 | 8 bits all layers | no | 11.46 | 11.46 | +0.01 | free | stage112_14b |
+| Qwen3-14B | uniform_Q6 | 6 bits all layers | no | 11.72 | 11.72 | +0.27 | free | stage112_14b |
+| Qwen3-14B | uniform_Q4 | 4 bits all layers | no | 15.81 | 15.81 | +4.36 | moderate | stage112_14b |
+| Qwen3-14B | uniform_Q3 | 3 bits all layers | no | 57414 | 57414 | ∞ | broken | stage112_14b |
+| Qwen3-14B | uniform_Q2 | 2 bits (ternary) | no | 61M | 61M | ∞ | broken | stage112_14b |
+| Qwen3-14B | position-aware | Q8-edge(w=7) + Q4-mid | no | 12.86 | 12.86 | +1.40 | cheap | stage112_14b |
+| Qwen3-14B | position-aware | Q6-edge(w=7) + Q4-mid | no | 13.14 | 13.14 | +1.69 | cheap | stage112_14b |
+| Qwen3-14B | position-aware | Q8-edge(w=7) + Q3-mid | no | 758 | 758 | +746 | broken | stage112_14b |
+| Qwen3-14B | position-aware | Q8-edge(w=7) + Q2-mid | no | 387K | 387K | ∞ | broken | stage112_14b |
+| Qwen3-14B | layer_skip | L0 only | no | 26268 | 26268 | ∞ | catastrophic | bathtub_profile |
+| Qwen3-14B | layer_skip | middle (L13-25 avg) | no | ~14 | ~14 | -0.1 | FREE_WIN | bathtub_profile |
+| Qwen3-14B | layer_skip | L39 (final) | no | 30.3 | 30.3 | +12.8 | expensive | bathtub_profile |
+| Qwen3-14B | mlp_prune | 99% keep (global) | no | 17.2 | 17.2 | +1.5 | cheap | lever_matrix_partC |
+| Qwen3-14B | mlp_prune | 90% keep (global) | no | 23.0 | 23.0 | +7.3 | moderate | lever_matrix_partC |
+| Qwen3-14B | mlp_prune | 85% keep (global) | no | 31.1 | 31.1 | +15.4 | expensive | lever_matrix_partC |
+| Qwen3-14B | head_angle | Givens rotation 0-90° | no | 15.7-19.3 | — | ~0 | gauge_symmetry | lever_matrix_partC |
 
 ## Paired interactions (axis × axis)
 
@@ -76,12 +92,16 @@ Every row is ONE compression config on ONE model, with val_ppl and cost.
 
 ## Open questions
 
-- Is weight Q4 rescuable via QAT fine-tune on 0.6B? (**stage 108 in progress**)
-- Is embed Q3 rescuable via fine-tune on 0.6B? (**stage 108**)
-- Can d_ffn naive shrink recover via fine-tune, or only SVD-rotated version? (**stage 108**)
-- Axis EXPANSION: does boosting heads / α / layers compensate for aggressive compression? (**opposite lever test TBD**)
-- 4B / 8B / 32B / 70B data points for scaling law fit
-- KV compression on 0.6B with aware fine-tune: is there ANY rank that works?
+- ~~Is weight Q4 rescuable via QAT fine-tune on 0.6B?~~ YES, stage 108: +31→+5.9
+- ~~Axis EXPANSION: does boosting heads compensate?~~ Lever matrix Part C: only at exact GQA divisors
+- ~~Head angle rotation as lever?~~ NO — gauge symmetry, rotation invariant (Part C)
+- Position-aware Q4-mid WITH QAT on middle layers — can we close the gap from +1.4 to ~0?
+- Position-aware Q3-mid WITH QAT on 14B — does QAT rescue Q3 like it rescued Q4 on 0.6B?
+- Per-layer variable KV rank (bathtub-aware): low rank for middle, full rank for edges
+- Per-layer variable MLP pruning (bathtub-aware): aggressive prune middle, keep edges
+- Stacked position-aware: Q4-mid weights + KV rank reduction + MLP pruning, all bathtub-shaped
+- 4B data points for scaling law between 0.6B and 14B
+- Q5 middle on 14B (between Q4 working and Q3 broken) — where exactly is the cliff?
 
 ## How to contribute a new row
 

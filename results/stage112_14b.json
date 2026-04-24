@@ -1,0 +1,25 @@
+{
+  "model": "Qwen/Qwen3-14B",
+  "L": 40,
+  "edge_width": 7,
+  "teacher_val_ppl": 11.451,
+  "tests": [
+    {"label": "uniform_Q8",              "avg_bits": 8.0, "val_ppl": 11.459,      "delta_ppl": 0.008,     "cost": "free"},
+    {"label": "uniform_Q6",              "avg_bits": 6.0, "val_ppl": 11.718,      "delta_ppl": 0.267,     "cost": "free"},
+    {"label": "uniform_Q4",              "avg_bits": 4.0, "val_ppl": 15.809,      "delta_ppl": 4.358,     "cost": "moderate"},
+    {"label": "uniform_Q3",              "avg_bits": 3.0, "val_ppl": 57414.412,   "delta_ppl": 57402.961, "cost": "broken"},
+    {"label": "uniform_Q2_ternary",      "avg_bits": 2.0, "val_ppl": 60777183.791,"delta_ppl": 60777172.340, "cost": "broken"},
+    {"label": "hybrid_Q8_edge__Q4_mid",  "avg_bits": 5.4, "val_ppl": 12.855,      "delta_ppl": 1.404,     "cost": "cheap"},
+    {"label": "hybrid_Q6_edge__Q4_mid",  "avg_bits": 4.7, "val_ppl": 13.140,      "delta_ppl": 1.689,     "cost": "cheap"},
+    {"label": "hybrid_Q8_edge__Q3_mid",  "avg_bits": 4.8, "val_ppl": 757.834,     "delta_ppl": 746.383,   "cost": "broken"},
+    {"label": "hybrid_Q6_edge__Q3_mid",  "avg_bits": 4.0, "val_ppl": 692.825,     "delta_ppl": 681.374,   "cost": "broken"},
+    {"label": "hybrid_Q8_edge__Q2_mid",  "avg_bits": 4.1, "val_ppl": 386692.674,  "delta_ppl": 386681.223,"cost": "broken"},
+    {"label": "hybrid_Q6_edge__Q2_mid",  "avg_bits": 3.4, "val_ppl": 421665.197,  "delta_ppl": 421653.746,"cost": "broken"},
+    {"label": "hybrid_Q4_edge__Q2_mid",  "avg_bits": 2.7, "val_ppl": 335497.198,  "delta_ppl": 335485.747,"cost": "broken"}
+  ],
+  "bathtub_verdict": "Bathtub-aware Q4 WORKS at 14B. Hybrid Q8-edge+Q4-mid (5.4 avg bits) = ppl 12.9 (cheap, +1.4). Beats uniform Q4 (4.0 bits, ppl 15.8, +4.4) on quality at marginal bit cost. Q3-mid BREAKS at 14B (ppl 758) — Finding 12 prediction that d=5120 supports Q3 via superposition is WRONG for post-hoc quantization. Ternary superposition requires QAT, not raw rounding.",
+  "comparison_with_06b": {
+    "note": "0.6B hybrid Q8+Q4-mid = ppl 49 (+19.6). 14B hybrid Q8+Q4-mid = ppl 12.9 (+1.4). Same pattern but 14B tolerates Q4-mid much better. Q3 cliff at both scales.",
+    "scaling": "Q4 middle cost: 0.6B = +19.6 ppl (expensive), 14B = +1.4 ppl (cheap). ~14x cheaper at 14B."
+  }
+}
