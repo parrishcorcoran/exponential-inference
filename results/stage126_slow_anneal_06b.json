@@ -1,0 +1,87 @@
+{
+  "baseline_loss": 3.1063247323036194,
+  "baseline_ppl": 22.338792302366866,
+  "throat_layers": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "ranks": [
+    1024,
+    768,
+    512,
+    384,
+    256,
+    192,
+    128,
+    96,
+    64,
+    48,
+    32,
+    24,
+    16,
+    12,
+    8,
+    6,
+    4,
+    3,
+    2,
+    1
+  ],
+  "ft_steps": 60,
+  "stages": [
+    {
+      "rank": 1024,
+      "loss_post_truncate": 3.106324791908264,
+      "ppl_post_truncate": 22.338793633862686,
+      "loss_post_ft": 2.8168612519900003,
+      "ppl_post_ft": 16.724274919661408,
+      "delta_loss": -0.2894634803136191,
+      "train_loss_start": 3.3831374645233154,
+      "train_loss_end": 2.8731751441955566,
+      "n_factored_params": 83886080,
+      "duration_s": 66.92444109916687
+    },
+    {
+      "rank": 768,
+      "loss_post_truncate": 2.90401025613149,
+      "ppl_post_truncate": 18.24717468259853,
+      "loss_post_ft": 2.730931063493093,
+      "ppl_post_ft": 15.347169559198843,
+      "delta_loss": -0.3753936688105264,
+      "train_loss_start": 3.070651054382324,
+      "train_loss_end": 3.1759157180786133,
+      "n_factored_params": 62914560,
+      "duration_s": 67.57045102119446
+    },
+    {
+      "rank": 512,
+      "loss_post_truncate": 2.873491108417511,
+      "ppl_post_truncate": 17.698698546277065,
+      "loss_post_ft": 2.7875276605288186,
+      "ppl_post_ft": 16.24081731148121,
+      "delta_loss": -0.31879707177480077,
+      "train_loss_start": 3.0871028900146484,
+      "train_loss_end": 3.0473837852478027,
+      "n_factored_params": 41943040,
+      "duration_s": 70.5922269821167
+    },
+    {
+      "rank": 384,
+      "loss_post_truncate": 2.908829152584076,
+      "ppl_post_truncate": 18.3353181344595,
+      "loss_post_ft": 2.804460565249125,
+      "ppl_post_ft": 16.518163031161933,
+      "delta_loss": -0.30186416705449437,
+      "train_loss_start": 3.096418857574463,
+      "train_loss_end": 2.9647045135498047,
+      "n_factored_params": 31457280,
+      "duration_s": 70.03430986404419
+    }
+  ]
+}
