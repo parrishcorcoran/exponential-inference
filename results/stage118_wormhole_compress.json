@@ -1,0 +1,192 @@
+{
+  "teacher_ppl": 13.678845076132903,
+  "wormhole_r99": {
+    "0": 116,
+    "1": 152,
+    "2": 162,
+    "3": 168,
+    "4": 174,
+    "5": 174,
+    "6": 179,
+    "7": 1,
+    "8": 1,
+    "9": 1,
+    "10": 1,
+    "11": 1,
+    "12": 1,
+    "13": 1,
+    "14": 2,
+    "15": 3,
+    "16": 4,
+    "17": 6,
+    "18": 9,
+    "19": 12,
+    "20": 9,
+    "21": 13,
+    "22": 20,
+    "23": 27,
+    "24": 35,
+    "25": 42,
+    "26": 53,
+    "27": 72,
+    "28": 95,
+    "29": 115,
+    "30": 134,
+    "31": 149,
+    "32": 161,
+    "33": 171,
+    "34": 180,
+    "35": 187,
+    "36": 194,
+    "37": 201,
+    "38": 206,
+    "39": 211
+  },
+  "history": [
+    {
+      "step": 1,
+      "pre_ppl": 13.262724520200422,
+      "post_ppl": 7.7541248762874,
+      "text": " a curvature of spacetime . This curvature is caused by the presence of mass and",
+      "elapsed": 188.29975247383118,
+      "sample_schedule": {
+        "L0_mouth": [
+          1126,
+          14,
+          100.0
+        ],
+        "L10_throat": [
+          1030,
+          13,
+          94.0
+        ],
+        "L20_passage": [
+          1049,
+          13,
+          96.0
+        ],
+        "L35_mouth": [
+          1126,
+          14,
+          100.0
+        ]
+      }
+    },
+    {
+      "step": 2,
+      "pre_ppl": 10.134349486745256,
+      "post_ppl": 7.745098822847494,
+      "text": " a geometric property of space and time , or more precisely , as a property of s",
+      "elapsed": 188.0984172821045,
+      "sample_schedule": {
+        "L0_mouth": [
+          972,
+          12,
+          100.0
+        ],
+        "L10_throat": [
+          780,
+          11,
+          88.0
+        ],
+        "L20_passage": [
+          819,
+          11,
+          92.0
+        ],
+        "L35_mouth": [
+          972,
+          12,
+          100.0
+        ]
+      }
+    },
+    {
+      "step": 3,
+      "pre_ppl": 12.738501094081366,
+      "post_ppl": 8.431543915332743,
+      "text": " the curvature of space time . This curvature is caused by the mass of an object",
+      "elapsed": 198.1298406124115,
+      "sample_schedule": {
+        "L0_mouth": [
+          819,
+          10,
+          100.0
+        ],
+        "L10_throat": [
+          531,
+          8,
+          82.0
+        ],
+        "L20_passage": [
+          588,
+          9,
+          88.0
+        ],
+        "L35_mouth": [
+          819,
+          10,
+          100.0
+        ]
+      }
+    },
+    {
+      "step": 4,
+      "pre_ppl": 18.803976396906908,
+      "post_ppl": 11.736793480614631,
+      "text": " a curvature of space time . The curvature is caused by the presence of mass and",
+      "elapsed": 202.37567043304443,
+      "sample_schedule": {
+        "L0_mouth": [
+          665,
+          8,
+          100.0
+        ],
+        "L10_throat": [
+          281,
+          6,
+          76.0
+        ],
+        "L20_passage": [
+          358,
+          7,
+          84.0
+        ],
+        "L35_mouth": [
+          665,
+          8,
+          100.0
+        ]
+      }
+    },
+    {
+      "step": 5,
+      "pre_ppl": 622.1197070327922,
+      "post_ppl": 13.890550010712998,
+      "text": " a force of attraction that is the result of the curvature of space . The theory",
+      "elapsed": 201.61829233169556,
+      "sample_schedule": {
+        "L0_mouth": [
+          512,
+          6,
+          100.0
+        ],
+        "L10_throat": [
+          32,
+          4,
+          70.0
+        ],
+        "L20_passage": [
+          128,
+          5,
+          80.0
+        ],
+        "L35_mouth": [
+          512,
+          6,
+          100.0
+        ]
+      }
+    }
+  ]
+}
