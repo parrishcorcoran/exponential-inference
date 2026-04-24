@@ -50,7 +50,7 @@ explains:
 
 ## Empirical data supporting the wormhole interpretation
 
-From stage 111 (fractal test) and stage 118 (slow progressive):
+### 0.6B (stage 111 + stage 118)
 
 | layer zone | PR | cross-section analogy |
 |---|---|---|
@@ -58,6 +58,29 @@ From stage 111 (fractal test) and stage 118 (slow progressive):
 | L3-L22 (throat) | ~1 | narrow bottleneck |
 | L22-27 (mouth 2) | 1-4 | re-opening |
 | L28 (exit flare) | 27 | dramatic widening |
+
+### 14B (Strix stage 117) — cross-model confirmation
+
+| layer zone | r99 | interpretation |
+|---|---|---|
+| L0-L6 (mouth 1) | 116→179 | wide opening, rank grows layer by layer |
+| L7-L14 (throat) | **1** | literally rank-1 universal channel |
+| L15-L27 (narrow passage) | 3→72 | slowly re-opening |
+| L28-L40 (mouth 2) | 95→211 | wide exit |
+
+### The critical cross-scale finding
+
+**Throat is rank-1 at BOTH 0.6B and 14B.** Ratio is 1.0×, not 5×.
+Throat diameter does NOT scale with `d_model` — it is a **universal
+rank-1 channel regardless of model width**.
+
+What DOES scale with model size:
+- **Mouths widen**: 0.6B r99 ~150 vs 14B r99 ~200
+- **Throat length shortens (relatively)**: 0.6B = 82% of layers in
+  throat, 14B = 50% of layers in throat
+
+Bigger models use extra layers to WIDEN THE MOUTHS and SHORTEN THE
+THROAT TRAVERSAL, not to widen the throat itself.
 
 `||h||` grows monotonically from 0.8 at L0 to 680 at L27 (geodesic
 length through the throat), then RMSNorm drops it to 103 at L28
@@ -85,9 +108,12 @@ This maps the measurement to actual physics:
 
 ## Predictions from wormhole topology (testable)
 
-**1. Throat radius scales with model width.** Compression budget at
-the throat is bounded by width. 0.6B: 1.23× mid-KV. 14B: 20× mid-KV.
-Predicts 4B: ~3-5× budget. 32B: ~10-15×. **Partially tested.**
+**1. Throat RADIUS is universal (rank-1), MOUTH WIDTH scales with model.**
+**CORRECTED** per Strix cross-model confirmation. Throat is rank-1 at
+every scale. What grows with model width is mouth radius (r99 ~150
+at 0.6B vs ~200 at 14B) and throat LENGTH in layers (82% vs 50% of
+layers in throat). Compression budget per model depends on the
+mouth/throat ratio.
 
 **2. ER = EPR** analog: the two mouths are "entangled" in the sense
 that L0 and L28 state are tightly coupled through the throat. Perturbing
