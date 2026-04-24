@@ -1,0 +1,20 @@
+{
+  "before_tps": 5.631026290247625,
+  "after_tps": 6.097634338782746,
+  "speedup": 1.0828637666535563,
+  "before_mem_gb": 29.57071616,
+  "after_mem_gb": 27.01230848,
+  "params_before": 14768307200,
+  "params_after": 13377757184,
+  "factored_projections": 42,
+  "pruned_mlps": 21,
+  "before_text": " a force of attraction that is the result of the curvature of space . The theory is a mathematical m",
+  "after_text": " a consequence of the theory of general relativity . The theory of general relativity is a theory of",
+  "stable_speeds": [
+    6.093574894152512,
+    6.092730004260389,
+    6.094989469467297,
+    6.1029976598577385,
+    6.107517691405655
+  ]
+}
