@@ -1,0 +1,595 @@
+{
+  "model": "Qwen/Qwen3-14B",
+  "L": 40,
+  "d": 5120,
+  "seq_len": 256,
+  "per_layer": [
+    {
+      "layer": 0,
+      "r99": 116,
+      "r95": 102,
+      "r90": 86,
+      "pr": 46.9,
+      "h_norm": 1.7,
+      "top_sv": 6.8,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 1,
+      "r99": 152,
+      "r95": 111,
+      "r90": 88,
+      "pr": 43.0,
+      "h_norm": 15.8,
+      "top_sv": 52.1,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 2,
+      "r99": 162,
+      "r95": 116,
+      "r90": 93,
+      "pr": 46.2,
+      "h_norm": 23.1,
+      "top_sv": 69.3,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 3,
+      "r99": 168,
+      "r95": 117,
+      "r90": 91,
+      "pr": 34.7,
+      "h_norm": 27.4,
+      "top_sv": 102.8,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 4,
+      "r99": 174,
+      "r95": 120,
+      "r90": 92,
+      "pr": 32.6,
+      "h_norm": 31.3,
+      "top_sv": 119.4,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 5,
+      "r99": 174,
+      "r95": 120,
+      "r90": 91,
+      "pr": 26.5,
+      "h_norm": 38.1,
+      "top_sv": 168.1,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 6,
+      "r99": 179,
+      "r95": 125,
+      "r90": 95,
+      "pr": 34.7,
+      "h_norm": 44.4,
+      "top_sv": 186.9,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 7,
+      "r99": 1,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 94.5,
+      "top_sv": 11298.3,
+      "interp": "THROAT (rank-1 wormhole)"
+    },
+    {
+      "layer": 8,
+      "r99": 1,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 102.5,
+      "top_sv": 11484.4,
+      "interp": "THROAT (rank-1 wormhole)"
+    },
+    {
+      "layer": 9,
+      "r99": 1,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 110.5,
+      "top_sv": 11478.6,
+      "interp": "THROAT (rank-1 wormhole)"
+    },
+    {
+      "layer": 10,
+      "r99": 1,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 120.5,
+      "top_sv": 11535.7,
+      "interp": "THROAT (rank-1 wormhole)"
+    },
+    {
+      "layer": 11,
+      "r99": 1,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 127.8,
+      "top_sv": 11532.8,
+      "interp": "THROAT (rank-1 wormhole)"
+    },
+    {
+      "layer": 12,
+      "r99": 1,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 132.8,
+      "top_sv": 11595.9,
+      "interp": "THROAT (rank-1 wormhole)"
+    },
+    {
+      "layer": 13,
+      "r99": 1,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 135.9,
+      "top_sv": 11661.3,
+      "interp": "THROAT (rank-1 wormhole)"
+    },
+    {
+      "layer": 14,
+      "r99": 2,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 139.2,
+      "top_sv": 11662.4,
+      "interp": "THROAT (rank-1 wormhole)"
+    },
+    {
+      "layer": 15,
+      "r99": 3,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 144.1,
+      "top_sv": 11659.2,
+      "interp": "THROAT (rank-1 wormhole)"
+    },
+    {
+      "layer": 16,
+      "r99": 4,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 148.2,
+      "top_sv": 11656.9,
+      "interp": "narrow passage"
+    },
+    {
+      "layer": 17,
+      "r99": 6,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 154.7,
+      "top_sv": 11652.1,
+      "interp": "narrow passage"
+    },
+    {
+      "layer": 18,
+      "r99": 9,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 162.0,
+      "top_sv": 11647.8,
+      "interp": "narrow passage"
+    },
+    {
+      "layer": 19,
+      "r99": 12,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 166.5,
+      "top_sv": 11645.5,
+      "interp": "narrow passage"
+    },
+    {
+      "layer": 20,
+      "r99": 9,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 178.6,
+      "top_sv": 12928.0,
+      "interp": "narrow passage"
+    },
+    {
+      "layer": 21,
+      "r99": 13,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 193.7,
+      "top_sv": 12976.3,
+      "interp": "narrow passage"
+    },
+    {
+      "layer": 22,
+      "r99": 20,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 204.6,
+      "top_sv": 12973.6,
+      "interp": "narrow passage"
+    },
+    {
+      "layer": 23,
+      "r99": 27,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.0,
+      "h_norm": 219.6,
+      "top_sv": 12963.4,
+      "interp": "re-opening"
+    },
+    {
+      "layer": 24,
+      "r99": 35,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.1,
+      "h_norm": 237.9,
+      "top_sv": 12950.1,
+      "interp": "re-opening"
+    },
+    {
+      "layer": 25,
+      "r99": 42,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.1,
+      "h_norm": 251.7,
+      "top_sv": 12941.1,
+      "interp": "re-opening"
+    },
+    {
+      "layer": 26,
+      "r99": 53,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.1,
+      "h_norm": 272.7,
+      "top_sv": 12926.8,
+      "interp": "re-opening"
+    },
+    {
+      "layer": 27,
+      "r99": 72,
+      "r95": 1,
+      "r90": 1,
+      "pr": 1.1,
+      "h_norm": 307.7,
+      "top_sv": 12906.5,
+      "interp": "re-opening"
+    },
+    {
+      "layer": 28,
+      "r99": 95,
+      "r95": 5,
+      "r90": 1,
+      "pr": 1.1,
+      "h_norm": 347.4,
+      "top_sv": 12887.4,
+      "interp": "re-opening"
+    },
+    {
+      "layer": 29,
+      "r99": 115,
+      "r95": 15,
+      "r90": 1,
+      "pr": 1.2,
+      "h_norm": 395.2,
+      "top_sv": 12867.7,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 30,
+      "r99": 134,
+      "r95": 30,
+      "r90": 3,
+      "pr": 1.3,
+      "h_norm": 457.7,
+      "top_sv": 12834.6,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 31,
+      "r99": 149,
+      "r95": 47,
+      "r90": 11,
+      "pr": 1.4,
+      "h_norm": 529.5,
+      "top_sv": 12794.5,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 32,
+      "r99": 161,
+      "r95": 62,
+      "r90": 20,
+      "pr": 1.5,
+      "h_norm": 601.1,
+      "top_sv": 12762.1,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 33,
+      "r99": 171,
+      "r95": 75,
+      "r90": 30,
+      "pr": 1.7,
+      "h_norm": 698.2,
+      "top_sv": 12742.5,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 34,
+      "r99": 180,
+      "r95": 88,
+      "r90": 42,
+      "pr": 2.0,
+      "h_norm": 780.8,
+      "top_sv": 12719.7,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 35,
+      "r99": 187,
+      "r95": 100,
+      "r90": 52,
+      "pr": 2.3,
+      "h_norm": 868.7,
+      "top_sv": 12739.4,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 36,
+      "r99": 194,
+      "r95": 111,
+      "r90": 64,
+      "pr": 2.7,
+      "h_norm": 971.1,
+      "top_sv": 12763.6,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 37,
+      "r99": 201,
+      "r95": 123,
+      "r90": 77,
+      "pr": 3.4,
+      "h_norm": 1115.7,
+      "top_sv": 12709.9,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 38,
+      "r99": 206,
+      "r95": 135,
+      "r90": 89,
+      "pr": 4.5,
+      "h_norm": 1337.1,
+      "top_sv": 12350.2,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 39,
+      "r99": 211,
+      "r95": 144,
+      "r90": 100,
+      "pr": 7.3,
+      "h_norm": 1756.5,
+      "top_sv": 11433.7,
+      "interp": "mouth (high-rank boundary)"
+    },
+    {
+      "layer": 40,
+      "r99": 200,
+      "r95": 129,
+      "r90": 88,
+      "pr": 13.2,
+      "h_norm": 163.3,
+      "top_sv": 924.2,
+      "interp": "mouth (high-rank boundary)"
+    }
+  ],
+  "stability": {
+    "0": {
+      "mean": 135.8,
+      "std": 11.9
+    },
+    "1": {
+      "mean": 167.8,
+      "std": 9.7
+    },
+    "2": {
+      "mean": 175.7,
+      "std": 9.1
+    },
+    "3": {
+      "mean": 181.0,
+      "std": 7.6
+    },
+    "4": {
+      "mean": 184.2,
+      "std": 6.0
+    },
+    "5": {
+      "mean": 184.8,
+      "std": 6.2
+    },
+    "6": {
+      "mean": 188.7,
+      "std": 5.3
+    },
+    "7": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "8": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "9": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "10": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "11": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "12": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "13": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "14": {
+      "mean": 1.2,
+      "std": 0.4
+    },
+    "15": {
+      "mean": 1.7,
+      "std": 0.7
+    },
+    "16": {
+      "mean": 2.7,
+      "std": 1.4
+    },
+    "17": {
+      "mean": 4.5,
+      "std": 2.8
+    },
+    "18": {
+      "mean": 6.3,
+      "std": 3.9
+    },
+    "19": {
+      "mean": 8.3,
+      "std": 5.0
+    },
+    "20": {
+      "mean": 6.2,
+      "std": 3.8
+    },
+    "21": {
+      "mean": 9.7,
+      "std": 5.1
+    },
+    "22": {
+      "mean": 15.8,
+      "std": 6.3
+    },
+    "23": {
+      "mean": 22.7,
+      "std": 7.9
+    },
+    "24": {
+      "mean": 30.5,
+      "std": 9.3
+    },
+    "25": {
+      "mean": 37.5,
+      "std": 10.0
+    },
+    "26": {
+      "mean": 49.2,
+      "std": 11.7
+    },
+    "27": {
+      "mean": 69.5,
+      "std": 12.8
+    },
+    "28": {
+      "mean": 95.0,
+      "std": 13.2
+    },
+    "29": {
+      "mean": 116.2,
+      "std": 12.7
+    },
+    "30": {
+      "mean": 137.3,
+      "std": 12.3
+    },
+    "31": {
+      "mean": 153.7,
+      "std": 11.4
+    },
+    "32": {
+      "mean": 166.7,
+      "std": 10.6
+    },
+    "33": {
+      "mean": 176.8,
+      "std": 9.3
+    },
+    "34": {
+      "mean": 185.8,
+      "std": 8.7
+    },
+    "35": {
+      "mean": 192.8,
+      "std": 7.7
+    },
+    "36": {
+      "mean": 199.2,
+      "std": 6.7
+    },
+    "37": {
+      "mean": 205.2,
+      "std": 6.0
+    },
+    "38": {
+      "mean": 210.2,
+      "std": 5.0
+    },
+    "39": {
+      "mean": 215.2,
+      "std": 4.6
+    },
+    "40": {
+      "mean": 204.7,
+      "std": 3.8
+    }
+  },
+  "throat_min_r99": 1,
+  "throat_layers": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ]
+}
