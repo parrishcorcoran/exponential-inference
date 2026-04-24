@@ -125,7 +125,7 @@ def main():
     p.add_argument("--model", default="Qwen/Qwen3-0.6B")
     p.add_argument("--out", default="results/stage135_kv_anneal_ft.json")
     p.add_argument("--device", default=None)
-    p.add_argument("--ranks", default="512,384,256,192,128,96,64,48,32,24,16,12,8,6,4,3,2,1")
+    p.add_argument("--ranks", default="1024,768,512,384,256,192,128,96,64,48,32,24,16,12,8,6,4,3,2,1")
     p.add_argument("--ft-steps", type=int, default=80)
     p.add_argument("--batch-size", type=int, default=2)
     p.add_argument("--seq-len", type=int, default=256)
