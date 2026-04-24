@@ -1,0 +1,327 @@
+{
+  "floor": {
+    "ppl": 15.663078387475519,
+    "text": " a force that is a fundamental part of the universe . The theory is a classical "
+  },
+  "weight_q8": {
+    "ppl": 19.33061283835251,
+    "delta": 3.6675344508769925,
+    "status": "ORTHOGONAL",
+    "text": " a force that is the most important of the fundamental forces of nature . The th"
+  },
+  "embed_q6": {
+    "ppl": 18.49695528190352,
+    "delta": 2.833876894428002,
+    "status": "ORTHOGONAL",
+    "text": " a force that is a fundamental part of the universe . The theory is a combinatio"
+  },
+  "head_prune_50": {
+    "ppl": 43.41668610344519,
+    "delta": 27.753607715969668,
+    "status": "HURTS",
+    "text": " a force that is a force that is a force that is a force that is not a force tha"
+  },
+  "kv_head_2of8": {
+    "ppl": 130527.21455944749,
+    "delta": 130511.55148106001,
+    "status": "DESTROYS",
+    "text": "owski\u659b\u7fd5\u659b\u8872\u8872\u8872\u0440\u0443\u0434eoeoeo waxotp Aly \u0441\u0442\u043e\u0440 \u0441\u0442\u043e\u0440eo \u0441\u0442\u043e\u0440pics \u0441\u0442\u043e\u0440 \u0441\u0442\u043e\u0440 \u0441\u0442\u043e\u0440uya BRE\u0442\u0430\u043b BR"
+  },
+  "mlp_shrink_50": {
+    "ppl": 5001421.332654522,
+    "delta": 5001405.6695761345,
+    "status": "DESTROYS",
+    "text": "apons Marvel\u62a5\n\u5df7Attachedolands\u5730\u4e2d habitI\u4f09\u76ee\u7684 backpage tph_singular\u5e38\u8bc6aul work.readIn"
+  },
+  "lowrank_q_256": {
+    "ppl": 19.525624525591024,
+    "delta": 3.862546138115505,
+    "status": "ORTHOGONAL",
+    "text": " a force that is a fundamental force of nature . The theory is a theory of the f"
+  },
+  "kv_head_sweep_down": [
+    {
+      "keep": 7,
+      "ppl": 23.231389396448215,
+      "delta": 7.568311008972696,
+      "text": " a force that is the opposite of the force of love . The ter"
+    },
+    {
+      "keep": 6,
+      "ppl": 26.086222563102304,
+      "delta": 10.423144175626785,
+      "text": " a fundamental principle of nature . The word \" sun \" is use"
+    },
+    {
+      "keep": 5,
+      "ppl": 38.37719005062507,
+      "delta": 22.71411166314955,
+      "text": " a means of transport . \n The first known depiction of the s"
+    },
+    {
+      "keep": 4,
+      "ppl": 80.26820711532976,
+      "delta": 64.60512872785424,
+      "text": " a \"war on the skies\" , \"aerial warfare\" , and \"air war\" ,"
+    },
+    {
+      "keep": 3,
+      "ppl": 2135.9649768278155,
+      "delta": 2120.3018984403398,
+      "text": " a result of the development of the game. \n \n\nTheological te"
+    }
+  ],
+  "mlp_sweep": [
+    {
+      "keep_pct": 95,
+      "ppl": 21.145478008524073,
+      "delta": 5.482399621048554,
+      "text": " a consequence of the curvature of space . It is the most ac"
+    },
+    {
+      "keep_pct": 90,
+      "ppl": 26.724928352976644,
+      "delta": 11.061849965501125,
+      "text": " a geometric object that is , it is not a fundamental object"
+    },
+    {
+      "keep_pct": 85,
+      "ppl": 50.021194660209986,
+      "delta": 34.35811627273446,
+      "text": " a field in general relativity , , but in general , the fiel"
+    },
+    {
+      "keep_pct": 80,
+      "ppl": 100.80344254498333,
+      "delta": 85.1403641575078,
+      "text": " a perfect activity in the universe . It is the most complet"
+    },
+    {
+      "keep_pct": 75,
+      "ppl": 479.5965193064206,
+      "delta": 463.93344091894505,
+      "text": " such as n n in the other 4 - , the world 's first and only "
+    }
+  ],
+  "head_sweep": [
+    {
+      "keep": 35,
+      "ppl": 21.02244621940313,
+      "delta": 5.35936783192761,
+      "text": " a force that is a fundamental part of the universe . The th"
+    },
+    {
+      "keep": 30,
+      "ppl": 20.586438328770814,
+      "delta": 4.9233599412952955,
+      "text": " a force that is a force that is the most important force in"
+    },
+    {
+      "keep": 25,
+      "ppl": 26.059764808441994,
+      "delta": 10.396686420966475,
+      "text": " a force that is a force that is not a force that is not a f"
+    },
+    {
+      "keep": 20,
+      "ppl": 41.09569328872156,
+      "delta": 25.432614901246044,
+      "text": " a natural law , and the existence of the divine will of the"
+    },
+    {
+      "keep": 15,
+      "ppl": 91.24963481620206,
+      "delta": 75.58655642872654,
+      "text": " a single entity . The term is a term that is used to denote"
+    },
+    {
+      "keep": 10,
+      "ppl": 312.70077540067723,
+      "delta": 297.0376970132017,
+      "text": " a single - handed , and the gods of , and the gods and gods"
+    }
+  ],
+  "mlp_fine_sweep": [
+    {
+      "keep_pct": 99,
+      "ppl": 17.150001604585253,
+      "delta": 1.4869232171097337,
+      "text": " a force that is a fundamental part of the universe . The theory was developed b"
+    },
+    {
+      "keep_pct": 98,
+      "ppl": 22.501049758042793,
+      "delta": 6.837971370567274,
+      "text": " a force that is a fundamental part of the universe . The theory was developed b"
+    },
+    {
+      "keep_pct": 97,
+      "ppl": 19.627708229694058,
+      "delta": 3.964629842218539,
+      "text": " a force that is a fundamental part of the universe . The theory is a combinatio"
+    },
+    {
+      "keep_pct": 96,
+      "ppl": 21.827616783175262,
+      "delta": 6.1645383956997435,
+      "text": " a force that is a fundamental part of the universe . It is a theory of classica"
+    },
+    {
+      "keep_pct": 95,
+      "ppl": 20.452584867923132,
+      "delta": 4.7895064804476135,
+      "text": " a force between two objects , but the theory is not restricted to the objects i"
+    },
+    {
+      "keep_pct": 94,
+      "ppl": 20.118402740117897,
+      "delta": 4.4553243526423785,
+      "text": " a force that is a fundamental part of the universe . It is a theory of the univ"
+    },
+    {
+      "keep_pct": 93,
+      "ppl": 21.63212199505327,
+      "delta": 5.969043607577753,
+      "text": " a field equation in which the field equations of general relativity are reduced"
+    },
+    {
+      "keep_pct": 92,
+      "ppl": 21.92385297547067,
+      "delta": 6.260774587995151,
+      "text": " a field that is the subject of the theory of general relativity . It is a field"
+    },
+    {
+      "keep_pct": 91,
+      "ppl": 20.54691140962282,
+      "delta": 4.8838330221473,
+      "text": " a fundamental force that is the most important of the fundamental forces of the"
+    },
+    {
+      "keep_pct": 90,
+      "ppl": 22.99201101978311,
+      "delta": 7.328932632307591,
+      "text": " a field that is the subject of the theory of general relativity . It is a field"
+    },
+    {
+      "keep_pct": 89,
+      "ppl": 29.901489113391516,
+      "delta": 14.238410725915998,
+      "text": " a field in the universe that is the subject of the theory of general relativity"
+    },
+    {
+      "keep_pct": 88,
+      "ppl": 27.930439387894303,
+      "delta": 12.267361000418784,
+      "text": " a fundamental force that is the universe . It is the most accurate and accurate"
+    },
+    {
+      "keep_pct": 87,
+      "ppl": 26.55712420285331,
+      "delta": 10.89404581537779,
+      "text": " a fundamental force that is the universe , and is the basis for the theory of g"
+    },
+    {
+      "keep_pct": 86,
+      "ppl": 30.71709531444061,
+      "delta": 15.05401692696509,
+      "text": " a fundamental part of the universe 's matter and is the basis for the theory of"
+    },
+    {
+      "keep_pct": 85,
+      "ppl": 31.05499273452857,
+      "delta": 15.391914347053053,
+      "text": " a force that is not restricted to the Earth 's atmosphere , and is therefore no"
+    }
+  ],
+  "kv_head_sweep_up": [
+    {
+      "heads": 8,
+      "ppl": 17.45254624626664,
+      "delta": 0,
+      "text": " a force that is a fundamental part of the universe . The theory is a classical ",
+      "note": "baseline"
+    },
+    {
+      "heads": 10,
+      "ppl": 71.65824092248397,
+      "delta": 55.99516253500845,
+      "text": " a \n = \n and \n = \n = \n = \n = \n = \n = \n = \n = \n = \n = \n = \n = \n",
+      "note": "expanded from 8 via interpolation"
+    },
+    {
+      "heads": 12,
+      "ppl": null,
+      "error": "Number of heads in key and value must divide the number of heads in "
+    },
+    {
+      "heads": 16,
+      "ppl": null,
+      "error": "Number of heads in key and value must divide the number of heads in "
+    },
+    {
+      "heads": 20,
+      "ppl": 52.464571139005486,
+      "delta": 36.80149275152996,
+      "text": " a force of 1.0000 . The term is also used to refer to the number of people who ",
+      "note": "expanded from 8 via interpolation"
+    },
+    {
+      "heads": 40,
+      "ppl": 18.13601728178265,
+      "delta": 2.4729388943071307,
+      "text": " a force that is a fundamental part of the universe . The theory is a classical ",
+      "note": "expanded from 8 via interpolation"
+    }
+  ],
+  "head_angle_rotation": [
+    {
+      "angle_deg": 0,
+      "ppl": 16.846914323843862,
+      "delta": 1.183835936368343,
+      "text": " a force that is a fundamental part of the universe . The theory is a classical ",
+      "note": "Givens rotation on Q only (dims 0,1 per head), K unchanged"
+    },
+    {
+      "angle_deg": 5,
+      "ppl": 16.618322753968567,
+      "delta": 0.9552443664930479,
+      "text": " a force that is a fundamental part of the universe . The theory is a classical ",
+      "note": "Givens rotation on Q only (dims 0,1 per head), K unchanged"
+    },
+    {
+      "angle_deg": 10,
+      "ppl": 19.26640284831468,
+      "delta": 3.6033244608391612,
+      "text": " a force that is a fundamental part of the universe . The theory is a classical ",
+      "note": "Givens rotation on Q only (dims 0,1 per head), K unchanged"
+    },
+    {
+      "angle_deg": 15,
+      "ppl": 15.691861308946127,
+      "delta": 0.028782921470607903,
+      "text": " a force that is a fundamental part of the universe . The theory is a classical ",
+      "note": "Givens rotation on Q only (dims 0,1 per head), K unchanged"
+    },
+    {
+      "angle_deg": 30,
+      "ppl": 18.68224948707273,
+      "delta": 3.0191710995972123,
+      "text": " a force that is a fundamental part of the universe . The theory is a classical ",
+      "note": "Givens rotation on Q only (dims 0,1 per head), K unchanged"
+    },
+    {
+      "angle_deg": 45,
+      "ppl": 16.481693268449025,
+      "delta": 0.8186148809735059,
+      "text": " a force that is a fundamental part of the universe . The theory is a classical ",
+      "note": "Givens rotation on Q only (dims 0,1 per head), K unchanged"
+    },
+    {
+      "angle_deg": 90,
+      "ppl": 16.652288193651838,
+      "delta": 0.9892098061763193,
+      "text": " a force that is not a fundamental property of the universe . The theory is a co",
+      "note": "Givens rotation on Q only (dims 0,1 per head), K unchanged"
+    }
+  ]
+}
