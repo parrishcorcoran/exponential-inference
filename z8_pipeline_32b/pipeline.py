@@ -222,7 +222,7 @@ def main():
     print(f"\n{'='*60}\n=== Loading {args.model} ===\n{'='*60}")
     t0 = time.time()
     model = AutoModelForCausalLM.from_pretrained(
-        args.model, dtype=dtype, low_cpu_mem_usage=True,
+        args.model, torch_dtype=dtype, low_cpu_mem_usage=True,
         trust_remote_code=True, attn_implementation="eager").to(device).eval()
     L = model.config.num_hidden_layers
     d = model.config.hidden_size
