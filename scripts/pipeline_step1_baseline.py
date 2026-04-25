@@ -73,7 +73,7 @@ def generate_samples(model, tokenizer, prompts, n=60):
     return results
 
 
-MODEL = "Qwen/Qwen3-14B-AWQ"
+MODEL = "Qwen/Qwen3-14B"
 SEQ_LEN = 256
 
 PROMPTS = [

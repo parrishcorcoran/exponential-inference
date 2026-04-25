@@ -1,0 +1,261 @@
+{
+  "model": "Qwen/Qwen3-14B",
+  "baseline_ppl": 14.596872311724875,
+  "L": 40,
+  "d": 5120,
+  "params_B": 14.7683072,
+  "memory_GB": 29.589070336,
+  "tok_per_sec": 5.71927112040964,
+  "wormhole_shape": [
+    {
+      "layer": 0,
+      "r99": 160,
+      "pr": 70.2
+    },
+    {
+      "layer": 1,
+      "r99": 183,
+      "pr": 56.5
+    },
+    {
+      "layer": 2,
+      "r99": 189,
+      "pr": 46.6
+    },
+    {
+      "layer": 3,
+      "r99": 193,
+      "pr": 32.8
+    },
+    {
+      "layer": 4,
+      "r99": 195,
+      "pr": 46.7
+    },
+    {
+      "layer": 5,
+      "r99": 195,
+      "pr": 40.2
+    },
+    {
+      "layer": 6,
+      "r99": 197,
+      "pr": 48.9
+    },
+    {
+      "layer": 7,
+      "r99": 1,
+      "pr": 1.0
+    },
+    {
+      "layer": 8,
+      "r99": 1,
+      "pr": 1.0
+    },
+    {
+      "layer": 9,
+      "r99": 1,
+      "pr": 1.0
+    },
+    {
+      "layer": 10,
+      "r99": 1,
+      "pr": 1.0
+    },
+    {
+      "layer": 11,
+      "r99": 1,
+      "pr": 1.0
+    },
+    {
+      "layer": 12,
+      "r99": 1,
+      "pr": 1.0
+    },
+    {
+      "layer": 13,
+      "r99": 1,
+      "pr": 1.0
+    },
+    {
+      "layer": 14,
+      "r99": 1,
+      "pr": 1.0
+    },
+    {
+      "layer": 15,
+      "r99": 1,
+      "pr": 1.0
+    },
+    {
+      "layer": 16,
+      "r99": 1,
+      "pr": 1.0
+    },
+    {
+      "layer": 17,
+      "r99": 1,
+      "pr": 1.0
+    },
+    {
+      "layer": 18,
+      "r99": 1,
+      "pr": 1.0
+    },
+    {
+      "layer": 19,
+      "r99": 2,
+      "pr": 1.0
+    },
+    {
+      "layer": 20,
+      "r99": 1,
+      "pr": 1.0
+    },
+    {
+      "layer": 21,
+      "r99": 3,
+      "pr": 1.0
+    },
+    {
+      "layer": 22,
+      "r99": 7,
+      "pr": 1.0
+    },
+    {
+      "layer": 23,
+      "r99": 12,
+      "pr": 1.0
+    },
+    {
+      "layer": 24,
+      "r99": 20,
+      "pr": 1.0
+    },
+    {
+      "layer": 25,
+      "r99": 26,
+      "pr": 1.0
+    },
+    {
+      "layer": 26,
+      "r99": 38,
+      "pr": 1.1
+    },
+    {
+      "layer": 27,
+      "r99": 60,
+      "pr": 1.1
+    },
+    {
+      "layer": 28,
+      "r99": 89,
+      "pr": 1.1
+    },
+    {
+      "layer": 29,
+      "r99": 111,
+      "pr": 1.1
+    },
+    {
+      "layer": 30,
+      "r99": 133,
+      "pr": 1.2
+    },
+    {
+      "layer": 31,
+      "r99": 150,
+      "pr": 1.3
+    },
+    {
+      "layer": 32,
+      "r99": 163,
+      "pr": 1.4
+    },
+    {
+      "layer": 33,
+      "r99": 174,
+      "pr": 1.6
+    },
+    {
+      "layer": 34,
+      "r99": 183,
+      "pr": 1.8
+    },
+    {
+      "layer": 35,
+      "r99": 190,
+      "pr": 2.0
+    },
+    {
+      "layer": 36,
+      "r99": 196,
+      "pr": 2.3
+    },
+    {
+      "layer": 37,
+      "r99": 201,
+      "pr": 2.6
+    },
+    {
+      "layer": 38,
+      "r99": 206,
+      "pr": 3.2
+    },
+    {
+      "layer": 39,
+      "r99": 212,
+      "pr": 5.5
+    },
+    {
+      "layer": 40,
+      "r99": 197,
+      "pr": 9.7
+    }
+  ],
+  "generation_samples": [
+    {
+      "prompt": "The theory of general relativity describes gravity as",
+      "output": " a curvature of spacetime. This curvature is caused by the presence of mass and energy, and it dictates the motion of objects. In the context of the universe as a whole, general relativity provides the framework for understanding the large-scale structure and evolution of the cosmos. The universe is modeled as a"
+    },
+    {
+      "prompt": "In quantum mechanics, the uncertainty principle states that",
+      "output": " the product of the uncertainties in position and momentum of a particle is at least $\\hbar/2$. Suppose a particle is in a state where the uncertainty in position is $\\Delta x = 1 \\times 10^{-10}$ meters. What is the minimum uncertainty in its momentum,"
+    },
+    {
+      "prompt": "The French Revolution began in 1789 when",
+      "output": " the Third Estate, which represented the common people, declared itself the National Assembly. This act marked the start of the revolution as they sought to create a new government and challenge the existing monarchy and aristocracy. The revolution was driven by several key factors: widespread poverty, food shortages, and economic hardship,"
+    },
+    {
+      "prompt": "Machine learning models are trained by",
+      "output": " minimizing a loss function, which quantifies the discrepancy between the model's predictions and the actual data. In the context of regression tasks, the mean squared error (MSE) is a commonly used loss function. However, in many practical scenarios, the data might be corrupted by noise, and the noise"
+    },
+    {
+      "prompt": "The mitochondria is often called the powerhouse of the cell because",
+      "output": " it produces ATP, the energy currency of the cell. Mitochondria are found in all eukaryotic cells, and they have their own DNA and ribosomes. Mitochondria are also involved in other processes such as calcium storage, apoptosis, and heat production. Mitochondria have a double"
+    },
+    {
+      "prompt": "To solve a system of linear equations, one common method is",
+      "output": " the elimination method. This involves manipulating the equations so that one variable is eliminated when the equations are added or subtracted. For example, consider the system:\n$$\n\\begin{cases}\n2x + 3y = 12 \\\\\n4x - y = 5\n\\end{"
+    },
+    {
+      "prompt": "Climate change is primarily driven by",
+      "output": " the accumulation of greenhouse gases (GHGs) in the atmosphere, with carbon dioxide (CO2) being the most significant contributor. The burning of fossil fuels\u2014coal, oil, and natural gas\u2014has been the primary source of these emissions since the Industrial Revolution. However, the challenge of mitigating"
+    },
+    {
+      "prompt": "The human genome contains approximately",
+      "output": " 20,000 genes, each of which is a segment of DNA that encodes for a specific protein or functional RNA molecule. These genes are not randomly distributed throughout the genome; instead, they are organized into regions called gene clusters. Gene clusters are groups of genes that are located close"
+    },
+    {
+      "prompt": "In economics, supply and demand interact to",
+      "output": " determine the prices of goods and services. The law of supply states that as the price of a good increases, the quantity supplied by producers also increases. Conversely, the law of demand states that as the price of a good increases, the quantity demanded by consumers decreases. The point where the supply and demand"
+    },
+    {
+      "prompt": "Shakespeare wrote Hamlet as a meditation on",
+      "output": " the human condition, and the play's enduring power lies in its ability to resonate with audiences across time and culture. The themes of revenge, madness, mortality, and the complexity of human relationships are universal, allowing each generation to find new meanings in the text. The play's exploration of existential questions\u2014"
+    }
+  ],
+  "train_tokens": 512000,
+  "val_tokens": 51200,
+  "eval_data": "OpenWebText (Skylion007/openwebtext)"
+}
