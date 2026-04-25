@@ -1,0 +1,1131 @@
+{
+  "final_ppl": 41.64051037988051,
+  "final_k_ranks": {
+    "0": 380,
+    "1": 361,
+    "2": 276,
+    "3": 276,
+    "4": 380,
+    "5": 361,
+    "6": 400,
+    "7": 364,
+    "8": 364,
+    "9": 345,
+    "10": 265,
+    "11": 384,
+    "12": 265,
+    "13": 327,
+    "14": 345,
+    "15": 364,
+    "16": 251,
+    "17": 265,
+    "18": 345,
+    "19": 384,
+    "20": 384,
+    "21": 364,
+    "22": 361,
+    "23": 324,
+    "24": 380,
+    "25": 307,
+    "26": 342,
+    "27": 380,
+    "28": 361,
+    "29": 380,
+    "30": 380,
+    "31": 276,
+    "32": 400,
+    "33": 380,
+    "34": 211,
+    "35": 342,
+    "36": 380,
+    "37": 400,
+    "38": 361,
+    "39": 342
+  },
+  "frozen": {
+    "0": true,
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true,
+    "8": true,
+    "9": true,
+    "10": true,
+    "11": true,
+    "12": true,
+    "13": true,
+    "14": true,
+    "15": true,
+    "16": true,
+    "17": true,
+    "18": true,
+    "19": true,
+    "20": true,
+    "21": true,
+    "22": true,
+    "23": true,
+    "24": true,
+    "25": true,
+    "26": true,
+    "27": true,
+    "28": true,
+    "29": true,
+    "30": true,
+    "31": true,
+    "32": true,
+    "33": true,
+    "34": true,
+    "35": true,
+    "36": true,
+    "37": true,
+    "38": true,
+    "39": true
+  },
+  "history": [
+    {
+      "cycle": 1,
+      "post_ppl": 31.77,
+      "n_frozen": 7,
+      "n_active": 33,
+      "throat_min": 364,
+      "throat_avg": 368.0,
+      "mouth_min": 380,
+      "mouth_avg": 382.9,
+      "per_layer": [
+        {
+          "layer": 0,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -1.98
+        },
+        {
+          "layer": 1,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -3.05
+        },
+        {
+          "layer": 2,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -5.87
+        },
+        {
+          "layer": 3,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -0.52
+        },
+        {
+          "layer": 4,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -8.77
+        },
+        {
+          "layer": 5,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -4.96
+        },
+        {
+          "layer": 6,
+          "action": "frozen",
+          "rank": 400,
+          "damage": 7.61
+        },
+        {
+          "layer": 7,
+          "action": "accepted",
+          "rank": 364,
+          "damage": -6.55
+        },
+        {
+          "layer": 8,
+          "action": "accepted",
+          "rank": 364,
+          "damage": -2.98
+        },
+        {
+          "layer": 9,
+          "action": "accepted",
+          "rank": 364,
+          "damage": -7.65
+        },
+        {
+          "layer": 10,
+          "action": "accepted",
+          "rank": 364,
+          "damage": -4.17
+        },
+        {
+          "layer": 11,
+          "action": "frozen",
+          "rank": 384,
+          "damage": 4.17
+        },
+        {
+          "layer": 12,
+          "action": "accepted",
+          "rank": 364,
+          "damage": -4.5
+        },
+        {
+          "layer": 13,
+          "action": "accepted",
+          "rank": 364,
+          "damage": -9.69
+        },
+        {
+          "layer": 14,
+          "action": "accepted",
+          "rank": 364,
+          "damage": -10.96
+        },
+        {
+          "layer": 15,
+          "action": "accepted",
+          "rank": 364,
+          "damage": 1.03
+        },
+        {
+          "layer": 16,
+          "action": "accepted",
+          "rank": 364,
+          "damage": -10.36
+        },
+        {
+          "layer": 17,
+          "action": "accepted",
+          "rank": 364,
+          "damage": -4.98
+        },
+        {
+          "layer": 18,
+          "action": "accepted",
+          "rank": 364,
+          "damage": 1.21
+        },
+        {
+          "layer": 19,
+          "action": "frozen",
+          "rank": 384,
+          "damage": 5.04
+        },
+        {
+          "layer": 20,
+          "action": "frozen",
+          "rank": 384,
+          "damage": 4.07
+        },
+        {
+          "layer": 21,
+          "action": "accepted",
+          "rank": 364,
+          "damage": -2.03
+        },
+        {
+          "layer": 22,
+          "action": "accepted",
+          "rank": 361,
+          "damage": -7.41
+        },
+        {
+          "layer": 23,
+          "action": "accepted",
+          "rank": 361,
+          "damage": -0.08
+        },
+        {
+          "layer": 24,
+          "action": "frozen",
+          "rank": 380,
+          "damage": 5.36
+        },
+        {
+          "layer": 25,
+          "action": "accepted",
+          "rank": 361,
+          "damage": -8.07
+        },
+        {
+          "layer": 26,
+          "action": "accepted",
+          "rank": 380,
+          "damage": 0.6
+        },
+        {
+          "layer": 27,
+          "action": "accepted",
+          "rank": 380,
+          "damage": 1.73
+        },
+        {
+          "layer": 28,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -5.22
+        },
+        {
+          "layer": 29,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -7.67
+        },
+        {
+          "layer": 30,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -1.51
+        },
+        {
+          "layer": 31,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -1.01
+        },
+        {
+          "layer": 32,
+          "action": "frozen",
+          "rank": 400,
+          "damage": 10.42
+        },
+        {
+          "layer": 33,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -6.48
+        },
+        {
+          "layer": 34,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -2.64
+        },
+        {
+          "layer": 35,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -2.81
+        },
+        {
+          "layer": 36,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -8.08
+        },
+        {
+          "layer": 37,
+          "action": "frozen",
+          "rank": 400,
+          "damage": 8.63
+        },
+        {
+          "layer": 38,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -3.47
+        },
+        {
+          "layer": 39,
+          "action": "accepted",
+          "rank": 380,
+          "damage": -4.47
+        }
+      ]
+    },
+    {
+      "cycle": 2,
+      "post_ppl": 28.7,
+      "n_frozen": 19,
+      "n_active": 21,
+      "throat_min": 345,
+      "throat_avg": 357.9,
+      "mouth_min": 361,
+      "mouth_avg": 372.9,
+      "per_layer": [
+        {
+          "layer": 0,
+          "action": "frozen",
+          "rank": 380,
+          "damage": 3.35
+        },
+        {
+          "layer": 1,
+          "action": "accepted",
+          "rank": 361,
+          "damage": 2.34
+        },
+        {
+          "layer": 2,
+          "action": "accepted",
+          "rank": 361,
+          "damage": -9.06
+        },
+        {
+          "layer": 3,
+          "action": "accepted",
+          "rank": 361,
+          "damage": -1.81
+        },
+        {
+          "layer": 4,
+          "action": "frozen",
+          "rank": 380,
+          "damage": 4.71
+        },
+        {
+          "layer": 5,
+          "action": "accepted",
+          "rank": 361,
+          "damage": -8.09
+        },
+        {
+          "layer": 7,
+          "action": "frozen",
+          "rank": 364,
+          "damage": 4.01
+        },
+        {
+          "layer": 8,
+          "action": "frozen",
+          "rank": 364,
+          "damage": 15.88
+        },
+        {
+          "layer": 9,
+          "action": "accepted",
+          "rank": 345,
+          "damage": -1.82
+        },
+        {
+          "layer": 10,
+          "action": "accepted",
+          "rank": 345,
+          "damage": -0.61
+        },
+        {
+          "layer": 12,
+          "action": "accepted",
+          "rank": 345,
+          "damage": -1.79
+        },
+        {
+          "layer": 13,
+          "action": "accepted",
+          "rank": 345,
+          "damage": -8.01
+        },
+        {
+          "layer": 14,
+          "action": "accepted",
+          "rank": 345,
+          "damage": -3.68
+        },
+        {
+          "layer": 15,
+          "action": "frozen",
+          "rank": 364,
+          "damage": 6.6
+        },
+        {
+          "layer": 16,
+          "action": "accepted",
+          "rank": 345,
+          "damage": -0.25
+        },
+        {
+          "layer": 17,
+          "action": "accepted",
+          "rank": 345,
+          "damage": -8.08
+        },
+        {
+          "layer": 18,
+          "action": "accepted",
+          "rank": 345,
+          "damage": -0.33
+        },
+        {
+          "layer": 21,
+          "action": "frozen",
+          "rank": 364,
+          "damage": 3.12
+        },
+        {
+          "layer": 22,
+          "action": "frozen",
+          "rank": 361,
+          "damage": 22.76
+        },
+        {
+          "layer": 23,
+          "action": "accepted",
+          "rank": 342,
+          "damage": -1.72
+        },
+        {
+          "layer": 25,
+          "action": "accepted",
+          "rank": 342,
+          "damage": 0.19
+        },
+        {
+          "layer": 26,
+          "action": "accepted",
+          "rank": 361,
+          "damage": 0.43
+        },
+        {
+          "layer": 27,
+          "action": "frozen",
+          "rank": 380,
+          "damage": 10.25
+        },
+        {
+          "layer": 28,
+          "action": "accepted",
+          "rank": 361,
+          "damage": -2.66
+        },
+        {
+          "layer": 29,
+          "action": "frozen",
+          "rank": 380,
+          "damage": 6.39
+        },
+        {
+          "layer": 30,
+          "action": "frozen",
+          "rank": 380,
+          "damage": 6.18
+        },
+        {
+          "layer": 31,
+          "action": "accepted",
+          "rank": 361,
+          "damage": -1.79
+        },
+        {
+          "layer": 33,
+          "action": "frozen",
+          "rank": 380,
+          "damage": 9.8
+        },
+        {
+          "layer": 34,
+          "action": "accepted",
+          "rank": 361,
+          "damage": -10.36
+        },
+        {
+          "layer": 35,
+          "action": "accepted",
+          "rank": 361,
+          "damage": -2.71
+        },
+        {
+          "layer": 36,
+          "action": "frozen",
+          "rank": 380,
+          "damage": 3.02
+        },
+        {
+          "layer": 38,
+          "action": "accepted",
+          "rank": 361,
+          "damage": -6.5
+        },
+        {
+          "layer": 39,
+          "action": "accepted",
+          "rank": 361,
+          "damage": -2.4
+        }
+      ]
+    },
+    {
+      "cycle": 3,
+      "post_ppl": 26.72,
+      "n_frozen": 26,
+      "n_active": 14,
+      "throat_min": 327,
+      "throat_avg": 351.9,
+      "mouth_min": 342,
+      "mouth_avg": 366.6,
+      "per_layer": [
+        {
+          "layer": 1,
+          "action": "frozen",
+          "rank": 361,
+          "damage": 6.91
+        },
+        {
+          "layer": 2,
+          "action": "accepted",
+          "rank": 342,
+          "damage": 1.62
+        },
+        {
+          "layer": 3,
+          "action": "accepted",
+          "rank": 342,
+          "damage": -3.14
+        },
+        {
+          "layer": 5,
+          "action": "frozen",
+          "rank": 361,
+          "damage": 9.54
+        },
+        {
+          "layer": 9,
+          "action": "frozen",
+          "rank": 345,
+          "damage": 3.8
+        },
+        {
+          "layer": 10,
+          "action": "accepted",
+          "rank": 327,
+          "damage": -3.79
+        },
+        {
+          "layer": 12,
+          "action": "accepted",
+          "rank": 327,
+          "damage": -5.54
+        },
+        {
+          "layer": 13,
+          "action": "accepted",
+          "rank": 327,
+          "damage": -0.95
+        },
+        {
+          "layer": 14,
+          "action": "frozen",
+          "rank": 345,
+          "damage": 9.28
+        },
+        {
+          "layer": 16,
+          "action": "accepted",
+          "rank": 327,
+          "damage": 0.89
+        },
+        {
+          "layer": 17,
+          "action": "accepted",
+          "rank": 327,
+          "damage": -2.94
+        },
+        {
+          "layer": 18,
+          "action": "frozen",
+          "rank": 345,
+          "damage": 6.23
+        },
+        {
+          "layer": 23,
+          "action": "accepted",
+          "rank": 324,
+          "damage": -0.74
+        },
+        {
+          "layer": 25,
+          "action": "accepted",
+          "rank": 324,
+          "damage": -0.56
+        },
+        {
+          "layer": 26,
+          "action": "accepted",
+          "rank": 342,
+          "damage": -6.75
+        },
+        {
+          "layer": 28,
+          "action": "frozen",
+          "rank": 361,
+          "damage": 11.67
+        },
+        {
+          "layer": 31,
+          "action": "accepted",
+          "rank": 342,
+          "damage": -3.58
+        },
+        {
+          "layer": 34,
+          "action": "accepted",
+          "rank": 342,
+          "damage": 1.2
+        },
+        {
+          "layer": 35,
+          "action": "accepted",
+          "rank": 342,
+          "damage": 0.36
+        },
+        {
+          "layer": 38,
+          "action": "frozen",
+          "rank": 361,
+          "damage": 4.28
+        },
+        {
+          "layer": 39,
+          "action": "accepted",
+          "rank": 342,
+          "damage": 0.1
+        }
+      ]
+    },
+    {
+      "cycle": 4,
+      "post_ppl": 37.16,
+      "n_frozen": 31,
+      "n_active": 9,
+      "throat_min": 310,
+      "throat_avg": 347.3,
+      "mouth_min": 324,
+      "mouth_avg": 363.1,
+      "per_layer": [
+        {
+          "layer": 2,
+          "action": "accepted",
+          "rank": 324,
+          "damage": -4.8
+        },
+        {
+          "layer": 3,
+          "action": "accepted",
+          "rank": 324,
+          "damage": 0.54
+        },
+        {
+          "layer": 10,
+          "action": "accepted",
+          "rank": 310,
+          "damage": -2.81
+        },
+        {
+          "layer": 12,
+          "action": "accepted",
+          "rank": 310,
+          "damage": -2.6
+        },
+        {
+          "layer": 13,
+          "action": "frozen",
+          "rank": 327,
+          "damage": 13.22
+        },
+        {
+          "layer": 16,
+          "action": "accepted",
+          "rank": 310,
+          "damage": -2.29
+        },
+        {
+          "layer": 17,
+          "action": "accepted",
+          "rank": 310,
+          "damage": 2.71
+        },
+        {
+          "layer": 23,
+          "action": "frozen",
+          "rank": 324,
+          "damage": 6.71
+        },
+        {
+          "layer": 25,
+          "action": "accepted",
+          "rank": 307,
+          "damage": 2.67
+        },
+        {
+          "layer": 26,
+          "action": "frozen",
+          "rank": 342,
+          "damage": 4.22
+        },
+        {
+          "layer": 31,
+          "action": "accepted",
+          "rank": 324,
+          "damage": 0.84
+        },
+        {
+          "layer": 34,
+          "action": "accepted",
+          "rank": 324,
+          "damage": 1.76
+        },
+        {
+          "layer": 35,
+          "action": "frozen",
+          "rank": 342,
+          "damage": 6.21
+        },
+        {
+          "layer": 39,
+          "action": "frozen",
+          "rank": 342,
+          "damage": 8.45
+        }
+      ]
+    },
+    {
+      "cycle": 5,
+      "post_ppl": 36.47,
+      "n_frozen": 32,
+      "n_active": 8,
+      "throat_min": 294,
+      "throat_avg": 343.1,
+      "mouth_min": 307,
+      "mouth_avg": 359.9,
+      "per_layer": [
+        {
+          "layer": 2,
+          "action": "accepted",
+          "rank": 307,
+          "damage": -11.84
+        },
+        {
+          "layer": 3,
+          "action": "accepted",
+          "rank": 307,
+          "damage": -4.13
+        },
+        {
+          "layer": 10,
+          "action": "accepted",
+          "rank": 294,
+          "damage": -8.95
+        },
+        {
+          "layer": 12,
+          "action": "accepted",
+          "rank": 294,
+          "damage": -14.07
+        },
+        {
+          "layer": 16,
+          "action": "accepted",
+          "rank": 294,
+          "damage": -2.61
+        },
+        {
+          "layer": 17,
+          "action": "accepted",
+          "rank": 294,
+          "damage": -5.99
+        },
+        {
+          "layer": 25,
+          "action": "frozen",
+          "rank": 307,
+          "damage": 4.29
+        },
+        {
+          "layer": 31,
+          "action": "accepted",
+          "rank": 307,
+          "damage": 0.92
+        },
+        {
+          "layer": 34,
+          "action": "accepted",
+          "rank": 307,
+          "damage": -8.12
+        }
+      ]
+    },
+    {
+      "cycle": 6,
+      "post_ppl": 32.35,
+      "n_frozen": 32,
+      "n_active": 8,
+      "throat_min": 279,
+      "throat_avg": 339.1,
+      "mouth_min": 291,
+      "mouth_avg": 356.9,
+      "per_layer": [
+        {
+          "layer": 2,
+          "action": "accepted",
+          "rank": 291,
+          "damage": -9.84
+        },
+        {
+          "layer": 3,
+          "action": "accepted",
+          "rank": 291,
+          "damage": -6.35
+        },
+        {
+          "layer": 10,
+          "action": "accepted",
+          "rank": 279,
+          "damage": -9.96
+        },
+        {
+          "layer": 12,
+          "action": "accepted",
+          "rank": 279,
+          "damage": -11.26
+        },
+        {
+          "layer": 16,
+          "action": "accepted",
+          "rank": 279,
+          "damage": -8.29
+        },
+        {
+          "layer": 17,
+          "action": "accepted",
+          "rank": 279,
+          "damage": -0.01
+        },
+        {
+          "layer": 31,
+          "action": "accepted",
+          "rank": 291,
+          "damage": -4.41
+        },
+        {
+          "layer": 34,
+          "action": "accepted",
+          "rank": 291,
+          "damage": -6.67
+        }
+      ]
+    },
+    {
+      "cycle": 7,
+      "post_ppl": 26.52,
+      "n_frozen": 32,
+      "n_active": 8,
+      "throat_min": 265,
+      "throat_avg": 335.3,
+      "mouth_min": 276,
+      "mouth_avg": 354.0,
+      "per_layer": [
+        {
+          "layer": 2,
+          "action": "accepted",
+          "rank": 276,
+          "damage": -4.49
+        },
+        {
+          "layer": 3,
+          "action": "accepted",
+          "rank": 276,
+          "damage": 2.67
+        },
+        {
+          "layer": 10,
+          "action": "accepted",
+          "rank": 265,
+          "damage": -4.04
+        },
+        {
+          "layer": 12,
+          "action": "accepted",
+          "rank": 265,
+          "damage": 1.28
+        },
+        {
+          "layer": 16,
+          "action": "accepted",
+          "rank": 265,
+          "damage": 0.07
+        },
+        {
+          "layer": 17,
+          "action": "accepted",
+          "rank": 265,
+          "damage": -5.19
+        },
+        {
+          "layer": 31,
+          "action": "accepted",
+          "rank": 276,
+          "damage": -0.01
+        },
+        {
+          "layer": 34,
+          "action": "accepted",
+          "rank": 276,
+          "damage": -2.45
+        }
+      ]
+    },
+    {
+      "cycle": 8,
+      "post_ppl": 25.76,
+      "n_frozen": 38,
+      "n_active": 2,
+      "throat_min": 251,
+      "throat_avg": 334.4,
+      "mouth_min": 262,
+      "mouth_avg": 353.3,
+      "per_layer": [
+        {
+          "layer": 2,
+          "action": "frozen",
+          "rank": 276,
+          "damage": 7.11
+        },
+        {
+          "layer": 3,
+          "action": "frozen",
+          "rank": 276,
+          "damage": 7.01
+        },
+        {
+          "layer": 10,
+          "action": "frozen",
+          "rank": 265,
+          "damage": 10.62
+        },
+        {
+          "layer": 12,
+          "action": "frozen",
+          "rank": 265,
+          "damage": 9.56
+        },
+        {
+          "layer": 16,
+          "action": "accepted",
+          "rank": 251,
+          "damage": -4.32
+        },
+        {
+          "layer": 17,
+          "action": "frozen",
+          "rank": 265,
+          "damage": 11.28
+        },
+        {
+          "layer": 31,
+          "action": "frozen",
+          "rank": 276,
+          "damage": 4.89
+        },
+        {
+          "layer": 34,
+          "action": "accepted",
+          "rank": 262,
+          "damage": 0.45
+        }
+      ]
+    },
+    {
+      "cycle": 9,
+      "post_ppl": 32.9,
+      "n_frozen": 39,
+      "n_active": 1,
+      "throat_min": 251,
+      "throat_avg": 334.4,
+      "mouth_min": 248,
+      "mouth_avg": 352.7,
+      "per_layer": [
+        {
+          "layer": 16,
+          "action": "frozen",
+          "rank": 251,
+          "damage": 7.31
+        },
+        {
+          "layer": 34,
+          "action": "accepted",
+          "rank": 248,
+          "damage": 2.99
+        }
+      ]
+    },
+    {
+      "cycle": 10,
+      "post_ppl": 26.74,
+      "n_frozen": 39,
+      "n_active": 1,
+      "throat_min": 251,
+      "throat_avg": 334.4,
+      "mouth_min": 235,
+      "mouth_avg": 352.0,
+      "per_layer": [
+        {
+          "layer": 34,
+          "action": "accepted",
+          "rank": 235,
+          "damage": -9.33
+        }
+      ]
+    },
+    {
+      "cycle": 11,
+      "post_ppl": 24.08,
+      "n_frozen": 39,
+      "n_active": 1,
+      "throat_min": 251,
+      "throat_avg": 334.4,
+      "mouth_min": 223,
+      "mouth_avg": 351.5,
+      "per_layer": [
+        {
+          "layer": 34,
+          "action": "accepted",
+          "rank": 223,
+          "damage": 1.98
+        }
+      ]
+    },
+    {
+      "cycle": 12,
+      "post_ppl": 27.56,
+      "n_frozen": 39,
+      "n_active": 1,
+      "throat_min": 251,
+      "throat_avg": 334.4,
+      "mouth_min": 211,
+      "mouth_avg": 350.9,
+      "per_layer": [
+        {
+          "layer": 34,
+          "action": "accepted",
+          "rank": 211,
+          "damage": 1.81
+        }
+      ]
+    }
+  ],
+  "coherence_samples": [
+    {
+      "prompt": "The theory of general relativity describes gravity as",
+      "output": " a warping of space-time by mass. Image credit: NASA\n\nEinstein's theory of general relativity describes gravity as a warping of space-time by mass. In this image, the \"wiggles\" of space-time are shown warping the light from distant galaxies. (Image credit"
+    },
+    {
+      "prompt": "In quantum mechanics, the uncertainty principle states that",
+      "output": " there is a fundamental limit to how precisely the value of a particle\u2019s position can be known. The principle is a direct consequence of the mathematical properties of quantum mechanics, and is not a limitation of our knowledge of nature. The uncertainty principle is one of the cornerstones of quantum mechanics, and has been"
+    },
+    {
+      "prompt": "The French Revolution began in 1789 when",
+      "output": " the National Assembly, the revolutionary government, declared France an \u201cirreversible\u201d republic. It ended in 1790 when the last of the royalists in the French countryside were killed during the uprising. The revolution had taken its course and the revolution had won.\n\nThe French Revolution is a"
+    },
+    {
+      "prompt": "Machine learning models are trained by",
+      "output": " feeding them with a lot of data. The more data you have, the more accurate the model is. The most obvious example is the one from physics: if you have enough data points, you can train a model that can predict the future state of the system from the previous state. This is how"
+    },
+    {
+      "prompt": "The mitochondria is often called the powerhouse of the cell because",
+      "output": " it produces most of the energy needed by the cell. The mitochondria is also responsible for storing and transporting that energy.\n\nThe mitochondria is also responsible for the regulation of the cell's pH balance and the control of the cell's electrolyte balance.\n\nThe mitochondria contains its own DNA, which is"
+    }
+  ]
+}
