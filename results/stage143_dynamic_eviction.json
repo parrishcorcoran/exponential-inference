@@ -1,0 +1,230 @@
+{
+  "baseline_ppl": 9.252085427399646,
+  "seq_len": 256,
+  "eviction_results": [
+    {
+      "strategy": "entropy",
+      "keep_pct": 90,
+      "ppl": 16.77,
+      "delta": 7.52,
+      "cache_compression": 1.1
+    },
+    {
+      "strategy": "entropy",
+      "keep_pct": 80,
+      "ppl": 26.86,
+      "delta": 17.61,
+      "cache_compression": 1.2
+    },
+    {
+      "strategy": "entropy",
+      "keep_pct": 70,
+      "ppl": 56.74,
+      "delta": 47.49,
+      "cache_compression": 1.4
+    },
+    {
+      "strategy": "entropy",
+      "keep_pct": 60,
+      "ppl": 85.41,
+      "delta": 76.15,
+      "cache_compression": 1.7
+    },
+    {
+      "strategy": "entropy",
+      "keep_pct": 50,
+      "ppl": 122.34,
+      "delta": 113.09,
+      "cache_compression": 2.0
+    },
+    {
+      "strategy": "entropy",
+      "keep_pct": 40,
+      "ppl": 198.2,
+      "delta": 188.95,
+      "cache_compression": 2.5
+    },
+    {
+      "strategy": "entropy",
+      "keep_pct": 30,
+      "ppl": 307.8,
+      "delta": 298.55,
+      "cache_compression": 3.3
+    },
+    {
+      "strategy": "entropy",
+      "keep_pct": 20,
+      "ppl": 560.22,
+      "delta": 550.97,
+      "cache_compression": 5.0
+    },
+    {
+      "strategy": "h2o",
+      "keep_pct": 90,
+      "ppl": 13.28,
+      "delta": 4.02,
+      "cache_compression": 1.1
+    },
+    {
+      "strategy": "h2o",
+      "keep_pct": 80,
+      "ppl": 16.59,
+      "delta": 7.34,
+      "cache_compression": 1.2
+    },
+    {
+      "strategy": "h2o",
+      "keep_pct": 70,
+      "ppl": 22.38,
+      "delta": 13.13,
+      "cache_compression": 1.4
+    },
+    {
+      "strategy": "h2o",
+      "keep_pct": 60,
+      "ppl": 28.87,
+      "delta": 19.62,
+      "cache_compression": 1.7
+    },
+    {
+      "strategy": "h2o",
+      "keep_pct": 50,
+      "ppl": 40.82,
+      "delta": 31.57,
+      "cache_compression": 2.0
+    },
+    {
+      "strategy": "h2o",
+      "keep_pct": 40,
+      "ppl": 64.63,
+      "delta": 55.38,
+      "cache_compression": 2.5
+    },
+    {
+      "strategy": "h2o",
+      "keep_pct": 30,
+      "ppl": 99.03,
+      "delta": 89.78,
+      "cache_compression": 3.3
+    },
+    {
+      "strategy": "h2o",
+      "keep_pct": 20,
+      "ppl": 203.93,
+      "delta": 194.68,
+      "cache_compression": 5.0
+    },
+    {
+      "strategy": "recent",
+      "keep_pct": 90,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 1.1
+    },
+    {
+      "strategy": "recent",
+      "keep_pct": 80,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 1.2
+    },
+    {
+      "strategy": "recent",
+      "keep_pct": 70,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 1.4
+    },
+    {
+      "strategy": "recent",
+      "keep_pct": 60,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 1.7
+    },
+    {
+      "strategy": "recent",
+      "keep_pct": 50,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 2.0
+    },
+    {
+      "strategy": "recent",
+      "keep_pct": 40,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 2.5
+    },
+    {
+      "strategy": "recent",
+      "keep_pct": 30,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 3.3
+    },
+    {
+      "strategy": "recent",
+      "keep_pct": 20,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 5.0
+    },
+    {
+      "strategy": "random",
+      "keep_pct": 90,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 1.1
+    },
+    {
+      "strategy": "random",
+      "keep_pct": 80,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 1.2
+    },
+    {
+      "strategy": "random",
+      "keep_pct": 70,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 1.4
+    },
+    {
+      "strategy": "random",
+      "keep_pct": 60,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 1.7
+    },
+    {
+      "strategy": "random",
+      "keep_pct": 50,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 2.0
+    },
+    {
+      "strategy": "random",
+      "keep_pct": 40,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 2.5
+    },
+    {
+      "strategy": "random",
+      "keep_pct": 30,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 3.3
+    },
+    {
+      "strategy": "random",
+      "keep_pct": 20,
+      "ppl": NaN,
+      "delta": NaN,
+      "cache_compression": 5.0
+    }
+  ]
+}
