@@ -1,0 +1,310 @@
+{
+  "baseline_ppl": 16.10333109183362,
+  "final_k_ranks": {
+    "0": 400,
+    "1": 400,
+    "2": 400,
+    "3": 400,
+    "4": 400,
+    "5": 400,
+    "6": 400,
+    "7": 400,
+    "8": 400,
+    "9": 400,
+    "10": 400,
+    "11": 400,
+    "12": 400,
+    "13": 400,
+    "14": 400,
+    "15": 400,
+    "16": 400,
+    "17": 400,
+    "18": 400,
+    "19": 400,
+    "20": 400,
+    "21": 400,
+    "22": 400,
+    "23": 400,
+    "24": 400,
+    "25": 400,
+    "26": 400,
+    "27": 400,
+    "28": 400,
+    "29": 400,
+    "30": 400,
+    "31": 400,
+    "32": 400,
+    "33": 400,
+    "34": 400,
+    "35": 400,
+    "36": 400,
+    "37": 400,
+    "38": 400,
+    "39": 400
+  },
+  "final_v_rank": 642,
+  "thermostat": 1.5,
+  "history": [
+    {
+      "step": 1,
+      "type": "K_anneal",
+      "pre_ppl": 15.75,
+      "post_ppl": 14.45,
+      "delta": -1.65,
+      "throat_avg_rank": 972.0,
+      "mouth_avg_rank": 972.0,
+      "text": " the curvature of spacetime. This curvature is caused by the presence of mass and energy. The curvat"
+    },
+    {
+      "step": 2,
+      "type": "K_anneal",
+      "pre_ppl": 11.98,
+      "post_ppl": 14.13,
+      "delta": -1.97,
+      "throat_avg_rank": 923.0,
+      "mouth_avg_rank": 923.0,
+      "text": " a curvature of spacetime. The curvature is caused by the presence of mass, and the curvature tells "
+    },
+    {
+      "step": 3,
+      "type": "K_anneal",
+      "pre_ppl": 13.79,
+      "post_ppl": 14.01,
+      "delta": -2.09,
+      "throat_avg_rank": 876.0,
+      "mouth_avg_rank": 876.0,
+      "text": " a curvature of spacetime. The curvature is caused by the presence of mass, and the curvature tells "
+    },
+    {
+      "step": 4,
+      "type": "K_anneal",
+      "pre_ppl": 14.17,
+      "post_ppl": 15.25,
+      "delta": -0.86,
+      "throat_avg_rank": 832.0,
+      "mouth_avg_rank": 832.0,
+      "text": " a geometric property of space and time, or spacetime. The concept of a \u201cgravitational field\u201d is not"
+    },
+    {
+      "step": 5,
+      "type": "K_anneal",
+      "pre_ppl": 16.34,
+      "post_ppl": 14.99,
+      "delta": -1.11,
+      "throat_avg_rank": 790.0,
+      "mouth_avg_rank": 790.0,
+      "text": " a curvature of space-time. The curvature is caused by the presence of mass, and the curvature tells"
+    },
+    {
+      "step": 6,
+      "type": "K_anneal",
+      "pre_ppl": 14.22,
+      "post_ppl": 15.31,
+      "delta": -0.79,
+      "throat_avg_rank": 750.0,
+      "mouth_avg_rank": 750.0,
+      "text": " a curvature of space and time. The theory is so successful that it has been used to predict the exi"
+    },
+    {
+      "step": 7,
+      "type": "K_anneal",
+      "pre_ppl": 15.95,
+      "post_ppl": 15.38,
+      "delta": -0.73,
+      "throat_avg_rank": 712.0,
+      "mouth_avg_rank": 712.0,
+      "text": " a distortion of space and time. Einstein's equations, which describe the theory, are a set of 10 eq"
+    },
+    {
+      "step": 8,
+      "type": "K_anneal",
+      "pre_ppl": 15.47,
+      "post_ppl": 14.39,
+      "delta": -1.71,
+      "throat_avg_rank": 676.0,
+      "mouth_avg_rank": 676.0,
+      "text": " a distortion of space and time. Einstein's equations, which describe the theory, are a set of equat"
+    },
+    {
+      "step": 9,
+      "type": "K_anneal",
+      "pre_ppl": 17.43,
+      "post_ppl": 16.67,
+      "delta": 0.57,
+      "throat_avg_rank": 642.0,
+      "mouth_avg_rank": 642.0,
+      "text": " a distortion of space and time. The distortion is caused by mass, and the effect of the distortion "
+    },
+    {
+      "step": 10,
+      "type": "K_anneal",
+      "pre_ppl": 16.7,
+      "post_ppl": 17.21,
+      "delta": 1.11,
+      "throat_avg_rank": 609.0,
+      "mouth_avg_rank": 609.0,
+      "text": " a distortion of space and time. This theory has been tested in many different ways, but only in the"
+    },
+    {
+      "step": 11,
+      "type": "K_anneal",
+      "pre_ppl": 17.27,
+      "post_ppl": 17.75,
+      "delta": 1.65,
+      "throat_avg_rank": 578.0,
+      "mouth_avg_rank": 578.0,
+      "text": " a distortion of space and time. This theory has been tested in many different ways, but only in the"
+    },
+    {
+      "step": 12,
+      "type": "K_anneal",
+      "pre_ppl": 15.27,
+      "post_ppl": 17.9,
+      "delta": 1.79,
+      "throat_avg_rank": 549.0,
+      "mouth_avg_rank": 549.0,
+      "text": " a distortion of space-time geometry. This theory has been tested in the weak field regime by the pr"
+    },
+    {
+      "step": 13,
+      "type": "K_anneal",
+      "pre_ppl": 18.19,
+      "post_ppl": 18.66,
+      "delta": 2.56,
+      "throat_avg_rank": 521.0,
+      "mouth_avg_rank": 521.0,
+      "text": " a distortion of space-time geometry. This theory has been tested extensively in the weak field regi"
+    },
+    {
+      "step": 14,
+      "type": "K_anneal",
+      "pre_ppl": 19.68,
+      "post_ppl": 20.15,
+      "delta": 4.05,
+      "throat_avg_rank": 494.0,
+      "mouth_avg_rank": 494.0,
+      "text": " a distortion of space-time geometry. This theory has been tested in the solar system and in binary "
+    },
+    {
+      "step": 15,
+      "type": "K_anneal",
+      "pre_ppl": 19.44,
+      "post_ppl": 19.92,
+      "delta": 3.82,
+      "throat_avg_rank": 469.0,
+      "mouth_avg_rank": 469.0,
+      "text": " a distortion of space-time geometry. This theory has been tested in the laboratory and in the cosmo"
+    },
+    {
+      "step": 16,
+      "type": "K_anneal",
+      "pre_ppl": 19.83,
+      "post_ppl": 21.23,
+      "delta": 5.12,
+      "throat_avg_rank": 445.0,
+      "mouth_avg_rank": 445.0,
+      "text": " a distortion of space-time geometry. This theory has passed many experimental and observational tes"
+    },
+    {
+      "step": 17,
+      "type": "K_anneal",
+      "pre_ppl": 20.7,
+      "post_ppl": 22.72,
+      "delta": 6.61,
+      "throat_avg_rank": 422.0,
+      "mouth_avg_rank": 422.0,
+      "text": " a distortion of space-time geometry. This theory has passed many experimental and observational tes"
+    },
+    {
+      "step": 18,
+      "type": "K_anneal",
+      "pre_ppl": 21.7,
+      "post_ppl": 26.2,
+      "delta": 10.09,
+      "throat_avg_rank": 400.0,
+      "mouth_avg_rank": 400.0,
+      "text": " a distortion of space-time geometry. This theory has passed many experimental and observational tes"
+    },
+    {
+      "step": 19,
+      "type": "V_anneal",
+      "pre_ppl": 25.49,
+      "post_ppl": 16.54,
+      "delta": 0.44,
+      "v_rank": 972,
+      "text": " a geometric property of space and time, or spacetime. Gravity is not a force, but an effect of the "
+    },
+    {
+      "step": 20,
+      "type": "V_anneal",
+      "pre_ppl": 17.39,
+      "post_ppl": 19.02,
+      "delta": 2.92,
+      "v_rank": 923,
+      "text": " a geometric property of space and time. Gravity is not a force, but a property of space and time. S"
+    },
+    {
+      "step": 21,
+      "type": "V_anneal",
+      "pre_ppl": 18.5,
+      "post_ppl": 17.94,
+      "delta": 1.84,
+      "v_rank": 876,
+      "text": " a geometric property of space and time. The concept of spacetime is a way of combining the three di"
+    },
+    {
+      "step": 22,
+      "type": "V_anneal",
+      "pre_ppl": 20.34,
+      "post_ppl": 19.95,
+      "delta": 3.85,
+      "v_rank": 832,
+      "text": " a property of the curvature of space-time. This curvature is in turn a result of the distribution o"
+    },
+    {
+      "step": 23,
+      "type": "V_anneal",
+      "pre_ppl": 20.36,
+      "post_ppl": 21.17,
+      "delta": 5.07,
+      "v_rank": 790,
+      "text": " the result of the curvature of space-time. The curvature is caused by the mass of objects, and the "
+    },
+    {
+      "step": 24,
+      "type": "V_anneal",
+      "pre_ppl": 21.34,
+      "post_ppl": 20.57,
+      "delta": 4.46,
+      "v_rank": 750,
+      "text": " the curvature of space-time caused by mass. The more mass an object has, the stronger its gravitati"
+    },
+    {
+      "step": 25,
+      "type": "V_anneal",
+      "pre_ppl": 25.36,
+      "post_ppl": 22.93,
+      "delta": 6.83,
+      "v_rank": 712,
+      "text": " the result of the curvature of space-time. The general theory of relativity is the current, accepte"
+    },
+    {
+      "step": 26,
+      "type": "V_anneal",
+      "pre_ppl": 22.17,
+      "post_ppl": 24.05,
+      "delta": 7.95,
+      "v_rank": 676,
+      "text": " a warping of space-time, and the effects of gravity are often illustrated by the metaphor of a rubb"
+    },
+    {
+      "step": 27,
+      "type": "V_anneal",
+      "pre_ppl": 22.86,
+      "post_ppl": 24.78,
+      "delta": 8.67,
+      "v_rank": 642,
+      "text": " a warping of space-time, and the motion of the Earth's rotation is slowed by the dragging of space-"
+    }
+  ]
+}
