@@ -1,0 +1,125 @@
+{
+  "orig_baseline": 14.596872311724875,
+  "checkpoint_ppl": 23.135683215997968,
+  "final_ppl": 30.143096782652318,
+  "final_k_ranks": {
+    "0": 400,
+    "1": 400,
+    "2": 400,
+    "3": 400,
+    "4": 400,
+    "5": 400,
+    "6": 400,
+    "7": 384,
+    "8": 384,
+    "9": 384,
+    "10": 384,
+    "11": 384,
+    "12": 384,
+    "13": 384,
+    "14": 384,
+    "15": 384,
+    "16": 384,
+    "17": 384,
+    "18": 384,
+    "19": 384,
+    "20": 384,
+    "21": 384,
+    "22": 380,
+    "23": 380,
+    "24": 380,
+    "25": 380,
+    "26": 400,
+    "27": 400,
+    "28": 400,
+    "29": 400,
+    "30": 400,
+    "31": 400,
+    "32": 400,
+    "33": 400,
+    "34": 400,
+    "35": 400,
+    "36": 400,
+    "37": 400,
+    "38": 400,
+    "39": 400
+  },
+  "history": [
+    {
+      "step": 1,
+      "segment": "throat",
+      "throat_avg_rank": 396.0,
+      "pre_ppl": 27.25,
+      "post_ppl": 24.66
+    },
+    {
+      "step": 2,
+      "segment": "throat",
+      "throat_avg_rank": 392.0,
+      "pre_ppl": 27.0,
+      "post_ppl": 23.91
+    },
+    {
+      "step": 3,
+      "segment": "throat",
+      "throat_avg_rank": 388.0,
+      "pre_ppl": 28.63,
+      "post_ppl": 26.95
+    },
+    {
+      "step": 4,
+      "segment": "throat",
+      "throat_avg_rank": 384.0,
+      "pre_ppl": 25.17,
+      "post_ppl": 33.36
+    },
+    {
+      "step": 5,
+      "segment": "passage",
+      "passage_avg_rank": 380.0,
+      "post_ppl": 32.68
+    }
+  ],
+  "coherence_samples": [
+    {
+      "prompt": "The theory of general relativity describes gravity as",
+      "output": " a warping of space-time. Image credit: NASA\n\nEinstein's theory of general relativity describes gravity as a warping of space-time. Image credit: NASA\n\nEinstein's theory of general relativity describes gravity as a warping of space-time. Image credit: NASA\n\nIn a"
+    },
+    {
+      "prompt": "In quantum mechanics, the uncertainty principle states that",
+      "output": " there is a limit to how precisely the position and momentum of a particle can be known. The more precisely one is known, the less precisely the other can be. The principle is valid for other pairs of variables as well, such as energy and time.\n\nThe original uncertainty principle, formulated by Heisen"
+    },
+    {
+      "prompt": "The French Revolution began in 1789 when",
+      "output": " the National Assembly declared France an irreversible republic. It ended in 1790 when Napoleon Bonaparte declared himself Emperor. The French Revolution began in 1789 when the National Assembly declared France an irreversible republic. It ended in 1790 when the National Assembly declared France"
+    },
+    {
+      "prompt": "Machine learning models are trained by",
+      "output": " feeding them with data. The more data you have, the more accurate the model is. The more accurate the model is, the better the predictions. This is why it is so important to have a large amount of data to train your model. This is also why it is so important to have a"
+    },
+    {
+      "prompt": "The mitochondria is often called the powerhouse of the cell because",
+      "output": " it produces most of the energy needed by the cell. The mitochondria is also responsible for most of the cellular respiration of the cell. The rough endoplasmic reticulum (RER) is responsible for the production of lipids and the transport of them to the rest of the body"
+    },
+    {
+      "prompt": "To solve a system of linear equations, one common method is",
+      "output": " to use matrix inversion. In this case, we need to reverse the steps of the previous problem, where we first translated the equations into matrix form and then solved the system using Gaussian elimination. We do this by setting up a matrix equation Ax = B, where A is our coefficient matrix, x is"
+    },
+    {
+      "prompt": "Climate change is primarily driven by",
+      "output": " emissions of greenhouse gases (GHG). The UNFCCC and its Paris Agreement aim to stabilise concentrations of greenhouse gases at 450 ppm CO2 in the second half of this century. This will require a transformation of the global energy system. In the absence of a fundamental change in energy"
+    },
+    {
+      "prompt": "The human genome contains approximately",
+      "output": " 23,000 genes. Yet the number of human proteins is estimated to be 100,000. How is it that so many genes are needed to produce so few proteins?\n\nThe answer lies in alternative splicing, a process in which the introns are sp"
+    },
+    {
+      "prompt": "In economics, supply and demand interact to",
+      "output": " determine prices and quantities in a market. When the supply of a good increases, its price decreases, and the quantity offered increases. When the demand for a good increases, its price increases, and the quantity demanded increases. These concepts are illustrated through supply and demand curves, such as the one shown here"
+    },
+    {
+      "prompt": "Shakespeare wrote Hamlet as a meditation on",
+      "output": " the futility of revenge. In our case, we\u2019re just trying to get you to buy a product. That\u2019s it. No more, no less. We\u2019re not trying to change the world. We\u2019re trying to change a few minds. And we\u2019re doing it in a way that\u2019s"
+    }
+  ]
+}
