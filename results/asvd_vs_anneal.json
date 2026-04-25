@@ -1,0 +1,6 @@
+{
+  "baseline_ppl": 14.431308850427163,
+  "asvd_time_5ranks": 1051.634016752243,
+  "svd_time_5ranks": 246.86846780776978,
+  "anneal_time_2ranks": 542.7037038803101
+}
