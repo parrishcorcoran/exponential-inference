@@ -1,0 +1,29 @@
+{
+  "model": "Qwen/Qwen3-14B",
+  "baseline_ppl": 14.9,
+  "method": "Combined K+V SVD rank anneal, 200 FT steps (norms+KV) between each",
+  "history": [
+    {"rank": 768, "post_ppl": 9.6, "delta": -5.3, "cache_compression": 1.3},
+    {"rank": 512, "post_ppl": 9.0, "delta": -5.9, "cache_compression": 2.0},
+    {"rank": 384, "post_ppl": 10.1, "delta": -4.8, "cache_compression": 2.7},
+    {"rank": 256, "post_ppl": 10.0, "delta": -4.9, "cache_compression": 4.0},
+    {"rank": 192, "post_ppl": 12.5, "delta": -2.4, "cache_compression": 5.3},
+    {"rank": 128, "post_ppl": 19.4, "delta": 4.4, "cache_compression": 8.0},
+    {"rank": 96, "post_ppl": 22.4, "delta": 7.5, "cache_compression": 10.7},
+    {"rank": 64, "post_ppl": 32.1, "delta": 17.2, "cache_compression": 16.0},
+    {"rank": 48, "post_ppl": 41.1, "delta": 26.2, "cache_compression": 21.3},
+    {"rank": 32, "post_ppl": 45.6, "delta": 30.7, "cache_compression": 32.0},
+    {"rank": 16, "post_ppl": 58.0, "delta": 43.1, "cache_compression": 64.0}
+  ],
+  "sweet_spot": {
+    "rank": 256,
+    "ppl": 10.0,
+    "delta": -4.9,
+    "cache_compression": 4.0,
+    "note": "4x cache compression, quality IMPROVES over baseline (LASER effect)"
+  },
+  "wall": {
+    "rank": 128,
+    "note": "First degradation above baseline. Below 128 = steep cliff."
+  }
+}
