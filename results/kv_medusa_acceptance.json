@@ -1,0 +1,55 @@
+{
+  "results": [
+    {
+      "offset": 1,
+      "avg_k_cos": 0.8224,
+      "accept_rate_07": 0.9986
+    },
+    {
+      "offset": 2,
+      "avg_k_cos": 0.79,
+      "accept_rate_07": 0.9949
+    },
+    {
+      "offset": 3,
+      "avg_k_cos": 0.7825,
+      "accept_rate_07": 0.9927
+    },
+    {
+      "offset": 4,
+      "avg_k_cos": 0.7785,
+      "accept_rate_07": 0.9907
+    },
+    {
+      "offset": 5,
+      "avg_k_cos": 0.7686,
+      "accept_rate_07": 0.9926
+    },
+    {
+      "offset": 6,
+      "avg_k_cos": 0.7669,
+      "accept_rate_07": 0.9896
+    },
+    {
+      "offset": 7,
+      "avg_k_cos": 0.7683,
+      "accept_rate_07": 0.9904
+    },
+    {
+      "offset": 8,
+      "avg_k_cos": 0.7598,
+      "accept_rate_07": 0.9893
+    },
+    {
+      "offset": 9,
+      "avg_k_cos": 0.7651,
+      "accept_rate_07": 0.9885
+    },
+    {
+      "offset": 10,
+      "avg_k_cos": 0.7599,
+      "accept_rate_07": 0.9837
+    }
+  ],
+  "expected_tokens_per_step": 10.91
+}
