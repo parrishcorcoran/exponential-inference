@@ -1,0 +1,9 @@
+{
+  "standard_tps": 5.71,
+  "medusa_projected_tps": 29.54,
+  "speedup": 5.17,
+  "tokens_per_step": 10.9,
+  "decode_step_ms": 176.17,
+  "heads_time_ms": 14.18,
+  "verify_time_ms": 178.65
+}
