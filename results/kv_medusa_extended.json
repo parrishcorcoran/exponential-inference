@@ -1,0 +1,168 @@
+{
+  "kv_medusa_results": [
+    {
+      "offset": 1,
+      "status": "loaded"
+    },
+    {
+      "offset": 2,
+      "status": "loaded"
+    },
+    {
+      "offset": 3,
+      "status": "loaded"
+    },
+    {
+      "offset": 4,
+      "status": "loaded"
+    },
+    {
+      "offset": 5,
+      "status": "loaded"
+    },
+    {
+      "offset": 6,
+      "status": "loaded"
+    },
+    {
+      "offset": 7,
+      "status": "loaded"
+    },
+    {
+      "offset": 8,
+      "status": "loaded"
+    },
+    {
+      "offset": 9,
+      "status": "loaded"
+    },
+    {
+      "offset": 10,
+      "status": "loaded"
+    },
+    {
+      "offset": 11,
+      "k_cos": 0.7363
+    },
+    {
+      "offset": 12,
+      "k_cos": 0.7477
+    },
+    {
+      "offset": 13,
+      "k_cos": 0.731
+    },
+    {
+      "offset": 14,
+      "k_cos": 0.742
+    },
+    {
+      "offset": 15,
+      "k_cos": 0.7384
+    },
+    {
+      "offset": 16,
+      "k_cos": 0.7342
+    },
+    {
+      "offset": 17,
+      "k_cos": 0.7486
+    },
+    {
+      "offset": 18,
+      "k_cos": 0.732
+    },
+    {
+      "offset": 19,
+      "k_cos": 0.7415
+    },
+    {
+      "offset": 20,
+      "k_cos": 0.7293
+    },
+    {
+      "offset": 21,
+      "k_cos": 0.7363
+    },
+    {
+      "offset": 22,
+      "k_cos": 0.7387
+    },
+    {
+      "offset": 23,
+      "k_cos": 0.7379
+    },
+    {
+      "offset": 24,
+      "k_cos": 0.7363
+    },
+    {
+      "offset": 25,
+      "k_cos": 0.7216
+    },
+    {
+      "offset": 26,
+      "k_cos": 0.7296
+    },
+    {
+      "offset": 27,
+      "k_cos": 0.7389
+    },
+    {
+      "offset": 28,
+      "k_cos": 0.7388
+    },
+    {
+      "offset": 29,
+      "k_cos": 0.7347
+    },
+    {
+      "offset": 30,
+      "k_cos": 0.7305
+    }
+  ],
+  "medusa_results": [
+    {
+      "offset": 1,
+      "acc": 0.368
+    },
+    {
+      "offset": 2,
+      "acc": 0.0863
+    },
+    {
+      "offset": 3,
+      "acc": 0.0287
+    },
+    {
+      "offset": 4,
+      "acc": 0.0209
+    },
+    {
+      "offset": 5,
+      "acc": 0.0171
+    },
+    {
+      "offset": 6,
+      "acc": 0.0167
+    },
+    {
+      "offset": 7,
+      "acc": 0.0132
+    },
+    {
+      "offset": 8,
+      "acc": 0.0277
+    },
+    {
+      "offset": 9,
+      "acc": 0.023
+    },
+    {
+      "offset": 10,
+      "acc": 0.0126
+    }
+  ],
+  "good_kv_heads": 20,
+  "useful_medusa_heads": 2
+}
