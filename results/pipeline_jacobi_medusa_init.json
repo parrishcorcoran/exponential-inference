@@ -1,0 +1,83 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "n_generate": 60,
+  "k_chunk": 5,
+  "max_iters": 6,
+  "results": [
+    {
+      "prompt": "The future of artificial intelligence depends on",
+      "baseline_forwards": 60,
+      "jacobi_forwards": 72,
+      "speedup": 0.8333333333333334,
+      "iters_per_chunk": [
+        5,
+        5,
+        4,
+        5,
+        5,
+        5,
+        6,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "baseline_text": "The future of artificial intelligence depends on the ability to create a system that can understand and respond to the world around it. This is the core of the AI research field. However, the current state of AI research is still in the early stages, with many challenges and limitations. The development of AI systems is a complex process that requires a",
+      "jacobi_text": "The future of artificial intelligence depends on the ability to create a system that can understand and respond to the world around it. This is the core of the AI research field. However, the current state of AI research is still in the early stages, with many challenges and limitations. The development of AI systems is a complex process that requires a",
+      "baseline_ppl": 3.687895521250021,
+      "jacobi_ppl": 3.687895521250021,
+      "text_match": true
+    },
+    {
+      "prompt": "In the early morning, the city was quiet, and",
+      "baseline_forwards": 60,
+      "jacobi_forwards": 71,
+      "speedup": 0.8450704225352113,
+      "iters_per_chunk": [
+        5,
+        6,
+        5,
+        5,
+        4,
+        5,
+        5,
+        5,
+        4,
+        5,
+        5,
+        5
+      ],
+      "baseline_text": "In the early morning, the city was quiet, and the streets were empty. The sky was blue, and the trees were silent. The wind was gentle, and the air was cool. The city was quiet, and the streets were empty. The sky was blue, and the trees were silent. The wind was gentle, and the air was cool.",
+      "jacobi_text": "In the early morning, the city was quiet, and the streets were empty. The sky was blue, and the trees were silent. The wind was gentle, and the air was cool. The city was quiet, and the streets were empty. The sky was blue, and the trees were silent. The wind was gentle, and the air was cool.",
+      "baseline_ppl": 2.922708744516969,
+      "jacobi_ppl": 2.922708744516969,
+      "text_match": true
+    },
+    {
+      "prompt": "Once upon a time, there was a small village where",
+      "baseline_forwards": 60,
+      "jacobi_forwards": 77,
+      "speedup": 0.7792207792207793,
+      "iters_per_chunk": [
+        5,
+        6,
+        6,
+        6,
+        5,
+        6,
+        5,
+        5,
+        5,
+        5,
+        6,
+        5
+      ],
+      "baseline_text": "Once upon a time, there was a small village where the people lived in a small house. The village was not very large, but it had a lot of people. The village was surrounded by a forest, and the forest was very large. The village had a small river that ran through it. The village had a small house that was built on the",
+      "jacobi_text": "Once upon a time, there was a small village where the people lived in a small house. The village was not very large, but it had a lot of people. The village was surrounded by a forest, and the forest was very large. The village had a small river that ran through it. The village had a small house that was built on the",
+      "baseline_ppl": 3.4292420598756026,
+      "jacobi_ppl": 3.4292420598756026,
+      "text_match": true
+    }
+  ]
+}

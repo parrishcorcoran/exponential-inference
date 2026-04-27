@@ -1,0 +1,83 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading tokens...
+Loading Qwen/Qwen3-0.6B...
+  d_model=1024, n_kv_heads=8, head_dim=128, target_layer=14
+
+============================================================
+  CONDITIONAL KV-MEDUSA HEAD 1
+============================================================
+  Head params: 3.15M
+  step   50: loss=4.7248 cos_k=0.686 cos_v=0.261
+  step  100: loss=4.2941 cos_k=0.745 cos_v=0.350
+  step  150: loss=4.0462 cos_k=0.753 cos_v=0.358
+  step  200: loss=3.6798 cos_k=0.772 cos_v=0.387
+  step  250: loss=3.9735 cos_k=0.775 cos_v=0.359
+  step  300: loss=3.5333 cos_k=0.781 cos_v=0.426
+
+  CONDITIONAL HEAD 1 FINAL: cos_k=0.776 cos_v=0.417
+
+============================================================
+  CONDITIONAL KV-MEDUSA HEAD 2
+============================================================
+  Head params: 3.15M
+  step   50: loss=5.0910 cos_k=0.675 cos_v=0.207
+  step  100: loss=4.4611 cos_k=0.673 cos_v=0.296
+  step  150: loss=4.3601 cos_k=0.722 cos_v=0.280
+  step  200: loss=4.3997 cos_k=0.745 cos_v=0.350
+  step  250: loss=3.6706 cos_k=0.763 cos_v=0.380
+  step  300: loss=3.9773 cos_k=0.778 cos_v=0.346
+
+  CONDITIONAL HEAD 2 FINAL: cos_k=0.757 cos_v=0.357
+
+============================================================
+  CONDITIONAL KV-MEDUSA HEAD 3
+============================================================
+  Head params: 3.15M
+  step   50: loss=4.9978 cos_k=0.716 cos_v=0.212
+  step  100: loss=4.6659 cos_k=0.749 cos_v=0.238
+  step  150: loss=4.3584 cos_k=0.751 cos_v=0.260
+  step  200: loss=4.3314 cos_k=0.744 cos_v=0.305
+  step  250: loss=4.1260 cos_k=0.747 cos_v=0.316
+  step  300: loss=4.4573 cos_k=0.729 cos_v=0.303
+
+  CONDITIONAL HEAD 3 FINAL: cos_k=0.752 cos_v=0.322
+
+============================================================
+  CONDITIONAL KV-MEDUSA HEAD 4
+============================================================
+  Head params: 3.15M
+  step   50: loss=4.8611 cos_k=0.685 cos_v=0.235
+  step  100: loss=4.7980 cos_k=0.716 cos_v=0.262
+  step  150: loss=4.3975 cos_k=0.741 cos_v=0.240
+  step  200: loss=4.4011 cos_k=0.728 cos_v=0.295
+  step  250: loss=4.1049 cos_k=0.720 cos_v=0.332
+  step  300: loss=4.3120 cos_k=0.745 cos_v=0.315
+
+  CONDITIONAL HEAD 4 FINAL: cos_k=0.747 cos_v=0.316
+
+============================================================
+  CONDITIONAL KV-MEDUSA HEAD 5
+============================================================
+  Head params: 3.15M
+  step   50: loss=4.8603 cos_k=0.697 cos_v=0.226
+  step  100: loss=4.8351 cos_k=0.697 cos_v=0.227
+  step  150: loss=4.4712 cos_k=0.721 cos_v=0.304
+  step  200: loss=4.5747 cos_k=0.721 cos_v=0.293
+  step  250: loss=4.2328 cos_k=0.749 cos_v=0.269
+  step  300: loss=4.0521 cos_k=0.737 cos_v=0.260
+
+  CONDITIONAL HEAD 5 FINAL: cos_k=0.738 cos_v=0.295
+
+============================================================
+CONDITIONAL KV-MEDUSA SUMMARY (vs unconditional)
+============================================================
+  offset  cond cos_k    cond cos_v    
+  t+1     0.775         0.417         
+  t+2     0.757         0.356         
+  t+3     0.752         0.322         
+  t+4     0.747         0.316         
+  t+5     0.738         0.295         
+
+Saved results/pipeline_kv_medusa_06b_conditional.json

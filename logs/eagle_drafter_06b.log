@@ -1,0 +1,28 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading tokens...
+Loading Qwen/Qwen3-0.6B...
+  d_model=1024, n_attn_heads=16, head_dim=128
+  Drafter params: 23.1M
+
+Training...
+  step  100: loss=7.9392 mse=7.1985 ce=7.4061 cos_h=0.710 tok_acc=0.047
+  step  200: loss=6.0427 mse=5.3638 ce=6.7892 cos_h=0.775 tok_acc=0.082
+  step  300: loss=5.1883 mse=4.5853 ce=6.0300 cos_h=0.823 tok_acc=0.114
+  step  400: loss=5.7799 mse=5.0875 ce=6.9238 cos_h=0.787 tok_acc=0.086
+  step  500: loss=6.0811 mse=5.5030 ce=5.7817 cos_h=0.769 tok_acc=0.141
+  step  600: loss=3.8930 mse=3.3866 ce=5.0632 cos_h=0.861 tok_acc=0.165
+  step  700: loss=4.7492 mse=4.2030 ce=5.4617 cos_h=0.833 tok_acc=0.145
+  step  800: loss=4.3056 mse=3.7320 ce=5.7362 cos_h=0.847 tok_acc=0.106
+  step  900: loss=5.4406 mse=4.7628 ce=6.7779 cos_h=0.816 tok_acc=0.078
+  step 1000: loss=4.1637 mse=3.6464 ce=5.1729 cos_h=0.851 tok_acc=0.122
+  step 1100: loss=5.9920 mse=5.2991 ce=6.9298 cos_h=0.764 tok_acc=0.110
+  step 1200: loss=4.3798 mse=3.8268 ce=5.5301 cos_h=0.841 tok_acc=0.141
+  step 1300: loss=4.7563 mse=4.2881 ce=4.6822 cos_h=0.849 tok_acc=0.204
+  step 1400: loss=3.8200 mse=3.3207 ce=4.9926 cos_h=0.851 tok_acc=0.169
+  step 1500: loss=3.5168 mse=2.9342 ce=5.8268 cos_h=0.868 tok_acc=0.125
+
+  EAGLE DRAFTER FINAL: val_tok_acc=0.148 val_cos_h=0.846
+
+Saved checkpoints/qwen_06b/eagle_drafter.pt and results/pipeline_eagle_drafter_06b.json

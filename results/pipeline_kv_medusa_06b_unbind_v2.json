@@ -1,0 +1,131 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "target_layer": 14,
+  "real_K_top1_ceiling": 0.0965,
+  "results": [
+    {
+      "offset": 1,
+      "n": 50,
+      "top1": 0.18,
+      "top5": 0.34
+    },
+    {
+      "offset": 2,
+      "n": 50,
+      "top1": 0.08,
+      "top5": 0.12
+    },
+    {
+      "offset": 3,
+      "n": 50,
+      "top1": 0.0,
+      "top5": 0.1
+    },
+    {
+      "offset": 4,
+      "n": 50,
+      "top1": 0.04,
+      "top5": 0.16
+    },
+    {
+      "offset": 5,
+      "n": 50,
+      "top1": 0.02,
+      "top5": 0.1
+    },
+    {
+      "offset": 6,
+      "n": 50,
+      "top1": 0.1,
+      "top5": 0.16
+    },
+    {
+      "offset": 7,
+      "n": 50,
+      "top1": 0.04,
+      "top5": 0.22
+    },
+    {
+      "offset": 8,
+      "n": 50,
+      "top1": 0.02,
+      "top5": 0.12
+    },
+    {
+      "offset": 9,
+      "n": 50,
+      "top1": 0.02,
+      "top5": 0.16
+    },
+    {
+      "offset": 10,
+      "n": 50,
+      "top1": 0.0,
+      "top5": 0.04
+    }
+  ],
+  "chained_top1": 1.1944,
+  "chained_top5": 1.3856,
+  "training_history": [
+    {
+      "step": 150,
+      "offset": 2,
+      "loss": 7.7489,
+      "acc": 0.0591
+    },
+    {
+      "step": 300,
+      "offset": 3,
+      "loss": 8.1199,
+      "acc": 0.0711
+    },
+    {
+      "step": 450,
+      "offset": 9,
+      "loss": 7.9674,
+      "acc": 0.0405
+    },
+    {
+      "step": 600,
+      "offset": 4,
+      "loss": 7.6774,
+      "acc": 0.0754
+    },
+    {
+      "step": 750,
+      "offset": 5,
+      "loss": 7.7059,
+      "acc": 0.0558
+    },
+    {
+      "step": 900,
+      "offset": 4,
+      "loss": 7.1443,
+      "acc": 0.0437
+    },
+    {
+      "step": 1050,
+      "offset": 6,
+      "loss": 7.9077,
+      "acc": 0.024
+    },
+    {
+      "step": 1200,
+      "offset": 2,
+      "loss": 7.7351,
+      "acc": 0.0866
+    },
+    {
+      "step": 1350,
+      "offset": 1,
+      "loss": 6.5707,
+      "acc": 0.102
+    },
+    {
+      "step": 1500,
+      "offset": 3,
+      "loss": 7.7252,
+      "acc": 0.0316
+    }
+  ]
+}

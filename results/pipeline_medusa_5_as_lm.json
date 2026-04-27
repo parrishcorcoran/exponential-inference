@@ -1,0 +1,33 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "n_generate": 80,
+  "results": [
+    {
+      "prompt": "The future of artificial intelligence depends on",
+      "baseline_text": "The future of artificial intelligence depends on the ability to create a system that can understand and respond to the world around it. This is the core of the AI research field. However, the current state of AI research is still in the early stages, with many challenges and limitations. The development of AI systems is a complex process that requires a lot of resources and expertise. The challenge lies in the fact that AI systems are still in the early",
+      "baseline_ppl": 3.459945713372877,
+      "baseline_nll": 1.2412528991699219,
+      "medusa_text": "The future of artificial intelligence depends on the understanding humanity human understanding of the the of the future of the of the future of of of future of. AI of the future of of of the of of of of of the the of of the of. the of the of of the the the of the the the the of the the the the of the the the the of the the the the of the the the the of the the the the",
+      "medusa_ppl": 8.000484526936742,
+      "medusa_nll": 2.0795021057128906
+    },
+    {
+      "prompt": "In the early morning, the city was quiet, and",
+      "baseline_text": "In the early morning, the city was quiet, and the streets were empty. The sky was blue, and the trees were silent. The wind was gentle, and the air was cool. The city was quiet, and the streets were empty. The sky was blue, and the trees were silent. The wind was gentle, and the air was cool. The city was quiet, and the streets were empty. The sky was blue, and the trees were",
+      "baseline_ppl": 2.3475738922904514,
+      "baseline_nll": 0.853382408618927,
+      "medusa_text": "In the early morning, the city was quiet, and the suddenly suddenly with in the. and,haled,. the the air was. was was was..... . the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+      "medusa_ppl": 12.511700632042992,
+      "medusa_nll": 2.5266642570495605
+    },
+    {
+      "prompt": "Once upon a time, there was a small village where",
+      "baseline_text": "Once upon a time, there was a small village where the people lived in a small house. The village was not very large, but it had a lot of people. The village was surrounded by a forest, and the forest was very large. The village had a small river that ran through it. The village had a small house that was built on the ground. The village had a small river that ran through it. The village had a small house that",
+      "baseline_ppl": 2.9409740476069315,
+      "baseline_nll": 1.0787408351898193,
+      "medusa_text": "Once upon a time, there was a small village where the, life three, four the the four four,, the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+      "medusa_ppl": 3.5450551353201414,
+      "medusa_nll": 1.2655537128448486
+    }
+  ]
+}

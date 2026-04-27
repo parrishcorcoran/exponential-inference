@@ -1,0 +1,50 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "n_seqs": 10,
+  "anchors_per_seq": 5,
+  "results": [
+    {
+      "offset": 1,
+      "n": 50,
+      "raw_token_acc": 0.04,
+      "accept_no_kv": 0.84,
+      "accept_with_kv": 0.84,
+      "kv_gain": 0.0
+    },
+    {
+      "offset": 2,
+      "n": 50,
+      "raw_token_acc": 0.04,
+      "accept_no_kv": 0.14,
+      "accept_with_kv": 0.14,
+      "kv_gain": 0.0
+    },
+    {
+      "offset": 3,
+      "n": 50,
+      "raw_token_acc": 0.04,
+      "accept_no_kv": 0.04,
+      "accept_with_kv": 0.06,
+      "kv_gain": 0.02
+    },
+    {
+      "offset": 4,
+      "n": 50,
+      "raw_token_acc": 0.06,
+      "accept_no_kv": 0.06,
+      "accept_with_kv": 0.06,
+      "kv_gain": 0.0
+    },
+    {
+      "offset": 5,
+      "n": 50,
+      "raw_token_acc": 0.02,
+      "accept_no_kv": 0.1,
+      "accept_with_kv": 0.08,
+      "kv_gain": -0.02
+    }
+  ],
+  "chained_raw_acc": 1.0417,
+  "chained_accept_no_kv": 1.9626,
+  "chained_accept_with_kv": 1.9651
+}

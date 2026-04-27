@@ -1,0 +1,49 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading 5 standard Medusa heads...
+
+======================================================================
+PROMPT: 'The future of artificial intelligence depends on'
+======================================================================
+
+--- BASELINE (greedy LM head) ---
+The future of artificial intelligence depends on the ability to create a system that can understand and respond to the world around it. This is the core of the AI research field. However, the current state of AI research is still in the early stages, with many challenges and limitations. The development of AI systems is a complex process that requires a lot of resources and expertise. The challenge lies in the fact that AI systems are still in the early
+
+self-PPL: 3.46, mean NLL: 1.241
+
+--- MEDUSA-5 AS LM (5 heads top-1, no verify) ---
+The future of artificial intelligence depends on the understanding humanity human understanding of the the of the future of the of the future of of of future of. AI of the future of of of the of of of of of the the of of the of. the of the of of the the the of the the the the of the the the the of the the the the of the the the the of the the the the of the the the the
+
+self-PPL: 8.00, mean NLL: 2.080
+
+======================================================================
+PROMPT: 'In the early morning, the city was quiet, and'
+======================================================================
+
+--- BASELINE (greedy LM head) ---
+In the early morning, the city was quiet, and the streets were empty. The sky was blue, and the trees were silent. The wind was gentle, and the air was cool. The city was quiet, and the streets were empty. The sky was blue, and the trees were silent. The wind was gentle, and the air was cool. The city was quiet, and the streets were empty. The sky was blue, and the trees were
+
+self-PPL: 2.35, mean NLL: 0.853
+
+--- MEDUSA-5 AS LM (5 heads top-1, no verify) ---
+In the early morning, the city was quiet, and the suddenly suddenly with in the. and,haled,. the the air was. was was was..... . the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+
+self-PPL: 12.51, mean NLL: 2.527
+
+======================================================================
+PROMPT: 'Once upon a time, there was a small village where'
+======================================================================
+
+--- BASELINE (greedy LM head) ---
+Once upon a time, there was a small village where the people lived in a small house. The village was not very large, but it had a lot of people. The village was surrounded by a forest, and the forest was very large. The village had a small river that ran through it. The village had a small house that was built on the ground. The village had a small river that ran through it. The village had a small house that
+
+self-PPL: 2.94, mean NLL: 1.079
+
+--- MEDUSA-5 AS LM (5 heads top-1, no verify) ---
+Once upon a time, there was a small village where the, life three, four the the four four,, the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the
+
+self-PPL: 3.55, mean NLL: 1.266
+
+
+Saved results/pipeline_medusa_5_as_lm.json

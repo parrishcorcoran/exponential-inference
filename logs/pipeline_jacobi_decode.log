@@ -1,0 +1,51 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+
+======================================================================
+PROMPT: 'The future of artificial intelligence depends on'
+======================================================================
+
+--- BASELINE (greedy) ---
+The future of artificial intelligence depends on the ability to create a system that can understand and respond to the world around it. This is the core of the AI research field. However, the current state of AI research is still in the early stages, with many challenges and limitations. The development of AI systems is a complex process that requires a
+
+forwards: 60, self-PPL: 3.69
+
+--- JACOBI (k=5) ---
+The future of artificial intelligence depends on the ability to create a system that can understand and respond to the world around it. This is the core of the AI research field. However, the current state of AI research is still in the early stages, with many challenges and limitations. The development of AI systems is a complex process that requires a
+
+forwards: 72, iters per chunk: [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6], speedup: 0.83x, self-PPL: 3.69
+text-identical to baseline: True
+
+======================================================================
+PROMPT: 'In the early morning, the city was quiet, and'
+======================================================================
+
+--- BASELINE (greedy) ---
+In the early morning, the city was quiet, and the streets were empty. The sky was blue, and the trees were silent. The wind was gentle, and the air was cool. The city was quiet, and the streets were empty. The sky was blue, and the trees were silent. The wind was gentle, and the air was cool.
+
+forwards: 60, self-PPL: 2.92
+
+--- JACOBI (k=5) ---
+In the early morning, the city was quiet, and the streets were empty. The sky was blue, and the trees were silent. The wind was gentle, and the air was cool. The city was quiet, and the streets were empty. The sky was blue, and the trees were silent. The wind was gentle, and the air was cool.
+
+forwards: 72, iters per chunk: [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6], speedup: 0.83x, self-PPL: 2.92
+text-identical to baseline: True
+
+======================================================================
+PROMPT: 'Once upon a time, there was a small village where'
+======================================================================
+
+--- BASELINE (greedy) ---
+Once upon a time, there was a small village where the people lived in a small house. The village was not very large, but it had a lot of people. The village was surrounded by a forest, and the forest was very large. The village had a small river that ran through it. The village had a small house that was built on the
+
+forwards: 60, self-PPL: 3.43
+
+--- JACOBI (k=5) ---
+Once upon a time, there was a small village where the people lived in a small house. The village was not very large, but it had a lot of people. The village was surrounded by a forest, and the forest was very large. The village had a small river that ran through it. The village had a small house that was built on the
+
+forwards: 69, iters per chunk: [6, 5, 5, 6, 6, 6, 5, 6, 6, 6, 6, 6], speedup: 0.87x, self-PPL: 3.43
+text-identical to baseline: True
+
+
+Saved results/pipeline_jacobi_decode.json

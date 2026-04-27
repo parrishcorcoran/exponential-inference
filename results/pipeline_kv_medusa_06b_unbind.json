@@ -1,0 +1,110 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "target_layer": 14,
+  "real_K_top1_acc": 0.5598,
+  "results": [
+    {
+      "offset": 1,
+      "n": 50,
+      "tok_acc_predicted_K": 0.12
+    },
+    {
+      "offset": 2,
+      "n": 50,
+      "tok_acc_predicted_K": 0.02
+    },
+    {
+      "offset": 3,
+      "n": 50,
+      "tok_acc_predicted_K": 0.02
+    },
+    {
+      "offset": 4,
+      "n": 50,
+      "tok_acc_predicted_K": 0.04
+    },
+    {
+      "offset": 5,
+      "n": 50,
+      "tok_acc_predicted_K": 0.0
+    },
+    {
+      "offset": 6,
+      "n": 50,
+      "tok_acc_predicted_K": 0.0
+    },
+    {
+      "offset": 7,
+      "n": 50,
+      "tok_acc_predicted_K": 0.02
+    },
+    {
+      "offset": 8,
+      "n": 50,
+      "tok_acc_predicted_K": 0.04
+    },
+    {
+      "offset": 9,
+      "n": 50,
+      "tok_acc_predicted_K": 0.02
+    },
+    {
+      "offset": 10,
+      "n": 50,
+      "tok_acc_predicted_K": 0.04
+    }
+  ],
+  "chained_tokens_per_step": 1.1224,
+  "training_history": [
+    {
+      "step": 100,
+      "loss": 5.1378,
+      "acc": 0.3008
+    },
+    {
+      "step": 200,
+      "loss": 4.2548,
+      "acc": 0.4062
+    },
+    {
+      "step": 300,
+      "loss": 2.885,
+      "acc": 0.5312
+    },
+    {
+      "step": 400,
+      "loss": 3.0564,
+      "acc": 0.4609
+    },
+    {
+      "step": 500,
+      "loss": 3.4271,
+      "acc": 0.4492
+    },
+    {
+      "step": 600,
+      "loss": 2.8747,
+      "acc": 0.4609
+    },
+    {
+      "step": 700,
+      "loss": 2.5845,
+      "acc": 0.5547
+    },
+    {
+      "step": 800,
+      "loss": 2.8067,
+      "acc": 0.5391
+    },
+    {
+      "step": 900,
+      "loss": 2.1031,
+      "acc": 0.6523
+    },
+    {
+      "step": 1000,
+      "loss": 1.4635,
+      "acc": 0.6914
+    }
+  ]
+}

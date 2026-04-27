@@ -1,0 +1,227 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "device": "mps",
+  "target_layer": 14,
+  "results": [
+    {
+      "offset": 1,
+      "final_cos_k": 0.7755,
+      "final_cos_v": 0.4172,
+      "head_params_M": 3.15,
+      "history": [
+        {
+          "step": 50,
+          "loss": 4.7248,
+          "cos_k": 0.6856,
+          "cos_v": 0.2609
+        },
+        {
+          "step": 100,
+          "loss": 4.2941,
+          "cos_k": 0.7447,
+          "cos_v": 0.3498
+        },
+        {
+          "step": 150,
+          "loss": 4.0462,
+          "cos_k": 0.753,
+          "cos_v": 0.3583
+        },
+        {
+          "step": 200,
+          "loss": 3.6798,
+          "cos_k": 0.7719,
+          "cos_v": 0.3872
+        },
+        {
+          "step": 250,
+          "loss": 3.9735,
+          "cos_k": 0.7755,
+          "cos_v": 0.3591
+        },
+        {
+          "step": 300,
+          "loss": 3.5333,
+          "cos_k": 0.7813,
+          "cos_v": 0.4262
+        }
+      ]
+    },
+    {
+      "offset": 2,
+      "final_cos_k": 0.7574,
+      "final_cos_v": 0.3565,
+      "head_params_M": 3.15,
+      "history": [
+        {
+          "step": 50,
+          "loss": 5.091,
+          "cos_k": 0.6753,
+          "cos_v": 0.2073
+        },
+        {
+          "step": 100,
+          "loss": 4.4611,
+          "cos_k": 0.6727,
+          "cos_v": 0.2962
+        },
+        {
+          "step": 150,
+          "loss": 4.3601,
+          "cos_k": 0.7221,
+          "cos_v": 0.2798
+        },
+        {
+          "step": 200,
+          "loss": 4.3997,
+          "cos_k": 0.7449,
+          "cos_v": 0.3504
+        },
+        {
+          "step": 250,
+          "loss": 3.6706,
+          "cos_k": 0.7633,
+          "cos_v": 0.3799
+        },
+        {
+          "step": 300,
+          "loss": 3.9773,
+          "cos_k": 0.7776,
+          "cos_v": 0.3461
+        }
+      ]
+    },
+    {
+      "offset": 3,
+      "final_cos_k": 0.7517,
+      "final_cos_v": 0.3222,
+      "head_params_M": 3.15,
+      "history": [
+        {
+          "step": 50,
+          "loss": 4.9978,
+          "cos_k": 0.7155,
+          "cos_v": 0.2117
+        },
+        {
+          "step": 100,
+          "loss": 4.6659,
+          "cos_k": 0.7487,
+          "cos_v": 0.2378
+        },
+        {
+          "step": 150,
+          "loss": 4.3584,
+          "cos_k": 0.7508,
+          "cos_v": 0.2602
+        },
+        {
+          "step": 200,
+          "loss": 4.3314,
+          "cos_k": 0.7439,
+          "cos_v": 0.3051
+        },
+        {
+          "step": 250,
+          "loss": 4.126,
+          "cos_k": 0.7471,
+          "cos_v": 0.3163
+        },
+        {
+          "step": 300,
+          "loss": 4.4573,
+          "cos_k": 0.7286,
+          "cos_v": 0.3028
+        }
+      ]
+    },
+    {
+      "offset": 4,
+      "final_cos_k": 0.7467,
+      "final_cos_v": 0.3162,
+      "head_params_M": 3.15,
+      "history": [
+        {
+          "step": 50,
+          "loss": 4.8611,
+          "cos_k": 0.6854,
+          "cos_v": 0.2347
+        },
+        {
+          "step": 100,
+          "loss": 4.798,
+          "cos_k": 0.7156,
+          "cos_v": 0.2615
+        },
+        {
+          "step": 150,
+          "loss": 4.3975,
+          "cos_k": 0.7408,
+          "cos_v": 0.24
+        },
+        {
+          "step": 200,
+          "loss": 4.4011,
+          "cos_k": 0.7281,
+          "cos_v": 0.2953
+        },
+        {
+          "step": 250,
+          "loss": 4.1049,
+          "cos_k": 0.7199,
+          "cos_v": 0.3324
+        },
+        {
+          "step": 300,
+          "loss": 4.312,
+          "cos_k": 0.7448,
+          "cos_v": 0.3151
+        }
+      ]
+    },
+    {
+      "offset": 5,
+      "final_cos_k": 0.7381,
+      "final_cos_v": 0.2953,
+      "head_params_M": 3.15,
+      "history": [
+        {
+          "step": 50,
+          "loss": 4.8603,
+          "cos_k": 0.6966,
+          "cos_v": 0.2256
+        },
+        {
+          "step": 100,
+          "loss": 4.8351,
+          "cos_k": 0.697,
+          "cos_v": 0.2265
+        },
+        {
+          "step": 150,
+          "loss": 4.4712,
+          "cos_k": 0.7206,
+          "cos_v": 0.304
+        },
+        {
+          "step": 200,
+          "loss": 4.5747,
+          "cos_k": 0.7206,
+          "cos_v": 0.293
+        },
+        {
+          "step": 250,
+          "loss": 4.2328,
+          "cos_k": 0.7494,
+          "cos_v": 0.2693
+        },
+        {
+          "step": 300,
+          "loss": 4.0521,
+          "cos_k": 0.737,
+          "cos_v": 0.2601
+        }
+      ]
+    }
+  ]
+}

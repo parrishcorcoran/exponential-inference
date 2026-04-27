@@ -1,0 +1,29 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading 10 heads...
+
+Benchmark setup: prefix_len=11, generating 64 tokens, 5 reps
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+
+Baseline greedy: 2345.8 ms for 64 tokens => 27.28 tok/s
+  Per-step: 36.65 ms
+
+10 heads inference: 2.12 ms
+Verification forward pass (len 21): 55.70 ms
+Single-token forward (with cache): 32.84 ms
+
+============================================================
+KV-MEDUSA 0.6B WALLCLOCK SUMMARY
+============================================================
+  Baseline greedy:              27.28 tok/s   (36.65 ms/tok)
+  Heads inference:               2.12 ms     (10 heads, single h_t)
+  Verify forward pass:          55.70 ms     (len 21)
+  Single-tok forward:           32.84 ms
+  Medusa step duration:         57.82 ms     (heads + verify)
+  Tokens per step:               8.76        (from acceptance test)
+  Projected Medusa tok/s:      151.50 tok/s
+  Projected speedup:             5.55x
+
+Saved results/pipeline_kv_medusa_06b_speed.json

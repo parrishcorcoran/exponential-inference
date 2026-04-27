@@ -1,0 +1,41 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+  offset=2, target_layer=14
+Loading tokens...
+Loading anchor: head 1 (joint-trained, FROZEN)...
+Init head_2 from anchor (head 1 joint)...
+Loading decoder (continues from joint_one)...
+
+============================================================
+ANNEAL STEP — train head_2 (warm from head_1) + decoder
+============================================================
+
+  step  100: loss=10.536 mse=4.322 ce=6.214 cos_k=0.767 tok_acc=0.110
+  step  200: loss=10.375 mse=4.195 ce=6.181 cos_k=0.770 tok_acc=0.063
+  step  300: loss=10.828 mse=4.180 ce=6.649 cos_k=0.754 tok_acc=0.071
+  step  400: loss=10.631 mse=4.223 ce=6.408 cos_k=0.756 tok_acc=0.102
+  step  500: loss=10.780 mse=4.542 ce=6.238 cos_k=0.755 tok_acc=0.110
+  step  600: loss=10.019 mse=4.305 ce=5.714 cos_k=0.772 tok_acc=0.122
+  step  700: loss=10.563 mse=4.334 ce=6.229 cos_k=0.768 tok_acc=0.154
+  step  800: loss=10.021 mse=3.885 ce=6.136 cos_k=0.769 tok_acc=0.130
+  step  900: loss=10.655 mse=4.212 ce=6.443 cos_k=0.763 tok_acc=0.075
+  step 1000: loss=10.874 mse=3.763 ce=7.111 cos_k=0.767 tok_acc=0.071
+  step 1100: loss=10.300 mse=4.334 ce=5.966 cos_k=0.763 tok_acc=0.138
+  step 1200: loss=11.365 mse=4.426 ce=6.939 cos_k=0.753 tok_acc=0.091
+  step 1300: loss=11.930 mse=4.136 ce=7.794 cos_k=0.710 tok_acc=0.031
+  step 1400: loss=10.689 mse=4.188 ce=6.501 cos_k=0.747 tok_acc=0.138
+  step 1500: loss=10.739 mse=3.866 ce=6.873 cos_k=0.771 tok_acc=0.079
+
+============================================================
+EVAL after head_2 anneal
+============================================================
+  offset 1 (anchor head, decoder co-trained):
+    cos_k=0.755  top-1=0.220  top-5=0.460  (n=100)
+  offset 2 (new head):
+    cos_k=0.754  top-1=0.090  top-5=0.240  (n=100)
+
+  Reference: standard Medusa head 2 (offset 2) val_acc was 0.052
+  Reference: focused-joint head 1 result was top-1=0.21 / top-5=0.46
+
+Saved results/pipeline_kv_medusa_06b_anneal_h2.json

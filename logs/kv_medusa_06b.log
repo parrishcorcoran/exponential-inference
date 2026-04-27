@@ -1,0 +1,165 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+============================================================
+KV-MEDUSA on Qwen3-0.6B
+  device=mps  dtype=torch.float32
+  10 heads (t+1 through t+10)
+  300 steps each
+============================================================
+
+Loading tokens...
+
+Loading Qwen/Qwen3-0.6B...
+  d_model=1024, n_kv_heads=8, head_dim=128, d_kv=1024, L=28
+  Training on layer 14 (middle)
+
+============================================================
+  KV-MEDUSA HEAD 1 — predict KV at t+1, layer 14
+============================================================
+  Head params: 2.10M
+  step   50: loss=4.9285 cos_k=0.712 cos_v=0.244 rel_k=0.675 rel_v=0.978
+  step  100: loss=4.5546 cos_k=0.744 cos_v=0.295 rel_k=0.640 rel_v=0.976
+  step  150: loss=4.0537 cos_k=0.762 cos_v=0.344 rel_k=0.621 rel_v=0.916
+  step  200: loss=4.0145 cos_k=0.759 cos_v=0.358 rel_k=0.626 rel_v=0.954
+  step  250: loss=4.7671 cos_k=0.687 cos_v=0.271 rel_k=0.714 rel_v=0.970
+  step  300: loss=3.9341 cos_k=0.776 cos_v=0.427 rel_k=0.613 rel_v=0.895
+
+  KV-HEAD 1 FINAL: cos_k=0.774 cos_v=0.412 rel_k=0.611 rel_v=0.920
+
+============================================================
+  KV-MEDUSA HEAD 2 — predict KV at t+2, layer 14
+============================================================
+  Head params: 2.10M
+  step   50: loss=5.0120 cos_k=0.658 cos_v=0.154 rel_k=0.733 rel_v=0.993
+  step  100: loss=4.9870 cos_k=0.721 cos_v=0.364 rel_k=0.679 rel_v=0.960
+  step  150: loss=4.3888 cos_k=0.750 cos_v=0.276 rel_k=0.634 rel_v=0.967
+  step  200: loss=4.3861 cos_k=0.750 cos_v=0.299 rel_k=0.636 rel_v=0.966
+  step  250: loss=4.2286 cos_k=0.755 cos_v=0.323 rel_k=0.631 rel_v=0.965
+  step  300: loss=4.4866 cos_k=0.752 cos_v=0.324 rel_k=0.638 rel_v=0.969
+
+  KV-HEAD 2 FINAL: cos_k=0.748 cos_v=0.335 rel_k=0.642 rel_v=0.951
+
+============================================================
+  KV-MEDUSA HEAD 3 — predict KV at t+3, layer 14
+============================================================
+  Head params: 2.10M
+  step   50: loss=4.6427 cos_k=0.711 cos_v=0.195 rel_k=0.678 rel_v=0.986
+  step  100: loss=4.7180 cos_k=0.710 cos_v=0.221 rel_k=0.675 rel_v=0.981
+  step  150: loss=4.9618 cos_k=0.704 cos_v=0.301 rel_k=0.696 rel_v=0.964
+  step  200: loss=4.7377 cos_k=0.715 cos_v=0.341 rel_k=0.686 rel_v=0.960
+  step  250: loss=4.2326 cos_k=0.760 cos_v=0.283 rel_k=0.621 rel_v=0.975
+  step  300: loss=4.4208 cos_k=0.748 cos_v=0.291 rel_k=0.643 rel_v=0.970
+
+  KV-HEAD 3 FINAL: cos_k=0.745 cos_v=0.282 rel_k=0.645 rel_v=0.968
+
+============================================================
+  KV-MEDUSA HEAD 4 — predict KV at t+4, layer 14
+============================================================
+  Head params: 2.10M
+  step   50: loss=5.0978 cos_k=0.701 cos_v=0.203 rel_k=0.689 rel_v=0.983
+  step  100: loss=4.7923 cos_k=0.691 cos_v=0.223 rel_k=0.698 rel_v=0.979
+  step  150: loss=4.3724 cos_k=0.721 cos_v=0.221 rel_k=0.666 rel_v=0.979
+  step  200: loss=4.4036 cos_k=0.751 cos_v=0.276 rel_k=0.635 rel_v=0.962
+  step  250: loss=4.3657 cos_k=0.759 cos_v=0.281 rel_k=0.623 rel_v=0.972
+  step  300: loss=4.5790 cos_k=0.746 cos_v=0.302 rel_k=0.641 rel_v=0.969
+
+  KV-HEAD 4 FINAL: cos_k=0.739 cos_v=0.275 rel_k=0.651 rel_v=0.971
+
+============================================================
+  KV-MEDUSA HEAD 5 — predict KV at t+5, layer 14
+============================================================
+  Head params: 2.10M
+  step   50: loss=4.6756 cos_k=0.707 cos_v=0.195 rel_k=0.683 rel_v=0.984
+  step  100: loss=4.6324 cos_k=0.711 cos_v=0.249 rel_k=0.679 rel_v=0.977
+  step  150: loss=4.5020 cos_k=0.715 cos_v=0.237 rel_k=0.674 rel_v=0.983
+  step  200: loss=4.6867 cos_k=0.725 cos_v=0.243 rel_k=0.664 rel_v=0.976
+  step  250: loss=3.9265 cos_k=0.763 cos_v=0.313 rel_k=0.617 rel_v=0.969
+  step  300: loss=4.6020 cos_k=0.728 cos_v=0.277 rel_k=0.664 rel_v=0.972
+
+  KV-HEAD 5 FINAL: cos_k=0.729 cos_v=0.255 rel_k=0.661 rel_v=0.975
+
+============================================================
+  KV-MEDUSA HEAD 6 — predict KV at t+6, layer 14
+============================================================
+  Head params: 2.10M
+  step   50: loss=4.9240 cos_k=0.691 cos_v=0.182 rel_k=0.705 rel_v=0.986
+  step  100: loss=4.7765 cos_k=0.686 cos_v=0.203 rel_k=0.703 rel_v=0.983
+  step  150: loss=4.8834 cos_k=0.706 cos_v=0.220 rel_k=0.690 rel_v=0.981
+  step  200: loss=4.4709 cos_k=0.729 cos_v=0.257 rel_k=0.662 rel_v=0.975
+  step  250: loss=4.3219 cos_k=0.736 cos_v=0.272 rel_k=0.658 rel_v=0.960
+  step  300: loss=4.6738 cos_k=0.735 cos_v=0.274 rel_k=0.651 rel_v=0.970
+
+  KV-HEAD 6 FINAL: cos_k=0.735 cos_v=0.254 rel_k=0.653 rel_v=0.976
+
+============================================================
+  KV-MEDUSA HEAD 7 — predict KV at t+7, layer 14
+============================================================
+  Head params: 2.10M
+  step   50: loss=4.8727 cos_k=0.707 cos_v=0.184 rel_k=0.679 rel_v=0.988
+  step  100: loss=4.9577 cos_k=0.707 cos_v=0.243 rel_k=0.679 rel_v=0.973
+  step  150: loss=4.4277 cos_k=0.714 cos_v=0.243 rel_k=0.672 rel_v=0.979
+  step  200: loss=4.2616 cos_k=0.729 cos_v=0.259 rel_k=0.659 rel_v=0.971
+  step  250: loss=4.1970 cos_k=0.739 cos_v=0.252 rel_k=0.649 rel_v=0.974
+  step  300: loss=4.3700 cos_k=0.722 cos_v=0.276 rel_k=0.667 rel_v=0.970
+
+  KV-HEAD 7 FINAL: cos_k=0.714 cos_v=0.264 rel_k=0.676 rel_v=0.974
+
+============================================================
+  KV-MEDUSA HEAD 8 — predict KV at t+8, layer 14
+============================================================
+  Head params: 2.10M
+  step   50: loss=4.3699 cos_k=0.715 cos_v=0.225 rel_k=0.677 rel_v=0.979
+  step  100: loss=4.7163 cos_k=0.718 cos_v=0.254 rel_k=0.672 rel_v=0.976
+  step  150: loss=4.5981 cos_k=0.746 cos_v=0.275 rel_k=0.643 rel_v=0.971
+  step  200: loss=4.5629 cos_k=0.707 cos_v=0.255 rel_k=0.691 rel_v=0.979
+  step  250: loss=4.7457 cos_k=0.736 cos_v=0.234 rel_k=0.652 rel_v=0.976
+  step  300: loss=4.2945 cos_k=0.726 cos_v=0.212 rel_k=0.664 rel_v=0.985
+
+  KV-HEAD 8 FINAL: cos_k=0.723 cos_v=0.227 rel_k=0.670 rel_v=0.978
+
+============================================================
+  KV-MEDUSA HEAD 9 — predict KV at t+9, layer 14
+============================================================
+  Head params: 2.10M
+  step   50: loss=5.0794 cos_k=0.701 cos_v=0.209 rel_k=0.694 rel_v=0.984
+  step  100: loss=4.5263 cos_k=0.709 cos_v=0.257 rel_k=0.681 rel_v=0.973
+  step  150: loss=4.6146 cos_k=0.692 cos_v=0.225 rel_k=0.692 rel_v=0.980
+  step  200: loss=4.7625 cos_k=0.706 cos_v=0.271 rel_k=0.695 rel_v=0.973
+  step  250: loss=4.2986 cos_k=0.721 cos_v=0.242 rel_k=0.668 rel_v=0.978
+  step  300: loss=4.5347 cos_k=0.723 cos_v=0.275 rel_k=0.668 rel_v=0.971
+
+  KV-HEAD 9 FINAL: cos_k=0.734 cos_v=0.249 rel_k=0.654 rel_v=0.976
+
+============================================================
+  KV-MEDUSA HEAD 10 — predict KV at t+10, layer 14
+============================================================
+  Head params: 2.10M
+  step   50: loss=4.7043 cos_k=0.706 cos_v=0.233 rel_k=0.687 rel_v=0.981
+  step  100: loss=4.9451 cos_k=0.697 cos_v=0.233 rel_k=0.691 rel_v=0.980
+  step  150: loss=4.8609 cos_k=0.682 cos_v=0.212 rel_k=0.705 rel_v=0.984
+  step  200: loss=4.5293 cos_k=0.736 cos_v=0.217 rel_k=0.656 rel_v=0.983
+  step  250: loss=4.4825 cos_k=0.738 cos_v=0.225 rel_k=0.647 rel_v=0.980
+  step  300: loss=4.2269 cos_k=0.716 cos_v=0.242 rel_k=0.674 rel_v=0.979
+
+  KV-HEAD 10 FINAL: cos_k=0.730 cos_v=0.259 rel_k=0.663 rel_v=0.975
+
+============================================================
+KV-MEDUSA 0.6B SUMMARY
+============================================================
+  Layer: 14
+  t+ 1: cos_k=0.774 cos_v=0.412 rel_err=0.611/0.920  [OK]
+  t+ 2: cos_k=0.748 cos_v=0.335 rel_err=0.642/0.951  [OK]
+  t+ 3: cos_k=0.745 cos_v=0.281 rel_err=0.645/0.968  [OK]
+  t+ 4: cos_k=0.739 cos_v=0.275 rel_err=0.651/0.971  [OK]
+  t+ 5: cos_k=0.729 cos_v=0.255 rel_err=0.661/0.975  [OK]
+  t+ 6: cos_k=0.735 cos_v=0.254 rel_err=0.653/0.977  [OK]
+  t+ 7: cos_k=0.714 cos_v=0.264 rel_err=0.676/0.974  [OK]
+  t+ 8: cos_k=0.723 cos_v=0.227 rel_err=0.670/0.979  [OK]
+  t+ 9: cos_k=0.734 cos_v=0.249 rel_err=0.654/0.976  [OK]
+  t+10: cos_k=0.730 cos_v=0.259 rel_err=0.663/0.975  [OK]
+
+  Heads with cos > 0.7: 0 (high quality drafts)
+  Heads with cos > 0.5: 0 (usable drafts)
+  Potential draft tokens per step: 0
+
+Saved results/pipeline_kv_medusa_06b.json

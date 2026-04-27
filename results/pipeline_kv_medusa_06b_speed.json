@@ -1,0 +1,17 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "device": "mps",
+  "dtype": "torch.float32",
+  "prefix_len": 11,
+  "n_gen": 64,
+  "n_repeats": 5,
+  "tokens_per_step": 8.76,
+  "baseline_tps": 27.283,
+  "baseline_ms_per_tok": 36.652,
+  "heads_ms": 2.125,
+  "verify_ms": 55.696,
+  "single_tok_ms": 32.841,
+  "medusa_step_ms": 57.82,
+  "medusa_projected_tps": 151.504,
+  "speedup": 5.553
+}

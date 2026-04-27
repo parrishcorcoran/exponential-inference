@@ -1,0 +1,45 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "n_seqs": 10,
+  "anchors_per_seq": 5,
+  "results": [
+    {
+      "offset": 1,
+      "n": 50,
+      "accept_no_kv": 0.84,
+      "accept_uncond_kv": 0.84,
+      "accept_cond_kv": 0.84
+    },
+    {
+      "offset": 2,
+      "n": 50,
+      "accept_no_kv": 0.14,
+      "accept_uncond_kv": 0.14,
+      "accept_cond_kv": 0.14
+    },
+    {
+      "offset": 3,
+      "n": 50,
+      "accept_no_kv": 0.04,
+      "accept_uncond_kv": 0.06,
+      "accept_cond_kv": 0.06
+    },
+    {
+      "offset": 4,
+      "n": 50,
+      "accept_no_kv": 0.06,
+      "accept_uncond_kv": 0.06,
+      "accept_cond_kv": 0.06
+    },
+    {
+      "offset": 5,
+      "n": 50,
+      "accept_no_kv": 0.1,
+      "accept_uncond_kv": 0.08,
+      "accept_cond_kv": 0.08
+    }
+  ],
+  "chained_no_kv": 1.9626,
+  "chained_uncond": 1.9651,
+  "chained_cond": 1.9651
+}

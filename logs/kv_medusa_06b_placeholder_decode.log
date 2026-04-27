@@ -1,0 +1,35 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading val tokens...
+
+N=10 sequences, 5 anchors per sequence, 10 offsets, 5 placeholder strategies
+  seq 1/10 done
+  seq 2/10 done
+  seq 3/10 done
+  seq 4/10 done
+  seq 5/10 done
+  seq 6/10 done
+  seq 7/10 done
+  seq 8/10 done
+  seq 9/10 done
+  seq 10/10 done
+
+======================================================================
+PLACEHOLDER-DECODE — let the transformer's softmax produce futures
+======================================================================
+  N seqs: 10, anchors per seq: 5
+
+  placeholdert+1  t+2  t+3  t+4  t+5  t+6  t+7  t+8  t+9  t+10 
+  pad       1.00 0.00 0.02 0.00 0.04 0.00 0.00 0.02 0.00 0.00 
+    → chain 2.000
+  eos       1.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 
+    → chain 2.000
+  unk       1.00 0.00 0.02 0.00 0.04 0.00 0.00 0.02 0.00 0.00 
+    → chain 2.000
+  self      1.00 0.06 0.08 0.02 0.08 0.00 0.04 0.02 0.02 0.02 
+    → chain 2.065
+  shift     1.00 0.44 0.40 0.26 0.16 0.16 0.28 0.32 0.22 0.28 
+    → chain 2.671
+
+Saved results/pipeline_kv_medusa_06b_placeholder_decode.json

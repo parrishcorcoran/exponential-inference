@@ -1,0 +1,62 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+  d_model=1024, d_kv=1024, target_layer=14
+Loading tokens...
+Loading 10 KV-Medusa heads (frozen)...
+
+============================================================
+STAGE 1: Train robust K-decoder on PREDICTED K's at random offsets
+============================================================
+  Decoder params: 4.19M
+  step  150: offset=2 loss=7.7489 train_acc=0.059
+  step  300: offset=3 loss=8.1199 train_acc=0.071
+  step  450: offset=9 loss=7.9674 train_acc=0.040
+  step  600: offset=4 loss=7.6774 train_acc=0.075
+  step  750: offset=5 loss=7.7059 train_acc=0.056
+  step  900: offset=4 loss=7.1443 train_acc=0.044
+  step 1050: offset=6 loss=7.9077 train_acc=0.024
+  step 1200: offset=2 loss=7.7351 train_acc=0.087
+  step 1350: offset=1 loss=6.5707 train_acc=0.102
+  step 1500: offset=3 loss=7.7252 train_acc=0.032
+
+Saved checkpoints/qwen_06b/k_decoder_v2.pt
+
+============================================================
+STAGE 2: Per-offset eval — robust decoder on predicted K's
+============================================================
+  seq 1/10 done
+  seq 2/10 done
+  seq 3/10 done
+  seq 4/10 done
+  seq 5/10 done
+  seq 6/10 done
+  seq 7/10 done
+  seq 8/10 done
+  seq 9/10 done
+  seq 10/10 done
+
+Measuring ceiling on REAL K's for reference...
+
+======================================================================
+HRR-UNBINDING v2 — robust K-decoder, Qwen3-0.6B
+======================================================================
+  Decoder trained on PREDICTED K (matched noise)
+  Real-K ceiling (this decoder): top-1 = 0.096
+
+  offset  top-1     top-5     std-Medusa for ref
+  t+1     0.180     0.340     0.318
+  t+2     0.080     0.120     0.052
+  t+3     0.000     0.100     0.025
+  t+4     0.040     0.160     0.026
+  t+5     0.020     0.100     0.019
+  t+6     0.100     0.160     —
+  t+7     0.040     0.220     —
+  t+8     0.020     0.120     —
+  t+9     0.020     0.160     —
+  t+10    0.000     0.040     —
+
+  Chained tokens/step (top-1): 1.194
+  Chained tokens/step (top-5): 1.386  (would be the tree-Medusa K=5 ceiling)
+
+Saved results/pipeline_kv_medusa_06b_unbind_v2.json

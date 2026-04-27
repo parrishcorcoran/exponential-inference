@@ -1,0 +1,21 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+  d_model=1024, d_kv=1024, target_layer=14
+Loading tokens...
+Loading 10 KV-Medusa heads (warm start)...
+Loading v1 K-decoder (warm start)...
+
+============================================================
+JOINT TRAIN: heads (LR 0.0002) + decoder (LR 0.0001)
+  loss = 1.0 * MSE + 1.0 * CE   for 2000 steps
+============================================================
+
+  step  200: offset= 5 loss=12.514 mse=4.397 ce=8.118 cos_k=0.736 tok_acc=0.048
+  step  400: offset= 2 loss=11.181 mse=4.567 ce=6.614 cos_k=0.748 tok_acc=0.067
+  step  600: offset=10 loss=12.219 mse=4.435 ce=7.784 cos_k=0.734 tok_acc=0.028
+  step  800: offset= 5 loss=12.176 mse=4.725 ce=7.451 cos_k=0.734 tok_acc=0.016
+  step 1000: offset=10 loss=12.081 mse=4.531 ce=7.550 cos_k=0.727 tok_acc=0.053
+  step 1200: offset= 3 loss=12.160 mse=4.499 ce=7.661 cos_k=0.746 tok_acc=0.032
+/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

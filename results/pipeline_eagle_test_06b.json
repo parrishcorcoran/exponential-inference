@@ -1,0 +1,39 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "n_seqs": 10,
+  "anchors_per_seq": 5,
+  "results": [
+    {
+      "offset": 1,
+      "n": 50,
+      "raw_acc": 0.32,
+      "verify_accept": 0.32
+    },
+    {
+      "offset": 2,
+      "n": 50,
+      "raw_acc": 0.14,
+      "verify_accept": 0.2
+    },
+    {
+      "offset": 3,
+      "n": 50,
+      "raw_acc": 0.1,
+      "verify_accept": 0.18
+    },
+    {
+      "offset": 4,
+      "n": 50,
+      "raw_acc": 0.0,
+      "verify_accept": 0.22
+    },
+    {
+      "offset": 5,
+      "n": 50,
+      "raw_acc": 0.02,
+      "verify_accept": 0.18
+    }
+  ],
+  "chained_raw": 1.3693,
+  "chained_verify": 1.3985
+}

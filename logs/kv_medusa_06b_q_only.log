@@ -1,0 +1,26 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+  d_model=1024, n_attn_heads=16, head_dim=128, d_q=2048
+Loading tokens...
+
+Train Q-decoder on real Q at layer 14...
+  step  100: loss=4.555 train_acc=0.297
+  step  200: loss=3.401 train_acc=0.465
+  step  300: loss=4.214 train_acc=0.379
+  step  400: loss=2.343 train_acc=0.539
+  step  500: loss=2.480 train_acc=0.559
+  step  600: loss=2.435 train_acc=0.539
+  step  700: loss=4.087 train_acc=0.449
+  step  800: loss=1.735 train_acc=0.680
+  step  900: loss=1.869 train_acc=0.652
+  step 1000: loss=2.000 train_acc=0.637
+
+======================================================================
+Q-DECODER CEILING — Qwen3-0.6B layer 14
+======================================================================
+  Real-Q top-1 token acc: 0.615
+  Real-Q top-5 token acc: 0.785
+  Reference: real-K top-1 = 0.560 (v1 K-decoder)
+
+Saved results/pipeline_kv_medusa_06b_q_only.json

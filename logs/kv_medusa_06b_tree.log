@@ -1,0 +1,35 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading 5 token-Medusa heads...
+  seq 1/10 done
+  seq 2/10 done
+  seq 3/10 done
+  seq 4/10 done
+  seq 5/10 done
+  seq 6/10 done
+  seq 7/10 done
+  seq 8/10 done
+  seq 9/10 done
+  seq 10/10 done
+
+======================================================================
+TREE-MEDUSA PROBE — top-K expansion, Qwen3-0.6B
+======================================================================
+  offset  K=1    K=2    K=4    K=8    K=16   K=32   K=64   
+  t+1     0.840  0.940  1.000  1.000  1.000  1.000  1.000  
+  t+2     0.140  0.160  0.320  0.400  0.460  0.520  0.600  
+  t+3     0.020  0.060  0.200  0.320  0.460  0.500  0.560  
+  t+4     0.020  0.100  0.200  0.220  0.280  0.360  0.440  
+  t+5     0.060  0.080  0.140  0.260  0.320  0.400  0.500  
+
+  Chained tokens/step (1 + a1 + a1*a2 + ... assuming offsets independent):
+    K=  1: 1.960
+    K=  2: 2.100
+    K=  4: 2.399
+    K=  8: 2.563
+    K= 16: 2.750
+    K= 32: 2.911
+    K= 64: 3.158
+
+Saved results/pipeline_kv_medusa_06b_tree.json

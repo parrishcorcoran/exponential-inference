@@ -1,0 +1,33 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "n_generate": 80,
+  "results": [
+    {
+      "prompt": "The future of artificial intelligence depends on",
+      "baseline_text": "The future of artificial intelligence depends on the ability to create a system that can understand and respond to the world around it. This is the core of the AI research field. However, the current state of AI research is still in the early stages, with many challenges and limitations. The development of AI systems is a complex process that requires a lot of resources and expertise. The challenge lies in the fact that AI systems are still in the early",
+      "baseline_ppl": 3.459945713372877,
+      "baseline_nll": 1.2412528991699219,
+      "decoder_text": "The future of artificial intelligence depends on how to have a new, new year. This is the first time in the world, a new European Union, a new European Congress of Congress, and the most likely reason for the rise of the EU's political and political, and the most likely to be the most likely for the government, which is the same as the same, and the same, but only a few people think that this is",
+      "decoder_ppl": 19.4103973505887,
+      "decoder_nll": 2.965808868408203
+    },
+    {
+      "prompt": "In the early morning, the city was quiet, and",
+      "baseline_text": "In the early morning, the city was quiet, and the streets were empty. The sky was blue, and the trees were silent. The wind was gentle, and the air was cool. The city was quiet, and the streets were empty. The sky was blue, and the trees were silent. The wind was gentle, and the air was cool. The city was quiet, and the streets were empty. The sky was blue, and the trees were",
+      "baseline_ppl": 2.3475738922904514,
+      "baseline_nll": 0.853382408618927,
+      "decoder_text": "In the early morning, the city was quiet, and the weather is very difficult. He was not able to see any of the most important, or any of the most likely, or any of the 2000s, but they were able to do it. He was also not to be a man of the city. He was not to be a man of the city. 2011, the first, first, and ",
+      "decoder_ppl": 13.863894713465971,
+      "decoder_nll": 2.6292879581451416
+    },
+    {
+      "prompt": "Once upon a time, there was a small village where",
+      "baseline_text": "Once upon a time, there was a small village where the people lived in a small house. The village was not very large, but it had a lot of people. The village was surrounded by a forest, and the forest was very large. The village had a small river that ran through it. The village had a small house that was built on the ground. The village had a small river that ran through it. The village had a small house that",
+      "baseline_ppl": 2.9409740476069315,
+      "baseline_nll": 1.0787408351898193,
+      "decoder_text": "Once upon a time, there was a small village where a man had been afraid about his own self-earging, a few years ago, the first of the most most likely to be the first to have a new, more solid and more volatile energy, the same time that's the same way they were going to get to the ground. It was a good idea for the city, but the first, most likely to be the same thing, and",
+      "decoder_ppl": 32.35203552510068,
+      "decoder_nll": 3.4766769409179688
+    }
+  ]
+}

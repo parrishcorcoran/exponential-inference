@@ -1,0 +1,58 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+  d_model=1024, d_kv=1024, target_layer=14
+Loading tokens...
+
+============================================================
+STAGE 1: Train K-decoder on real K's
+============================================================
+  Decoder params: 1.05M
+  step  100: loss=5.1378 train_acc=0.301
+  step  200: loss=4.2548 train_acc=0.406
+  step  300: loss=2.8850 train_acc=0.531
+  step  400: loss=3.0564 train_acc=0.461
+  step  500: loss=3.4271 train_acc=0.449
+  step  600: loss=2.8747 train_acc=0.461
+  step  700: loss=2.5845 train_acc=0.555
+  step  800: loss=2.8067 train_acc=0.539
+  step  900: loss=2.1031 train_acc=0.652
+  step 1000: loss=1.4635 train_acc=0.691
+
+  CEILING — K-decoder on REAL layer-14 K's:  top-1 token acc = 0.560
+
+============================================================
+STAGE 2: K-decoder on KV-Medusa PREDICTED K's (offsets 1..10)
+============================================================
+Loading KV-Medusa heads 1..10...
+  seq 1/10 done
+  seq 2/10 done
+  seq 3/10 done
+  seq 4/10 done
+  seq 5/10 done
+  seq 6/10 done
+  seq 7/10 done
+  seq 8/10 done
+  seq 9/10 done
+  seq 10/10 done
+
+======================================================================
+HRR-UNBINDING TOKEN EXTRACTION — Qwen3-0.6B
+======================================================================
+  CEILING (real K's):  top-1 acc = 0.560
+
+  offset  tok acc (predicted K)    std-Medusa for ref    
+  t+1     0.120                    0.318                 
+  t+2     0.020                    0.052                 
+  t+3     0.020                    0.025                 
+  t+4     0.040                    0.026                 
+  t+5     0.000                    0.019                 
+  t+6     0.000                    —                     
+  t+7     0.020                    —                     
+  t+8     0.040                    —                     
+  t+9     0.020                    —                     
+  t+10    0.040                    —                     
+
+  Chained tokens/step (1 + a1 + a1*a2 + ...): 1.122
+
+Saved results/pipeline_kv_medusa_06b_unbind.json

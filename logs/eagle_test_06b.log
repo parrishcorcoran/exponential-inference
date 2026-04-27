@@ -1,0 +1,33 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading val tokens...
+Loading drafter...
+  seq 1/10 done
+  seq 2/10 done
+  seq 3/10 done
+  seq 4/10 done
+  seq 5/10 done
+  seq 6/10 done
+  seq 7/10 done
+  seq 8/10 done
+  seq 9/10 done
+  seq 10/10 done
+
+======================================================================
+EAGLE DRAFTER — autoregressive draft test, Qwen3-0.6B
+======================================================================
+  N seqs: 10, anchors per seq: 5
+
+  offset  raw acc       verify accept     
+  t+1     0.320         0.320             
+  t+2     0.140         0.200             
+  t+3     0.100         0.180             
+  t+4     0.000         0.220             
+  t+5     0.020         0.180             
+
+  Chained tokens/step:
+    Raw drafter accuracy:   1.369
+    Verify-accept (real):   1.399
+
+Saved results/pipeline_eagle_test_06b.json

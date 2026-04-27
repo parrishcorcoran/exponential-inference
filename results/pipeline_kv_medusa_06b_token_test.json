@@ -1,0 +1,71 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "n_seqs": 10,
+  "anchors_per_seq": 5,
+  "seq_len": 256,
+  "target_layer": 14,
+  "results": [
+    {
+      "offset": 1,
+      "match": 48,
+      "total": 50,
+      "accept_rate": 0.96
+    },
+    {
+      "offset": 2,
+      "match": 48,
+      "total": 50,
+      "accept_rate": 0.96
+    },
+    {
+      "offset": 3,
+      "match": 48,
+      "total": 50,
+      "accept_rate": 0.96
+    },
+    {
+      "offset": 4,
+      "match": 47,
+      "total": 50,
+      "accept_rate": 0.94
+    },
+    {
+      "offset": 5,
+      "match": 48,
+      "total": 50,
+      "accept_rate": 0.96
+    },
+    {
+      "offset": 6,
+      "match": 47,
+      "total": 50,
+      "accept_rate": 0.94
+    },
+    {
+      "offset": 7,
+      "match": 49,
+      "total": 50,
+      "accept_rate": 0.98
+    },
+    {
+      "offset": 8,
+      "match": 47,
+      "total": 50,
+      "accept_rate": 0.94
+    },
+    {
+      "offset": 9,
+      "match": 45,
+      "total": 50,
+      "accept_rate": 0.9
+    },
+    {
+      "offset": 10,
+      "match": 45,
+      "total": 50,
+      "accept_rate": 0.9
+    }
+  ],
+  "sum_independent_rates": 9.44,
+  "chained_tokens_per_step": 8.7559
+}

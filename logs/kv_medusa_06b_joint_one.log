@@ -1,0 +1,47 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+  d_model=1024, d_kv=1024, target_layer=14, offset=1
+Loading tokens...
+Loading KV-Medusa head_1 (warm start)...
+Loading v1 K-decoder (warm start)...
+
+============================================================
+FOCUSED JOINT — 1 head (offset 1) + 1 decoder
+  loss = 1.0 * MSE + 1.0 * CE  for 2000 steps
+============================================================
+
+  step  100: loss=10.031 mse=3.797 ce=6.233 cos_k=0.781 tok_acc=0.129
+  step  200: loss=10.296 mse=4.523 ce=5.772 cos_k=0.736 tok_acc=0.192
+  step  300: loss=8.696 mse=3.695 ce=5.001 cos_k=0.777 tok_acc=0.200
+  step  400: loss=9.440 mse=3.901 ce=5.539 cos_k=0.768 tok_acc=0.231
+  step  500: loss=8.953 mse=3.777 ce=5.176 cos_k=0.771 tok_acc=0.208
+  step  600: loss=8.794 mse=3.873 ce=4.921 cos_k=0.782 tok_acc=0.224
+  step  700: loss=8.625 mse=3.711 ce=4.914 cos_k=0.782 tok_acc=0.176
+  step  800: loss=8.985 mse=4.122 ce=4.863 cos_k=0.749 tok_acc=0.243
+  step  900: loss=8.993 mse=3.970 ce=5.024 cos_k=0.780 tok_acc=0.165
+  step 1000: loss=9.331 mse=4.117 ce=5.214 cos_k=0.773 tok_acc=0.173
+  step 1100: loss=9.504 mse=4.198 ce=5.306 cos_k=0.747 tok_acc=0.239
+  step 1200: loss=8.794 mse=4.068 ce=4.726 cos_k=0.762 tok_acc=0.208
+  step 1300: loss=7.851 mse=3.746 ce=4.105 cos_k=0.798 tok_acc=0.322
+  step 1400: loss=9.105 mse=3.693 ce=5.413 cos_k=0.780 tok_acc=0.208
+  step 1500: loss=9.504 mse=3.823 ce=5.681 cos_k=0.760 tok_acc=0.180
+  step 1600: loss=9.483 mse=4.143 ce=5.340 cos_k=0.769 tok_acc=0.239
+  step 1700: loss=8.923 mse=4.185 ce=4.738 cos_k=0.755 tok_acc=0.267
+  step 1800: loss=11.614 mse=4.528 ce=7.086 cos_k=0.696 tok_acc=0.094
+  step 1900: loss=8.071 mse=3.682 ce=4.389 cos_k=0.765 tok_acc=0.314
+  step 2000: loss=9.061 mse=4.408 ce=4.653 cos_k=0.744 tok_acc=0.267
+
+============================================================
+EVAL — offset 1
+============================================================
+
+  Real-K ceiling (post-train decoder): 0.529
+  Predicted-K cos_k:                    0.755
+  Predicted-K top-1 token acc:          0.210
+  Predicted-K top-5 token acc:          0.460
+  Reference: standard Medusa head 1:    0.318
+  Reference: v1 decoder on predicted K (offset 1): 0.120
+  Reference: v2 noise-aug:                          0.180
+
+Saved results/pipeline_kv_medusa_06b_joint_one.json

@@ -1,0 +1,35 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading val tokens...
+Loading 5 KV-Medusa heads...
+Loading 5 token-Medusa heads...
+  seq 1/10 done
+  seq 2/10 done
+  seq 3/10 done
+  seq 4/10 done
+  seq 5/10 done
+  seq 6/10 done
+  seq 7/10 done
+  seq 8/10 done
+  seq 9/10 done
+  seq 10/10 done
+
+============================================================
+COMBINED ACCEPTANCE TEST — token-Medusa + KV-Medusa, Qwen3-0.6B
+============================================================
+  N seqs: 10, anchors per seq: 5
+
+  offset  raw acc   accept (no KV)    accept (w/ KV)    KV gain 
+  t+1     0.040     0.840             0.840             +0.000
+  t+2     0.040     0.140             0.140             +0.000
+  t+3     0.040     0.040             0.060             +0.020
+  t+4     0.060     0.060             0.060             +0.000
+  t+5     0.020     0.100             0.080             -0.020
+
+  Chained tokens/step (1 + a1 + a1*a2 + ...):
+    Raw token-Medusa accuracy:   1.042
+    Standard Medusa, no KV-sub:  1.963
+    Standard Medusa, with KV-sub: 1.965
+
+Saved results/pipeline_kv_medusa_06b_combined.json
