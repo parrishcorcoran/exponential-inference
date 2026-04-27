@@ -1,0 +1,11 @@
+{
+  "standard_tps": 5.69,
+  "shallow_tps": 1.21,
+  "speedup": 0.21,
+  "full_fwd_ms": 179.3,
+  "shallow_fwd_ms": 51.0,
+  "draft_speedup": 3.5,
+  "accepted_per_step": 1.02,
+  "draft_layers": 10,
+  "draft_length": 10
+}

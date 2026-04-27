@@ -1,0 +1,10 @@
+{
+  "standard_tps": 5.65,
+  "speculative_tps": 4.63,
+  "speedup": 0.82,
+  "avg_accepted": 2.32,
+  "small_fwd_ms": 25.6,
+  "small_incr_ms": 24.9,
+  "big_fwd_ms": 180.2,
+  "draft_match_pct": 77.8
+}
