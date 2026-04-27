@@ -1,4 +1,12 @@
-# Finding 21 — Wormhole topology is sharper in MoE than in dense models
+# Finding 21 — K-axis topography on Granite MoE: 17-layer cavity (formerly "MoE wormhole sharper")
+
+> **⚠ PARTIALLY SUPERSEDED by Finding 22 (2026-04-25).** The 17-layer
+> low-PR region in Granite MoE is real and is sharper than the dense
+> 0.6B equivalent. The "universality" framing is dropped. Granite MoE,
+> 0.6B, and BitNet (all small autoregressive language models) share
+> a similar K-axis topography. 14B (large autoregressive language) and
+> ESM-2 (protein, masked) do NOT. Read this as a finding about the
+> small-autoregressive-language regime, not universal geometry.
 
 Measured the wormhole shape on Granite 3.1 MoE (1B total / 400M active /
 32 experts / top-8 routing) and found a **dramatically sharper wormhole

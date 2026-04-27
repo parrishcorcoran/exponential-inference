@@ -4,6 +4,13 @@ All compression axes we've identified across the project. Status legend:
 ✓ confirmed working in measurements
 ⏳ in progress
 🔲 proposed / TODO
+✗ falsified / superseded
+
+**Topology framing (revised 2026-04-25, see Finding 22):** drop "wormhole."
+Each axis has its own per-layer **topography of cavities (compressible)
+and walls (resistant)**. Shape varies by model, scale, and axis. The
+strategy is per-layer thermostat anneal — find each layer's tolerable
+rank/bits/cluster-count individually. No global throat assumption.
 
 ## A. Density levers — per-element compression
 
@@ -34,15 +41,18 @@ All compression axes we've identified across the project. Status legend:
 - 🔲 B8. **Sliding window** (keep only recent N tokens)
 - 🔲 B9. **Token-frequency aware lookup** (common tokens share precomputed slots)
 
-## C. Per-layer schedule — wormhole shape applied per axis
+## C. Per-layer cavity-and-wall schedule — apply each axis per-layer
 
-Each density/size lever above can be **per-layer scheduled** to follow
-the wormhole topology (aggressive at cavities, conservative at walls).
+Each density/size lever above can be **per-layer scheduled** based on
+that axis's measured per-layer tolerance (cavities compress hard, walls
+hold rank). The shape is **measured, not assumed** — Finding 22 retired
+the global-wormhole assumption. Some axes are uniform, some are noisy,
+some are bimodal.
 
-- ✓ C1. **Per-layer rank schedule** (K and weights) — stage 127, 137 in progress
+- ✓ C1. **Per-layer rank schedule** (K and weights) — stage 127, 137; 14B cavity anneal (pipeline_step1_5b)
 - ✓ C2. **Per-layer bit schedule** — stage 120 squeeze
 - 🔲 C3. **Per-layer MLP width schedule**
-- 🔲 C4. **Per-layer KV head count schedule** (novel — narrow at throat, wide at mouths)
+- 🔲 C4. **Per-layer KV head count schedule** (novel — narrow at cavities, wide at walls)
 - 🔲 C5. **Per-layer cluster count schedule**
 - 🔲 C6. **Per-layer K vs V differential schedule** (since K and V have different rank profiles)
 
@@ -58,61 +68,67 @@ the wormhole topology (aggressive at cavities, conservative at walls).
 ## E. Information-flow / decode-side architectural
 
 - ✓ E1. **Speculative decoding / Medusa heads** (existing, multi-token decode)
-- 🔲 E2. **Throat-located heads** (vs standard final-layer Medusa — stage 130 found L21 sweet spot)
-- 🔲 E3. **KV-Medusa heads** (predict future K/V from throat, NEW unlock)
+- 🔲 E2. **Cavity-located heads** (place Medusa where K-axis is most compressible — stage 130 found L21 sweet spot on 0.6B)
+- 🔲 E3. **KV-Medusa heads** (predict future K/V from compressed cache, NEW unlock)
 - 🔲 E4. **Wide KV-Medusa** (20-50 heads enabled by KV compression density)
-- 🔲 E5. **Throat caching** (precompute K/V for shared prefixes, skip mouth 1)
+- 🔲 E5. **Prefix caching** (precompute K/V for shared prefixes — formerly "throat caching")
 - 🔲 E6. **HRR superposition cache** (one C vector per layer, requires cleanup memory)
 - 🔲 E7. **Joint K-V binding** (shared subspace for K and V)
 - 🔲 E8. **Cross-layer KV correlation** (same token's KV across layers is correlated)
-- 🔲 E9. **Cross-model throat reuse** (precompute large-model throat for small-model decode)
+- 🔲 E9. **Cross-model KV reuse** (precompute large-model K/V for small-model decode)
 
 ## F. Methodology / training-aware
 
-- ✓ F1. **Slow anneal with finetune** — the recurring signal (stages 117, 119, 120, 135)
-- ✓ F2. **Thermostat policy** (try a step on any axis, accept if quality holds) — stage 120, 137
+- ✓ F1. **Slow anneal with finetune** — the recurring signal (stages 117, 119, 120, 135, pipeline_step1_5b)
+- ✓ F2. **Thermostat policy** (try a step on any axis, accept if quality holds) — stage 120, 137, pipeline_step1_5b
 - ✓ F3. **LASER denoising** (low-rank constraint can IMPROVE quality on big models) — Strix stage 119
 - 🔲 F4. **Per-axis independent anneal then combine** (build the multi-axis squeeze methodically)
 - 🔲 F5. **Cross-axis coupling discovery** (do certain axes interact?)
 
-## G. Cross-architecture validation
+## G. Cross-architecture / cross-domain validation
 
-- ✓ G1. **Wormhole on Qwen3-0.6B** — stage 111
-- ✓ G2. **Wormhole on Qwen3-14B** — Strix stage 117
-- ✓ G3. **Wormhole on BitNet b1.58 2B** — stage 142 (sharper, magnitude-driven)
-- 🔲 G4. **Wormhole on LLaMA family** — untested
-- 🔲 G5. **Wormhole on AlphaFold / protein models** — untested (transferability claim)
-- 🔲 G6. **Wormhole on multimodal models** (Vision Transformer, etc.)
+- ✓ G1. **K-axis topography on Qwen3-0.6B** — stage 111, finding 18. K is wormhole-like ON the K axis only; V is uniform; full model is per-axis topography.
+- ✗ G2. **~~Wormhole on Qwen3-14B~~** — **falsified 2026-04-25 (Finding 22)**. 14B cavity anneal converged to noisy 211–400 K-rank distribution with no clean throat. Earlier "L7-L14 throat" claim was measurement artifact.
+- ✓ G3. **K-axis topography on BitNet b1.58 2B** — stage 142 (sharper, magnitude-driven; K has cavity-and-wall structure)
+- 🔲 G4. **Topography on LLaMA family** — untested
+- ✗ G5. **~~Wormhole on protein models~~** — **measured 2026-04-25, no wormhole.** ESM-2 150M shows high-rank middle bulge (PR peaks at L6=388), opposite of 0.6B language K-axis. Different topology entirely.
+- ✗ G6. **~~Wormhole on whale-trained transformer~~** — **measured 2026-04-25, no wormhole.** 6L 3.4M-param model, PR flat 116–144 across all layers.
+- 🔲 G7. **Topography on Vision Transformers** — untested
+- 🔲 G8. **Topography across MoE experts** — partial (finding 21, MoE shows K-axis cavity-and-wall on Granite)
 
 ---
 
 ## Summary count
 
-| Category | Confirmed | TODO | Total |
-|---|---|---|---|
-| Density (A) | 5 | 3 | 8 |
-| Size (B) | 1 | 8 | 9 |
-| Per-layer schedule (C) | 2 | 4 | 6 |
-| Per-position adaptive (D) | 2 | 4 | 6 |
-| Information-flow (E) | 1 | 8 | 9 |
-| Methodology (F) | 3 | 2 | 5 |
-| Cross-arch validation (G) | 3 | 3 | 6 |
-| **TOTAL** | **17 confirmed** | **32 TODO** | **49 levers** |
+| Category | Confirmed | TODO | Falsified | Total |
+|---|---|---|---|---|
+| Density (A) | 5 | 3 | 0 | 8 |
+| Size (B) | 1 | 8 | 0 | 9 |
+| Per-layer schedule (C) | 2 | 4 | 0 | 6 |
+| Per-position adaptive (D) | 2 | 4 | 0 | 6 |
+| Information-flow (E) | 1 | 8 | 0 | 9 |
+| Methodology (F) | 3 | 2 | 0 | 5 |
+| Cross-arch validation (G) | 2 | 3 | 3 | 8 |
+| **TOTAL** | **16 confirmed** | **32 TODO** | **3 falsified** | **51 levers** |
 
-We've measured/built 17. Another 32 are proposed, designed, or in flight.
+Three "wormhole exists everywhere" claims falsified (G2 14B, G5 protein,
+G6 whale). Two new validation slots opened (G7 ViT, G8 MoE).
 
-## Highest-priority TODOs (by impact × novelty)
+## Highest-priority TODOs (revised 2026-04-25)
 
-1. 🔲 **D3: Certainty-driven adaptive precision** — direct H2O replacement, stacks with everything
-2. 🔲 **E4: Wide KV-Medusa (20-50 heads)** — enabled by compression, biggest decode multiplier
+After 14B cavity-anneal evidence, prioritize **topology-independent levers
+that stack with per-layer cavity anneal**:
+
+1. 🔲 **D3: Certainty-driven adaptive precision** — direct H2O replacement, no topology assumption, stacks with everything
+2. 🔲 **A6 + A7: KV cache bit quantization** (KIVI-style) — orthogonal to rank, stacks
 3. 🔲 **A8: K vs V differential compression** — exploits asymmetry we measured
-4. 🔲 **B7: Cluster consolidation** — front-loaded redundancy from stage 138
-5. 🔲 **E5: Throat caching** — long-prompt workload speedup
-6. 🔲 **B9: Token-frequency aware lookup** — likely massive on common-token-heavy text
-7. 🔲 **A6 + A7: KV cache bit quantization** (KIVI-style) — orthogonal to rank, stacks
-8. 🔲 **C4: Per-layer KV head count schedule** — wormhole-shape on a new axis
-9. 🔲 **D5: Adaptive head/MLP gating tied to certainty** — combines D1 with E1 ideas
-10. 🔲 **E2: L21 (exit-gate) Medusa** — engineering improvement on standard Medusa
+4. 🔲 **E4: Wide KV-Medusa (20-50 heads)** — enabled by compression, biggest decode multiplier
+5. 🔲 **E3: KV-Medusa heads** (predict K/V) — paired with E4
+6. 🔲 **B7: Cluster consolidation** — front-loaded redundancy from stage 138
+7. 🔲 **B6: Eviction (certainty-driven)** — adaptive, doesn't need throat
+8. 🔲 **C4: Per-layer KV head count schedule** — apply cavity-anneal to a new axis
+9. 🔲 **B9: Token-frequency aware lookup** — likely massive on common-token-heavy text
+10. 🔲 **E5: Prefix caching** — long-prompt workload speedup
 
 ## Validated stacks
 
@@ -121,6 +137,7 @@ What we have evidence for combining:
 - F1 + F2 + (A1, A4, A5) on 14B = stage 120's 3.6× compression at quality
 - F1 + (A4, A5) on 0.6B = stage 135's 4× KV compression
 - C1 + (A2, A4, A5) projected = stage 137 (running) — multi-axis squeeze
+- C1 + A4 on 14B = pipeline_step1_5b cavity anneal (PPL 41.6, coherent)
 
 ## Untouched stacks (predicted to multiply)
 
@@ -129,5 +146,5 @@ What we have evidence for combining:
 
 ## Date
 
-2026-04-24. Maintain as work progresses. Update status flags as items
-land or new levers are discovered.
+2026-04-25. Revised after Finding 22 (topology revision). Update status
+flags as items land or new levers are discovered.

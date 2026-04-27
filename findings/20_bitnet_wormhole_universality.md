@@ -1,4 +1,12 @@
-# Finding 20 — Wormhole topology is universal across precision regimes (BitNet confirmed)
+# Finding 20 — K-axis topography on BitNet b1.58-2B (formerly "BitNet wormhole universality")
+
+> **⚠ PARTIALLY SUPERSEDED by Finding 22 (2026-04-25).** BitNet b1.58-2B
+> shows K-axis topography with cavities and walls — the shape is real.
+> The claim that this proves "universality across architectures" is
+> **walked back**. 14B (full precision), protein (ESM-2), and whale
+> models do NOT show the same shape. The pattern is specific to small
+> autoregressive language models on the K-axis, not universal across
+> all precision regimes or all architectures.
 
 The wormhole shape emerges in BitNet (1.58-bit ternary weights), confirming
 it's a property of trained transformers regardless of weight precision.

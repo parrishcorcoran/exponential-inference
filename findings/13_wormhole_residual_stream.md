@@ -1,5 +1,14 @@
 # Finding 13 — The residual stream is a wormhole: two mouths + throat traversal
 
+> **⚠ PARTIALLY SUPERSEDED by Finding 22 (2026-04-25).** The wormhole shape
+> on the K-rank axis of 0.6B-class autoregressive language models is real
+> (Finding 18 confirmed). The claim that this generalizes to 14B was
+> **falsified** by per-layer cavity anneal — 14B has no throat, just
+> noisy cavities and walls. Cross-domain transformers (protein, whale)
+> show entirely different topologies. Read this finding as "K-axis
+> topography on small autoregressive language models," not as universal
+> wormhole geometry.
+
 **Originally written as "activation bathtub." Reframed to wormhole
 topology per physics-consistent analysis.**
 

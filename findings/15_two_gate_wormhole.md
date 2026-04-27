@@ -1,4 +1,11 @@
-# Finding 15 — The wormhole has two gates, not one throat
+# Finding 15 — Two-gate wall structure on Qwen3-0.6B (formerly "two-gate wormhole")
+
+> **⚠ PARTIALLY SUPERSEDED by Finding 22 (2026-04-25).** The two-gate
+> wall pattern on 0.6B's K-rank axis is real (per-layer rank floors
+> measured). The "wormhole" framing is dropped — this is **K-axis
+> topography on 0.6B**, not a universal geometry. 14B has noisy cavities
+> and walls with no global pattern; protein and whale models have
+> entirely different topology.
 
 Per-layer rank floor measurements on Qwen3-0.6B reveal that the
 residual-stream wormhole isn't a uniform tunnel — it has a **two-gate
