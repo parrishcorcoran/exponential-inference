@@ -1,0 +1,153 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading shaped checkpoint from checkpoints/qwen_06b/qwen_06b_shaped.pt...
+  Offset 2 head warm-started from stock-trained checkpoint
+
+============================================================
+ANNEAL SHAPE → offset 2 (loss includes offsets 1+2)
+============================================================
+
+Loading tokens...
+  step   25: lm=4.537 K=0.201 V=0.327 dec=13.389
+    cos_k: t+1=0.908  t+2=0.890
+    cos_v: t+1=0.890  t+2=0.783
+    dec_acc: t+1=0.213  t+2=0.095
+  step   50: lm=4.070 K=0.175 V=0.232 dec=12.161
+    cos_k: t+1=0.917  t+2=0.909
+    cos_v: t+1=0.904  t+2=0.864
+    dec_acc: t+1=0.205  t+2=0.087
+  step   75: lm=3.217 K=0.165 V=0.215 dec=12.690
+    cos_k: t+1=0.920  t+2=0.915
+    cos_v: t+1=0.912  t+2=0.873
+    dec_acc: t+1=0.197  t+2=0.040
+  step  100: lm=3.578 K=0.181 V=0.240 dec=11.586
+    cos_k: t+1=0.911  t+2=0.908
+    cos_v: t+1=0.899  t+2=0.861
+    dec_acc: t+1=0.252  t+2=0.127
+  step  125: lm=2.888 K=0.193 V=0.289 dec=12.339
+    cos_k: t+1=0.901  t+2=0.906
+    cos_v: t+1=0.873  t+2=0.839
+    dec_acc: t+1=0.228  t+2=0.048
+  step  150: lm=3.254 K=0.156 V=0.157 dec=11.287
+    cos_k: t+1=0.919  t+2=0.925
+    cos_v: t+1=0.932  t+2=0.910
+    dec_acc: t+1=0.276  t+2=0.040
+  step  175: lm=4.271 K=0.145 V=0.138 dec=11.475
+    cos_k: t+1=0.923  t+2=0.932
+    cos_v: t+1=0.938  t+2=0.924
+    dec_acc: t+1=0.228  t+2=0.087
+  step  200: lm=3.395 K=0.151 V=0.151 dec=11.445
+    cos_k: t+1=0.920  t+2=0.929
+    cos_v: t+1=0.933  t+2=0.916
+    dec_acc: t+1=0.220  t+2=0.071
+  step  225: lm=3.640 K=0.162 V=0.188 dec=11.943
+    cos_k: t+1=0.915  t+2=0.922
+    cos_v: t+1=0.916  t+2=0.896
+    dec_acc: t+1=0.252  t+2=0.079
+  step  250: lm=3.363 K=0.175 V=0.181 dec=10.944
+    cos_k: t+1=0.908  t+2=0.917
+    cos_v: t+1=0.918  t+2=0.901
+    dec_acc: t+1=0.370  t+2=0.040
+  step  275: lm=4.083 K=0.158 V=0.161 dec=12.488
+    cos_k: t+1=0.919  t+2=0.923
+    cos_v: t+1=0.927  t+2=0.912
+    dec_acc: t+1=0.213  t+2=0.079
+  step  300: lm=3.762 K=0.150 V=0.132 dec=11.336
+    cos_k: t+1=0.923  t+2=0.927
+    cos_v: t+1=0.942  t+2=0.926
+    dec_acc: t+1=0.291  t+2=0.151
+  step  325: lm=3.335 K=0.137 V=0.157 dec=10.827
+    cos_k: t+1=0.929  t+2=0.935
+    cos_v: t+1=0.930  t+2=0.913
+    dec_acc: t+1=0.252  t+2=0.087
+  step  350: lm=3.849 K=0.146 V=0.149 dec=11.293
+    cos_k: t+1=0.922  t+2=0.931
+    cos_v: t+1=0.933  t+2=0.918
+    dec_acc: t+1=0.307  t+2=0.087
+  step  375: lm=2.590 K=0.149 V=0.154 dec=8.587
+    cos_k: t+1=0.922  t+2=0.929
+    cos_v: t+1=0.932  t+2=0.914
+    dec_acc: t+1=0.472  t+2=0.143
+  step  400: lm=2.931 K=0.135 V=0.140 dec=10.169
+    cos_k: t+1=0.925  t+2=0.940
+    cos_v: t+1=0.938  t+2=0.923
+    dec_acc: t+1=0.323  t+2=0.127
+  step  425: lm=3.612 K=0.140 V=0.157 dec=11.344
+    cos_k: t+1=0.925  t+2=0.935
+    cos_v: t+1=0.928  t+2=0.915
+    dec_acc: t+1=0.220  t+2=0.071
+  step  450: lm=3.692 K=0.131 V=0.126 dec=11.329
+    cos_k: t+1=0.931  t+2=0.938
+    cos_v: t+1=0.942  t+2=0.932
+    dec_acc: t+1=0.189  t+2=0.087
+  step  475: lm=4.351 K=0.129 V=0.111 dec=12.337
+    cos_k: t+1=0.931  t+2=0.939
+    cos_v: t+1=0.949  t+2=0.940
+    dec_acc: t+1=0.205  t+2=0.087
+  step  500: lm=3.952 K=0.134 V=0.098 dec=11.093
+    cos_k: t+1=0.927  t+2=0.939
+    cos_v: t+1=0.955  t+2=0.947
+    dec_acc: t+1=0.260  t+2=0.087
+  step  525: lm=2.937 K=0.137 V=0.118 dec=9.802
+    cos_k: t+1=0.928  t+2=0.935
+    cos_v: t+1=0.947  t+2=0.935
+    dec_acc: t+1=0.339  t+2=0.127
+  step  550: lm=2.078 K=0.147 V=0.133 dec=9.460
+    cos_k: t+1=0.920  t+2=0.933
+    cos_v: t+1=0.940  t+2=0.926
+    dec_acc: t+1=0.441  t+2=0.111
+  step  575: lm=4.148 K=0.126 V=0.109 dec=11.080
+    cos_k: t+1=0.933  t+2=0.941
+    cos_v: t+1=0.950  t+2=0.941
+    dec_acc: t+1=0.197  t+2=0.056
+  step  600: lm=3.437 K=0.136 V=0.131 dec=10.744
+    cos_k: t+1=0.928  t+2=0.936
+    cos_v: t+1=0.940  t+2=0.929
+    dec_acc: t+1=0.260  t+2=0.063
+  step  625: lm=3.591 K=0.134 V=0.138 dec=11.974
+    cos_k: t+1=0.928  t+2=0.938
+    cos_v: t+1=0.937  t+2=0.925
+    dec_acc: t+1=0.252  t+2=0.071
+  step  650: lm=3.697 K=0.134 V=0.133 dec=11.555
+    cos_k: t+1=0.928  t+2=0.938
+    cos_v: t+1=0.938  t+2=0.929
+    dec_acc: t+1=0.165  t+2=0.071
+  step  675: lm=3.745 K=0.136 V=0.105 dec=12.151
+    cos_k: t+1=0.928  t+2=0.936
+    cos_v: t+1=0.953  t+2=0.942
+    dec_acc: t+1=0.197  t+2=0.119
+  step  700: lm=3.621 K=0.118 V=0.106 dec=10.478
+    cos_k: t+1=0.936  t+2=0.946
+    cos_v: t+1=0.952  t+2=0.942
+    dec_acc: t+1=0.268  t+2=0.095
+  step  725: lm=2.846 K=0.142 V=0.123 dec=10.480
+    cos_k: t+1=0.925  t+2=0.933
+    cos_v: t+1=0.945  t+2=0.931
+    dec_acc: t+1=0.370  t+2=0.111
+  step  750: lm=4.330 K=0.210 V=0.086 dec=15.039
+    cos_k: t+1=0.874  t+2=0.916
+    cos_v: t+1=0.960  t+2=0.954
+    dec_acc: t+1=0.110  t+2=0.056
+  step  775: lm=3.366 K=0.125 V=0.110 dec=10.434
+    cos_k: t+1=0.932  t+2=0.943
+    cos_v: t+1=0.950  t+2=0.939
+    dec_acc: t+1=0.268  t+2=0.079
+  step  800: lm=3.999 K=0.122 V=0.109 dec=11.319
+    cos_k: t+1=0.937  t+2=0.941
+    cos_v: t+1=0.949  t+2=0.942
+    dec_acc: t+1=0.220  t+2=0.119
+
+Saving...
+
+============================================================
+FINAL VAL
+============================================================
+  offset  cos_k     cos_v     dec_acc   
+  t+1     0.930     0.941     0.273     
+  t+2     0.938     0.931     0.106     
+
+  Stock model reference:    cos_k 0.77 / 0.75; cos_v 0.41 / 0.34
+  Shaped (offset 1 only):   cos_k 0.91 / —;    cos_v 0.86 / —
+
+Saved results/pipeline_shape_finetune_06b_h2.json
