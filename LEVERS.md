@@ -114,11 +114,16 @@ some are bimodal.
 Three "wormhole exists everywhere" claims falsified (G2 14B, G5 protein,
 G6 whale). Two new validation slots opened (G7 ViT, G8 MoE).
 
-## Highest-priority TODOs (revised 2026-04-25)
+## Highest-priority TODOs (revised 2026-04-26)
 
 After 14B cavity-anneal evidence, prioritize **topology-independent levers
 that stack with per-layer cavity anneal**:
 
+0. 🔲 **NEXT: Nonlinear Q probe at L15** — Finding 23 dual-layer sweep
+   showed Q peaks at L15 with linear cos 0.41 (vs K/V at L14 with 0.83/0.55).
+   Linear is a lower bound. Train 2-layer MLP probe (same as KV-Medusa K/V
+   heads) on h[L15] for Q at offset +1, 200 gradient steps. If cos jumps
+   to 0.7+, build full KVQ-Medusa with K/V at L14 and Q at L15.
 1. 🔲 **D3: Certainty-driven adaptive precision** — direct H2O replacement, no topology assumption, stacks with everything
 2. 🔲 **A6 + A7: KV cache bit quantization** (KIVI-style) — orthogonal to rank, stacks
 3. 🔲 **A8: K vs V differential compression** — exploits asymmetry we measured
