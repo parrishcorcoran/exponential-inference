@@ -1,0 +1,38 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading shaped model + heads + decoder...
+Loading val tokens...
+
+============================================================
+Test 1: KV substitution token acceptance
+============================================================
+  seq 1/10
+  seq 2/10
+  seq 3/10
+  seq 4/10
+  seq 5/10
+  seq 6/10
+  seq 7/10
+  seq 8/10
+  seq 9/10
+  seq 10/10
+
+  KV substitution acceptance (oracle drafts): 1.000
+  Stock model reference: 0.960
+
+============================================================
+Test 2: K-decoder readout on predicted K
+============================================================
+
+  K-decoder predicted-K → token: top-1 0.240, top-5 0.360
+  Stock model reference (joint-1×1): top-1 0.21, top-5 0.46
+
+======================================================================
+SHAPED MODEL — END-TO-END TEST
+======================================================================
+  KV-substitution acceptance: 1.000  (stock: 0.960)
+  Predicted-K → token top-1:  0.240  (stock: 0.21)
+  Predicted-K → token top-5:  0.360  (stock: 0.46)
+
+Saved results/pipeline_shaped_acceptance_test.json

@@ -1,0 +1,158 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+  d_model=1024, d_kv=1024, target_layer=14, n_offsets=1
+  Base-model trainable params: 596.0M
+Loading tokens...
+Initializing 1 KV-Medusa heads...
+Initializing K-decoder...
+
+============================================================
+SHAPE FINE-TUNE — base model + KV-Medusa heads + K-decoder, joint
+  λ_K=1.0, λ_V=0.5, λ_dec=1.0
+  LR_model=5e-06, LR_head=0.0002
+============================================================
+
+  step   25: total=9.632 lm=3.973 K=0.187 V=0.522 dec=5.211
+    cos_k per-offset: 0.813
+    cos_v per-offset: 0.478
+    dec_acc per-offset: 0.087
+  step   50: total=9.275 lm=3.453 K=0.180 V=0.473 dec=5.405
+    cos_k per-offset: 0.820
+    cos_v per-offset: 0.527
+    dec_acc per-offset: 0.134
+  step   75: total=7.950 lm=3.030 K=0.168 V=0.474 dec=4.515
+    cos_k per-offset: 0.832
+    cos_v per-offset: 0.526
+    dec_acc per-offset: 0.220
+  step  100: total=9.539 lm=3.917 K=0.160 V=0.427 dec=5.248
+    cos_k per-offset: 0.840
+    cos_v per-offset: 0.573
+    dec_acc per-offset: 0.213
+  step  125: total=8.764 lm=3.160 K=0.172 V=0.392 dec=5.236
+    cos_k per-offset: 0.828
+    cos_v per-offset: 0.608
+    dec_acc per-offset: 0.252
+  step  150: total=10.092 lm=4.249 K=0.144 V=0.370 dec=5.514
+    cos_k per-offset: 0.856
+    cos_v per-offset: 0.630
+    dec_acc per-offset: 0.134
+  step  175: total=9.254 lm=3.812 K=0.144 V=0.295 dec=5.151
+    cos_k per-offset: 0.856
+    cos_v per-offset: 0.705
+    dec_acc per-offset: 0.252
+  step  200: total=8.772 lm=3.282 K=0.139 V=0.333 dec=5.183
+    cos_k per-offset: 0.861
+    cos_v per-offset: 0.667
+    dec_acc per-offset: 0.142
+  step  225: total=8.382 lm=3.535 K=0.126 V=0.299 dec=4.572
+    cos_k per-offset: 0.874
+    cos_v per-offset: 0.701
+    dec_acc per-offset: 0.165
+  step  250: total=10.453 lm=4.549 K=0.117 V=0.223 dec=5.676
+    cos_k per-offset: 0.883
+    cos_v per-offset: 0.777
+    dec_acc per-offset: 0.181
+  step  275: total=9.670 lm=4.314 K=0.118 V=0.235 dec=5.120
+    cos_k per-offset: 0.882
+    cos_v per-offset: 0.765
+    dec_acc per-offset: 0.213
+  step  300: total=7.939 lm=3.056 K=0.115 V=0.203 dec=4.667
+    cos_k per-offset: 0.885
+    cos_v per-offset: 0.797
+    dec_acc per-offset: 0.236
+  step  325: total=8.073 lm=3.044 K=0.109 V=0.184 dec=4.828
+    cos_k per-offset: 0.891
+    cos_v per-offset: 0.816
+    dec_acc per-offset: 0.228
+  step  350: total=9.666 lm=3.915 K=0.116 V=0.225 dec=5.523
+    cos_k per-offset: 0.884
+    cos_v per-offset: 0.775
+    dec_acc per-offset: 0.205
+  step  375: total=8.296 lm=3.366 K=0.106 V=0.179 dec=4.734
+    cos_k per-offset: 0.894
+    cos_v per-offset: 0.821
+    dec_acc per-offset: 0.220
+  step  400: total=9.758 lm=3.954 K=0.108 V=0.166 dec=5.613
+    cos_k per-offset: 0.892
+    cos_v per-offset: 0.834
+    dec_acc per-offset: 0.165
+  step  425: total=8.742 lm=3.852 K=0.093 V=0.133 dec=4.731
+    cos_k per-offset: 0.907
+    cos_v per-offset: 0.867
+    dec_acc per-offset: 0.173
+  step  450: total=8.438 lm=3.690 K=0.097 V=0.159 dec=4.571
+    cos_k per-offset: 0.903
+    cos_v per-offset: 0.841
+    dec_acc per-offset: 0.283
+  step  475: total=7.458 lm=3.025 K=0.098 V=0.144 dec=4.262
+    cos_k per-offset: 0.902
+    cos_v per-offset: 0.856
+    dec_acc per-offset: 0.276
+  step  500: total=7.996 lm=3.339 K=0.096 V=0.153 dec=4.484
+    cos_k per-offset: 0.904
+    cos_v per-offset: 0.847
+    dec_acc per-offset: 0.197
+  step  525: total=10.955 lm=4.773 K=0.107 V=0.184 dec=5.984
+    cos_k per-offset: 0.893
+    cos_v per-offset: 0.816
+    dec_acc per-offset: 0.173
+  step  550: total=8.556 lm=3.616 K=0.110 V=0.211 dec=4.725
+    cos_k per-offset: 0.890
+    cos_v per-offset: 0.789
+    dec_acc per-offset: 0.252
+  step  575: total=7.168 lm=3.127 K=0.085 V=0.124 dec=3.894
+    cos_k per-offset: 0.915
+    cos_v per-offset: 0.876
+    dec_acc per-offset: 0.323
+  step  600: total=11.096 lm=4.980 K=0.088 V=0.109 dec=5.974
+    cos_k per-offset: 0.912
+    cos_v per-offset: 0.891
+    dec_acc per-offset: 0.142
+  step  625: total=10.584 lm=4.417 K=0.099 V=0.144 dec=5.996
+    cos_k per-offset: 0.901
+    cos_v per-offset: 0.856
+    dec_acc per-offset: 0.189
+  step  650: total=8.020 lm=3.356 K=0.088 V=0.108 dec=4.522
+    cos_k per-offset: 0.912
+    cos_v per-offset: 0.892
+    dec_acc per-offset: 0.252
+  step  675: total=9.176 lm=3.834 K=0.086 V=0.137 dec=5.188
+    cos_k per-offset: 0.914
+    cos_v per-offset: 0.863
+    dec_acc per-offset: 0.197
+  step  700: total=9.100 lm=3.808 K=0.092 V=0.132 dec=5.135
+    cos_k per-offset: 0.908
+    cos_v per-offset: 0.868
+    dec_acc per-offset: 0.150
+  step  725: total=8.968 lm=3.941 K=0.085 V=0.110 dec=4.887
+    cos_k per-offset: 0.915
+    cos_v per-offset: 0.890
+    dec_acc per-offset: 0.181
+  step  750: total=8.730 lm=3.506 K=0.098 V=0.151 dec=5.051
+    cos_k per-offset: 0.902
+    cos_v per-offset: 0.849
+    dec_acc per-offset: 0.244
+  step  775: total=8.327 lm=3.577 K=0.084 V=0.109 dec=4.611
+    cos_k per-offset: 0.916
+    cos_v per-offset: 0.891
+    dec_acc per-offset: 0.197
+  step  800: total=9.525 lm=4.430 K=0.094 V=0.103 dec=4.950
+    cos_k per-offset: 0.906
+    cos_v per-offset: 0.897
+    dec_acc per-offset: 0.236
+
+Saving shaped model...
+
+============================================================
+FINAL VAL — 20 batches
+============================================================
+  offset  cos_k     cos_v     dec_acc   
+  t+1     0.907     0.862     0.257     
+
+  Reference (stock model):
+    cos_k:    0.77 / 0.75 / 0.74 / 0.74 / 0.73
+    cos_v:    0.41 / 0.34 / 0.28 / 0.28 / 0.26
+    dec_acc:  0.21 (offset 1, joint focused)
+
+Saved results/pipeline_shape_finetune_06b.json

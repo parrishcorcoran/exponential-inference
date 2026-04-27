@@ -1,0 +1,8 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "shaped": "checkpoints/qwen_06b/qwen_06b_shaped.pt",
+  "kv_sub_acceptance": 1.0,
+  "dec_predicted_top1": 0.24,
+  "dec_predicted_top5": 0.36,
+  "n_anchors": 50
+}
