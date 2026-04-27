@@ -1,0 +1,63 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "seq_len": 128,
+  "batch": 1,
+  "grad_accum": 4,
+  "steps_per_drop": 4,
+  "lr": 2e-05,
+  "tau_schedule": [
+    0.5,
+    1.0
+  ],
+  "threshold_delta_ce": 100.0,
+  "max_holds_per_drop": 1,
+  "base_val_ce": 3.649,
+  "cold_tau1_ce": 14.6031,
+  "highest_tau_passed": 1.0,
+  "drops": [
+    {
+      "tau": 0.5,
+      "holds": 0,
+      "final_val_ce": 4.5421,
+      "delta_vs_base": 0.8932,
+      "outcome": "pass"
+    },
+    {
+      "tau": 1.0,
+      "holds": 0,
+      "final_val_ce": 8.1821,
+      "delta_vs_base": 4.5331,
+      "outcome": "pass"
+    }
+  ],
+  "history": [
+    {
+      "step": 2,
+      "tau": 0.5,
+      "train_lm": 5.3269,
+      "val_ce": 4.8063,
+      "delta_vs_base": 1.1574
+    },
+    {
+      "step": 4,
+      "tau": 0.5,
+      "train_lm": 5.129,
+      "val_ce": 4.5421,
+      "delta_vs_base": 0.8932
+    },
+    {
+      "step": 2,
+      "tau": 1.0,
+      "train_lm": 10.8435,
+      "val_ce": 11.1716,
+      "delta_vs_base": 7.5226
+    },
+    {
+      "step": 4,
+      "tau": 1.0,
+      "train_lm": 9.2286,
+      "val_ce": 8.1821,
+      "delta_vs_base": 4.5331
+    }
+  ]
+}
