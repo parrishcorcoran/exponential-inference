@@ -50,6 +50,8 @@ STEPS_PER_DROP = int(os.environ.get("STEPS_PER_DROP", "2000"))
 EVAL_EVERY = int(os.environ.get("EVAL_EVERY", "250"))
 N_VAL_TOK = SEQ_LEN * int(os.environ.get("N_VAL_CHUNKS", "64"))
 TRAIN_SKIP_TOK = SEQ_LEN * 65536
+N_TRAIN_TOK = int(os.environ.get("N_TRAIN_TOK", "50000000"))   # 50M tokens preloaded
+TOKEN_CACHE = Path(os.environ.get("TOKEN_CACHE", "data/owt_tokens_50M.pt"))
 LR = float(os.environ.get("LR", "2e-5"))
 GRAD_CLIP = float(os.environ.get("GRAD_CLIP", "1.0"))
 THRESHOLD_DELTA_CE_OVERRIDE = os.environ.get("THRESHOLD_DELTA_CE")
@@ -69,6 +71,8 @@ if SMOKE:
     EVAL_EVERY = 2
     N_VAL_TOK = SEQ_LEN * 4
     TRAIN_SKIP_TOK = SEQ_LEN * 32
+    N_TRAIN_TOK = SEQ_LEN * 64        # tiny corpus for smoke
+    TOKEN_CACHE = Path("data/owt_tokens_smoke.pt")
     TAU_SCHEDULE = [0.5, 1.0]
     MAX_HOLDS_PER_DROP = 1
     THRESHOLD_DELTA_CE = 100.0  # don't trigger holds during smoke
@@ -120,25 +124,49 @@ def load_owt(tokenizer, max_tokens, skip_tokens=0):
     return toks[:max_tokens]
 
 
-def stream_train_sequences(tokenizer, seq_len, skip_tokens=0):
-    """Endless generator of (seq_len + 1) token windows from streaming OWT.
-    Each yielded sequence is fresh — no repeats — so the model can't memorize.
+def preload_train_tokens(tokenizer, n_tokens, skip_tokens, cache_path):
+    """Pre-tokenize n_tokens of OWT (one-time per machine), cache to disk.
+    Subsequent runs mmap from cache. Order: skip first skip_tokens, then take
+    n_tokens. Cache file is shared across experiments — independent of
+    skip_tokens for reuse.
     """
+    if cache_path.exists():
+        print(f"Loading cached tokens from {cache_path}...")
+        toks = torch.load(cache_path)
+        if toks.numel() >= n_tokens + skip_tokens:
+            return toks[skip_tokens:skip_tokens + n_tokens].long()
+        print(f"  cache too small ({toks.numel():,} < {n_tokens + skip_tokens:,}); re-tokenizing")
+    print(f"Pre-tokenizing OWT to {cache_path} (one-time)...")
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
     from datasets import load_dataset
+    ds = load_dataset("Skylion007/openwebtext", split="train", streaming=True)
+    target = n_tokens + skip_tokens
+    buf = []
+    last_log = 0
+    for item in ds:
+        t = item.get("text", "")
+        if not t.strip(): continue
+        buf.extend(tokenizer.encode(t, add_special_tokens=False))
+        if len(buf) - last_log >= 1_000_000:
+            print(f"  tokenized {len(buf):,} / {target:,}", flush=True)
+            last_log = len(buf)
+        if len(buf) >= target:
+            break
+    arr = torch.tensor(buf[:target], dtype=torch.int32)
+    torch.save(arr, cache_path)
+    print(f"  saved {arr.numel():,} tokens to {cache_path}")
+    return arr[skip_tokens:].long()
+
+
+def iter_train_batches(tokens, seq_len, device):
+    """Endless generator yielding (1, seq_len+1) windows.
+    Each pass shuffles the start positions for diversity."""
+    n_chunks = (tokens.numel() - 1) // seq_len
     while True:
-        ds = load_dataset("Skylion007/openwebtext", split="train", streaming=True)
-        buf = []
-        skipped = 0
-        for item in ds:
-            t = item.get("text", "")
-            if not t.strip(): continue
-            e = tokenizer.encode(t, add_special_tokens=False)
-            if skipped < skip_tokens:
-                skipped += len(e); continue
-            buf.extend(e)
-            while len(buf) >= seq_len + 1:
-                yield torch.tensor([buf[:seq_len + 1]], dtype=torch.long, device=device)
-                buf = buf[seq_len:]  # advance with 1-token autoregressive overlap
+        order = torch.randperm(n_chunks)
+        for i in order.tolist():
+            start = i * seq_len
+            yield tokens[start:start + seq_len + 1].long().unsqueeze(0).to(device)
 
 
 def lm_ce(model, val_tokens, seq_len, n_chunks):
@@ -195,8 +223,10 @@ print("Loading val tokens (fixed slice)...")
 val_tokens = load_owt(tokenizer, max_tokens=N_VAL_TOK)
 val_chunks = N_VAL_TOK // SEQ_LEN
 print(f"  val tokens: {len(val_tokens):,}, val chunks: {val_chunks}")
-print(f"Setting up training stream (skip first {TRAIN_SKIP_TOK:,} tokens to avoid val overlap)...")
-train_stream = stream_train_sequences(tokenizer, SEQ_LEN, skip_tokens=TRAIN_SKIP_TOK)
+print(f"Loading {N_TRAIN_TOK:,} train tokens (cache: {TOKEN_CACHE})...")
+train_tokens = preload_train_tokens(tokenizer, N_TRAIN_TOK, TRAIN_SKIP_TOK, TOKEN_CACHE)
+print(f"  train tokens: {train_tokens.numel():,}")
+train_stream = iter_train_batches(train_tokens, SEQ_LEN, device)
 
 # ─── Baseline (tau=0) ─────────────────────────────────────────────────────
 set_tau(0.0)
