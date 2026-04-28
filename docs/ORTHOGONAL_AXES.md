@@ -56,25 +56,26 @@ Coupling appears only at aggressive compression (stage 116: 2.4x coupling at KV-
 ## C. Per-layer structure (not axis, but schedule)
 
 Every axis above can be applied with a per-layer schedule:
-- **Wormhole-shaped**: cavities compress more, walls less
 - **Per-layer anneal**: each layer finds its own floor independently
-- Confirmed: per-layer K rank reveals walls (L12, L39) and cavities (L10, L34)
+- Different models have different per-layer profiles (NOT universal)
+- Confirmed: per-layer K rank reveals expensive layers (L12, L39) and cheap layers (L10, L34) on 14B
+- Low-rank layers (r99=1) may share weights or be dropped
 
 ## D. Potential axes — NOT YET TESTED
 
 | # | Axis | Why it might work | Test needed |
 |---|------|-------------------|-------------|
-| 13 | **Cross-layer weight tying** | Throat layers are similar (rank-1 activations) | Tie weights of adjacent throat layers, FT |
+| 13 | **Cross-layer weight tying** | Low-rank layers have similar activations | Tie weights of adjacent cheap layers, FT |
 | 14 | **Layer dropping** (skip layers) | Some layers improve when skipped (L13, L15) | Drop + FT |
-| 15 | **Activation quantization** | Activations are rank-1 in throat | Quantize hidden states between layers |
-| 16 | **Attention head sharing** (across layers) | KV heads carry similar info in throat | Share KV heads between adjacent layers |
+| 15 | **Activation quantization** | Low-rank layers carry simple signals | Quantize hidden states between layers |
+| 16 | **Attention head sharing** (across layers) | KV heads may carry similar info in cheap layers | Share KV heads between adjacent layers |
 | 17 | **MLP rank** (SVD on gate/up/down) | MLP weights may be low-rank | SVD + FT |
 | 18 | **Embedding pruning** (vocabulary trim) | Many tokens unused | Remove unused vocab rows |
 | 19 | **RoPE frequency compression** | Position encoding may be over-specified | Reduce RoPE dimensions |
 | 20 | **Norm fusion** (merge adjacent norms) | Adjacent RMSNorms may be redundant | Fuse + FT |
 | 21 | **KV head merging** (reduce GQA groups) | Some KV heads may be redundant | Merge similar heads + FT |
 | 22 | **Dynamic precision** (per-token bit width) | Easy tokens need less precision | Certainty-driven quantization |
-| 23 | **Looped layers** (repeat one block) | Cavity layers are near-identity | Replace cavity sequence with loop |
+| 23 | **Looped layers** (repeat one block) | Cheap layers are near-identity | Replace cheap layer sequence with loop |
 | 24 | **Distillation** (train smaller model from compressed) | Compressed model as teacher | Full distillation pipeline |
 
 ## E. Theoretical combined compression
@@ -104,7 +105,8 @@ Plus decode acceleration:
 5. **Whitened SVD beats plain SVD**: Cholesky whitening enables 9% deeper compression
 6. **Streaming OWT prevents overfit**: Critical for small-data fine-tuning
 7. **Inverse-law FT scaling**: Efficient compute — more training when compression is harder
-8. **KV cache is holographic**: Predictable 100 tokens ahead with zero decay
+8. **KV cache is predictable**: Cosine 0.72+ at 100 tokens ahead with zero decay
+9. **Per-layer profiles are model-specific**: NOT universal — each model needs its own measurement
 
 ---
 
