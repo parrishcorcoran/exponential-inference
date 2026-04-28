@@ -196,12 +196,18 @@ model = AutoModelForCausalLM.from_pretrained(
     CHECKPOINT, dtype=dtype, low_cpu_mem_usage=True, trust_remote_code=True
 ).to(device).eval()
 
-# Freeze embeddings + lm_head; train rest (incl norms - they are the bridge)
+# Freeze everything except RMSNorm gamma parameters.
+# Norms ARE the compensation channel: they absorb magnitude that the
+# unit-norm-projected weight rows shed. Restricting trainable to norms
+# (a) keeps memory tiny (~200K params instead of 440M) and
+# (b) tests the cleaner hypothesis: "can gamma alone absorb the loss?"
+# Matches Strix's magnitude-anneal recipe.
+TRAIN_ONLY_NORMS = os.environ.get("TRAIN_ONLY_NORMS", "1") == "1"
 for n, p in model.named_parameters():
-    if "embed_tokens" in n or "lm_head" in n:
-        p.requires_grad = False
+    if TRAIN_ONLY_NORMS:
+        p.requires_grad = ("norm" in n.lower())
     else:
-        p.requires_grad = True
+        p.requires_grad = not ("embed_tokens" in n or "lm_head" in n)
 
 # Patch every Linear in the transformer body
 TARGET_NAME_MARKERS = ("q_proj", "k_proj", "v_proj", "o_proj",
