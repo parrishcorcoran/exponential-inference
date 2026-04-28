@@ -1,0 +1,88 @@
+{
+  "baseline": 29.9,
+  "history": [
+    {
+      "step": 1,
+      "post_ppl": 19.2
+    },
+    {
+      "step": 2,
+      "post_ppl": 25.1
+    },
+    {
+      "step": 3,
+      "post_ppl": 16.5
+    },
+    {
+      "step": 4,
+      "post_ppl": 22.0
+    },
+    {
+      "step": 5,
+      "post_ppl": 23.9
+    },
+    {
+      "step": 6,
+      "post_ppl": 20.5
+    },
+    {
+      "step": 7,
+      "post_ppl": 20.9
+    },
+    {
+      "step": 8,
+      "post_ppl": 23.1
+    },
+    {
+      "step": 9,
+      "post_ppl": 22.6
+    },
+    {
+      "step": 10,
+      "post_ppl": 29.4
+    },
+    {
+      "step": 11,
+      "post_ppl": 27.9
+    },
+    {
+      "step": 12,
+      "post_ppl": 31.3
+    },
+    {
+      "step": 13,
+      "post_ppl": 27.6
+    },
+    {
+      "step": 14,
+      "post_ppl": 37.1
+    },
+    {
+      "step": 15,
+      "post_ppl": 24.3
+    },
+    {
+      "step": 16,
+      "post_ppl": 35.3
+    },
+    {
+      "step": 17,
+      "post_ppl": 35.5
+    },
+    {
+      "step": 18,
+      "post_ppl": 36.7
+    },
+    {
+      "step": 19,
+      "post_ppl": 52.1
+    },
+    {
+      "step": 20,
+      "post_ppl": 37.4
+    }
+  ],
+  "coherent_until_step": 15,
+  "free_zone_sv_reduction_pct": 10,
+  "wall_sv_reduction_pct": 18
+}
