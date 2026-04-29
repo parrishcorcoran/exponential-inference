@@ -1,0 +1,31 @@
+{
+  "checkpoint": "1bitLLM/bitnet_b1_58-large",
+  "n_heads": 16,
+  "head_dim": 96,
+  "master_fp": {
+    "cv_of_means": 0.046699389815330505,
+    "cross_row_corr": 0.3163989333556999,
+    "pc1": 0.37370821833610535,
+    "pc2": 0.10836239159107208,
+    "pc3": 0.10082145035266876
+  },
+  "ternary_effective": {
+    "cv_of_means": 0.011784057132899761,
+    "cross_row_corr": 0.7195660824530322,
+    "pc1": 0.7331510782241821,
+    "pc2": 0.052728768438100815,
+    "pc3": 0.0428738035261631
+  },
+  "comparison": {
+    "qwen3_06b_fp": {
+      "pc1": 0.428,
+      "cv_of_means": 0.02,
+      "cross_row_corr": 0.399
+    },
+    "bonsai_1bit": {
+      "pc1": 0.353,
+      "cv_of_means": 0.017,
+      "cross_row_corr": 0.323
+    }
+  }
+}
