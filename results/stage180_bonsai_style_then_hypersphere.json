@@ -1,0 +1,14 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "group_size": 128,
+  "train_steps": 500,
+  "T0_base_ce": 3.8882325813174248,
+  "T1_bonsai_style_binary_ce": 15.849193572998047,
+  "T2_plus_hypersphere_alpha_init_ce": 15.849184304475784,
+  "T3_plus_alpha_trained_ce": 12.902730256319046,
+  "delta_T1_vs_T0": 11.960960991680622,
+  "delta_T2_vs_T0": 11.96095172315836,
+  "delta_T2_vs_T1": -9.268522262573242e-06,
+  "delta_T3_vs_T0": 9.014497675001621,
+  "delta_T3_vs_T1": -2.946463316679001
+}
