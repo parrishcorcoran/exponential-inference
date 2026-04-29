@@ -1,0 +1,123 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "stage2_steps": 500,
+  "refine_steps": 200,
+  "quant_schedule": [
+    256,
+    16,
+    8,
+    4,
+    3,
+    2
+  ],
+  "trajectory": [
+    {
+      "label": "T0_base_FP",
+      "ce": 3.8882325813174248,
+      "delta": 0.0,
+      "n_levels": "FP"
+    },
+    {
+      "label": "Tunit_alpha_trained",
+      "ce": 3.7662148028612137,
+      "delta": -0.12201777845621109,
+      "n_levels": "FP"
+    },
+    {
+      "label": "T_256lvl_pre_refine",
+      "n_levels": 256,
+      "bits": 8.0,
+      "ce": 3.7756484374403954,
+      "delta": -0.11258414387702942,
+      "phase": "pre-refine"
+    },
+    {
+      "label": "T_256lvl_post_refine",
+      "n_levels": 256,
+      "bits": 8.0,
+      "ce": 3.7513814568519592,
+      "delta": -0.13685112446546555,
+      "phase": "post-refine"
+    },
+    {
+      "label": "T_16lvl_pre_refine",
+      "n_levels": 16,
+      "bits": 4.0,
+      "ce": 4.392327569425106,
+      "delta": 0.5040949881076813,
+      "phase": "pre-refine"
+    },
+    {
+      "label": "T_16lvl_post_refine",
+      "n_levels": 16,
+      "bits": 4.0,
+      "ce": 4.309880532324314,
+      "delta": 0.42164795100688934,
+      "phase": "post-refine"
+    },
+    {
+      "label": "T_8lvl_pre_refine",
+      "n_levels": 8,
+      "bits": 3.0,
+      "ce": 8.75754876434803,
+      "delta": 4.869316183030605,
+      "phase": "pre-refine"
+    },
+    {
+      "label": "T_8lvl_post_refine",
+      "n_levels": 8,
+      "bits": 3.0,
+      "ce": 7.764830097556114,
+      "delta": 3.8765975162386894,
+      "phase": "post-refine"
+    },
+    {
+      "label": "T_4lvl_pre_refine",
+      "n_levels": 4,
+      "bits": 2.0,
+      "ce": 18.04093560576439,
+      "delta": 14.152703024446964,
+      "phase": "pre-refine"
+    },
+    {
+      "label": "T_4lvl_post_refine",
+      "n_levels": 4,
+      "bits": 2.0,
+      "ce": 17.566586911678314,
+      "delta": 13.67835433036089,
+      "phase": "post-refine"
+    },
+    {
+      "label": "T_3lvl_pre_refine",
+      "n_levels": 3,
+      "bits": 1.584962500721156,
+      "ce": 18.347705006599426,
+      "delta": 14.459472425282001,
+      "phase": "pre-refine"
+    },
+    {
+      "label": "T_3lvl_post_refine",
+      "n_levels": 3,
+      "bits": 1.584962500721156,
+      "ce": 18.101848602294922,
+      "delta": 14.213616020977497,
+      "phase": "post-refine"
+    },
+    {
+      "label": "T_2lvl_pre_refine",
+      "n_levels": 2,
+      "bits": 1.0,
+      "ce": 18.998109877109528,
+      "delta": 15.109877295792103,
+      "phase": "pre-refine"
+    },
+    {
+      "label": "T_2lvl_post_refine",
+      "n_levels": 2,
+      "bits": 1.0,
+      "ce": 18.46359372138977,
+      "delta": 14.575361140072346,
+      "phase": "post-refine"
+    }
+  ]
+}
