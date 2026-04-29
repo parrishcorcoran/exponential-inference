@@ -1,0 +1,51 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "schedule": [
+    16,
+    64,
+    128
+  ],
+  "T0_base_ce": 4.212500803172588,
+  "trajectory": [
+    {
+      "level": 1,
+      "group_size": 16,
+      "bits_per_weight": 2.0,
+      "init_ce": 16.005054235458374,
+      "init_drift": 11.792553432285786,
+      "final_ce": 7.746080577373505,
+      "final_drift": 3.5335797742009163,
+      "extra_train_steps": 100
+    },
+    {
+      "level": 2,
+      "group_size": 64,
+      "bits_per_weight": 1.25,
+      "init_ce": 7.787276327610016,
+      "init_drift": 3.5747755244374275,
+      "final_ce": 7.638116717338562,
+      "final_drift": 3.4256159141659737,
+      "extra_train_steps": 100
+    },
+    {
+      "level": 3,
+      "group_size": 128,
+      "bits_per_weight": 1.125,
+      "init_ce": 7.648868203163147,
+      "init_drift": 3.4363673999905586,
+      "final_ce": 7.371352866292,
+      "final_drift": 3.1588520631194115,
+      "extra_train_steps": 100
+    }
+  ],
+  "final_drift": 3.1588520631194115,
+  "stage_188_baseline_delta": 3.7595,
+  "improvement_vs_188": 0.6006479368805886,
+  "config": {
+    "lr_master": 1e-05,
+    "lr_norms_alpha": 0.0005,
+    "train_steps_baseline": 50,
+    "pid_setpoint": 0.1,
+    "pid_kp": 1.0
+  }
+}
