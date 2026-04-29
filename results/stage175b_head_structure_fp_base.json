@@ -1,0 +1,22 @@
+{
+  "models": [
+    {
+      "model": "Qwen/Qwen3-4B",
+      "n_heads": 32,
+      "head_dim": 80,
+      "n_rows_total": 92160,
+      "per_head_mean_overall": 0.25043419003486633,
+      "per_head_cv_of_means": 0.018771696835756302,
+      "cross_row_corr_mean": 0.2263885017718671,
+      "pc1_explained": 0.25133582949638367,
+      "pc2_explained": 0.07434235513210297,
+      "pc3_explained": 0.06715197116136551,
+      "cross_layer_head_corr": 0.00503744599117912
+    }
+  ],
+  "bonsai_reference": {
+    "pc1": 0.353,
+    "cv_of_means": 0.017,
+    "cross_row_corr": 0.323
+  }
+}
