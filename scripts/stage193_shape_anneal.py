@@ -49,12 +49,12 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
 CHECKPOINT = "Qwen/Qwen3-0.6B"
-SEQ_LEN = 64
+SEQ_LEN = 128             # v4: longer context (was 64) for stable gradients
 BATCH = 1
 GRAD_ACCUM = 4
 N_VAL_CHUNKS = 32
 LR_BODY = 1e-5
-LR_AUX = 5e-4
+LR_AUX = 1e-4              # v4: smaller aux LR (was 5e-4) to prevent overfitting
 GRAD_CLIP = 1.0
 RESULTS_PATH = Path("results/stage193_shape_anneal.json")
 
@@ -63,15 +63,16 @@ ALL_TARGET_NAMES = ("q_proj", "k_proj", "v_proj", "o_proj",
 TRAINABLE_BODY_NAMES = ("o_proj", "down_proj")  # subset for memory
 GROUP_SIZE = 128
 
-# PID parameters for λ ramp
-# v2: loosened setpoint so PID actually engages despite training noise.
-# Goal of this run is to MAP THE LANDSCAPE — find where the recipe breaks
-# under shape pressure — not to hit lossless directly.
-N_CYCLES = 80
-TRAIN_STEPS_PER_CYCLE = 30
-LAMBDA_INITIAL = 0.01  # start with non-zero so the regularizer has signal
+# v4: bigger per-cycle data + aux constrained to RMSNorm only.
+# Previous overfitting was caused by 155M trainable embed/lm_head params on
+# tiny per-cycle data (~7K tokens). Two fixes:
+#   1. Drop embed/lm_head from trainable set (still trainable=False, just FP fixed).
+#   2. Increase per-cycle training data: 200 steps × SEQ 128 × accum 4 = ~100K tokens.
+N_CYCLES = 60
+TRAIN_STEPS_PER_CYCLE = 200    # v4: 30 → 200, much more data per cycle
+LAMBDA_INITIAL = 0.01
 LAMBDA_TARGET = 100.0
-PID_SETPOINT_DRIFT = 0.5    # 0.5 nat ≈ Bonsai's 11% gap; permissive zone
+PID_SETPOINT_DRIFT = 0.5
 PID_KP = 1.0
 LAMBDA_GROWTH_RATE = 0.3
 
