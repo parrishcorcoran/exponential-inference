@@ -1,0 +1,315 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "T0_base_ce": 3.8882325813174248,
+  "shape_rate": 0.01,
+  "comp_rate": 0.01,
+  "n_cycles": 60,
+  "trajectory": [
+    {
+      "cycle": 0,
+      "shape_pressure": 0.0,
+      "comp_factor": 1.0,
+      "ce": 3.8882325813174248,
+      "drift": 0.0,
+      "shape_cv": 0.7764338926232951,
+      "k1_residual": 0.6102967466018638
+    },
+    {
+      "cycle": 1,
+      "shape_pressure": 0.01,
+      "exponent": 0.99,
+      "comp_factor": 1.01,
+      "ce": 3.911285862326622,
+      "drift": 0.023053281009197235,
+      "shape_cv": 0.769743514558589,
+      "k1_residual": 0.606997396872968
+    },
+    {
+      "cycle": 2,
+      "shape_pressure": 0.02,
+      "exponent": 0.98,
+      "comp_factor": 1.02,
+      "ce": 3.941547505557537,
+      "drift": 0.053314924240112305,
+      "shape_cv": 0.7630518949812887,
+      "k1_residual": 0.6036655306816101
+    },
+    {
+      "cycle": 3,
+      "shape_pressure": 0.03,
+      "exponent": 0.97,
+      "comp_factor": 1.03,
+      "ce": 3.979412078857422,
+      "drift": 0.0911794975399971,
+      "shape_cv": 0.7563587339375816,
+      "k1_residual": 0.6003007259295912
+    },
+    {
+      "cycle": 4,
+      "shape_pressure": 0.04,
+      "exponent": 0.96,
+      "comp_factor": 1.04,
+      "ce": 4.0242369174957275,
+      "drift": 0.13600433617830276,
+      "shape_cv": 0.7496636873950029,
+      "k1_residual": 0.5969025586940804
+    },
+    {
+      "cycle": 5,
+      "shape_pressure": 0.05,
+      "exponent": 0.95,
+      "comp_factor": 1.05,
+      "ce": 4.074402704834938,
+      "drift": 0.18617012351751328,
+      "shape_cv": 0.7429665233394103,
+      "k1_residual": 0.5934706336381484
+    },
+    {
+      "cycle": 6,
+      "shape_pressure": 0.06,
+      "exponent": 0.94,
+      "comp_factor": 1.06,
+      "ce": 4.129888705909252,
+      "drift": 0.2416561245918274,
+      "shape_cv": 0.7362668848714141,
+      "k1_residual": 0.5900045207568577
+    },
+    {
+      "cycle": 7,
+      "shape_pressure": 0.07,
+      "exponent": 0.9299999999999999,
+      "comp_factor": 1.07,
+      "ce": 4.190979741513729,
+      "drift": 0.3027471601963043,
+      "shape_cv": 0.7295644492032547,
+      "k1_residual": 0.5865037711907406
+    },
+    {
+      "cycle": 8,
+      "shape_pressure": 0.08,
+      "exponent": 0.92,
+      "comp_factor": 1.08,
+      "ce": 4.261053383350372,
+      "drift": 0.37282080203294754,
+      "shape_cv": 0.7228588885907639,
+      "k1_residual": 0.5829679412501199
+    },
+    {
+      "cycle": 9,
+      "shape_pressure": 0.09,
+      "exponent": 0.91,
+      "comp_factor": 1.09,
+      "ce": 4.345248162746429,
+      "drift": 0.45701558142900467,
+      "shape_cv": 0.71614985732902,
+      "k1_residual": 0.5793965802508958
+    },
+    {
+      "cycle": 10,
+      "shape_pressure": 0.1,
+      "exponent": 0.9,
+      "comp_factor": 1.1,
+      "ce": 4.45342119038105,
+      "drift": 0.5651886090636253,
+      "shape_cv": 0.709436975924161,
+      "k1_residual": 0.5757892058820141
+    },
+    {
+      "cycle": 11,
+      "shape_pressure": 0.11,
+      "exponent": 0.89,
+      "comp_factor": 1.11,
+      "ce": 4.58672297000885,
+      "drift": 0.6984903886914253,
+      "shape_cv": 0.7027199729363582,
+      "k1_residual": 0.5721453923960121
+    },
+    {
+      "cycle": 12,
+      "shape_pressure": 0.12,
+      "exponent": 0.88,
+      "comp_factor": 1.12,
+      "ce": 4.749517098069191,
+      "drift": 0.8612845167517662,
+      "shape_cv": 0.6959984487259221,
+      "k1_residual": 0.568464636498568
+    },
+    {
+      "cycle": 13,
+      "shape_pressure": 0.13,
+      "exponent": 0.87,
+      "comp_factor": 1.13,
+      "ce": 4.955328866839409,
+      "drift": 1.067096285521984,
+      "shape_cv": 0.6892720308331091,
+      "k1_residual": 0.5647464455390463
+    },
+    {
+      "cycle": 14,
+      "shape_pressure": 0.14,
+      "exponent": 0.86,
+      "comp_factor": 1.1400000000000001,
+      "ce": 5.221371665596962,
+      "drift": 1.3331390842795372,
+      "shape_cv": 0.6825403462799841,
+      "k1_residual": 0.5609903369022875
+    },
+    {
+      "cycle": 15,
+      "shape_pressure": 0.15,
+      "exponent": 0.85,
+      "comp_factor": 1.15,
+      "ce": 5.539576351642609,
+      "drift": 1.6513437703251839,
+      "shape_cv": 0.6758030105973463,
+      "k1_residual": 0.5571957911763873
+    },
+    {
+      "cycle": 16,
+      "shape_pressure": 0.16,
+      "exponent": 0.84,
+      "comp_factor": 1.16,
+      "ce": 5.918447777628899,
+      "drift": 2.030215196311474,
+      "shape_cv": 0.6690595957632425,
+      "k1_residual": 0.5533622673579625
+    },
+    {
+      "cycle": 17,
+      "shape_pressure": 0.17,
+      "exponent": 0.83,
+      "comp_factor": 1.17,
+      "ce": 6.351415932178497,
+      "drift": 2.4631833508610725,
+      "shape_cv": 0.6623097815131327,
+      "k1_residual": 0.5494892989494362
+    },
+    {
+      "cycle": 18,
+      "shape_pressure": 0.18,
+      "exponent": 0.8200000000000001,
+      "comp_factor": 1.18,
+      "ce": 6.823461800813675,
+      "drift": 2.93522921949625,
+      "shape_cv": 0.6555531126995231,
+      "k1_residual": 0.5455763142327873
+    },
+    {
+      "cycle": 19,
+      "shape_pressure": 0.19,
+      "exponent": 0.81,
+      "comp_factor": 1.19,
+      "ce": 7.388542875647545,
+      "drift": 3.50031029433012,
+      "shape_cv": 0.6487891740584322,
+      "k1_residual": 0.5416227709882113
+    },
+    {
+      "cycle": 20,
+      "shape_pressure": 0.2,
+      "exponent": 0.8,
+      "comp_factor": 1.2,
+      "ce": 7.907642170786858,
+      "drift": 4.019409589469433,
+      "shape_cv": 0.6420175357589176,
+      "k1_residual": 0.5376281102701109
+    },
+    {
+      "cycle": 21,
+      "shape_pressure": 0.21,
+      "exponent": 0.79,
+      "comp_factor": 1.21,
+      "ce": 8.534684374928474,
+      "drift": 4.64645179361105,
+      "shape_cv": 0.6352377606800084,
+      "k1_residual": 0.533591761576886
+    },
+    {
+      "cycle": 22,
+      "shape_pressure": 0.22,
+      "exponent": 0.78,
+      "comp_factor": 1.22,
+      "ce": 9.182777673006058,
+      "drift": 5.294545091688633,
+      "shape_cv": 0.6284493613414097,
+      "k1_residual": 0.5295131206512451
+    },
+    {
+      "cycle": 23,
+      "shape_pressure": 0.23,
+      "exponent": 0.77,
+      "comp_factor": 1.23,
+      "ce": 9.844854533672333,
+      "drift": 5.956621952354908,
+      "shape_cv": 0.6216519587283637,
+      "k1_residual": 0.5253916410159092
+    },
+    {
+      "cycle": 24,
+      "shape_pressure": 0.24,
+      "exponent": 0.76,
+      "comp_factor": 1.24,
+      "ce": 10.543442606925964,
+      "drift": 6.65521002560854,
+      "shape_cv": 0.6148450432422752,
+      "k1_residual": 0.521226699559056
+    },
+    {
+      "cycle": 25,
+      "shape_pressure": 0.25,
+      "exponent": 0.75,
+      "comp_factor": 1.25,
+      "ce": 11.282728046178818,
+      "drift": 7.394495464861393,
+      "shape_cv": 0.6080281339020682,
+      "k1_residual": 0.5170176780345489
+    },
+    {
+      "cycle": 26,
+      "shape_pressure": 0.26,
+      "exponent": 0.74,
+      "comp_factor": 1.26,
+      "ce": 11.992910414934158,
+      "drift": 8.104677833616734,
+      "shape_cv": 0.6012007420842824,
+      "k1_residual": 0.5127639369088777
+    },
+    {
+      "cycle": 27,
+      "shape_pressure": 0.27,
+      "exponent": 0.73,
+      "comp_factor": 1.27,
+      "ce": 12.91281521320343,
+      "drift": 9.024582631886005,
+      "shape_cv": 0.5943623631415037,
+      "k1_residual": 0.5084648472922189
+    },
+    {
+      "cycle": 28,
+      "shape_pressure": 0.28,
+      "exponent": 0.72,
+      "comp_factor": 1.28,
+      "ce": 13.568086445331573,
+      "drift": 9.679853864014149,
+      "shape_cv": 0.5875124806373909,
+      "k1_residual": 0.5041197480595841
+    },
+    {
+      "cycle": 29,
+      "shape_pressure": 0.29,
+      "exponent": 0.71,
+      "comp_factor": 1.29,
+      "ce": 14.218816101551056,
+      "drift": 10.330583520233631,
+      "shape_cv": 0.5806505245923074,
+      "k1_residual": 0.4997279400728187
+    }
+  ],
+  "broke_at_cycle": 22,
+  "ce_post_k1": 19.845892012119293,
+  "drift_post_k1": 15.957659430801868,
+  "init_metrics": {
+    "shape_cv_mean": 0.7764338926232951,
+    "k1_residual": 0.6102967466018638
+  }
+}
