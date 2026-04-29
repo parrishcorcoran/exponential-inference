@@ -1,0 +1,16 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "stage2_steps": 500,
+  "stage3_refine_steps": 500,
+  "T0_base_ce": 3.8882325813174248,
+  "T1_unit_norm_no_alpha_ce": 14.599787771701813,
+  "T2_unit_norm_alpha_init_ce": 3.8882332891225815,
+  "T3_alpha_trained_ce": 3.767229288816452,
+  "T4_binary_no_refine_ce": 16.941430032253265,
+  "T5_binary_alpha_refined_ce": 14.27934530377388,
+  "delta_T1": 10.711555190384388,
+  "delta_T2": 7.078051567077637e-07,
+  "delta_T3": -0.12100329250097275,
+  "delta_T4": 13.05319745093584,
+  "delta_T5": 10.391112722456455
+}
