@@ -241,6 +241,36 @@ print(f"  Stage 203: locked at T=6.5, drift +0.5 (no training)")
 print(f"  Stage 204: T={final['T_cap']:.2f}, drift{final['drift']:+.4f} (with training)")
 print(f"  BitNet target: T=1.01")
 
+
+# ─── Coherency test ───
+print("\n" + "=" * 70)
+print("COHERENCY TEST — generate text to verify capability is intact")
+print("=" * 70)
+
+test_prompts = [
+    "The quick brown fox",
+    "Once upon a time, there was",
+    "The capital of France is",
+    "To compute the sum of two numbers in Python, you can",
+    "Step 1: First, we need to",
+]
+
+generations = []
+model.eval()
+for prompt in test_prompts:
+    ids = tokenizer.encode(prompt, return_tensors="pt").to(device)
+    with torch.no_grad():
+        out_ids = model.generate(
+            ids, max_new_tokens=50, do_sample=False,
+            temperature=1.0, top_p=1.0, top_k=0,
+            pad_token_id=tokenizer.eos_token_id if tokenizer.eos_token_id else 0,
+        )
+    completion = tokenizer.decode(out_ids[0][ids.shape[1]:], skip_special_tokens=True)
+    full = prompt + completion
+    generations.append({"prompt": prompt, "completion": completion, "full": full})
+    print(f"\n  PROMPT: {repr(prompt)}")
+    print(f"  CONT:   {repr(completion)}")
+
 with open(RESULTS_PATH, "w") as f:
     json.dump({
         "checkpoint": CHECKPOINT,
@@ -254,5 +284,6 @@ with open(RESULTS_PATH, "w") as f:
         "broke_at_cycle": broke_at,
         "best_drift": float(best["drift"]),
         "best_T_cap": float(best["T_cap"]),
+        "coherency_generations": generations,
     }, f, indent=2)
 print(f"\nSaved {RESULTS_PATH}")
