@@ -92,19 +92,24 @@ else:
     device = "cpu"; dtype = torch.float32
 
 
+_CACHED_CORPUS = None
+
+def load_owt_cached():
+    """Load the pretokenized OWT corpus (data/owt_tokens_50M.pt). 58M tokens
+    pre-tokenized with Qwen3 tokenizer. Disk read is instant vs streaming."""
+    global _CACHED_CORPUS
+    if _CACHED_CORPUS is None:
+        _CACHED_CORPUS = torch.load("data/owt_tokens_50M.pt", map_location="cpu",
+                                     weights_only=True).long()
+        print(f"  loaded cached corpus: {_CACHED_CORPUS.numel():,} tokens")
+    return _CACHED_CORPUS
+
+
 def load_owt(tokenizer, max_tokens, skip=0):
-    from datasets import load_dataset
-    ds = load_dataset("Skylion007/openwebtext", split="train", streaming=True)
-    toks = []; skipped = 0
-    for item in ds:
-        t = item.get("text", "")
-        if not t.strip(): continue
-        e = tokenizer.encode(t, add_special_tokens=False)
-        if skipped < skip:
-            skipped += len(e); continue
-        toks.extend(e)
-        if len(toks) >= max_tokens: break
-    return toks[:max_tokens]
+    """Slice from cached corpus instead of streaming."""
+    corpus = load_owt_cached()
+    end = min(skip + max_tokens, corpus.numel())
+    return corpus[skip:end].tolist()
 
 
 def lm_ce(model, val_tokens):
