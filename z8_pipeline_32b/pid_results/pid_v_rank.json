@@ -1,0 +1,132 @@
+{
+  "axis": "v_rank",
+  "model": "Qwen/Qwen3-4B",
+  "teacher_ppl": 26.453592623037842,
+  "setpoint": 27.776272254189735,
+  "target_pct": 5.0,
+  "history": [
+    {
+      "round": 1,
+      "level": 0.0,
+      "ppl": 26.45,
+      "ratio": 1.0,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 46.6
+    },
+    {
+      "round": 2,
+      "level": 0.05,
+      "ppl": 19.83,
+      "ratio": 0.7497,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 486.3
+    },
+    {
+      "round": 3,
+      "level": 0.1,
+      "ppl": 20.17,
+      "ratio": 0.7624,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 924.5
+    },
+    {
+      "round": 4,
+      "level": 0.15,
+      "ppl": 20.2,
+      "ratio": 0.7636,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 1355.4
+    },
+    {
+      "round": 5,
+      "level": 0.2,
+      "ppl": 20.75,
+      "ratio": 0.7845,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 1791.4
+    },
+    {
+      "round": 6,
+      "level": 0.25,
+      "ppl": 21.05,
+      "ratio": 0.7957,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 2220.1
+    },
+    {
+      "round": 7,
+      "level": 0.3,
+      "ppl": 21.55,
+      "ratio": 0.8147,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 2650.7
+    },
+    {
+      "round": 8,
+      "level": 0.35,
+      "ppl": 22.32,
+      "ratio": 0.8437,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 3078.3
+    },
+    {
+      "round": 9,
+      "level": 0.4,
+      "ppl": 22.88,
+      "ratio": 0.8648,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 3509.4
+    },
+    {
+      "round": 10,
+      "level": 0.45,
+      "ppl": 23.58,
+      "ratio": 0.8914,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 3933.6
+    },
+    {
+      "round": 11,
+      "level": 0.5,
+      "ppl": 24.86,
+      "ratio": 0.9399,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 4354.8
+    },
+    {
+      "round": 12,
+      "level": 0.55,
+      "ppl": 26.83,
+      "ratio": 1.0141,
+      "pid_output": 0.0492,
+      "status": "ON TARGET",
+      "elapsed_s": 4776.1
+    },
+    {
+      "round": 13,
+      "level": 0.5992,
+      "ppl": 28.77,
+      "ratio": 1.0877,
+      "pid_output": 0.0,
+      "status": "RECOVERING",
+      "elapsed_s": 5195.0
+    }
+  ],
+  "best_ppl": 19.831553516322003,
+  "best_level": 0.05,
+  "free_zone_end": 0.5499999999999999,
+  "wall_level": null,
+  "final_level": 0.5992254855722854,
+  "elapsed_h": 1.443068583144082
+}

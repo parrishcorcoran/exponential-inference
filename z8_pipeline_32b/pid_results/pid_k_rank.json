@@ -1,0 +1,168 @@
+{
+  "axis": "k_rank",
+  "model": "Qwen/Qwen3-4B",
+  "teacher_ppl": 26.453592623037842,
+  "setpoint": 27.776272254189735,
+  "target_pct": 5.0,
+  "history": [
+    {
+      "round": 1,
+      "level": 0.0,
+      "ppl": 26.45,
+      "ratio": 1.0,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 48.1
+    },
+    {
+      "round": 2,
+      "level": 0.05,
+      "ppl": 20.79,
+      "ratio": 0.786,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 489.8
+    },
+    {
+      "round": 3,
+      "level": 0.1,
+      "ppl": 20.8,
+      "ratio": 0.7864,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 922.1
+    },
+    {
+      "round": 4,
+      "level": 0.15,
+      "ppl": 20.78,
+      "ratio": 0.7856,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 1356.1
+    },
+    {
+      "round": 5,
+      "level": 0.2,
+      "ppl": 21.02,
+      "ratio": 0.7946,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 1794.1
+    },
+    {
+      "round": 6,
+      "level": 0.25,
+      "ppl": 20.88,
+      "ratio": 0.7891,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 2223.6
+    },
+    {
+      "round": 7,
+      "level": 0.3,
+      "ppl": 21.06,
+      "ratio": 0.7961,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 2649.3
+    },
+    {
+      "round": 8,
+      "level": 0.35,
+      "ppl": 21.09,
+      "ratio": 0.7974,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 3078.5
+    },
+    {
+      "round": 9,
+      "level": 0.4,
+      "ppl": 21.29,
+      "ratio": 0.8049,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 3503.9
+    },
+    {
+      "round": 10,
+      "level": 0.45,
+      "ppl": 21.48,
+      "ratio": 0.812,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 3931.0
+    },
+    {
+      "round": 11,
+      "level": 0.5,
+      "ppl": 21.74,
+      "ratio": 0.8219,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 4356.0
+    },
+    {
+      "round": 12,
+      "level": 0.55,
+      "ppl": 22.19,
+      "ratio": 0.8389,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 4777.2
+    },
+    {
+      "round": 13,
+      "level": 0.6,
+      "ppl": 22.74,
+      "ratio": 0.8595,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 5196.9
+    },
+    {
+      "round": 14,
+      "level": 0.65,
+      "ppl": 23.4,
+      "ratio": 0.8846,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 5615.2
+    },
+    {
+      "round": 15,
+      "level": 0.7,
+      "ppl": 24.6,
+      "ratio": 0.9298,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 6030.9
+    },
+    {
+      "round": 16,
+      "level": 0.75,
+      "ppl": 26.35,
+      "ratio": 0.9961,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 6446.8
+    },
+    {
+      "round": 17,
+      "level": 0.8,
+      "ppl": 28.69,
+      "ratio": 1.0845,
+      "pid_output": 0.0,
+      "status": "RECOVERING",
+      "elapsed_s": 6860.5
+    }
+  ],
+  "best_ppl": 20.7823230843864,
+  "best_level": 0.15000000000000002,
+  "free_zone_end": 0.8000000000000002,
+  "wall_level": null,
+  "final_level": 0.8000000000000002,
+  "elapsed_h": 1.9057044576936297
+}

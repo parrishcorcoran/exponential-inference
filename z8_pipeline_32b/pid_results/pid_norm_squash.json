@@ -1,0 +1,33 @@
+{
+  "axis": "norm_squash",
+  "model": "Qwen/Qwen3-4B",
+  "teacher_ppl": 26.453592623037842,
+  "setpoint": 27.776272254189735,
+  "target_pct": 5.0,
+  "history": [
+    {
+      "round": 1,
+      "level": 0.0,
+      "ppl": 26.45,
+      "ratio": 1.0,
+      "pid_output": 0.05,
+      "status": "FREE (improves)",
+      "elapsed_s": 82.5
+    },
+    {
+      "round": 2,
+      "level": 0.05,
+      "ppl": 28.47,
+      "ratio": 1.0762,
+      "pid_output": 0.0,
+      "status": "RECOVERING",
+      "elapsed_s": 661.0
+    }
+  ],
+  "best_ppl": 26.453592623037842,
+  "best_level": 0.0,
+  "free_zone_end": 0.05,
+  "wall_level": null,
+  "final_level": 0.05,
+  "elapsed_h": 0.18360619405905407
+}
