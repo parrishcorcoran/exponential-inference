@@ -178,7 +178,35 @@ print(f"checkpoint: {CHECKPOINT}")
 print(f"schedule: {ZERO_THRESHOLD_SCHEDULE}  (0.5=BitNet ternary, 0.0=pure binary)")
 print(f"PID setpoint: drift ≤ {PID_SETPOINT_DRIFT} nats")
 
-tokenizer = AutoTokenizer.from_pretrained(CHECKPOINT, trust_remote_code=True)
+# BitNet ships a custom BitnetTokenizer class that won't auto-import.
+# Workaround: load the fast tokenizer.json directly via PreTrainedTokenizerFast.
+from transformers import PreTrainedTokenizerFast
+from tokenizers import AddedToken
+from huggingface_hub import hf_hub_download
+import json as _json
+
+_tokenizer_file = hf_hub_download(repo_id=CHECKPOINT, filename="tokenizer.json")
+_special_file = hf_hub_download(repo_id=CHECKPOINT, filename="special_tokens_map.json")
+with open(_special_file) as _f:
+    _specials = _json.load(_f)
+
+def _to_token(v):
+    if v is None: return None
+    if isinstance(v, str): return v
+    if isinstance(v, dict):
+        return AddedToken(v["content"], lstrip=v.get("lstrip", False),
+                          rstrip=v.get("rstrip", False),
+                          single_word=v.get("single_word", False),
+                          normalized=v.get("normalized", True))
+    return v
+
+tokenizer = PreTrainedTokenizerFast(
+    tokenizer_file=_tokenizer_file,
+    bos_token=_to_token(_specials.get("bos_token")),
+    eos_token=_to_token(_specials.get("eos_token")),
+    unk_token=_to_token(_specials.get("unk_token")),
+    pad_token=_to_token(_specials.get("pad_token")),
+)
 
 
 # ─── Reference: BitNet's native CE (with ternary forward) ───

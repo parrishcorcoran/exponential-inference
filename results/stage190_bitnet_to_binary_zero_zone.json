@@ -1,0 +1,57 @@
+{
+  "checkpoint": "1bitLLM/bitnet_b1_58-large",
+  "schedule": [
+    0.5,
+    0.3,
+    0.15,
+    0.0
+  ],
+  "T0_bitnet_native_ce": 8.754366993904114,
+  "trajectory": [
+    {
+      "level": 1,
+      "zero_threshold": 0.5,
+      "init_ce": 15.072141319513321,
+      "init_drift": 6.317774325609207,
+      "final_ce": 6.966855853796005,
+      "final_drift": -1.7875111401081085,
+      "extra_train_steps": 0
+    },
+    {
+      "level": 2,
+      "zero_threshold": 0.3,
+      "init_ce": 10.789976865053177,
+      "init_drift": 2.035609871149063,
+      "final_ce": 8.548064142465591,
+      "final_drift": -0.20630285143852234,
+      "extra_train_steps": 0
+    },
+    {
+      "level": 3,
+      "zero_threshold": 0.15,
+      "init_ce": 9.050673842430115,
+      "init_drift": 0.296306848526001,
+      "final_ce": 8.090812414884567,
+      "final_drift": -0.6635545790195465,
+      "extra_train_steps": 0
+    },
+    {
+      "level": 4,
+      "zero_threshold": 0.0,
+      "init_ce": 8.234729066491127,
+      "init_drift": -0.5196379274129868,
+      "final_ce": 7.799937695264816,
+      "final_drift": -0.9544292986392975,
+      "extra_train_steps": 0
+    }
+  ],
+  "final_drift": -0.9544292986392975,
+  "stage_189_qwen_to_bonsai_binary": 3.159,
+  "config": {
+    "lr_master": 1e-05,
+    "lr_norms_alpha": 0.0005,
+    "train_steps_baseline": 50,
+    "pid_setpoint": 0.1,
+    "pid_kp": 1.0
+  }
+}
