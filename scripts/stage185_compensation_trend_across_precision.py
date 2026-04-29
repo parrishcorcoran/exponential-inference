@@ -152,7 +152,7 @@ print("Loading BitNet b1.58 2B-4T")
 print("=" * 70)
 try:
     model_bitnet = AutoModelForCausalLM.from_pretrained(
-        "microsoft/bitnet-b1.58-2B-4T", dtype=torch.float32,
+        "1bitLLM/bitnet_b1_58-large", dtype=torch.float32,
         low_cpu_mem_usage=True, trust_remote_code=True
     ).eval()
     sd_bitnet_master = {n: p.data for n, p in model_bitnet.named_parameters()}
@@ -237,15 +237,23 @@ def decode_bonsai_layer_to_effective(weight_packed, scales, biases, group_size=1
     return row_norms.cpu().numpy(), total_abs, in_features, out_features * in_features
 
 
-def analyze_bonsai_directly(model_repo="mlx-community/Bonsai-8B-1bit"):
+def analyze_bonsai_directly():
     """Walk Bonsai's safetensors directly, compute axes."""
-    from huggingface_hub import snapshot_download
     from safetensors import safe_open
 
-    print(f"  downloading/locating {model_repo}...")
-    local = snapshot_download(model_repo)
-    files = sorted([f for f in os.listdir(local) if f.endswith(".safetensors")])
-    print(f"  found {len(files)} safetensor file(s)")
+    # Use cached path — earlier stages confirmed this is where it lives
+    local = Path(
+        "/Users/abundancemachine/.cache/huggingface/hub/"
+        "models--prism-ml--Bonsai-8B-mlx-1bit/snapshots/"
+        "019934f87a61a654e3960ea22f53688e0d2c49ba"
+    )
+    if not local.exists():
+        # Try snapshot_download as fallback
+        from huggingface_hub import snapshot_download
+        print(f"  cache miss, attempting download of prism-ml/Bonsai-8B-mlx-1bit...")
+        local = Path(snapshot_download("prism-ml/Bonsai-8B-mlx-1bit"))
+    files = sorted([f for f in os.listdir(str(local)) if f.endswith(".safetensors")])
+    print(f"  found {len(files)} safetensor file(s) in {local}")
 
     body_norms = defaultdict(list)
     body_rms = defaultdict(list)
@@ -259,68 +267,105 @@ def analyze_bonsai_directly(model_repo="mlx-community/Bonsai-8B-1bit"):
     # Track packed body layers to combine .weight + .scales + .biases
     body_packed = defaultdict(dict)  # layer_prefix → {"weight":..., "scales":..., "biases":...}
 
+    # First pass: collect ALL keys grouped by prefix so we can identify
+    # any packed-binary triplets (.weight uint32 + .scales + .biases),
+    # regardless of whether the prefix matches TARGET_NAMES (lm_head may
+    # also be packed).
+    all_keys_by_prefix = defaultdict(dict)
     for fname in files:
-        path = os.path.join(local, fname)
+        path = os.path.join(str(local), fname)
         with safe_open(path, framework="pt") as f:
             for key in f.keys():
-                t = f.get_tensor(key)
-                if t.dim() == 0:
-                    continue
-
-                # Detect Bonsai's MLX-style packed format: tensor names like
-                # "...q_proj.weight" with dtype uint32 → packed binary
-                # Companion ".scales" and ".biases" alongside.
-                if any(tname in key for tname in TARGET_NAMES) and \
-                   (key.endswith(".weight") or key.endswith(".scales") or key.endswith(".biases")):
+                if key.endswith((".weight", ".scales", ".biases")):
                     prefix = key.rsplit(".", 1)[0]
                     suffix = key.rsplit(".", 1)[1]
-                    body_packed[prefix][suffix] = t
-                    continue
+                    all_keys_by_prefix[prefix][suffix] = (path, key)
+                else:
+                    all_keys_by_prefix[key]["__solo__"] = (path, key)
 
+    # Identify packed binary layers: prefix has weight + scales + biases
+    # (or weight + scales). The .weight tensor will be uint32.
+    packed_prefixes = set()
+    for prefix, parts in all_keys_by_prefix.items():
+        if "weight" in parts and "scales" in parts:
+            packed_prefixes.add(prefix)
+
+    # Process all tensors. Packed prefixes go to body_packed for decoding.
+    # Everything else → categorize and aggregate.
+    file_handles = {}
+    def get_tensor(path, key):
+        if path not in file_handles:
+            file_handles[path] = safe_open(path, framework="pt").__enter__()
+        return file_handles[path].get_tensor(key)
+
+    try:
+        for prefix, parts in all_keys_by_prefix.items():
+            if prefix in packed_prefixes:
+                w_path, w_key = parts["weight"]
+                s_path, s_key = parts["scales"]
+                weight = get_tensor(w_path, w_key)
+                scales = get_tensor(s_path, s_key)
+                if "biases" in parts:
+                    b_path, b_key = parts["biases"]
+                    biases = get_tensor(b_path, b_key)
+                else:
+                    biases = torch.zeros_like(scales)
+                body_packed[prefix] = {"weight": weight, "scales": scales, "biases": biases}
+            else:
+                # Solo tensor (or only .weight without packed companions)
+                if "__solo__" in parts:
+                    path, key = parts["__solo__"]
+                elif "weight" in parts:
+                    path, key = parts["weight"]
+                else:
+                    continue
+                t = get_tensor(path, key)
+                if t.dim() == 0 or t.dtype == torch.uint32:
+                    continue
+                tt = t.float()
                 cat, proj = categorize_param(key)
-                tt = t.float() if t.dtype != torch.uint32 else t
                 if cat == "norm":
                     norm_gains.extend(tt.flatten().cpu().numpy().tolist())
-                    total_abs_sum += float(tt.abs().sum().item())
-                    total_n += int(tt.numel())
                 elif cat == "embed" and tt.dim() == 2:
                     embed_norms.extend(tt.norm(dim=-1).cpu().numpy().tolist())
-                    total_abs_sum += float(tt.abs().sum().item())
-                    total_n += int(tt.numel())
                 elif cat == "lm_head" and tt.dim() == 2:
                     lm_head_norms.extend(tt.norm(dim=-1).cpu().numpy().tolist())
-                    total_abs_sum += float(tt.abs().sum().item())
-                    total_n += int(tt.numel())
-                else:
-                    total_abs_sum += float(tt.abs().sum().item())
-                    total_n += int(tt.numel())
+                total_abs_sum += float(tt.abs().sum().item())
+                total_n += int(tt.numel())
+    finally:
+        for h in file_handles.values():
+            h.__exit__(None, None, None)
 
-    # Decode body packed groups
+    # Decode packed groups. Body groups (matching TARGET_NAMES) feed
+    # body_norms; lm_head packed feeds lm_head_norms.
     for prefix, parts in body_packed.items():
         if "weight" not in parts:
             continue
-        proj_type = next((t for t in TARGET_NAMES if t in prefix), None)
-        if proj_type is None:
-            continue
         weight = parts["weight"]
-        scales = parts.get("scales", None)
+        scales = parts.get("scales")
         biases = parts.get("biases", None)
-        if scales is None:
-            print(f"  warning: {prefix} has packed weight but no scales — skipping")
-            continue
         if biases is None:
             biases = torch.zeros_like(scales)
         try:
             row_norms, abs_sum, in_features, n_total = decode_bonsai_layer_to_effective(
                 weight, scales.float(), biases.float(), group_size=128
             )
+        except Exception as e:
+            print(f"  failed to decode {prefix}: {e}")
+            continue
+
+        proj_type = next((t for t in TARGET_NAMES if t in prefix), None)
+        if proj_type is not None:
             body_norms[proj_type].extend(row_norms.tolist())
             body_rms[proj_type].extend((row_norms / math.sqrt(in_features)).tolist())
             body_in_features[proj_type] = in_features
-            total_abs_sum += abs_sum
-            total_n += n_total
-        except Exception as e:
-            print(f"  failed to decode {prefix}: {e}")
+        elif "lm_head" in prefix.lower():
+            lm_head_norms.extend(row_norms.tolist())
+        elif "embed" in prefix.lower():
+            embed_norms.extend(row_norms.tolist())
+        # else: unmatched packed layer; still counted in amplitude budget
+        total_abs_sum += abs_sum
+        total_n += n_total
 
     body_overall = []
     for v in body_norms.values():
