@@ -64,13 +64,16 @@ TRAINABLE_BODY_NAMES = ("o_proj", "down_proj")  # subset for memory
 GROUP_SIZE = 128
 
 # PID parameters for λ ramp
+# v2: loosened setpoint so PID actually engages despite training noise.
+# Goal of this run is to MAP THE LANDSCAPE — find where the recipe breaks
+# under shape pressure — not to hit lossless directly.
 N_CYCLES = 80
 TRAIN_STEPS_PER_CYCLE = 30
-LAMBDA_INITIAL = 0.0
-LAMBDA_TARGET = 100.0  # large enough to drive shape; PID modulates rate
-PID_SETPOINT_DRIFT = 0.05  # very tight: laser zone
+LAMBDA_INITIAL = 0.01  # start with non-zero so the regularizer has signal
+LAMBDA_TARGET = 100.0
+PID_SETPOINT_DRIFT = 0.5    # 0.5 nat ≈ Bonsai's 11% gap; permissive zone
 PID_KP = 1.0
-LAMBDA_GROWTH_RATE = 0.5   # max multiplicative growth per cycle when drift OK
+LAMBDA_GROWTH_RATE = 0.3
 
 # Active compensation coaxing — PID-up on FP DOF magnitudes
 # As shape pressure grows, gradient descent doesn't naturally grow compensation;
