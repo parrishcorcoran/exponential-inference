@@ -167,13 +167,21 @@ for cycle in range(1, N_CYCLES + 1):
     exponent = max(0.0, 1.0 - shape_pressure)
     comp_factor = 1.0 + cycle * COMP_RATE
 
-    # Apply shape: W = sign(W_orig) × |W_orig|^exponent
+    # Apply shape: W_new = sign(W) × |W|^exponent, then renormalize per-row L2
+    # to original. This makes it a PURE SHAPE TRANSFORMATION — within-row
+    # distribution moves toward bimodal, row magnitudes preserved exactly.
+    # Without renormalization, row L2 grows as exponent drops, causing drift
+    # from magnitude inflation rather than shape change.
     with torch.no_grad():
         for m, w_orig in zip(target_modules, original_body):
             W = w_orig.float()
             sign_w = torch.sign(W)
             abs_w = W.abs()
             W_new = sign_w * abs_w.pow(exponent)
+            # Pure shape: pin each row's L2 norm to its original value
+            old_norms = W.norm(dim=-1, keepdim=True)
+            new_norms = W_new.norm(dim=-1, keepdim=True).clamp(min=1e-8)
+            W_new = W_new * (old_norms / new_norms)
             m.weight.data = W_new.to(m.weight.dtype)
 
         # Apply compensation: RMSNorm gains scaled by comp_factor (from original)
