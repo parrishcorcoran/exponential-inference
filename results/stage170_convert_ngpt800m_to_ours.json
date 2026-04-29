@@ -1,0 +1,13 @@
+{
+  "checkpoint": "p2o6e100/nGPT_800m",
+  "stage2_steps": 500,
+  "T0_ngpt_baseline_ce": 2.849615052342415,
+  "T1_projected_no_alpha_ce": 4.079137824475765,
+  "T2_alpha_init_no_train_ce": 2.849615089595318,
+  "T3_alpha_trained_ce": 2.839791089296341,
+  "delta_T1": 1.2295227721333504,
+  "delta_T2": 3.725290298461914e-08,
+  "delta_T3": -0.009823963046073914,
+  "final_o_proj_cv_avg": 3.306896765309375e-08,
+  "final_down_proj_cv_avg": 3.471708716062949e-08
+}
