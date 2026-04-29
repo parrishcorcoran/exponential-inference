@@ -1,0 +1,704 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "fp_baseline_gains": {
+    "mean": 2.682832137236801,
+    "std": 4.124175982816533,
+    "cv": 1.5372471223877067,
+    "max": 192.0,
+    "min": -10.5,
+    "p99": 17.75,
+    "p99_9": 44.25,
+    "n_above_10x_mean": 334,
+    "n_above_50x_mean": 1,
+    "per_layer_max": [
+      {
+        "name": "model.layers.0.self_attn.q_norm.weight",
+        "max": 11.8125,
+        "mean": 1.9633963108062744,
+        "n": 128
+      },
+      {
+        "name": "model.layers.0.self_attn.k_norm.weight",
+        "max": 96.5,
+        "mean": 3.568714141845703,
+        "n": 128
+      },
+      {
+        "name": "model.layers.0.input_layernorm.weight",
+        "max": 1.046875,
+        "mean": 0.17476224899291992,
+        "n": 1024
+      },
+      {
+        "name": "model.layers.0.post_attention_layernorm.weight",
+        "max": 1.0703125,
+        "mean": 0.4041956663131714,
+        "n": 1024
+      },
+      {
+        "name": "model.layers.1.self_attn.q_norm.weight",
+        "max": 5.375,
+        "mean": 1.4999046325683594,
+        "n": 128
+      }
+    ]
+  },
+  "post_binary_gains_no_train": {
+    "mean": 2.682832137236801,
+    "std": 4.124175982816533,
+    "cv": 1.5372471223877067,
+    "max": 192.0,
+    "min": -10.5,
+    "p99": 17.75,
+    "p99_9": 44.25,
+    "n_above_10x_mean": 334,
+    "n_above_50x_mean": 1,
+    "per_layer_max": [
+      {
+        "name": "model.layers.0.self_attn.q_norm.weight",
+        "max": 11.8125,
+        "mean": 1.9633963108062744,
+        "n": 128
+      },
+      {
+        "name": "model.layers.0.self_attn.k_norm.weight",
+        "max": 96.5,
+        "mean": 3.568714141845703,
+        "n": 128
+      },
+      {
+        "name": "model.layers.0.input_layernorm.weight",
+        "max": 1.046875,
+        "mean": 0.17476224899291992,
+        "n": 1024
+      },
+      {
+        "name": "model.layers.0.post_attention_layernorm.weight",
+        "max": 1.0703125,
+        "mean": 0.4041956663131714,
+        "n": 1024
+      },
+      {
+        "name": "model.layers.1.self_attn.q_norm.weight",
+        "max": 5.375,
+        "mean": 1.4999046325683594,
+        "n": 128
+      }
+    ]
+  },
+  "trajectory": [
+    {
+      "step": 0,
+      "ce": 16.109660983085632,
+      "gains": {
+        "mean": 2.682832137236801,
+        "std": 4.124175982816533,
+        "cv": 1.5372471223877067,
+        "max": 192.0,
+        "min": -10.5,
+        "p99": 17.75,
+        "p99_9": 44.25,
+        "n_above_10x_mean": 334,
+        "n_above_50x_mean": 1,
+        "per_layer_max": [
+          {
+            "name": "model.layers.0.self_attn.q_norm.weight",
+            "max": 11.8125,
+            "mean": 1.9633963108062744,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.self_attn.k_norm.weight",
+            "max": 96.5,
+            "mean": 3.568714141845703,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.input_layernorm.weight",
+            "max": 1.046875,
+            "mean": 0.17476224899291992,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.0.post_attention_layernorm.weight",
+            "max": 1.0703125,
+            "mean": 0.4041956663131714,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.1.self_attn.q_norm.weight",
+            "max": 5.375,
+            "mean": 1.4999046325683594,
+            "n": 128
+          }
+        ]
+      }
+    },
+    {
+      "step": 50,
+      "ce": 11.928045600652695,
+      "gains": {
+        "mean": 2.6825580380460847,
+        "std": 4.124147969898721,
+        "cv": 1.5373937530546993,
+        "max": 191.9912567138672,
+        "min": -10.504709243774414,
+        "p99": 17.741341114044197,
+        "p99_9": 44.25271516799929,
+        "n_above_10x_mean": 334,
+        "n_above_50x_mean": 1,
+        "per_layer_max": [
+          {
+            "name": "model.layers.0.self_attn.q_norm.weight",
+            "max": 11.817251205444336,
+            "mean": 1.963433027267456,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.self_attn.k_norm.weight",
+            "max": 96.50483703613281,
+            "mean": 3.5688183307647705,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.input_layernorm.weight",
+            "max": 1.0432947874069214,
+            "mean": 0.17469830811023712,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.0.post_attention_layernorm.weight",
+            "max": 1.06845223903656,
+            "mean": 0.40410852432250977,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.1.self_attn.q_norm.weight",
+            "max": 5.379307270050049,
+            "mean": 1.4999825954437256,
+            "n": 128
+          }
+        ]
+      }
+    },
+    {
+      "step": 100,
+      "ce": 9.983346343040466,
+      "gains": {
+        "mean": 2.682089822931542,
+        "std": 4.12408954878727,
+        "cv": 1.5376403554895164,
+        "max": 192.0127716064453,
+        "min": -10.509620666503906,
+        "p99": 17.733637428283696,
+        "p99_9": 44.2542162132264,
+        "n_above_10x_mean": 334,
+        "n_above_50x_mean": 1,
+        "per_layer_max": [
+          {
+            "name": "model.layers.0.self_attn.q_norm.weight",
+            "max": 11.820576667785645,
+            "mean": 1.9630547761917114,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.self_attn.k_norm.weight",
+            "max": 96.50774383544922,
+            "mean": 3.5685155391693115,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.input_layernorm.weight",
+            "max": 1.0433261394500732,
+            "mean": 0.17468413710594177,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.0.post_attention_layernorm.weight",
+            "max": 1.0725196599960327,
+            "mean": 0.4041542410850525,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.1.self_attn.q_norm.weight",
+            "max": 5.381323337554932,
+            "mean": 1.4999480247497559,
+            "n": 128
+          }
+        ]
+      }
+    },
+    {
+      "step": 150,
+      "ce": 9.041041105985641,
+      "gains": {
+        "mean": 2.6816108431543952,
+        "std": 4.124023459349336,
+        "cv": 1.5378903579082421,
+        "max": 192.023681640625,
+        "min": -10.506054878234863,
+        "p99": 17.720455074310323,
+        "p99_9": 44.24095249176038,
+        "n_above_10x_mean": 334,
+        "n_above_50x_mean": 1,
+        "per_layer_max": [
+          {
+            "name": "model.layers.0.self_attn.q_norm.weight",
+            "max": 11.823769569396973,
+            "mean": 1.962925910949707,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.self_attn.k_norm.weight",
+            "max": 96.51072692871094,
+            "mean": 3.568528175354004,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.input_layernorm.weight",
+            "max": 1.0451239347457886,
+            "mean": 0.17471233010292053,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.0.post_attention_layernorm.weight",
+            "max": 1.073753833770752,
+            "mean": 0.40429016947746277,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.1.self_attn.q_norm.weight",
+            "max": 5.387382984161377,
+            "mean": 1.4998258352279663,
+            "n": 128
+          }
+        ]
+      }
+    },
+    {
+      "step": 200,
+      "ce": 8.567037135362625,
+      "gains": {
+        "mean": 2.6812436906213,
+        "std": 4.123984247319503,
+        "cv": 1.5380863223080965,
+        "max": 192.02740478515625,
+        "min": -10.506726264953613,
+        "p99": 17.722199535369906,
+        "p99_9": 44.232072715759415,
+        "n_above_10x_mean": 334,
+        "n_above_50x_mean": 1,
+        "per_layer_max": [
+          {
+            "name": "model.layers.0.self_attn.q_norm.weight",
+            "max": 11.819621086120605,
+            "mean": 1.962814450263977,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.self_attn.k_norm.weight",
+            "max": 96.50749969482422,
+            "mean": 3.568448305130005,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.input_layernorm.weight",
+            "max": 1.0525304079055786,
+            "mean": 0.17459049820899963,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.0.post_attention_layernorm.weight",
+            "max": 1.0744664669036865,
+            "mean": 0.4044305682182312,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.1.self_attn.q_norm.weight",
+            "max": 5.386073112487793,
+            "mean": 1.49994957447052,
+            "n": 128
+          }
+        ]
+      }
+    },
+    {
+      "step": 250,
+      "ce": 8.28414599597454,
+      "gains": {
+        "mean": 2.680942520338358,
+        "std": 4.1239646619123125,
+        "cv": 1.5382518016058893,
+        "max": 192.02783203125,
+        "min": -10.508014678955078,
+        "p99": 17.72742528915406,
+        "p99_9": 44.23046041488665,
+        "n_above_10x_mean": 332,
+        "n_above_50x_mean": 1,
+        "per_layer_max": [
+          {
+            "name": "model.layers.0.self_attn.q_norm.weight",
+            "max": 11.818453788757324,
+            "mean": 1.9626761674880981,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.self_attn.k_norm.weight",
+            "max": 96.50603485107422,
+            "mean": 3.568337917327881,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.input_layernorm.weight",
+            "max": 1.0577884912490845,
+            "mean": 0.1744096279144287,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.0.post_attention_layernorm.weight",
+            "max": 1.0817111730575562,
+            "mean": 0.4044733941555023,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.1.self_attn.q_norm.weight",
+            "max": 5.388538837432861,
+            "mean": 1.4996585845947266,
+            "n": 128
+          }
+        ]
+      }
+    },
+    {
+      "step": 300,
+      "ce": 8.119203716516495,
+      "gains": {
+        "mean": 2.680656962693015,
+        "std": 4.123943280791339,
+        "cv": 1.5384076881841622,
+        "max": 192.0295867919922,
+        "min": -10.509955406188965,
+        "p99": 17.730675125122072,
+        "p99_9": 44.23272356033346,
+        "n_above_10x_mean": 332,
+        "n_above_50x_mean": 1,
+        "per_layer_max": [
+          {
+            "name": "model.layers.0.self_attn.q_norm.weight",
+            "max": 11.821066856384277,
+            "mean": 1.9626212120056152,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.self_attn.k_norm.weight",
+            "max": 96.50338745117188,
+            "mean": 3.5682389736175537,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.input_layernorm.weight",
+            "max": 1.0622658729553223,
+            "mean": 0.17448975145816803,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.0.post_attention_layernorm.weight",
+            "max": 1.0811821222305298,
+            "mean": 0.4045536518096924,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.1.self_attn.q_norm.weight",
+            "max": 5.386491298675537,
+            "mean": 1.4995721578598022,
+            "n": 128
+          }
+        ]
+      }
+    },
+    {
+      "step": 350,
+      "ce": 7.998936906456947,
+      "gains": {
+        "mean": 2.6804425883668146,
+        "std": 4.123915318443127,
+        "cv": 1.5385202937533595,
+        "max": 192.03123474121094,
+        "min": -10.506019592285156,
+        "p99": 17.73587245941163,
+        "p99_9": 44.235397243500024,
+        "n_above_10x_mean": 332,
+        "n_above_50x_mean": 1,
+        "per_layer_max": [
+          {
+            "name": "model.layers.0.self_attn.q_norm.weight",
+            "max": 11.824960708618164,
+            "mean": 1.9625349044799805,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.self_attn.k_norm.weight",
+            "max": 96.50276947021484,
+            "mean": 3.568227529525757,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.input_layernorm.weight",
+            "max": 1.0636727809906006,
+            "mean": 0.17463737726211548,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.0.post_attention_layernorm.weight",
+            "max": 1.0739257335662842,
+            "mean": 0.40463411808013916,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.1.self_attn.q_norm.weight",
+            "max": 5.382898330688477,
+            "mean": 1.499413251876831,
+            "n": 128
+          }
+        ]
+      }
+    },
+    {
+      "step": 400,
+      "ce": 7.932246059179306,
+      "gains": {
+        "mean": 2.680256511386647,
+        "std": 4.123906175056319,
+        "cv": 1.5386236942384262,
+        "max": 192.03150939941406,
+        "min": -10.50701904296875,
+        "p99": 17.73532485961914,
+        "p99_9": 44.23209926605251,
+        "n_above_10x_mean": 331,
+        "n_above_50x_mean": 1,
+        "per_layer_max": [
+          {
+            "name": "model.layers.0.self_attn.q_norm.weight",
+            "max": 11.826079368591309,
+            "mean": 1.9626296758651733,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.self_attn.k_norm.weight",
+            "max": 96.50517272949219,
+            "mean": 3.5683743953704834,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.input_layernorm.weight",
+            "max": 1.0663514137268066,
+            "mean": 0.1746249794960022,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.0.post_attention_layernorm.weight",
+            "max": 1.0765087604522705,
+            "mean": 0.40468737483024597,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.1.self_attn.q_norm.weight",
+            "max": 5.381157398223877,
+            "mean": 1.4992945194244385,
+            "n": 128
+          }
+        ]
+      }
+    },
+    {
+      "step": 450,
+      "ce": 7.885510876774788,
+      "gains": {
+        "mean": 2.680115157561259,
+        "std": 4.1238939663358245,
+        "cv": 1.5387002885683152,
+        "max": 192.03280639648438,
+        "min": -10.50897216796875,
+        "p99": 17.735494709014898,
+        "p99_9": 44.23523738861112,
+        "n_above_10x_mean": 331,
+        "n_above_50x_mean": 1,
+        "per_layer_max": [
+          {
+            "name": "model.layers.0.self_attn.q_norm.weight",
+            "max": 11.82242488861084,
+            "mean": 1.9624443054199219,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.self_attn.k_norm.weight",
+            "max": 96.50867462158203,
+            "mean": 3.5681846141815186,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.input_layernorm.weight",
+            "max": 1.071813941001892,
+            "mean": 0.17462584376335144,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.0.post_attention_layernorm.weight",
+            "max": 1.0753366947174072,
+            "mean": 0.40467771887779236,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.1.self_attn.q_norm.weight",
+            "max": 5.382094860076904,
+            "mean": 1.4993976354599,
+            "n": 128
+          }
+        ]
+      }
+    },
+    {
+      "step": 500,
+      "ce": 7.845793351531029,
+      "gains": {
+        "mean": 2.6799689674837257,
+        "std": 4.1238588180098175,
+        "cv": 1.538771108190028,
+        "max": 192.0331573486328,
+        "min": -10.512619972229004,
+        "p99": 17.734605026245127,
+        "p99_9": 44.22764577865629,
+        "n_above_10x_mean": 331,
+        "n_above_50x_mean": 1,
+        "per_layer_max": [
+          {
+            "name": "model.layers.0.self_attn.q_norm.weight",
+            "max": 11.823822975158691,
+            "mean": 1.962504506111145,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.self_attn.k_norm.weight",
+            "max": 96.5136489868164,
+            "mean": 3.5682644844055176,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.input_layernorm.weight",
+            "max": 1.0764387845993042,
+            "mean": 0.17459198832511902,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.0.post_attention_layernorm.weight",
+            "max": 1.0775474309921265,
+            "mean": 0.4046228528022766,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.1.self_attn.q_norm.weight",
+            "max": 5.3791399002075195,
+            "mean": 1.49944269657135,
+            "n": 128
+          }
+        ]
+      }
+    },
+    {
+      "step": 550,
+      "ce": 7.798822566866875,
+      "gains": {
+        "mean": 2.679839272844789,
+        "std": 4.123834183221472,
+        "cv": 1.538836386573217,
+        "max": 192.03244018554688,
+        "min": -10.51386547088623,
+        "p99": 17.73942699432375,
+        "p99_9": 44.228240680694874,
+        "n_above_10x_mean": 331,
+        "n_above_50x_mean": 1,
+        "per_layer_max": [
+          {
+            "name": "model.layers.0.self_attn.q_norm.weight",
+            "max": 11.819779396057129,
+            "mean": 1.9624336957931519,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.self_attn.k_norm.weight",
+            "max": 96.51190185546875,
+            "mean": 3.5681533813476562,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.input_layernorm.weight",
+            "max": 1.0865846872329712,
+            "mean": 0.1744367480278015,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.0.post_attention_layernorm.weight",
+            "max": 1.0749505758285522,
+            "mean": 0.4047567844390869,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.1.self_attn.q_norm.weight",
+            "max": 5.384198188781738,
+            "mean": 1.4994065761566162,
+            "n": 128
+          }
+        ]
+      }
+    },
+    {
+      "step": 600,
+      "ce": 7.779390335083008,
+      "gains": {
+        "mean": 2.679742365716085,
+        "std": 4.12379841437971,
+        "cv": 1.5388786874210356,
+        "max": 192.03282165527344,
+        "min": -10.514748573303223,
+        "p99": 17.738218688964864,
+        "p99_9": 44.22969511032137,
+        "n_above_10x_mean": 332,
+        "n_above_50x_mean": 1,
+        "per_layer_max": [
+          {
+            "name": "model.layers.0.self_attn.q_norm.weight",
+            "max": 11.816778182983398,
+            "mean": 1.9624818563461304,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.self_attn.k_norm.weight",
+            "max": 96.5074462890625,
+            "mean": 3.56815242767334,
+            "n": 128
+          },
+          {
+            "name": "model.layers.0.input_layernorm.weight",
+            "max": 1.0902656316757202,
+            "mean": 0.17440935969352722,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.0.post_attention_layernorm.weight",
+            "max": 1.078014612197876,
+            "mean": 0.40477240085601807,
+            "n": 1024
+          },
+          {
+            "name": "model.layers.1.self_attn.q_norm.weight",
+            "max": 5.385073661804199,
+            "mean": 1.4991174936294556,
+            "n": 128
+          }
+        ]
+      }
+    }
+  ],
+  "train_steps": 600,
+  "lr": 0.0005
+}
