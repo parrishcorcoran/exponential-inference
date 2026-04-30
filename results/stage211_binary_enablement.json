@@ -1,0 +1,17 @@
+{
+  "T0_base_ce": 3.8882325813174248,
+  "ce_vanilla_k1": 15.849193572998047,
+  "drift_vanilla_k1": 11.960960991680622,
+  "ce_enabled_fp": 3.8882325813174248,
+  "drift_enabled_fp": 0.0,
+  "ce_enabled_k1": 15.849193572998047,
+  "drift_enabled_k1": 11.960960991680622,
+  "improvement_nats": 0.0,
+  "improvement_rel_pct": 0.0,
+  "n_subln_wrapped": 56,
+  "n_head_scaled": 28,
+  "n_bias_added": 140,
+  "n_residual_gain_layers": 28,
+  "lossless_at_fp": true,
+  "verdict": "DORMANT (expected): all levers gated/identity-init at FP, so K=1 drift unchanged. Capacity available for QAT to use. Architecture is now binary-enabled and lossless."
+}
