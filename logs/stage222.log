@@ -1,0 +1,135 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32  CHECKPOINT=Qwen/Qwen3-0.6B
+Loading OWT corpus...
+
+Measuring T0 (base FP)...
+  T0 = 4.2487
+
+Building architecture (218 protocol)...
+  installed: {'n_quantized': 84, 'n_residual_gain_layers': 28, 'n_subln': 28, 'n_beta_g_total': 2064384}
+  γ=0 verify: ce=4.2487 Δ=+0.000000  K=1 initial: +11.5577
+
+Body: 264,241,152  β_g: 2,064,384  Levers: 401,437
+
+────────────────────────────────────────────────────────────
+PHASE 1 — find laser zone (body+β_g FROZEN, levers train)
+────────────────────────────────────────────────────────────
+  P1 step   50 γ=0.048 ce=4.0698 Δ=-0.1789 loss=4.351  21s
+  P1 step  100 γ=0.095 ce=4.1377 Δ=-0.1110 loss=3.411  43s
+  P1 step  150 γ=0.143 ce=4.1716 Δ=-0.0771 loss=3.494  64s
+  P1 step  200 γ=0.190 ce=4.1922 Δ=-0.0565 loss=3.440  86s
+  P1 step  250 γ=0.237 ce=4.2611 Δ=+0.0124 loss=3.333  107s
+  ── P1 step  250 K=1 DIAG: drift=+9.2187  (initial: +11.5577, best: +9.2187) ⭐
+  P1 step  300 γ=0.237 ce=4.3640 Δ=+0.1153 loss=4.414  131s
+  P1 step  350 γ=0.237 ce=4.3328 Δ=+0.0841 loss=5.703  152s
+  P1 step  400 γ=0.285 ce=4.2828 Δ=+0.0342 loss=4.934  174s
+  P1 step  450 γ=0.285 ce=4.4272 Δ=+0.1785 loss=4.518  195s
+  P1 step  500 γ=0.285 ce=4.4354 Δ=+0.1867 loss=5.172  216s
+  ── P1 step  500 K=1 DIAG: drift=+9.0612  (initial: +11.5577, best: +9.0612) ⭐
+  P1 step  550 γ=0.285 ce=4.4256 Δ=+0.1769 loss=5.697  240s
+  P1 step  600 γ=0.285 ce=4.3676 Δ=+0.1189 loss=3.958  261s
+  P1 step  650 γ=0.285 ce=4.3386 Δ=+0.0899 loss=3.649  283s
+  P1 step  700 γ=0.285 ce=4.3801 Δ=+0.1314 loss=4.507  304s
+  P1 step  750 γ=0.285 ce=4.3603 Δ=+0.1116 loss=3.834  326s
+  ── P1 step  750 K=1 DIAG: drift=+8.8955  (initial: +11.5577, best: +8.8955) ⭐
+  P1 step  800 γ=0.285 ce=4.3494 Δ=+0.1007 loss=4.632  349s
+  P1 step  850 γ=0.285 ce=4.3484 Δ=+0.0997 loss=4.508  371s
+  P1 step  900 γ=0.285 ce=4.3516 Δ=+0.1029 loss=4.260  392s
+  P1 step  950 γ=0.285 ce=4.3247 Δ=+0.0760 loss=3.840  414s
+  P1 step 1000 γ=0.285 ce=4.3520 Δ=+0.1033 loss=3.580  435s
+  ── P1 step 1000 K=1 DIAG: drift=+8.3096  (initial: +11.5577, best: +8.3096) ⭐
+  P1 step 1050 γ=0.285 ce=4.3286 Δ=+0.0799 loss=3.583  459s
+  P1 step 1100 γ=0.332 ce=4.2833 Δ=+0.0346 loss=3.987  481s
+  P1 step 1150 γ=0.285 ce=4.4685 Δ=+0.2198 loss=4.453  502s
+  P1 step 1200 γ=0.285 ce=4.3098 Δ=+0.0611 loss=4.852  524s
+  P1 step 1250 γ=0.332 ce=4.2474 Δ=-0.0012 loss=4.090  546s
+  ── P1 step 1250 K=1 DIAG: drift=+8.3222  (initial: +11.5577, best: +8.3096)
+  P1 step 1300 γ=0.332 ce=4.3881 Δ=+0.1394 loss=5.534  572s
+  P1 step 1350 γ=0.332 ce=4.4031 Δ=+0.1544 loss=4.614  595s
+  P1 step 1400 γ=0.332 ce=4.3606 Δ=+0.1119 loss=4.135  619s
+  P1 step 1450 γ=0.332 ce=4.3006 Δ=+0.0519 loss=5.115  642s
+  P1 step 1500 γ=0.332 ce=4.3300 Δ=+0.0813 loss=4.768  666s
+  ── P1 step 1500 K=1 DIAG: drift=+9.0993  (initial: +11.5577, best: +8.3096)
+  P1 step 1550 γ=0.332 ce=4.3596 Δ=+0.1109 loss=3.952  692s
+  P1 step 1600 γ=0.332 ce=4.3570 Δ=+0.1083 loss=4.906  715s
+  P1 step 1650 γ=0.332 ce=4.3735 Δ=+0.1248 loss=4.385  739s
+  P1 step 1700 γ=0.332 ce=4.3587 Δ=+0.1100 loss=3.861  763s
+  P1 step 1750 γ=0.332 ce=4.3835 Δ=+0.1348 loss=4.298  787s
+  ── P1 step 1750 K=1 DIAG: drift=+9.5301  (initial: +11.5577, best: +8.3096)
+  P1 step 1800 γ=0.332 ce=4.3602 Δ=+0.1115 loss=4.663  813s
+  P1 step 1850 γ=0.332 ce=4.3926 Δ=+0.1439 loss=4.972  837s
+  P1 step 1900 γ=0.332 ce=4.3315 Δ=+0.0828 loss=3.999  861s
+  P1 step 1950 γ=0.332 ce=4.3326 Δ=+0.0839 loss=4.059  885s
+  P1 step 2000 γ=0.332 ce=4.3407 Δ=+0.0920 loss=4.200  909s
+  ── P1 step 2000 K=1 DIAG: drift=+8.4987  (initial: +11.5577, best: +8.3096)
+
+  P1 END: γ=0.333  K=1_drift=+8.4987  (best K=1 in P1: +8.3096)
+
+────────────────────────────────────────────────────────────
+PHASE 2 — body+β_g UNFROZEN, levers continue, γ held at 0.333
+          λ_bimodal=0.01 FIXED (the fix vs Stage 218)
+────────────────────────────────────────────────────────────
+  P2 step   50 γ=0.333 ce=4.6229 Δ=+0.3742 loss=3.445  982s
+  P2 step  100 γ=0.333 ce=4.6508 Δ=+0.4021 loss=3.761  1049s
+  P2 step  150 γ=0.333 ce=4.6173 Δ=+0.3686 loss=4.112  1116s
+  P2 step  200 γ=0.333 ce=4.5800 Δ=+0.3313 loss=5.404  1184s
+  P2 step  250 γ=0.333 ce=4.6534 Δ=+0.4047 loss=3.667  1253s
+  ── P2 step  250 K=1 DIAG: drift=+8.7259  (best: +8.3096)
+  P2 step  300 γ=0.333 ce=4.6577 Δ=+0.4090 loss=4.441  1323s
+  P2 step  350 γ=0.333 ce=4.5554 Δ=+0.3067 loss=4.274  1392s
+  P2 step  400 γ=0.333 ce=4.6366 Δ=+0.3879 loss=3.261  1460s
+  P2 step  450 γ=0.333 ce=4.5895 Δ=+0.3408 loss=4.047  1528s
+  P2 step  500 γ=0.333 ce=4.5998 Δ=+0.3511 loss=4.790  1596s
+  ── P2 step  500 K=1 DIAG: drift=+8.2503  (best: +8.2503) ⭐
+  P2 step  550 γ=0.333 ce=4.6158 Δ=+0.3671 loss=4.318  1669s
+  P2 step  600 γ=0.333 ce=4.4726 Δ=+0.2239 loss=4.263  1739s
+  P2 step  650 γ=0.333 ce=4.5752 Δ=+0.3265 loss=3.475  1808s
+  P2 step  700 γ=0.333 ce=4.5039 Δ=+0.2552 loss=3.803  1876s
+  P2 step  750 γ=0.333 ce=4.5621 Δ=+0.3134 loss=3.113  1946s
+  ── P2 step  750 K=1 DIAG: drift=+7.7835  (best: +7.7835) ⭐
+  P2 step  800 γ=0.333 ce=4.6179 Δ=+0.3692 loss=2.592  2018s
+  P2 step  850 γ=0.333 ce=4.6547 Δ=+0.4060 loss=4.367  2088s
+  P2 step  900 γ=0.333 ce=4.6531 Δ=+0.4044 loss=3.916  2164s
+  P2 step  950 γ=0.333 ce=4.5474 Δ=+0.2987 loss=5.698  2236s
+  P2 step 1000 γ=0.333 ce=4.5245 Δ=+0.2758 loss=4.095  2308s
+  ── P2 step 1000 K=1 DIAG: drift=+8.5650  (best: +7.7835)
+  P2 step 1050 γ=0.333 ce=4.5698 Δ=+0.3211 loss=3.950  2380s
+  P2 step 1100 γ=0.333 ce=4.5338 Δ=+0.2851 loss=4.137  2450s
+  P2 step 1150 γ=0.333 ce=4.5440 Δ=+0.2953 loss=4.129  2521s
+  P2 step 1200 γ=0.333 ce=4.5209 Δ=+0.2722 loss=3.582  2593s
+  P2 step 1250 γ=0.333 ce=4.5438 Δ=+0.2951 loss=3.772  2665s
+  ── P2 step 1250 K=1 DIAG: drift=+7.5332  (best: +7.5332) ⭐
+  P2 step 1300 γ=0.333 ce=4.4901 Δ=+0.2414 loss=4.037  2741s
+  P2 step 1350 γ=0.333 ce=4.5421 Δ=+0.2934 loss=3.976  2822s
+  P2 step 1400 γ=0.333 ce=4.6307 Δ=+0.3820 loss=4.193  2893s
+  P2 step 1450 γ=0.333 ce=4.6371 Δ=+0.3884 loss=3.935  2963s
+  P2 step 1500 γ=0.333 ce=4.6058 Δ=+0.3571 loss=4.986  3033s
+  ── P2 step 1500 K=1 DIAG: drift=+7.6617  (best: +7.5332)
+  P2 step 1550 γ=0.333 ce=4.5609 Δ=+0.3122 loss=5.412  3106s
+  P2 step 1600 γ=0.333 ce=4.5491 Δ=+0.3004 loss=5.421  3177s
+  P2 step 1650 γ=0.333 ce=4.5658 Δ=+0.3171 loss=4.271  3248s
+  P2 step 1700 γ=0.333 ce=4.5587 Δ=+0.3100 loss=1.521  3318s
+  P2 step 1750 γ=0.333 ce=4.4998 Δ=+0.2511 loss=2.416  3389s
+  ── P2 step 1750 K=1 DIAG: drift=+7.6396  (best: +7.5332)
+  P2 step 1800 γ=0.333 ce=4.6342 Δ=+0.3855 loss=5.001  3461s
+  P2 step 1850 γ=0.333 ce=4.6155 Δ=+0.3668 loss=4.448  3532s
+  P2 step 1900 γ=0.333 ce=4.6082 Δ=+0.3595 loss=4.566  3606s
+  P2 step 1950 γ=0.333 ce=4.6229 Δ=+0.3743 loss=4.148  3679s
+  P2 step 2000 γ=0.333 ce=4.5993 Δ=+0.3506 loss=4.337  3749s
+  ── P2 step 2000 K=1 DIAG: drift=+8.3171  (best: +7.5332)
+
+────────────────────────────────────────────────────────────
+STAGE 222 RESULT (218 protocol + fixed regularizer in phase 2):
+────────────────────────────────────────────────────────────
+  T0:                4.2487
+  K=1 initial:       +11.5577
+  After P1:          +8.4987  (γ=0.333)
+  After P2 (final):  +8.3171
+  Best K=1 seen:     +7.5332
+  Reduction (final): +3.2406 nats (28.0%)
+
+  vs 218 reference: -3.85 nats
+  vs hypothesis:    expected -5 to -6 nats with regularizer engaged
+
+Saved results/stage222_218_with_fixed_reg.json
