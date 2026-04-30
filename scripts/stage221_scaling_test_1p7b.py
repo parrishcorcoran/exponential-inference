@@ -1,29 +1,31 @@
-"""Stage 221 — Scaling test: same recipe, Qwen3-1.7B.
+"""Stage 221 — Scaling test on Qwen3-1.7B with the 218 frozen-first protocol.
 
-Per project memory (project_06b_is_stress_test): 0.6B has tightest manifold-
-to-capacity ratio. If 220's recipe gets ~-3 to -5 nats on 0.6B, scaling to
-1.7B (more parametric slack) should give meaningfully more reduction. This
-is the hypothesis test: does the recipe scale?
+Per-stage learning: Stage 220 confirmed that "everything trainable simultaneously"
+is unstable. Stage 218's frozen-first protocol with phase separation is what
+actually delivers stable K=1 reduction (-3.85 nats on 0.6B).
 
-Same protocol as Stage 220:
-  - MLP-only quantization (gate/up/down)
-  - β_g (Bonsai per-128-group bias)
-  - All compensation levers + new per-block FF intermediate gain
-  - γ PID 0 → 0.95
-  - Bimodal + variance regularizers always active
+This stage replicates 218's protocol on Qwen3-1.7B to test the scaling hypothesis:
+does the recipe gain from more parametric slack at 1.7B vs 0.6B?
 
-Mac memory accommodations:
-  - Body W_fp trainable only on DOWN_PROJ (biggest impact, smallest cost)
-  - gate/up still quantized but body weights frozen
-  - β_g trainable on all 3 MLPs
-  - 2500 steps (vs 5000 in 220) — runtime budget on bigger model
+Protocol (218 frozen-first):
+  Phase 1 (find laser zone) — 2000 steps:
+    Body W_fp + β_g  FROZEN
+    Compensation levers TRAINING
+    γ slow-PID ramps 0 → 0.95 with drift band [0.05, 0.20]
+    → levers find K=1 compensation environment
+
+  Phase 2 (body settles + levers continue) — 2000 steps:
+    Body W_fp + β_g  UNFROZEN
+    Compensation levers STILL TRAINING (continuous compensation)
+    γ HELD at phase-1-end value
+    λ_bimodal = 1e-2 ACTIVE (FIXED, not PID-ramped — fix from 218)
+    λ_variance = 1e-2 ACTIVE
+    → body trains under regularizer pressure with levers continuously absorbing
+
+Mac memory accommodations for 1.7B:
+  - Body W_fp trainable only on DOWN_PROJ (Mac fp32 budget)
+  - 2000+2000 = 4000 steps total (vs 218's 2000+2000 on 0.6B)
   - SEQ_LEN=64, BATCH=1
-
-Memory estimate (Qwen3-1.7B fp32):
-  Model weights:       6.8 GB
-  Body Adam (down only): ~2 GB
-  Levers + activations: ~1 GB
-  Total:                ~10 GB (fits in 16GB Mac)
 """
 import json
 import sys
@@ -49,7 +51,8 @@ SEQ_LEN = 64
 N_VAL_CHUNKS = 8
 N_CALIB_TOKENS = 64
 BATCH_SIZE = 1
-N_TRAIN_STEPS = 2500
+PHASE_1_STEPS = 2000
+PHASE_2_STEPS = 2000
 EVAL_EVERY = 50
 K1_DIAG_EVERY = 500
 
@@ -67,7 +70,7 @@ DRIFT_HIGH = 0.20
 
 RESULTS_PATH = Path("results/stage221_scaling_1p7b.json")
 TARGET_NAMES = ("gate_proj", "up_proj", "down_proj")
-BODY_TRAIN_NAMES = ("down_proj",)   # NARROWED for Mac memory at 1.7B
+BODY_TRAIN_NAMES = ("down_proj",)   # Mac memory budget at 1.7B fp32
 GROUP_SIZE = 128
 
 
@@ -100,12 +103,10 @@ def lm_ce(model, val_tokens, n_chunks=N_VAL_CHUNKS):
     return sum(losses) / max(len(losses), 1)
 
 
-# (Reuse 220's classes — copy-paste for clarity)
 class AdiabaticQuantizedLinear(nn.Module):
     def __init__(self, original_linear, group_size=GROUP_SIZE):
         super().__init__()
         W_fp = original_linear.weight.data.clone()
-        # weight_fp requires_grad set per-Linear name later
         self.weight_fp = nn.Parameter(W_fp, requires_grad=False)
         out, in_ = W_fp.shape
         self.has_groups = (in_ % group_size == 0)
@@ -226,32 +227,11 @@ def install_residual_gains_and_offsets(model):
     return n_layers
 
 
-def install_ff_intermediate_gain(model, intermediate_size):
-    n_inserted = 0
-    for layer in model.model.layers:
-        d = layer.input_layernorm.weight.device
-        t = layer.input_layernorm.weight.dtype
-        layer.mlp.ff_intermediate_gain = nn.Parameter(torch.ones(
-            intermediate_size, device=d, dtype=t))
-
-        def new_mlp_forward(self, x):
-            gate_out = self.act_fn(self.gate_proj(x))
-            up_out = self.up_proj(x)
-            intermediate = gate_out * up_out
-            intermediate = intermediate * self.ff_intermediate_gain
-            return self.down_proj(intermediate)
-
-        layer.mlp.forward = types.MethodType(new_mlp_forward, layer.mlp)
-        n_inserted += 1
-    return n_inserted
-
-
-def build_full_architecture(intermediate_size, calib_ids):
+def build_full_architecture(calib_ids):
     m = AutoModelForCausalLM.from_pretrained(
         CHECKPOINT, dtype=dtype, low_cpu_mem_usage=True, trust_remote_code=True
     ).to(device).eval()
     n_layers = install_residual_gains_and_offsets(m)
-    n_ff = install_ff_intermediate_gain(m, intermediate_size)
     rms_table = calibrate_input_rms(m, calib_ids, ("down_proj",))
 
     parent_lookup = {}
@@ -265,7 +245,6 @@ def build_full_architecture(intermediate_size, calib_ids):
         if not isinstance(mod, nn.Linear): continue
         if not any(name.endswith(s) for s in TARGET_NAMES): continue
         new_layer = AdiabaticQuantizedLinear(mod)
-        # Only train down_proj W_fp
         if any(t in name for t in BODY_TRAIN_NAMES):
             new_layer.weight_fp.requires_grad_(True)
         if new_layer.beta_g is not None:
@@ -295,7 +274,7 @@ def build_full_architecture(intermediate_size, calib_ids):
 
     m.lm_head = TemperedLMHead(m.lm_head)
     return m, dict(n_quantized=n_quantized, n_residual_gain_layers=n_layers,
-                   n_subln=n_subln, n_beta_g_total=n_beta_g, n_ff_intermediate=n_ff)
+                   n_subln=n_subln, n_beta_g_total=n_beta_g)
 
 
 def is_body_master(name):
@@ -309,7 +288,7 @@ def is_beta_g(name):
 def is_compensation_lever(name):
     if any(t in name for t in (
         "subln_gate", "subln_gain", "h_scale", "attn_gain", "mlp_gain",
-        "attn_offset", "mlp_offset", "logit_tau", "ff_intermediate_gain"
+        "attn_offset", "mlp_offset", "logit_tau"
     )):
         return True
     if "bias" in name and "norm" not in name:
@@ -317,7 +296,13 @@ def is_compensation_lever(name):
     return False
 
 
-def freeze_everything_else(model):
+def set_trainable(model, predicate, value):
+    for n, p in model.named_parameters():
+        if predicate(n):
+            p.requires_grad_(value)
+
+
+def freeze_all_else(model):
     for n, p in model.named_parameters():
         if not is_body_master(n) and not is_beta_g(n) and not is_compensation_lever(n):
             p.requires_grad_(False)
@@ -404,14 +389,14 @@ m0 = AutoModelForCausalLM.from_pretrained(
 ).to(device).eval()
 T0 = lm_ce(m0, val_tokens)
 cfg = m0.config
-intermediate_size = cfg.intermediate_size
 hidden_size = cfg.hidden_size
+intermediate_size = cfg.intermediate_size
 print(f"  T0 = {T0:.4f}  hidden={hidden_size}  intermediate={intermediate_size}",
       flush=True)
 del m0; import gc; gc.collect()
 
 print("\nBuilding architecture (1.7B, MLP-only, body=down_proj only)...", flush=True)
-model, install_stats = build_full_architecture(intermediate_size, calib_ids)
+model, install_stats = build_full_architecture(calib_ids)
 print(f"  installed: {install_stats}", flush=True)
 
 ce_g0 = lm_ce(model, val_tokens)
@@ -420,7 +405,7 @@ k1_initial = k1_drift_now(model, val_tokens, T0)
 print(f"  γ=0 verify: ce={ce_g0:.4f} Δ={drift_g0:+.6f}  K=1 initial: {k1_initial:+.4f}",
       flush=True)
 
-freeze_everything_else(model)
+freeze_all_else(model)
 n_body = sum(p.numel() for n, p in model.named_parameters() if is_body_master(n))
 n_beta = sum(p.numel() for n, p in model.named_parameters() if is_beta_g(n))
 n_lever = sum(p.numel() for n, p in model.named_parameters() if is_compensation_lever(n))
@@ -440,16 +425,16 @@ optimizer = torch.optim.Adam([
 rng = np.random.default_rng(42)
 
 
-def train_step(batch):
+def train_step(batch, λ_bimodal=0.0, λ_var=0.0):
     out = model(batch[:, :-1], use_cache=False)
     ce_loss = F.cross_entropy(
         out.logits.float().reshape(-1, out.logits.size(-1)),
         batch[:, 1:].reshape(-1))
     total = ce_loss
-    if LAMBDA_BIMODAL > 0:
-        total = total + LAMBDA_BIMODAL * bimodal_squeeze_loss(model)
-    if LAMBDA_VARIANCE > 0:
-        total = total + LAMBDA_VARIANCE * variance_penalty_loss(model)
+    if λ_bimodal > 0:
+        total = total + λ_bimodal * bimodal_squeeze_loss(model)
+    if λ_var > 0:
+        total = total + λ_var * variance_penalty_loss(model)
     optimizer.zero_grad()
     total.backward()
     optimizer.step()
@@ -458,30 +443,36 @@ def train_step(batch):
 
 t_start = time.time()
 history = [{"event": "init", "ce": ce_g0, "drift": drift_g0, "k1_drift": k1_initial}]
+
+
+# ─── PHASE 1: find laser zone with body+β_g FROZEN ───
 print(f"\n{'─'*60}")
-print(f"Stage 221 — scaling test on Qwen3-1.7B")
+print(f"PHASE 1 — find laser zone (body+β_g FROZEN, levers train, γ ramp)")
 print('─'*60, flush=True)
+set_trainable(model, is_body_master, False)
+set_trainable(model, is_beta_g, False)
+set_trainable(model, is_compensation_lever, True)
 
 current_gamma = 0.0
 gamma_step = GAMMA_TARGET * PID_STEP_FRAC
 set_gamma(model, current_gamma)
 
 best_k1 = k1_initial
-k1_trajectory = []
+k1_trajectory = [{"step": 0, "phase": "init", "k1_drift": k1_initial, "gamma": 0.0}]
 model.train()
-for step in range(1, N_TRAIN_STEPS + 1):
+for step in range(1, PHASE_1_STEPS + 1):
     batch = sample_batch(train_tokens, BATCH_SIZE, SEQ_LEN, rng)
-    ce_loss = train_step(batch)
+    ce_loss = train_step(batch, λ_bimodal=0.0, λ_var=0.0)
 
-    if step % EVAL_EVERY == 0 or step == N_TRAIN_STEPS:
+    if step % EVAL_EVERY == 0 or step == PHASE_1_STEPS:
         val_ce = lm_ce(model, val_tokens, n_chunks=N_VAL_CHUNKS)
         drift = val_ce - T0
         current_gamma = pid_step_toward(current_gamma, GAMMA_TARGET, drift, gamma_step)
         set_gamma(model, current_gamma)
         elapsed = time.time() - t_start
-        print(f"  step {step:>4} γ={current_gamma:.3f} ce={val_ce:.4f} Δ={drift:+.4f} "
-              f"loss={ce_loss:.3f}  {elapsed:.0f}s", flush=True)
-        history.append({"step": step, "gamma": float(current_gamma),
+        print(f"  P1 step {step:>4} γ={current_gamma:.3f} ce={val_ce:.4f} "
+              f"Δ={drift:+.4f} loss={ce_loss:.3f}  {elapsed:.0f}s", flush=True)
+        history.append({"phase": "P1", "step": step, "gamma": float(current_gamma),
                         "ce": float(val_ce), "drift": float(drift),
                         "ce_loss": float(ce_loss)})
         model.train()
@@ -489,44 +480,97 @@ for step in range(1, N_TRAIN_STEPS + 1):
     if step % K1_DIAG_EVERY == 0:
         k1_now = k1_drift_now(model, val_tokens, T0)
         marker = " ⭐" if k1_now < best_k1 else ""
-        print(f"  ── step {step:>4} K=1 DIAG: drift={k1_now:+.4f}  "
+        print(f"  ── P1 step {step:>4} K=1 DIAG: drift={k1_now:+.4f}  "
               f"(initial: {k1_initial:+.4f}, best: {min(best_k1, k1_now):+.4f}){marker}",
               flush=True)
-        k1_trajectory.append({"step": step, "k1_drift": float(k1_now), "gamma": float(current_gamma)})
+        k1_trajectory.append({"step": step, "phase": "P1",
+                              "k1_drift": float(k1_now), "gamma": float(current_gamma)})
         if k1_now < best_k1:
             best_k1 = k1_now
         model.train()
 
-print(f"\nFinal K=1 measurement at γ=1.0...")
-final_k1 = k1_drift_now(model, val_tokens, T0)
+phase1_end_gamma = get_gamma(model)
+phase1_end_k1 = k1_drift_now(model, val_tokens, T0)
+print(f"\n  P1 END: γ={phase1_end_gamma:.3f}  K=1_drift={phase1_end_k1:+.4f}  "
+      f"(best K=1 in P1: {min(best_k1, phase1_end_k1):+.4f})", flush=True)
+if phase1_end_k1 < best_k1:
+    best_k1 = phase1_end_k1
 
+
+# ─── PHASE 2: body+β_g UNFROZEN, levers continue, γ HELD, regularizers ACTIVE ───
 print(f"\n{'─'*60}")
-print("STAGE 221 RESULT (1.7B scaling test):")
+print(f"PHASE 2 — body+β_g UNFROZEN, levers continue, γ held at {phase1_end_gamma:.3f}")
+print(f"          λ_bimodal={LAMBDA_BIMODAL} λ_variance={LAMBDA_VARIANCE} (FIXED, ALWAYS ACTIVE)")
+print('─'*60, flush=True)
+set_trainable(model, is_body_master, True)
+set_trainable(model, is_beta_g, True)
+set_trainable(model, is_compensation_lever, True)
+set_gamma(model, phase1_end_gamma)
+
+model.train()
+for step in range(1, PHASE_2_STEPS + 1):
+    batch = sample_batch(train_tokens, BATCH_SIZE, SEQ_LEN, rng)
+    ce_loss = train_step(batch, λ_bimodal=LAMBDA_BIMODAL, λ_var=LAMBDA_VARIANCE)
+
+    if step % EVAL_EVERY == 0 or step == PHASE_2_STEPS:
+        val_ce = lm_ce(model, val_tokens, n_chunks=N_VAL_CHUNKS)
+        drift = val_ce - T0
+        elapsed = time.time() - t_start
+        print(f"  P2 step {step:>4} γ={get_gamma(model):.3f} ce={val_ce:.4f} "
+              f"Δ={drift:+.4f} loss={ce_loss:.3f}  {elapsed:.0f}s", flush=True)
+        history.append({"phase": "P2", "step": step, "gamma": float(get_gamma(model)),
+                        "ce": float(val_ce), "drift": float(drift),
+                        "ce_loss": float(ce_loss)})
+        model.train()
+
+    if step % K1_DIAG_EVERY == 0:
+        k1_now = k1_drift_now(model, val_tokens, T0)
+        marker = " ⭐" if k1_now < best_k1 else ""
+        print(f"  ── P2 step {step:>4} K=1 DIAG: drift={k1_now:+.4f}  "
+              f"(best: {min(best_k1, k1_now):+.4f}){marker}", flush=True)
+        k1_trajectory.append({"step": step, "phase": "P2",
+                              "k1_drift": float(k1_now), "gamma": float(get_gamma(model))})
+        if k1_now < best_k1:
+            best_k1 = k1_now
+        model.train()
+
+
+# Final
+final_k1 = k1_drift_now(model, val_tokens, T0)
+print(f"\n{'─'*60}")
+print("STAGE 221 RESULT (Qwen3-1.7B, frozen-first protocol):")
 print('─'*60)
 print(f"  Model:             Qwen3-1.7B")
 print(f"  T0:                {T0:.4f}")
 print(f"  K=1 initial:       {k1_initial:+.4f}")
-print(f"  Final K=1:         {final_k1:+.4f}")
-print(f"  Best K=1:          {best_k1:+.4f}")
+print(f"  After P1:          {phase1_end_k1:+.4f}  (γ={phase1_end_gamma:.3f})")
+print(f"  After P2 (final):  {final_k1:+.4f}")
+print(f"  Best K=1 seen:     {best_k1:+.4f}")
 print(f"  Reduction (final): {k1_initial - final_k1:+.4f} nats "
       f"({100*(1 - final_k1/max(k1_initial, 1e-6)):.1f}%)")
-print(f"\n  vs 0.6B reference (Stage 220 best):")
-print(f"    If 1.7B reduction > 0.6B reduction → scaling hypothesis VALIDATED")
-print(f"    If 1.7B reduction ≈ 0.6B → recipe doesn't gain from scale")
-print(f"    If 1.7B reduction < 0.6B → scaling has different bottleneck")
+print(f"\n  vs 0.6B reference (Stage 218):  -3.85 nats (33.3%)")
+print(f"  Scaling hypothesis:")
+print(f"    1.7B reduction > 0.6B → VALIDATED, recipe scales")
+print(f"    1.7B ≈ 0.6B → recipe doesn't gain from scale")
+print(f"    1.7B < 0.6B → different bottleneck at scale")
 
 with open(RESULTS_PATH, "w") as f:
     json.dump({
         "checkpoint": CHECKPOINT,
         "T0": float(T0),
         "k1_initial_drift": float(k1_initial),
+        "k1_after_phase1": float(phase1_end_k1),
+        "phase1_end_gamma": float(phase1_end_gamma),
         "k1_final_drift": float(final_k1),
         "k1_best_drift": float(best_k1),
         "reduction": float(k1_initial - final_k1),
         "n_body_params": int(n_body),
         "n_beta_g_params": int(n_beta),
         "n_lever_params": int(n_lever),
-        "n_train_steps": N_TRAIN_STEPS,
+        "phase_1_steps": PHASE_1_STEPS,
+        "phase_2_steps": PHASE_2_STEPS,
+        "lambda_bimodal": LAMBDA_BIMODAL,
+        "lambda_variance": LAMBDA_VARIANCE,
         "k1_trajectory": k1_trajectory,
         "history": history,
     }, f, indent=2)
