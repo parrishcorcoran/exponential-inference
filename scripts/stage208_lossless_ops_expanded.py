@@ -191,9 +191,10 @@ def op_random_rotation(m):
     torch.manual_seed(42)
     for name, mod in target_mods:
         in_dim = mod.weight.shape[1]
-        # Generate random orthogonal matrix via QR decomposition
-        A = torch.randn(in_dim, in_dim, device=mod.weight.device, dtype=torch.float32)
+        # QR on CPU (MPS lacks linalg.qr), then move to device
+        A = torch.randn(in_dim, in_dim, device="cpu", dtype=torch.float32)
         Q, _ = torch.linalg.qr(A)
+        Q = Q.to(mod.weight.device)
         new_layer = RotatedLinear(mod, Q)
         parent, child_attr = parent_lookup[name]
         setattr(parent, child_attr, new_layer)
