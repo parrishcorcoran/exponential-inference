@@ -1,0 +1,37 @@
+{
+  "T0_base_ce": 3.8882325813174248,
+  "init_metrics": {
+    "intra_row_cv_mean": 0.7764338926232951,
+    "k1_residual_mean": 0.6102967466018638,
+    "n_modules_measured": 196
+  },
+  "ops_tested": [
+    {
+      "name": "Random orthogonal rotation per Linear (with input compensation)",
+      "drift": 6.48200511932373e-07,
+      "is_lossless": true,
+      "intra_row_cv_before": 0.7764338926232951,
+      "intra_row_cv_after": 0.7545539077100936,
+      "k1_residual_before": 0.6102967466018638,
+      "k1_residual_after": 0.6004577820398369
+    },
+    {
+      "name": "Hadamard rotation (per-Linear, power-of-2 dims only)",
+      "drift": 4.76837158203125e-07,
+      "is_lossless": true,
+      "intra_row_cv_before": 0.7764338926232951,
+      "intra_row_cv_after": 0.7612673597906126,
+      "k1_residual_before": 0.6102967466018638,
+      "k1_residual_after": 0.6024549706858031
+    },
+    {
+      "name": "Per-group magnitude factoring (Bonsai-style \u03b1 per 128-group)",
+      "drift": 2.905726432800293e-07,
+      "is_lossless": true,
+      "intra_row_cv_before": 0.7764338926232951,
+      "intra_row_cv_after": 0.7764338970224517,
+      "k1_residual_before": 0.6102967466018638,
+      "k1_residual_after": 0.6138430645271223
+    }
+  ]
+}
