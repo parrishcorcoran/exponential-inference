@@ -180,28 +180,47 @@ class HolographicContextEncoder(nn.Module):
 
 
 class HolographicLayer(nn.Module):
-    """Stage 2: one iteration — rotation + context retrieval + residual."""
-    def __init__(self, d_model):
+    """One iteration — rotation + holographic retrieval + SwiGLU cleanup.
+
+    Stage 86-92 (2026-04-22) finding: linear retrieval alone cannot compose
+    across depth — per-layer angular error compounds to ~1% next-token match
+    after 28 layers. The bilinear SwiGLU gate (silu(W_gate h) ⊙ (W_up h)) is
+    necessary as a drift-cleanup operator between holographic retrievals —
+    it pulls the residual stream back onto the learned manifold at each step.
+
+    Two residual paths per layer: holographic attention + SwiGLU MLP.
+    """
+    def __init__(self, d_model, d_ffn, use_mlp=True):
         super().__init__()
-        self.norm = RMSNorm(d_model)
+        # Attention path: normalize, rotate, retrieve, residual-add
+        self.attn_norm = RMSNorm(d_model)
         # Rotation matrix, initialized near identity (will drift during training)
         self.R = nn.Parameter(torch.eye(d_model) + 0.01 * torch.randn(d_model, d_model))
         # Query projection for context read
         self.W_Q = nn.Linear(d_model, d_model, bias=False)
         # Scale factor for context contribution
         self.alpha = nn.Parameter(torch.tensor(0.1))
+        # MLP cleanup path: required per stage-86-92 findings
+        self.use_mlp = use_mlp
+        if use_mlp:
+            self.mlp_norm = RMSNorm(d_model)
+            self.mlp = SwiGLU(d_model, d_ffn)
 
     def forward(self, h, S_prev):
         """h: [B, T, d], S_prev: [B, T, d, d]. S_prev[b, t] is context at position t."""
-        h_n = self.norm(h)
-        # Rotation: batch matmul h @ R.T (equivalent to R @ h^T, transposed)
+        # --- attention path ---
+        h_n = self.attn_norm(h)
+        # Rotation
         h_rot = h_n @ self.R.T  # [B, T, d]
         # Query
         q = self.W_Q(h_rot)  # [B, T, d]
-        # Context retrieval: for each position t, c_t = S_prev[b, t] @ q[b, t]
-        # S_prev: [B, T, d, d]; q unsqueeze: [B, T, d, 1]; result: [B, T, d]
+        # Holographic retrieval
         c = (S_prev @ q.unsqueeze(-1)).squeeze(-1)  # [B, T, d]
-        return h + h_rot + self.alpha * c  # residual with rotation + context
+        h = h + h_rot + self.alpha * c  # residual
+        # --- mlp cleanup path ---
+        if self.use_mlp:
+            h = h + self.mlp(self.mlp_norm(h))
+        return h
 
 
 class IterativeHolographic(nn.Module):

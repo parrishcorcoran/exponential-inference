@@ -102,6 +102,17 @@
       "train_loss_start": 5.194416046142578,
       "train_loss_end": 2.6664206981658936,
       "duration_s": 302.802001953125
+    },
+    {
+      "rank": 48,
+      "loss_pre_ft": 5.513216018676758,
+      "ppl_pre_ft": 247.94724919389253,
+      "loss_post_ft": 4.6801351547241214,
+      "ppl_post_ft": 107.78463919017892,
+      "delta_loss_baseline": 1.6248691320419315,
+      "train_loss_start": 4.432096481323242,
+      "train_loss_end": 3.610504627227783,
+      "duration_s": 292.4333510398865
     }
   ]
 }

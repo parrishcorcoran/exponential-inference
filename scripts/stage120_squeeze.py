@@ -188,12 +188,24 @@ def main():
 
     state = ModelState(model)
 
-    # Initialize sliders
-    # sliders[(axis, layer_or_None)] = (current_value, reject_count)
+    # Initialize sliders — SHAPE-AWARE per wormhole structure.
+    # Stage 111 manifold + Strix cross-model: 0.6B throat at L2-L24.
+    # Stage 107 established Q8 is free for weights on 0.6B; Q6 cheap; Q4 cliff.
+    # Strix stage 115 found Q5 middle works at 14B.
+    # Initialize: edges at Q10 (plenty of margin), inner edges Q8,
+    # throat at Q6 (known cheap). Squeeze pushes each further.
+    EDGE_WIDTH = 3
+    INNER_WIDTH = 2  # layers adjacent to edges
     sliders = {}
     for i in range(L):
-        sliders[("wbits", i)] = [16, 0]    # weight bits, start 16
-    sliders[("embed_bits", None)] = [16, 0]
+        if i < EDGE_WIDTH or i >= L - EDGE_WIDTH:
+            start = 10            # hard edges (L0-2, L25-27)
+        elif i < EDGE_WIDTH + INNER_WIDTH or i >= L - EDGE_WIDTH - INNER_WIDTH:
+            start = 8             # inner edges (L3-4, L23-24)
+        else:
+            start = 6             # deep throat (L5-L22)
+        sliders[("wbits", i)] = [start, 0]
+    sliders[("embed_bits", None)] = [8, 0]    # embed: Q8 (free, already known)
 
     # Simple axis step definitions
     def step_down(axis, current):

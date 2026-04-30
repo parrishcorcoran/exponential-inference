@@ -259,38 +259,47 @@ def main():
 
         progressed = False
 
-        # AXIS 1: K rank step
-        # Pick layer with biggest gap to floor, step rank down 15%
-        gaps = {l: cur_K_rank[l] / max(K_RANK_FLOOR[l], 1) for l in range(L)}
-        target_l = max(gaps, key=gaps.get)
-        if cur_K_rank[target_l] > K_RANK_FLOOR[target_l]:
-            new_rank = max(K_RANK_FLOOR[target_l],
-                            int(round(cur_K_rank[target_l] * 0.85)))
-            old_rank = cur_K_rank[target_l]
-            old_state = {k: v.data.clone() for k, v in
-                         factored[(target_l, "k_proj")].state_dict().items()}
-            refactorize(factored[(target_l, "k_proj")], new_rank, device, dtype)
-            factored[(target_l, "k_proj")].A.requires_grad = True
-            factored[(target_l, "k_proj")].B.requires_grad = True
+        # AXIS 1: K rank step — multiplicative reduction on ALL layers at once
+        # toward their per-layer floors
+        any_k_room = any(cur_K_rank[l] > K_RANK_FLOOR[l] for l in range(L))
+        if any_k_room:
+            old_states_k = {}
+            new_K_rank = {}
+            for l in range(L):
+                if cur_K_rank[l] > K_RANK_FLOOR[l]:
+                    new_r = max(K_RANK_FLOOR[l], int(round(cur_K_rank[l] * 0.85)))
+                    new_K_rank[l] = new_r
+                    old_states_k[l] = {k: v.data.clone() for k, v in
+                                       factored[(l, "k_proj")].state_dict().items()}
+                    refactorize(factored[(l, "k_proj")], new_r, device, dtype)
+                    factored[(l, "k_proj")].A.requires_grad = True
+                    factored[(l, "k_proj")].B.requires_grad = True
+                else:
+                    new_K_rank[l] = cur_K_rank[l]
 
-            print(f"\n  iter {it} A1: K rank L{target_l} {old_rank} → {new_rank}")
+            print(f"\n  iter {it} A1: K rank uniform×0.85 (toward per-layer floors)")
             ft_loss = finetune(args.ft_steps)
             cur_loss = eval_loss(model, val_tokens, args.seq_len, device)
             delta = cur_loss - loss_base
-            print(f"    loss={cur_loss:.4f}  Δ baseline={delta:+.3f}  ft_loss={ft_loss:.4f}")
+            print(f"    K avg rank: {sum(new_K_rank.values())/L:.0f}  "
+                  f"loss={cur_loss:.4f}  Δ baseline={delta:+.3f}")
 
             if delta < args.tolerance_loss:
-                cur_K_rank[target_l] = new_rank
+                for l in range(L): cur_K_rank[l] = new_K_rank[l]
                 accepted_steps += 1
                 progressed = True
-                history.append({"iter": it, "axis": "K_rank", "layer": target_l,
-                                "from": old_rank, "to": new_rank,
+                history.append({"iter": it, "axis": "K_rank_all",
+                                "avg_rank": sum(new_K_rank.values())/L,
                                 "loss": cur_loss, "delta": delta, "accepted": True})
             else:
-                print(f"    REJECTED (Δ {delta:+.3f} > {args.tolerance_loss}). Reverting.")
-                factored[(target_l, "k_proj")].load_state_dict(old_state)
-                history.append({"iter": it, "axis": "K_rank", "layer": target_l,
-                                "from": old_rank, "to": new_rank,
+                print(f"    REJECTED. Reverting K ranks.")
+                for l, st in old_states_k.items():
+                    fac = factored[(l, "k_proj")]
+                    fac.A = nn.Parameter(st["A"])
+                    fac.B = nn.Parameter(st["B"])
+                    if "bias" in st and st["bias"] is not None:
+                        fac.bias = nn.Parameter(st["bias"])
+                history.append({"iter": it, "axis": "K_rank_all",
                                 "loss": cur_loss, "delta": delta, "accepted": False})
 
         # AXIS 2: V rank step (uniform)
@@ -323,7 +332,11 @@ def main():
             else:
                 print(f"    REJECTED. Reverting V rank.")
                 for l in range(L):
-                    factored[(l, "v_proj")].load_state_dict(old_states[l])
+                    fac = factored[(l, "v_proj")]
+                    fac.A = nn.Parameter(old_states[l]["A"])
+                    fac.B = nn.Parameter(old_states[l]["B"])
+                    if "bias" in old_states[l] and old_states[l]["bias"] is not None:
+                        fac.bias = nn.Parameter(old_states[l]["bias"])
                 history.append({"iter": it, "axis": "V_rank", "from": target_v,
                                 "to": new_rank, "loss": cur_loss, "delta": delta,
                                 "accepted": False})

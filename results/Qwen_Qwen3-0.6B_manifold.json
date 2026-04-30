@@ -1,6 +1,4 @@
-{
-  "model_id": "Qwen/Qwen3-0.6B",
-  "total_tokens": 9728,
+{"name":"Qwen/Qwen3-0.6B","total_tokens": 9728,
   "chunk_size": 512,
   "num_hidden_layers": 28,
   "hidden_size": 1024,

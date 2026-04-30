@@ -18,15 +18,15 @@
     {
       "tau": 0.5,
       "holds": 0,
-      "final_val_ce": 4.5421,
-      "delta_vs_base": 0.8932,
+      "final_val_ce": 6.1154,
+      "delta_vs_base": 2.4664,
       "outcome": "pass"
     },
     {
       "tau": 1.0,
       "holds": 0,
-      "final_val_ce": 8.1821,
-      "delta_vs_base": 4.5331,
+      "final_val_ce": 14.5996,
+      "delta_vs_base": 10.9507,
       "outcome": "pass"
     }
   ],
@@ -34,30 +34,30 @@
     {
       "step": 2,
       "tau": 0.5,
-      "train_lm": 5.3269,
-      "val_ce": 4.8063,
-      "delta_vs_base": 1.1574
+      "train_lm": 6.0034,
+      "val_ce": 6.1169,
+      "delta_vs_base": 2.4679
     },
     {
       "step": 4,
       "tau": 0.5,
-      "train_lm": 5.129,
-      "val_ce": 4.5421,
-      "delta_vs_base": 0.8932
+      "train_lm": 6.1302,
+      "val_ce": 6.1154,
+      "delta_vs_base": 2.4664
     },
     {
       "step": 2,
       "tau": 1.0,
-      "train_lm": 10.8435,
-      "val_ce": 11.1716,
-      "delta_vs_base": 7.5226
+      "train_lm": 14.3343,
+      "val_ce": 14.5989,
+      "delta_vs_base": 10.9499
     },
     {
       "step": 4,
       "tau": 1.0,
-      "train_lm": 9.2286,
-      "val_ce": 8.1821,
-      "delta_vs_base": 4.5331
+      "train_lm": 14.5458,
+      "val_ce": 14.5996,
+      "delta_vs_base": 10.9507
     }
   ]
 }

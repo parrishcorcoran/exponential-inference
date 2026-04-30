@@ -1,5 +1,5 @@
-{
-  "model_id": "microsoft/phi-2",
+{"note":"truncated"}
+osoft/phi-2",
   "total_tokens": 9728,
   "chunk_size": 512,
   "num_hidden_layers": 32,

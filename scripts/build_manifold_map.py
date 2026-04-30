@@ -102,6 +102,29 @@ def corpus_hash(texts):
     return hashlib.sha256(blob).hexdigest()[:16]
 
 
+def load_calibration_texts(calib_dataset, calib_config, calib_split, max_tokens, tokenizer):
+    """Load a real calibration corpus from HF datasets, yielding text chunks
+    whose concatenated token count reaches max_tokens. Falls back to CALIB_TEXTS
+    if calib_dataset is None or "default"."""
+    if calib_dataset in (None, "default"):
+        return CALIB_TEXTS
+    from datasets import load_dataset
+    ds = load_dataset(calib_dataset, calib_config, split=calib_split)
+    texts = []
+    total = 0
+    for item in ds:
+        t = item.get("text", "")
+        if not t.strip(): continue
+        # Cheap tokenization just for counting
+        n = len(tokenizer.encode(t, add_special_tokens=False))
+        if n == 0: continue
+        texts.append(t)
+        total += n
+        if total >= max_tokens: break
+    print(f"  loaded {len(texts)} calibration texts (~{total} tokens) from {calib_dataset}/{calib_config}:{calib_split}")
+    return texts
+
+
 def collect_per_layer_hiddens(model, tokenizer, texts, device, max_len=256):
     """Return dict i -> [N, d_model] of hidden states per layer (i=0 is
     embedding, i=L is after last transformer layer)."""
@@ -146,10 +169,12 @@ def pca_basis_with_mean(H, k):
     return P, mu
 
 
-def bootstrap_twonn(H, n_boot=20, subsample_frac=0.8, seed=0):
-    """TwoNN mean + std via bootstrap subsamples."""
+def bootstrap_twonn(H, n_boot=20, subsample_frac=0.8, seed=0, max_n_sub=4000):
+    """TwoNN mean + std via bootstrap subsamples.
+    Cap subsample size at max_n_sub to keep distance matrix memory/compute
+    bounded even when N is huge. 4000 gives ±0.2 dim precision on 20 boots."""
     N = H.shape[0]
-    n_sub = max(10, int(subsample_frac * N))
+    n_sub = min(max_n_sub, max(10, int(subsample_frac * N)))
     estimates = []
     for b in range(n_boot):
         torch.manual_seed(seed + b)
@@ -237,7 +262,7 @@ def compute_stabilization_directions(model, tokenizer, texts, device, P_list, mu
     return torch.stack(stabilization_dirs)  # [L+1, rank]
 
 
-def build_map_for_teacher(model_id, rank, device, dtype):
+def build_map_for_teacher(model_id, rank, device, dtype, calib_dataset, calib_config, calib_split, calib_max_tokens):
     print(f"\n{'='*60}")
     print(f"building map for: {model_id}")
     print(f"{'='*60}")
@@ -248,10 +273,17 @@ def build_map_for_teacher(model_id, rank, device, dtype):
     vocab_size = model.config.vocab_size
     print(f"  L={L}  d_model={d_model}  vocab_size={vocab_size}")
 
+    calib_texts = load_calibration_texts(calib_dataset, calib_config, calib_split, calib_max_tokens, tokenizer)
+
     print(f"  collecting hidden states...")
     t0 = time.perf_counter()
-    hiddens = collect_per_layer_hiddens(model, tokenizer, CALIB_TEXTS, device)
-    print(f"  {time.perf_counter()-t0:.1f}s  ({hiddens[0].shape[0]} tokens)")
+    hiddens = collect_per_layer_hiddens(model, tokenizer, calib_texts, device)
+    n_tokens = hiddens[0].shape[0]
+    oversample = n_tokens / d_model
+    print(f"  {time.perf_counter()-t0:.1f}s  ({n_tokens} tokens, {oversample:.1f}x d_model)")
+    if oversample < 4.0:
+        print(f"  WARNING: oversample ratio {oversample:.1f}x is low — PCA and TwoNN may be noisy.")
+        print(f"           recommend ≥10x for stable estimates. Increase --calib-max-tokens.")
 
     print(f"  computing PCA bases and bootstrap TwoNN per layer (rank {rank})...")
     t0 = time.perf_counter()
@@ -286,7 +318,7 @@ def build_map_for_teacher(model_id, rank, device, dtype):
     print(f"  computing stabilization directions per layer...")
     t0 = time.perf_counter()
     stab_dirs = compute_stabilization_directions(
-        model, tokenizer, CALIB_TEXTS, device, P_list, mu_list)
+        model, tokenizer, calib_texts, device, P_list, mu_list)
     print(f"  {time.perf_counter()-t0:.1f}s")
 
     # Pack per-teacher artifact
@@ -432,6 +464,12 @@ def main():
                    choices=["bfloat16", "float16", "float32"])
     p.add_argument("--device", default=None)
     p.add_argument("--out", required=True)
+    p.add_argument("--calib-dataset", default="default",
+                   help="HF dataset name for calibration (e.g. 'wikitext'); 'default' uses built-in short texts")
+    p.add_argument("--calib-config", default="wikitext-2-raw-v1")
+    p.add_argument("--calib-split", default="train")
+    p.add_argument("--calib-max-tokens", type=int, default=20000,
+                   help="cap on calibration tokens. For d_model=5120, use ≥50000 for stable PCA")
     args = p.parse_args()
 
     device = args.device
@@ -453,7 +491,9 @@ def main():
 
     artifacts = []
     for tid in teachers:
-        artifacts.append(build_map_for_teacher(tid, args.rank, device, args.dtype))
+        artifacts.append(build_map_for_teacher(
+            tid, args.rank, device, args.dtype,
+            args.calib_dataset, args.calib_config, args.calib_split, args.calib_max_tokens))
 
     print(f"\n=== ensembling {len(artifacts)} teacher(s) ===")
     final = ensemble_artifacts(artifacts)

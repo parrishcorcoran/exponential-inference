@@ -1,5 +1,5 @@
-{
-  "model": "Qwen/Qwen3-0.6B",
+{"note":"truncated"}
+en3-0.6B",
   "N_HEADS": 16,
   "N_LAYERS": 28,
   "baseline_tok_per_sec": 30.025928312395045,

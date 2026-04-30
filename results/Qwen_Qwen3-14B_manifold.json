@@ -1,6 +1,5 @@
-{
-  "model_id": "Qwen/Qwen3-14B",
-  "total_tokens": 9728,
+{"note": "truncated to recover disk space"}
+okens": 9728,
   "chunk_size": 512,
   "num_hidden_layers": 40,
   "hidden_size": 5120,

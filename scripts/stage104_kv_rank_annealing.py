@@ -316,6 +316,8 @@ def main():
     p.add_argument("--device", default=None)
     p.add_argument("--pause-on-break", action="store_true",
                    help="If set, stop training when monitor flags breakage (default: just log)")
+    p.add_argument("--force-fp32", action="store_true",
+                   help="Force fp32 throughout (slower on MPS, more numerically stable)")
     args = p.parse_args()
 
     device = args.device
@@ -332,7 +334,11 @@ def main():
     model = AutoModelForCausalLM.from_pretrained(
         args.model, torch_dtype=torch.bfloat16, low_cpu_mem_usage=True,
         trust_remote_code=True, attn_implementation="eager").to(device)
-    model = model.float()
+    # Keep model in bf16 — MPS is ~2x faster in bf16 than fp32.
+    # Only the new ContinuousRankLinear modules (U, S, V) stay fp32 internally
+    # for numerical stability of the sigmoid mask.
+    if args.force_fp32:
+        model = model.float()
     d_kv = model.config.num_key_value_heads * (
         model.config.head_dim if hasattr(model.config, "head_dim")
         else model.config.hidden_size // model.config.num_attention_heads

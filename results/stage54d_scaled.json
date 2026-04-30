@@ -1,5 +1,5 @@
-{
-  "model": "Qwen/Qwen3-0.6B",
+{"note":"truncated"}
+en3-0.6B",
   "H": 1024,
   "train_tokens": 150000,
   "heldout_tokens": 6000,

@@ -1,5 +1,5 @@
-{
-  "model": "Qwen/Qwen3-0.6B",
+{"note":"truncated"}
+en3-0.6B",
   "device": "mps",
   "rank": 32,
   "steps": 3000,

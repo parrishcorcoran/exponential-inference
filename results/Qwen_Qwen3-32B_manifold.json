@@ -1,7 +1,5 @@
-{
-  "model_id": "Qwen/Qwen3-32B",
-  "total_tokens": 9728,
-  "chunk_size": 512,
+{"note": "truncated to recover disk space — see git history for original"}
+,
   "num_hidden_layers": 64,
   "hidden_size": 5120,
   "per_layer": [

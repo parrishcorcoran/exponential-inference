@@ -1,5 +1,4 @@
-{
-  "model_id": "Qwen/Qwen3-4B",
+{"name":"Qwen/Qwen3-4B",
   "total_tokens": 9728,
   "chunk_size": 512,
   "num_hidden_layers": 36,

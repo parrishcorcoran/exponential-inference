@@ -1,5 +1,5 @@
-{
-  "model_id": "Qwen/Qwen3-8B",
+{"note":"truncated"}
+/Qwen3-8B",
   "total_tokens": 9728,
   "chunk_size": 512,
   "num_hidden_layers": 36,

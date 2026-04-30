@@ -159,6 +159,11 @@ def main():
     p.add_argument("--lr", type=float, default=5e-5)
     p.add_argument("--device", default=None)
     p.add_argument("--out", default="results/stage98_bitnet_qat.json")
+    p.add_argument("--force-fp32", action="store_true",
+                   help="Force whole model fp32 (slow on MPS, safer numerics)")
+    p.add_argument("--ckpt-every", type=int, default=500,
+                   help="Save rotating checkpoint every N steps")
+    p.add_argument("--ckpt-dir", default="checkpoints/stage98")
     args = p.parse_args()
 
     device = args.device
@@ -188,8 +193,12 @@ def main():
     model = AutoModelForCausalLM.from_pretrained(
         args.model, torch_dtype=torch.bfloat16, low_cpu_mem_usage=True,
         trust_remote_code=True, attn_implementation="eager").to(device)
-    # Need float32 for QAT master weights — convert model params to float32 first
-    model = model.float()
+    # Keep base model in bf16 for MPS speed. QAT layers internally store fp32 master
+    # weights and upcast activations inside the forward; the rest of the network
+    # (norms, embedding, lm_head, RoPE, attention softmax) stays bf16 for tensor-core
+    # speed. This is ~15x faster than model.float() on MPS.
+    if args.force_fp32:
+        model = model.float()
     n_converted = convert_body_to_ternary(model)
     model = model.to(device)
     print(f"  converted {n_converted} linear layers to QATTernaryLinear", flush=True)
