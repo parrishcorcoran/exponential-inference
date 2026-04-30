@@ -68,7 +68,8 @@ DRIFT_TARGET = 0.05
 DRIFT_HIGH = 0.20
 GAMMA_PID_STEP = 0.02   # how much γ moves per PID tick
 
-GAMMA_TARGETS = [0.20, 0.40, 0.60, 0.80, 1.00]   # ratcheting per-cycle target
+GAMMA_TARGETS = [0.20, 0.40, 0.60, 0.80, 0.95]   # ratcheting per-cycle phase-A target
+# Final γ=1.0 is measurement only (body has zero gradient through sign() at γ=1).
 
 RESULTS_PATH = Path("results/stage215_lever_cycle.json")
 TARGET_NAMES = ("q_proj", "k_proj", "v_proj", "o_proj",
@@ -410,13 +411,13 @@ t_start = time.time()
 
 
 def pid_step_gamma_toward(model, target, drift, current_gamma):
-    """Crude PID: move γ toward target only if drift in band; back off if drift too high."""
+    """Crude PID: move γ toward target only if drift in band; back off if drift too high.
+    Phase B target is treated as a soft floor — PID stops short if drift won't allow
+    full return to identity. The 'laser zone' falls out of this naturally."""
     direction = 1 if target > current_gamma else -1
     if drift > DRIFT_HIGH:
-        # Back off — move γ AWAY from target
         new = current_gamma - direction * GAMMA_PID_STEP
     elif drift < DRIFT_TARGET:
-        # Advance toward target
         if direction > 0:
             new = min(current_gamma + GAMMA_PID_STEP, target)
         else:
@@ -426,6 +427,29 @@ def pid_step_gamma_toward(model, target, drift, current_gamma):
     new = max(0.0, min(1.0, new))
     set_gamma(model, new)
     return new
+
+
+def snapshot_lever_state(model):
+    """Snapshot current values of all lever-type params. Returns dict[name → tensor]."""
+    return {n: p.detach().clone()
+            for n, p in model.named_parameters() if is_lever_param(n)}
+
+
+def lever_displacement(model, snapshot_before):
+    """For each lever-group, compute mean L2 displacement from snapshot.
+    Reveals which levers absorbed pressure during a phase."""
+    groups = {"bias": [], "subln_gate": [], "subln_gain": [], "h_scale": [],
+              "attn_gain": [], "mlp_gain": [], "attn_offset": [], "mlp_offset": [],
+              "logit_tau": []}
+    for n, p in model.named_parameters():
+        if not is_lever_param(n): continue
+        if n not in snapshot_before: continue
+        diff = (p.detach() - snapshot_before[n]).float().norm().item()
+        for key in groups:
+            if key in n or (key == "bias" and "bias" in n and "norm" not in n):
+                groups[key].append(diff)
+                break
+    return {k: float(np.mean(v)) if v else 0.0 for k, v in groups.items()}
 
 
 def run_phase(model, phase_name, train_body, train_levers,
@@ -473,6 +497,9 @@ for cycle_idx, gamma_target in enumerate(GAMMA_TARGETS, start=1):
     print(f"\n===== CYCLE {cycle_idx}/{len(GAMMA_TARGETS)}  (γ_target = {gamma_target:.2f}) =====",
           flush=True)
 
+    # Snapshot lever values before cycle to measure compensation displacement
+    levers_before_cycle = snapshot_lever_state(model)
+
     # Phase A: body trains, this lever (γ) drives UP toward target, others frozen
     set_gamma(model, 0.0)   # start each cycle at γ=0
     run_phase(model, f"cycle{cycle_idx}_phaseA",
@@ -482,25 +509,37 @@ for cycle_idx, gamma_target in enumerate(GAMMA_TARGETS, start=1):
               train_tokens=train_tokens, val_tokens=val_tokens, T0=T0,
               history=history, t_start=t_start)
 
+    # Snapshot levers before phase B (should equal levers_before_cycle since phase A didn't touch them)
+    levers_after_phaseA = snapshot_lever_state(model)
+
     # Phase B: body frozen, this lever drives DOWN to identity, others train
     run_phase(model, f"cycle{cycle_idx}_phaseB",
               train_body=False, train_levers=True,
-              gamma_target=0.0,
+              gamma_target=0.0,   # SOFT target — PID may stop at "laser zone" if drift won't allow
               n_steps=PHASE_B_STEPS,
               train_tokens=train_tokens, val_tokens=val_tokens, T0=T0,
               history=history, t_start=t_start)
+
+    # Compensation diagnostic: how much did each lever group move during phase B?
+    phaseB_displacement = lever_displacement(model, levers_after_phaseA)
+    print(f"\n  cycle {cycle_idx} compensation displacement (phase B):", flush=True)
+    for k, v in sorted(phaseB_displacement.items(), key=lambda kv: -kv[1]):
+        if v > 0:
+            print(f"    {k:18s} L2={v:.4f}", flush=True)
 
     # End-of-cycle diagnostic
     cur_g = get_gamma(model)
     end_ce = lm_ce(model, val_tokens, n_chunks=N_VAL_CHUNKS)
     end_drift = end_ce - T0
     k1_drift = k1_diagnostic_drift(model, val_tokens, T0)
-    print(f"\n  cycle {cycle_idx} END: γ={cur_g:.2f}  ce={end_ce:.4f} Δ={end_drift:+.4f}  "
+    print(f"\n  cycle {cycle_idx} END: γ={cur_g:.2f} (laser zone if not 0)  "
+          f"ce={end_ce:.4f} Δ={end_drift:+.4f}  "
           f"K=1_drift={k1_drift:+.4f}  (initial K=1 was {k1_initial:+.4f})", flush=True)
     cycle_diagnostics.append({"cycle": cycle_idx, "gamma_target": gamma_target,
                               "end_gamma": float(cur_g), "end_ce": float(end_ce),
                               "end_drift": float(end_drift),
-                              "k1_drift": float(k1_drift)})
+                              "k1_drift": float(k1_drift),
+                              "phaseB_compensation_displacement": phaseB_displacement})
 
 # ─── Final K=1 ───
 print(f"\n{'─'*60}")
