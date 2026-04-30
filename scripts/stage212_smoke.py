@@ -1,34 +1,12 @@
-"""Stage 212 — PID adiabatic K=1 anneal with binary-enabled levers.
+"""Stage 212 SMOKE — scaled-down PID anneal for Mac MPS.
 
-Per user directives:
-  - ALWAYS PID (adiabatic descent — γ grows only when CE drift stays in band)
-  - Always aware-trained (CE loss on OWT tokens; FP "memory" preserved
-    via the γ-blend itself: student = γ·K1 + (1−γ)·FP smoothly)
-  - Crude is fine (single-gate P controller, not full PID)
-  - Use OWT corpus
+Identical mechanics to stage212_qat_lever_train.py but compact:
+  - fp16 on MPS (halves model memory: 2.4 GB → 1.2 GB)
+  - batch=1, seq=64 (cuts activation memory ~4×)
+  - 80 training steps, eval every 20
 
-Architecture (Stage 211 levers, all dormant at init):
-  - Gated SubLN at o_proj/down_proj input  (gate α=0)
-  - Per-head input scale on o_proj           (scale=1)
-  - Per-output bias on every targeted Linear (init zero)
-  - Per-channel residual stream gain         (gain=1)
-
-Body weights wrapped with AdiabaticQuantizedLinear:
-  W_eff = sign(W_fp) · (γ · α_g + (1 − γ) · |W_fp|)
-  γ=0  → W_eff = W_fp  (lossless)
-  γ=1  → W_eff = sign(W_fp) · α_g  (full K=1, per-group scale)
-
-Continuous interpolation between FP and K=1, controlled by a single γ.
-
-PID (crude, single gate):
-  Every EVAL_EVERY steps: measure val CE.
-  If drift_band[0] < (val_ce − T0) < drift_band[1]: γ += STEP_UP
-  Else if drift > drift_band[1]:                    γ -= STEP_DOWN  (back off)
-  Else (drift below band, recovery happening):      hold γ
-
-Adam trains all levers continuously on OWT next-token CE.
-
-Stop condition: γ ≥ 1 and drift stable, OR step budget exhausted.
+Just enough to confirm: γ moves under PID, levers train, no NaN.
+NOT a full run. Real run targets Z8 with batch=2, seq=128, 1200 steps.
 """
 import json
 import sys
@@ -43,7 +21,6 @@ import torch.nn.functional as F
 
 from transformers import AutoModelForCausalLM
 
-# Line-buffered stdout so progress lands in logs immediately when piped through tee.
 try:
     sys.stdout.reconfigure(line_buffering=True)
 except AttributeError:
@@ -51,24 +28,22 @@ except AttributeError:
 
 
 CHECKPOINT = "Qwen/Qwen3-0.6B"
-SEQ_LEN = 128
-N_VAL_CHUNKS = 16
-N_CALIB_TOKENS = 4 * 128
-BATCH_SIZE = 2
-N_TRAIN_STEPS = 1200
-EVAL_EVERY = 40
+SEQ_LEN = 64
+N_VAL_CHUNKS = 8
+N_CALIB_TOKENS = 64
+BATCH_SIZE = 1
+N_TRAIN_STEPS = 5000
+EVAL_EVERY = 50
 LR = 5e-4
 
-# PID (crude P controller) parameters
-DRIFT_TARGET = 0.05         # nats tolerance band upper edge
-DRIFT_HIGH = 0.20           # if drift exceeds this, back off γ
-GAMMA_STEP_UP = 0.04        # γ increment when drift in band
-GAMMA_STEP_DOWN = 0.10      # γ decrement when drift too high
+DRIFT_TARGET = 0.05
+DRIFT_HIGH = 0.20
+GAMMA_STEP_UP = 0.05
+GAMMA_STEP_DOWN = 0.10
 GAMMA_MIN = 0.0
 GAMMA_MAX = 1.0
 
-RESULTS_PATH = Path("results/stage212_qat_lever_train.json")
-LOG_PATH = Path("logs/stage212_train.log")
+RESULTS_PATH = Path("results/stage212_smoke.json")
 TARGET_NAMES = ("q_proj", "k_proj", "v_proj", "o_proj",
                 "gate_proj", "up_proj", "down_proj")
 GROUP_SIZE = 128
@@ -77,7 +52,7 @@ GROUP_SIZE = 128
 if torch.cuda.is_available():
     device = "cuda"; dtype = torch.bfloat16
 elif torch.backends.mps.is_available():
-    device = "mps"; dtype = torch.float32
+    device = "mps"; dtype = torch.float32   # fp32 to avoid fp16 NaN during backward (no GradScaler on MPS)
 else:
     device = "cpu"; dtype = torch.float32
 
@@ -103,19 +78,7 @@ def lm_ce(model, val_tokens, n_chunks=N_VAL_CHUNKS):
     return sum(losses) / max(len(losses), 1)
 
 
-# ─── Adiabatic K=1 wrapper ───
 class AdiabaticQuantizedLinear(nn.Module):
-    """Linear with γ-controlled adiabatic interpolation FP ↔ K=1.
-
-    W_eff = sign(W_fp) · (γ · α_g + (1 − γ) · |W_fp|)
-
-    γ=0: W_eff = W_fp (lossless).
-    γ=1: W_eff = sign(W_fp) · α_g (per-group K=1).
-
-    γ is a buffer (not parameter) — controlled externally by PID.
-    α_g pre-computed and frozen (Bonsai-style per-128-group magnitude).
-    Bias preserved (or zero-init if absent).
-    """
     def __init__(self, original_linear, group_size=GROUP_SIZE):
         super().__init__()
         W_fp = original_linear.weight.data.clone()
@@ -132,9 +95,7 @@ class AdiabaticQuantizedLinear(nn.Module):
                                  W_fp.abs().mean(dim=-1, keepdim=True).to(W_fp.dtype))
         self.group_size = group_size
         self.out_features, self.in_features = out, in_
-        # γ as buffer (not trained; PID-controlled)
-        self.register_buffer("gamma",
-                             torch.tensor(0.0, dtype=W_fp.dtype))
+        self.register_buffer("gamma", torch.tensor(0.0, dtype=W_fp.dtype))
         if original_linear.bias is not None:
             self.bias = nn.Parameter(original_linear.bias.data.clone())
         else:
@@ -155,16 +116,10 @@ class AdiabaticQuantizedLinear(nn.Module):
         return F.linear(x, W_eff, self.bias.to(x.dtype))
 
 
-# ─── SubLN (Stage 211 levers) ───
 class SubLNLinear(nn.Module):
-    """Gated SubLN wrapper for o_proj/down_proj inputs (or any Linear).
-
-    NOTE: This wraps a downstream Linear — the wrapped Linear is
-    AdiabaticQuantizedLinear (so SubLN feeds into γ-controlled body).
-    """
     def __init__(self, wrapped_linear, num_heads=None, head_dim=None, eps=1e-6):
         super().__init__()
-        self.wrapped = wrapped_linear   # AdiabaticQuantizedLinear or nn.Linear
+        self.wrapped = wrapped_linear
         in_features = wrapped_linear.weight_fp.shape[1] if hasattr(wrapped_linear, "weight_fp") \
                        else wrapped_linear.weight.shape[1]
         device_ = (wrapped_linear.weight_fp if hasattr(wrapped_linear, "weight_fp")
@@ -243,23 +198,14 @@ def install_residual_gains(model):
 
 
 def build_full_architecture(num_heads, head_dim, calib_ids):
-    """Build model with Stage 211 levers + adiabatic-quantized body.
-
-    Order matters: calibration must run while o_proj/down_proj are still
-    nn.Linear (calibrate_input_rms hooks isinstance nn.Linear).
-      1. Install residual gains (decoder-layer monkey-patch)
-      2. Calibrate input RMS for o_proj/down_proj  ← while still nn.Linear
-      3. Replace target Linears with AdiabaticQuantizedLinear
-      4. Wrap o_proj/down_proj with SubLN (now wrapping AdiabaticQuantized)
-    """
     m = AutoModelForCausalLM.from_pretrained(
         CHECKPOINT, dtype=dtype, low_cpu_mem_usage=True, trust_remote_code=True
     ).to(device).eval()
 
-    # Step 1: residual gains
+    # Step 1: install per-layer residual gains (decoder-layer monkey-patch)
     n_layers = install_residual_gains(m)
 
-    # Step 2: calibrate (still nn.Linear at this point)
+    # Step 2: CALIBRATE INPUT RMS for o_proj/down_proj while they are still nn.Linear
     rms_table = calibrate_input_rms(m, calib_ids, ("o_proj", "down_proj"))
 
     parent_lookup = {}
@@ -278,7 +224,7 @@ def build_full_architecture(num_heads, head_dim, calib_ids):
         setattr(parent, child_attr, new_layer)
         n_quantized += 1
 
-    # Step 4: wrap o_proj and down_proj with SubLN
+    # Step 4: rebuild parent map (modules changed) and wrap o_proj/down_proj with SubLN
     parent_lookup2 = {}
     for name, mod in m.named_modules():
         for child_name, child_mod in mod.named_children():
@@ -352,23 +298,21 @@ def probe_levers(model):
                for n, p in model.named_parameters() if "mlp_gain" in n]
     return {
         "gate_mean": float(np.mean(gates)) if gates else 0.0,
-        "gate_max":  float(np.max(np.abs(gates))) if gates else 0.0,
         "bias_norm_mean": float(np.mean(bias_norms)) if bias_norms else 0.0,
-        "attn_gain_dev_mean": float(np.mean(a_gains)) if a_gains else 0.0,
-        "mlp_gain_dev_mean": float(np.mean(m_gains)) if m_gains else 0.0,
+        "attn_gain_dev": float(np.mean(a_gains)) if a_gains else 0.0,
+        "mlp_gain_dev": float(np.mean(m_gains)) if m_gains else 0.0,
     }
 
 
 print(f"device={device} dtype={dtype}")
-print("Loading OWT corpus + model config...")
+print("Loading OWT corpus...", flush=True)
 corpus = load_owt_cached()
-val_tokens = corpus[:SEQ_LEN * 64].tolist()
-train_tokens = corpus[SEQ_LEN * 64:SEQ_LEN * 64 + 1_000_000].tolist()
+val_tokens = corpus[:SEQ_LEN * 32].tolist()
+train_tokens = corpus[SEQ_LEN * 32:SEQ_LEN * 32 + 1_000_000].tolist()
 calib_ids = torch.tensor([corpus[:N_CALIB_TOKENS].tolist()], dtype=torch.long, device=device)
-print(f"  val tokens: {len(val_tokens)},  train tokens: {len(train_tokens)}")
+print(f"  val={len(val_tokens)}  train={len(train_tokens)}", flush=True)
 
-# T0 baseline (vanilla FP)
-print("\nMeasuring T0 (base FP)...")
+print("\nMeasuring T0 (base FP)...", flush=True)
 m0 = AutoModelForCausalLM.from_pretrained(
     CHECKPOINT, dtype=dtype, low_cpu_mem_usage=True, trust_remote_code=True
 ).to(device).eval()
@@ -376,53 +320,36 @@ T0 = lm_ce(m0, val_tokens)
 cfg = m0.config
 num_heads = cfg.num_attention_heads
 head_dim = getattr(cfg, "head_dim", None) or (cfg.hidden_size // num_heads)
-print(f"  T0 = {T0:.4f}")
+print(f"  T0 = {T0:.4f}", flush=True)
 del m0
 import gc; gc.collect()
 
-
-# Build full architecture
-print("\nBuilding binary-enabled architecture with adiabatic body...")
+print("\nBuilding enabled architecture...", flush=True)
 model, install_stats = build_full_architecture(num_heads, head_dim, calib_ids)
-print(f"  Adiabatic body Linears: {install_stats['n_quantized']}")
-print(f"  Residual gain layers:   {install_stats['n_residual_gain_layers']}")
-print(f"  SubLN-wrapped Linears:  {install_stats['n_subln']} ({install_stats['n_head_scaled']} also head-scaled)")
+print(f"  installed: {install_stats}", flush=True)
 
-# Verify γ=0 → lossless
-ce_g0 = lm_ce(model, val_tokens, n_chunks=N_VAL_CHUNKS)
+ce_g0 = lm_ce(model, val_tokens)
 drift_g0 = ce_g0 - T0
-print(f"\n  Lossless verify (γ=0): CE = {ce_g0:.4f}  Δ = {drift_g0:+.6f}  "
-      f"({'✓' if abs(drift_g0) < 0.01 else 'distortion'})")
+print(f"  γ=0 verify: ce={ce_g0:.4f} Δ={drift_g0:+.6f}", flush=True)
 
-# Verify γ=1 → full K=1
 set_gamma(model, 1.0)
-ce_g1 = lm_ce(model, val_tokens, n_chunks=N_VAL_CHUNKS)
+ce_g1 = lm_ce(model, val_tokens)
 drift_g1 = ce_g1 - T0
-print(f"  K=1 verify    (γ=1): CE = {ce_g1:.4f}  Δ = {drift_g1:+.4f}")
+print(f"  γ=1 verify: ce={ce_g1:.4f} Δ={drift_g1:+.4f}", flush=True)
 set_gamma(model, 0.0)
 
-# Set up training
 train_p, n_train, n_frozen = freeze_body_train_levers(model)
-print(f"\nTrainable lever params: {n_train:,}  ({100*n_train/(n_train+n_frozen):.3f}%)")
-print(f"Frozen body params:     {n_frozen:,}")
+print(f"\nTrainable lever params: {n_train:,}  Frozen body: {n_frozen:,}", flush=True)
 optimizer = torch.optim.Adam(train_p, lr=LR)
 rng = np.random.default_rng(42)
 
-
-# ─── PID adiabatic loop ───
-LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
-print(f"\n{'─'*70}")
-print(f"PID adiabatic anneal: γ band [drift<{DRIFT_TARGET:.2f} → +{GAMMA_STEP_UP}, "
-      f"drift>{DRIFT_HIGH:.2f} → −{GAMMA_STEP_DOWN}]")
-print(f"Train: {N_TRAIN_STEPS} steps, batch={BATCH_SIZE}, seq={SEQ_LEN}, lr={LR}")
-print('─'*70)
+print(f"\n{'─'*60}")
+print(f"PID anneal: {N_TRAIN_STEPS} steps batch={BATCH_SIZE} seq={SEQ_LEN}")
+print('─'*60, flush=True)
 
 current_gamma = 0.0
-best_ce_at_gamma = {0.0: ce_g0}
-history = [{"step": 0, "gamma": 0.0, "ce": ce_g0, "drift": drift_g0,
-            "loss": None, "action": "init"}]
+history = [{"step": 0, "gamma": 0.0, "ce": ce_g0, "drift": drift_g0, "loss": None}]
 t_start = time.time()
-
 set_gamma(model, current_gamma)
 model.train()
 
@@ -437,95 +364,56 @@ for step in range(1, N_TRAIN_STEPS + 1):
     optimizer.step()
 
     if step % EVAL_EVERY == 0 or step == N_TRAIN_STEPS:
-        val_ce = lm_ce(model, val_tokens, n_chunks=N_VAL_CHUNKS)
+        val_ce = lm_ce(model, val_tokens)
         drift = val_ce - T0
         probe = probe_levers(model)
-        elapsed = time.time() - t_start
 
-        # PID action
         if drift < DRIFT_TARGET:
-            old_gamma = current_gamma
+            old_g = current_gamma
             current_gamma = min(current_gamma + GAMMA_STEP_UP, GAMMA_MAX)
-            action = f"γ {old_gamma:.3f}→{current_gamma:.3f} (advance)"
+            action = f"γ {old_g:.2f}→{current_gamma:.2f} +"
         elif drift > DRIFT_HIGH:
-            old_gamma = current_gamma
+            old_g = current_gamma
             current_gamma = max(current_gamma - GAMMA_STEP_DOWN, GAMMA_MIN)
-            action = f"γ {old_gamma:.3f}→{current_gamma:.3f} (back off)"
+            action = f"γ {old_g:.2f}→{current_gamma:.2f} −"
         else:
-            action = f"γ {current_gamma:.3f} (hold, in band)"
+            action = f"γ {current_gamma:.2f} hold"
         set_gamma(model, current_gamma)
 
-        print(f"  step {step:>4} γ={current_gamma:.3f}  "
-              f"ce={val_ce:.4f} (Δ{drift:+.4f})  loss={loss.item():.3f}  "
+        elapsed = time.time() - t_start
+        print(f"  step {step:>3} γ={current_gamma:.2f}  "
+              f"ce={val_ce:.4f} Δ={drift:+.4f}  loss={loss.item():.3f}  "
               f"gate={probe['gate_mean']:.3f}  bias={probe['bias_norm_mean']:.3f}  "
-              f"a_g={probe['attn_gain_dev_mean']:.3f}  m_g={probe['mlp_gain_dev_mean']:.3f}  "
-              f"[{action}]  {elapsed:.0f}s")
-        history.append({
-            "step": step, "gamma": float(current_gamma),
-            "ce": float(val_ce), "drift": float(drift),
-            "loss": float(loss.item()), "action": action, **probe,
-        })
-        # Track best CE seen at each γ value (rough)
-        γ_key = round(current_gamma, 2)
-        if val_ce < best_ce_at_gamma.get(γ_key, float("inf")):
-            best_ce_at_gamma[γ_key] = float(val_ce)
-
+              f"a_g={probe['attn_gain_dev']:.3f} m_g={probe['mlp_gain_dev']:.3f}  "
+              f"[{action}]  {elapsed:.0f}s", flush=True)
+        history.append({"step": step, "gamma": float(current_gamma),
+                        "ce": float(val_ce), "drift": float(drift),
+                        "loss": float(loss.item()), "action": action, **probe})
         model.train()
 
-# Final state
-print(f"\nFinal: γ = {current_gamma:.3f}")
-final_ce = lm_ce(model, val_tokens, n_chunks=N_VAL_CHUNKS)
+print(f"\nFinal γ = {current_gamma:.2f}")
+final_ce = lm_ce(model, val_tokens)
 final_drift = final_ce - T0
 
-
-# ─── Headline ───
-print(f"\n{'─'*70}")
-print("HEADLINE — PID adiabatic K=1 anneal with binary-enabled levers:")
-print('─'*70)
-print(f"  T0 (base FP):                {T0:.4f}")
-print(f"  γ=0  (lossless start):       {ce_g0:.4f}  (Δ {drift_g0:+.6f})")
-print(f"  γ=1  (raw K=1, no training): {ce_g1:.4f}  (Δ {drift_g1:+.4f})")
-print(f"  Final γ={current_gamma:.3f}:   {final_ce:.4f}  (Δ {final_drift:+.4f})")
-print()
-if current_gamma >= 0.99:
-    rel = (drift_g1 - final_drift) / drift_g1 * 100
-    print(f"  Reached γ=1.0. K=1 drift recovered: {rel:.1f}% (from {drift_g1:+.3f} → {final_drift:+.3f})")
-    if final_drift < 0.5:
-        verdict = "STRONG: lever-only training crosses K=1 lossless. Body retraining may not be needed."
-    elif final_drift < 2.0:
-        verdict = "MODERATE: levers close most of K=1 gap. Full QAT (body via STE) likely closes rest."
-    else:
-        verdict = "PARTIAL: levers help but body retraining needed."
-else:
-    print(f"  Did NOT reach γ=1.0. Stuck at γ={current_gamma:.3f}.")
-    if current_gamma > 0.5:
-        verdict = "STALLED MID-ANNEAL: levers absorbing partial K=1 but can't reach full. Need more capacity / body STE."
-    else:
-        verdict = "STALLED EARLY: PID couldn't advance γ. Either drift band too tight or capacity insufficient."
-print(f"\n  Verdict: {verdict}")
-
+print(f"\n{'─'*60}")
+print("SMOKE RESULT:")
+print('─'*60)
+print(f"  T0             : {T0:.4f}")
+print(f"  γ=0 (lossless) : {ce_g0:.4f}  Δ={drift_g0:+.6f}")
+print(f"  γ=1 raw K=1    : {ce_g1:.4f}  Δ={drift_g1:+.4f}")
+print(f"  Final γ={current_gamma:.2f}  : {final_ce:.4f}  Δ={final_drift:+.4f}")
+print(f"  Steps = {N_TRAIN_STEPS}, train tokens = {N_TRAIN_STEPS*BATCH_SIZE*SEQ_LEN}")
 
 with open(RESULTS_PATH, "w") as f:
     json.dump({
-        "T0_base_ce": float(T0),
-        "ce_gamma_0": float(ce_g0),
-        "drift_gamma_0": float(drift_g0),
-        "ce_gamma_1_no_train": float(ce_g1),
-        "drift_gamma_1_no_train": float(drift_g1),
+        "T0": float(T0),
+        "ce_gamma_0": float(ce_g0), "drift_gamma_0": float(drift_g0),
+        "ce_gamma_1_no_train": float(ce_g1), "drift_gamma_1_no_train": float(drift_g1),
         "final_gamma": float(current_gamma),
-        "final_ce": float(final_ce),
-        "final_drift": float(final_drift),
-        "n_trainable_lever_params": int(n_train),
+        "final_ce": float(final_ce), "final_drift": float(final_drift),
+        "n_train_lever_params": int(n_train),
         "n_train_steps": N_TRAIN_STEPS,
-        "lr": LR,
-        "batch_size": BATCH_SIZE,
-        "seq_len": SEQ_LEN,
-        "drift_target_band": [0, DRIFT_TARGET],
-        "drift_high_threshold": DRIFT_HIGH,
-        "gamma_step_up": GAMMA_STEP_UP,
-        "gamma_step_down": GAMMA_STEP_DOWN,
-        "verdict": verdict,
-        "install_stats": install_stats,
+        "smoke_only": True,
         "history": history,
     }, f, indent=2)
-print(f"\nSaved {RESULTS_PATH}")
+print(f"\nSaved {RESULTS_PATH}", flush=True)
