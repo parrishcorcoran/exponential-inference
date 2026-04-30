@@ -1,0 +1,26 @@
+{
+  "T0_base_ce": 3.8882325813174248,
+  "init": {
+    "k1_bare_mean": 0.6102967466018638,
+    "k1_row_bias_mean": 0.6100500593988263,
+    "k1_group_bias_mean": 0.6078990947227089,
+    "k1_both_mean": 0.6078990947227089,
+    "intra_row_cv_mean": 0.7764338926232951,
+    "n_measured": 196
+  },
+  "post_zero_bias": {
+    "k1_bare_mean": 0.6102967466018638,
+    "k1_row_bias_mean": 0.6100500593988263,
+    "k1_group_bias_mean": 0.6078990947227089,
+    "k1_both_mean": 0.6078990947227089,
+    "intra_row_cv_mean": 0.7764338926232951,
+    "n_measured": 196
+  },
+  "lossless_drift": 0.0,
+  "is_lossless": true,
+  "n_added": 196,
+  "n_total_linears": 196,
+  "rel_drop_row_bias_pct": 0.04042086155810437,
+  "rel_drop_group_bias_pct": 0.3928665673715471,
+  "rel_drop_both_pct": 0.3928665673715471
+}
