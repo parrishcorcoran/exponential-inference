@@ -66,14 +66,30 @@ def lm_ce(model, val_tokens):
     return sum(losses) / max(len(losses), 1)
 
 
+def get_effective_weight(mod):
+    """Return the effective body weight matrix that would get quantized.
+    Handles nn.Linear, RotatedLinear, PerGroupAlphaLinear."""
+    if isinstance(mod, nn.Linear):
+        return mod.weight.detach().float()
+    if hasattr(mod, "weight") and hasattr(mod, "R"):
+        # RotatedLinear: weight is W @ R (already rotated)
+        return mod.weight.detach().float()
+    if hasattr(mod, "W_unit"):
+        # PerGroupAlphaLinear: unit weight (per-group normalized) is what gets quantized
+        return mod.W_unit.detach().float()
+    return None
+
+
 def measure_body_intra_row_cv(model):
     """Body intra-row CV — the binary-friendliness metric."""
     cv_all = []
     k1_errs = []
+    n_measured = 0
     for name, mod in model.named_modules():
-        if not isinstance(mod, nn.Linear): continue
         if not any(t in name for t in TARGET_NAMES): continue
-        W = mod.weight.detach().float()
+        W = get_effective_weight(mod)
+        if W is None: continue
+        if W.dim() != 2: continue
         out_features, in_features = W.shape
         if in_features % GROUP_SIZE != 0: continue
         n_groups = in_features // GROUP_SIZE
@@ -82,14 +98,15 @@ def measure_body_intra_row_cv(model):
         mean_abs = abs_w.mean(dim=-1, keepdim=True).clamp(min=1e-8)
         cv = (abs_w.std(dim=-1) / mean_abs.squeeze(-1)).cpu().numpy().flatten()
         cv_all.extend(cv.tolist())
-        # K=1 residual
         scales = mean_abs
         W_q = (torch.sign(grouped) * scales).reshape(out_features, in_features)
         rel_err = ((W - W_q).norm() / W.norm().clamp(min=1e-8)).item()
         k1_errs.append(rel_err)
+        n_measured += 1
     return {
         "intra_row_cv_mean": float(np.mean(cv_all)) if cv_all else 0.0,
         "k1_residual_mean": float(np.mean(k1_errs)) if k1_errs else 0.0,
+        "n_modules_measured": n_measured,
     }
 
 
@@ -159,21 +176,21 @@ def test_op(op_name, op_func, max_drift_for_lossless=1e-3):
 class RotatedLinear(nn.Module):
     """Linear with input rotation + weight col rotation: lossless reparam.
 
-    For W·x with rotation R (orthogonal):
-      W_new = W·R, x_new = R^T·x
-      W_new · x_new = W·R·R^T·x = W·x ✓
+    F.linear(x, W) = x @ W^T. We want to preserve this.
+    Substitute new_W = W @ R. Then F.linear(x, new_W) = x @ R^T @ W^T.
+    To recover x @ W^T, multiply input by R: x_new = x @ R, then
+    F.linear(x_new, new_W) = x @ R @ R^T @ W^T = x @ W^T ✓ (R orthogonal).
     """
     def __init__(self, original_linear, R):
         super().__init__()
-        # Apply R to weight cols (which is the input dim)
         W_rotated = original_linear.weight.data.float() @ R.float().to(original_linear.weight.device)
         self.weight = nn.Parameter(W_rotated.to(original_linear.weight.dtype))
         self.bias = original_linear.bias
-        # Save R^T for input rotation
-        self.register_buffer("R_T", R.T.to(original_linear.weight.dtype).contiguous())
+        # Store R for input rotation (NOT R^T)
+        self.register_buffer("R", R.to(original_linear.weight.dtype).contiguous())
 
     def forward(self, x):
-        x_rotated = x @ self.R_T   # equivalent to R^T · x for batched
+        x_rotated = x @ self.R   # input rotation: x @ R
         return F.linear(x_rotated, self.weight,
                         self.bias.to(x.dtype) if self.bias is not None else None)
 
