@@ -1,0 +1,121 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading OWT corpus...
+
+Measuring T0 (base FP)...
+  T0 = 4.2487
+
+Building architecture (MLP-only + Bonsai β_g)...
+  installed: {'n_quantized': 84, 'n_residual_gain_layers': 28, 'n_subln': 28, 'n_beta_g_total': 2064384}
+  γ=0 verify: ce=4.2487 Δ=+0.000000  (lossless ✓)
+  K=1 initial drift: Δ=+11.5577
+
+Body MLP master:    264,241,152
+β_g (Bonsai):       2,064,384
+Other levers:       401,437
+
+────────────────────────────────────────────────────────────
+PHASE 1 — find laser zone (body+β_g frozen, levers train, γ ramp 0→0.95)
+────────────────────────────────────────────────────────────
+  P1 step   50 γ=0.048 ce=4.0698 Δ=-0.1789 loss=4.351  body_disp=0.000  top_lever_movers=subln_gain=0.22, bias=0.19, mlp_offset=0.13  21s
+  P1 step  100 γ=0.095 ce=4.1377 Δ=-0.1110 loss=3.411  body_disp=0.000  top_lever_movers=subln_gain=0.33, bias=0.25, mlp_offset=0.17  43s
+  P1 step  150 γ=0.143 ce=4.1716 Δ=-0.0771 loss=3.494  body_disp=0.000  top_lever_movers=subln_gain=0.39, bias=0.31, mlp_gain=0.21  66s
+  P1 step  200 γ=0.190 ce=4.1922 Δ=-0.0565 loss=3.440  body_disp=0.000  top_lever_movers=subln_gain=0.45, bias=0.35, mlp_gain=0.24  87s
+  P1 step  250 γ=0.237 ce=4.2611 Δ=+0.0124 loss=3.333  body_disp=0.000  top_lever_movers=subln_gain=0.51, bias=0.40, mlp_gain=0.28  109s
+  P1 step  300 γ=0.190 ce=4.3640 Δ=+0.1153 loss=4.414  body_disp=0.000  top_lever_movers=subln_gain=0.58, bias=0.45, mlp_gain=0.32  132s
+  P1 step  350 γ=0.237 ce=4.2112 Δ=-0.0375 loss=5.603  body_disp=0.000  top_lever_movers=subln_gain=0.64, bias=0.49, mlp_gain=0.35  154s
+  P1 step  400 γ=0.237 ce=4.2907 Δ=+0.0420 loss=4.921  body_disp=0.000  top_lever_movers=subln_gain=0.70, bias=0.53, mlp_gain=0.37  177s
+  P1 step  450 γ=0.237 ce=4.2866 Δ=+0.0379 loss=4.347  body_disp=0.000  top_lever_movers=subln_gain=0.75, bias=0.56, mlp_gain=0.40  201s
+  P1 step  500 γ=0.237 ce=4.2972 Δ=+0.0485 loss=5.073  body_disp=0.000  top_lever_movers=subln_gain=0.80, bias=0.59, mlp_gain=0.42  227s
+  P1 step  550 γ=0.237 ce=4.2898 Δ=+0.0411 loss=5.548  body_disp=0.000  top_lever_movers=subln_gain=0.84, bias=0.62, mlp_gain=0.45  253s
+  P1 step  600 γ=0.285 ce=4.2507 Δ=+0.0020 loss=3.912  body_disp=0.000  top_lever_movers=subln_gain=0.87, bias=0.65, mlp_gain=0.47  278s
+  P1 step  650 γ=0.237 ce=4.3638 Δ=+0.1151 loss=3.650  body_disp=0.000  top_lever_movers=subln_gain=0.92, bias=0.68, mlp_gain=0.50  304s
+  P1 step  700 γ=0.285 ce=4.2647 Δ=+0.0160 loss=4.434  body_disp=0.000  top_lever_movers=subln_gain=0.96, bias=0.70, mlp_gain=0.52  330s
+  P1 step  750 γ=0.237 ce=4.3715 Δ=+0.1228 loss=3.879  body_disp=0.000  top_lever_movers=subln_gain=1.00, bias=0.73, mlp_gain=0.54  356s
+  P1 step  800 γ=0.285 ce=4.2367 Δ=-0.0120 loss=4.554  body_disp=0.000  top_lever_movers=subln_gain=1.04, bias=0.75, mlp_gain=0.56  381s
+  P1 step  850 γ=0.237 ce=4.3620 Δ=+0.1133 loss=4.488  body_disp=0.000  top_lever_movers=subln_gain=1.08, bias=0.78, mlp_gain=0.58  406s
+  P1 step  900 γ=0.285 ce=4.2443 Δ=-0.0044 loss=4.133  body_disp=0.000  top_lever_movers=subln_gain=1.11, bias=0.80, mlp_gain=0.60  431s
+  P1 step  950 γ=0.237 ce=4.3359 Δ=+0.0872 loss=3.839  body_disp=0.000  top_lever_movers=subln_gain=1.16, bias=0.83, mlp_gain=0.62  455s
+  P1 step 1000 γ=0.285 ce=4.2414 Δ=-0.0073 loss=3.546  body_disp=0.000  top_lever_movers=subln_gain=1.20, bias=0.85, mlp_gain=0.64  480s
+  P1 step 1050 γ=0.237 ce=4.3325 Δ=+0.0838 loss=3.603  body_disp=0.000  top_lever_movers=subln_gain=1.23, bias=0.87, mlp_gain=0.66  504s
+  P1 step 1100 γ=0.285 ce=4.1975 Δ=-0.0512 loss=3.896  body_disp=0.000  top_lever_movers=subln_gain=1.27, bias=0.89, mlp_gain=0.67  529s
+  P1 step 1150 γ=0.237 ce=4.3450 Δ=+0.0963 loss=4.337  body_disp=0.000  top_lever_movers=subln_gain=1.30, bias=0.91, mlp_gain=0.69  554s
+  P1 step 1200 γ=0.285 ce=4.2304 Δ=-0.0183 loss=4.786  body_disp=0.000  top_lever_movers=subln_gain=1.32, bias=0.93, mlp_gain=0.71  578s
+  P1 step 1250 γ=0.332 ce=4.2593 Δ=+0.0106 loss=4.090  body_disp=0.000  top_lever_movers=subln_gain=1.35, bias=0.95, mlp_gain=0.73  603s
+  P1 step 1300 γ=0.285 ce=4.4120 Δ=+0.1633 loss=5.571  body_disp=0.000  top_lever_movers=subln_gain=1.38, bias=0.98, mlp_gain=0.75  627s
+  P1 step 1350 γ=0.285 ce=4.2950 Δ=+0.0463 loss=4.513  body_disp=0.000  top_lever_movers=subln_gain=1.42, bias=1.00, mlp_gain=0.77  651s
+  P1 step 1400 γ=0.332 ce=4.2679 Δ=+0.0192 loss=4.035  body_disp=0.000  top_lever_movers=subln_gain=1.45, bias=1.02, mlp_gain=0.78  676s
+  P1 step 1450 γ=0.285 ce=4.3281 Δ=+0.0794 loss=5.125  body_disp=0.000  top_lever_movers=subln_gain=1.48, bias=1.05, mlp_gain=0.80  700s
+  P1 step 1500 γ=0.332 ce=4.2299 Δ=-0.0188 loss=4.665  body_disp=0.000  top_lever_movers=subln_gain=1.50, bias=1.06, mlp_gain=0.82  725s
+  P1 step 1550 γ=0.285 ce=4.3831 Δ=+0.1344 loss=3.976  body_disp=0.000  top_lever_movers=subln_gain=1.53, bias=1.09, mlp_gain=0.83  749s
+  P1 step 1600 γ=0.332 ce=4.2575 Δ=+0.0088 loss=4.814  body_disp=0.000  top_lever_movers=subln_gain=1.56, bias=1.10, mlp_gain=0.85  773s
+  P1 step 1650 γ=0.285 ce=4.3972 Δ=+0.1485 loss=4.421  body_disp=0.000  top_lever_movers=subln_gain=1.59, bias=1.12, mlp_gain=0.87  798s
+  P1 step 1700 γ=0.332 ce=4.2582 Δ=+0.0095 loss=3.793  body_disp=0.000  top_lever_movers=subln_gain=1.62, bias=1.14, mlp_gain=0.88  822s
+  P1 step 1750 γ=0.285 ce=4.3973 Δ=+0.1486 loss=4.291  body_disp=0.000  top_lever_movers=subln_gain=1.65, bias=1.16, mlp_gain=0.90  847s
+  P1 step 1800 γ=0.332 ce=4.2657 Δ=+0.0170 loss=4.550  body_disp=0.000  top_lever_movers=subln_gain=1.68, bias=1.17, mlp_gain=0.91  871s
+  P1 step 1850 γ=0.285 ce=4.4113 Δ=+0.1626 loss=4.954  body_disp=0.000  top_lever_movers=subln_gain=1.70, bias=1.19, mlp_gain=0.93  896s
+  P1 step 1900 γ=0.332 ce=4.2336 Δ=-0.0151 loss=3.856  body_disp=0.000  top_lever_movers=subln_gain=1.73, bias=1.20, mlp_gain=0.94  920s
+  P1 step 1950 γ=0.285 ce=4.3383 Δ=+0.0896 loss=4.063  body_disp=0.000  top_lever_movers=subln_gain=1.76, bias=1.23, mlp_gain=0.96  945s
+  P1 step 2000 γ=0.332 ce=4.2588 Δ=+0.0101 loss=4.152  body_disp=0.000  top_lever_movers=subln_gain=1.78, bias=1.24, mlp_gain=0.97  969s
+
+  P1 END: γ=0.333  drift=+0.1153  K=1_drift=+8.7840  (initial K=1: +11.5577)
+
+────────────────────────────────────────────────────────────
+PHASE 2 — body settles (γ held at 0.333, body+β_g+levers all train)
+         + bimodal squeeze (λ→0.01) + variance penalty (λ→0.01)
+────────────────────────────────────────────────────────────
+  P2 step   50 λ_b=0.0000 λ_v=0.0000 ce=4.6152 Δ=+0.3665 loss=3.446  body_disp=0.269  β_g_disp=0.587  top_lever_movers=beta_g=0.59, body_W_fp=0.27, subln_gain=0.21  1034s
+  P2 step  100 λ_b=0.0000 λ_v=0.0000 ce=4.6560 Δ=+0.4073 loss=3.706  body_disp=0.353  β_g_disp=0.763  top_lever_movers=beta_g=0.76, body_W_fp=0.35, subln_gain=0.29  1092s
+  P2 step  150 λ_b=0.0000 λ_v=0.0000 ce=4.6587 Δ=+0.4100 loss=4.091  body_disp=0.422  β_g_disp=0.903  top_lever_movers=beta_g=0.90, body_W_fp=0.42, subln_gain=0.35  1150s
+  P2 step  200 λ_b=0.0000 λ_v=0.0000 ce=4.6398 Δ=+0.3911 loss=5.315  body_disp=0.481  β_g_disp=1.022  top_lever_movers=beta_g=1.02, body_W_fp=0.48, subln_gain=0.40  1210s
+  P2 step  250 λ_b=0.0000 λ_v=0.0000 ce=4.6713 Δ=+0.4226 loss=3.726  body_disp=0.535  β_g_disp=1.130  top_lever_movers=beta_g=1.13, body_W_fp=0.54, subln_gain=0.44  1276s
+  P2 step  300 λ_b=0.0000 λ_v=0.0000 ce=4.6758 Δ=+0.4271 loss=4.476  body_disp=0.581  β_g_disp=1.217  top_lever_movers=beta_g=1.22, body_W_fp=0.58, subln_gain=0.48  1342s
+  P2 step  350 λ_b=0.0000 λ_v=0.0000 ce=4.5592 Δ=+0.3105 loss=4.424  body_disp=0.624  β_g_disp=1.301  top_lever_movers=beta_g=1.30, body_W_fp=0.62, subln_gain=0.51  1401s
+  P2 step  400 λ_b=0.0000 λ_v=0.0000 ce=4.6116 Δ=+0.3629 loss=3.252  body_disp=0.665  β_g_disp=1.380  top_lever_movers=beta_g=1.38, body_W_fp=0.66, subln_gain=0.55  1477s
+  P2 step  450 λ_b=0.0000 λ_v=0.0000 ce=4.5720 Δ=+0.3233 loss=3.974  body_disp=0.704  β_g_disp=1.456  top_lever_movers=beta_g=1.46, body_W_fp=0.70, subln_gain=0.58  1547s
+  P2 step  500 λ_b=0.0000 λ_v=0.0000 ce=4.6026 Δ=+0.3539 loss=4.771  body_disp=0.739  β_g_disp=1.520  top_lever_movers=beta_g=1.52, body_W_fp=0.74, subln_gain=0.61  1676s
+  P2 step  550 λ_b=0.0000 λ_v=0.0000 ce=4.5752 Δ=+0.3265 loss=4.418  body_disp=0.772  β_g_disp=1.581  top_lever_movers=beta_g=1.58, body_W_fp=0.77, subln_gain=0.64  1728s
+  P2 step  600 λ_b=0.0000 λ_v=0.0000 ce=4.4728 Δ=+0.2241 loss=4.305  body_disp=0.802  β_g_disp=1.637  top_lever_movers=beta_g=1.64, body_W_fp=0.80, subln_gain=0.66  1878s
+  P2 step  650 λ_b=0.0000 λ_v=0.0000 ce=4.5989 Δ=+0.3502 loss=3.435  body_disp=0.837  β_g_disp=1.703  top_lever_movers=beta_g=1.70, body_W_fp=0.84, subln_gain=0.69  2116s
+  P2 step  700 λ_b=0.0000 λ_v=0.0000 ce=4.5263 Δ=+0.2776 loss=3.940  body_disp=0.868  β_g_disp=1.761  top_lever_movers=beta_g=1.76, body_W_fp=0.87, subln_gain=0.72  2270s
+  P2 step  750 λ_b=0.0000 λ_v=0.0000 ce=4.5586 Δ=+0.3099 loss=3.193  body_disp=0.896  β_g_disp=1.814  top_lever_movers=beta_g=1.81, body_W_fp=0.90, subln_gain=0.75  2326s
+  P2 step  800 λ_b=0.0000 λ_v=0.0000 ce=4.5744 Δ=+0.3257 loss=2.706  body_disp=0.920  β_g_disp=1.859  top_lever_movers=beta_g=1.86, body_W_fp=0.92, subln_gain=0.77  2394s
+  P2 step  850 λ_b=0.0000 λ_v=0.0000 ce=4.7167 Δ=+0.4680 loss=4.307  body_disp=0.945  β_g_disp=1.904  top_lever_movers=beta_g=1.90, body_W_fp=0.95, subln_gain=0.79  2459s
+  P2 step  900 λ_b=0.0000 λ_v=0.0000 ce=4.7963 Δ=+0.5476 loss=4.139  body_disp=0.973  β_g_disp=1.955  top_lever_movers=beta_g=1.95, body_W_fp=0.97, subln_gain=0.81  2527s
+  P2 step  950 λ_b=0.0000 λ_v=0.0000 ce=4.6674 Δ=+0.4187 loss=5.528  body_disp=0.999  β_g_disp=2.002  top_lever_movers=beta_g=2.00, body_W_fp=1.00, subln_gain=0.83  2586s
+  P2 step 1000 λ_b=0.0000 λ_v=0.0000 ce=4.5597 Δ=+0.3110 loss=4.210  body_disp=1.024  β_g_disp=2.047  top_lever_movers=beta_g=2.05, body_W_fp=1.02, subln_gain=0.85  2790s
+  P2 step 1050 λ_b=0.0000 λ_v=0.0000 ce=4.7159 Δ=+0.4672 loss=4.028  body_disp=1.049  β_g_disp=2.094  top_lever_movers=beta_g=2.09, body_W_fp=1.05, subln_gain=0.88  3413s
+  P2 step 1100 λ_b=0.0000 λ_v=0.0000 ce=4.6332 Δ=+0.3845 loss=4.260  body_disp=1.072  β_g_disp=2.135  top_lever_movers=beta_g=2.13, body_W_fp=1.07, subln_gain=0.89  3912s
+  P2 step 1150 λ_b=0.0000 λ_v=0.0000 ce=4.6542 Δ=+0.4055 loss=4.104  body_disp=1.095  β_g_disp=2.175  top_lever_movers=beta_g=2.17, body_W_fp=1.09, subln_gain=0.91  3974s
+  P2 step 1200 λ_b=0.0000 λ_v=0.0000 ce=4.5332 Δ=+0.2845 loss=3.487  body_disp=1.118  β_g_disp=2.216  top_lever_movers=beta_g=2.22, body_W_fp=1.12, subln_gain=0.93  4040s
+  P2 step 1250 λ_b=0.0000 λ_v=0.0000 ce=4.6006 Δ=+0.3519 loss=3.876  body_disp=1.140  β_g_disp=2.257  top_lever_movers=beta_g=2.26, body_W_fp=1.14, subln_gain=0.95  4217s
+  P2 step 1300 λ_b=0.0000 λ_v=0.0000 ce=4.4893 Δ=+0.2406 loss=4.098  body_disp=1.162  β_g_disp=2.296  top_lever_movers=beta_g=2.30, body_W_fp=1.16, subln_gain=0.96  4278s
+  P2 step 1350 λ_b=0.0000 λ_v=0.0000 ce=4.6257 Δ=+0.3771 loss=4.061  body_disp=1.185  β_g_disp=2.335  top_lever_movers=beta_g=2.33, body_W_fp=1.18, subln_gain=0.98  4333s
+  P2 step 1400 λ_b=0.0000 λ_v=0.0000 ce=4.5776 Δ=+0.3289 loss=4.062  body_disp=1.206  β_g_disp=2.372  top_lever_movers=beta_g=2.37, body_W_fp=1.21, subln_gain=1.00  4416s
+  P2 step 1450 λ_b=0.0000 λ_v=0.0000 ce=4.5813 Δ=+0.3326 loss=3.784  body_disp=1.228  β_g_disp=2.410  top_lever_movers=beta_g=2.41, body_W_fp=1.23, subln_gain=1.02  4629s
+  P2 step 1500 λ_b=0.0000 λ_v=0.0000 ce=4.6137 Δ=+0.3650 loss=4.953  body_disp=1.251  β_g_disp=2.451  top_lever_movers=beta_g=2.45, body_W_fp=1.25, subln_gain=1.03  4798s
+  P2 step 1550 λ_b=0.0000 λ_v=0.0000 ce=4.5711 Δ=+0.3224 loss=5.480  body_disp=1.274  β_g_disp=2.491  top_lever_movers=beta_g=2.49, body_W_fp=1.27, subln_gain=1.05  5114s
+  P2 step 1600 λ_b=0.0000 λ_v=0.0000 ce=4.5800 Δ=+0.3313 loss=4.980  body_disp=1.296  β_g_disp=2.531  top_lever_movers=beta_g=2.53, body_W_fp=1.30, subln_gain=1.07  5239s
+  P2 step 1650 λ_b=0.0000 λ_v=0.0000 ce=4.5455 Δ=+0.2968 loss=4.244  body_disp=1.316  β_g_disp=2.567  top_lever_movers=beta_g=2.57, body_W_fp=1.32, subln_gain=1.08  5336s
+  P2 step 1700 λ_b=0.0000 λ_v=0.0000 ce=4.6875 Δ=+0.4388 loss=1.591  body_disp=1.335  β_g_disp=2.601  top_lever_movers=beta_g=2.60, body_W_fp=1.33, subln_gain=1.10  5406s
+  P2 step 1750 λ_b=0.0000 λ_v=0.0000 ce=4.5305 Δ=+0.2818 loss=2.311  body_disp=1.355  β_g_disp=2.637  top_lever_movers=beta_g=2.64, body_W_fp=1.35, subln_gain=1.11  5463s
+  P2 step 1800 λ_b=0.0000 λ_v=0.0000 ce=4.5799 Δ=+0.3312 loss=5.050  body_disp=1.374  β_g_disp=2.671  top_lever_movers=beta_g=2.67, body_W_fp=1.37, subln_gain=1.13  5553s
+  P2 step 1850 λ_b=0.0000 λ_v=0.0000 ce=4.6041 Δ=+0.3554 loss=5.566  body_disp=1.393  β_g_disp=2.705  top_lever_movers=beta_g=2.70, body_W_fp=1.39, subln_gain=1.14  5642s
+  P2 step 1900 λ_b=0.0000 λ_v=0.0000 ce=4.5947 Δ=+0.3460 loss=4.706  body_disp=1.414  β_g_disp=2.743  top_lever_movers=beta_g=2.74, body_W_fp=1.41, subln_gain=1.16  5721s
+  P2 step 1950 λ_b=0.0000 λ_v=0.0000 ce=4.7227 Δ=+0.4740 loss=4.225  body_disp=1.433  β_g_disp=2.774  top_lever_movers=beta_g=2.77, body_W_fp=1.43, subln_gain=1.18  5823s
+  P2 step 2000 λ_b=0.0000 λ_v=0.0000 ce=4.6051 Δ=+0.3564 loss=4.594  body_disp=1.450  β_g_disp=2.804  top_lever_movers=beta_g=2.80, body_W_fp=1.45, subln_gain=1.19  5984s
+
+────────────────────────────────────────────────────────────
+STAGE 218 RESULT (MLP-only, Strix protocol):
+────────────────────────────────────────────────────────────
+  T0:                          4.2487
+  K=1 initial drift:           +11.5577
+  After P1 (laser zone):       +8.7840  (γ=0.333)
+  After P2 (body settled):     +7.7122  (γ held + regularizers)
+  Final lossless drift (γ=0):  +0.3564
+
+  Total K=1 drift reduction: +3.8455 nats (33.3% of initial drift)
+  λ_bimodal final: 0.0000  λ_variance final: 0.0000
+
+Saved results/stage218_mlp_only_strix.json
