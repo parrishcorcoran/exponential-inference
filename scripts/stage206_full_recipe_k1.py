@@ -263,6 +263,18 @@ init_max = max(p.detach().float().abs().max().item() for p in norm_params)
 phase2_traj = [{"cycle": 0, "T_cap": init_max, "ce": float(ce_phase1), "drift": float(ce_phase1 - T0)}]
 current_T = init_max
 
+# Track best state — save body weights, α, norms whenever drift improves
+best_drift = float(ce_phase1 - T0)
+best_state = {
+    "body_weights": {n: l.weight.data.clone() for n, l in target_layers.items()},
+    "alphas": {n: a.data.clone() for n, a in alphas.items()},
+    "norms": [p.data.clone() for p in norm_params],
+    "cycle": 0,
+    "drift": best_drift,
+    "T_cap": float(init_max),
+    "norm_max": float(init_max),
+}
+
 for cycle in range(1, PHASE2_N_CYCLES + 1):
     prev_drift = phase2_traj[-1]["drift"]
     rate = pid_rate(prev_drift, PID_SETPOINT)
@@ -283,8 +295,22 @@ for cycle in range(1, PHASE2_N_CYCLES + 1):
     phase2_traj.append({"cycle": cycle, "T_cap": float(new_T), "ce": float(ce),
                         "drift": float(drift), "norm_max": float(cur_max), "rate": float(rate)})
 
+    # Save best state if improved
+    if drift < best_drift:
+        best_drift = drift
+        best_state = {
+            "body_weights": {n: l.weight.data.clone() for n, l in target_layers.items()},
+            "alphas": {n: a.data.clone() for n, a in alphas.items()},
+            "norms": [p.data.clone() for p in norm_params],
+            "cycle": cycle,
+            "drift": float(drift),
+            "T_cap": float(new_T),
+            "norm_max": float(cur_max),
+        }
+
     if cycle <= 3 or cycle % 5 == 0 or cycle == PHASE2_N_CYCLES:
-        print(f"  cycle {cycle:>3}/{PHASE2_N_CYCLES}  T={new_T:.2f}  CE={ce:.4f} drift={drift:+.4f}  norm_max={cur_max:.1f}",
+        marker = "★" if drift == best_drift else " "
+        print(f"  cycle {cycle:>3}/{PHASE2_N_CYCLES}  T={new_T:.2f}  CE={ce:.4f} drift={drift:+.4f}  norm_max={cur_max:.1f}  {marker}",
               flush=True)
     if drift > QUALITY_LIMIT:
         print(f"  ⚠ broke past +{QUALITY_LIMIT} at cycle {cycle}")
@@ -297,8 +323,19 @@ for cycle in range(1, PHASE2_N_CYCLES + 1):
         break
     current_T = new_T
 
-ce_phase2 = phase2_traj[-1]["ce"]
-print(f"  After sharpness anneal: CE={ce_phase2:.4f}  Δ={ce_phase2-T0:+.4f}")
+# RESTORE BEST STATE — freeze at peak, not at PID-locked endpoint
+print(f"\n  Restoring best state from cycle {best_state['cycle']}: drift={best_state['drift']:+.4f}, "
+      f"T_cap={best_state['T_cap']:.2f}, norm_max={best_state['norm_max']:.1f}")
+with torch.no_grad():
+    for n, l in target_layers.items():
+        l.weight.data = best_state["body_weights"][n]
+    for n, a in alphas.items():
+        a.data = best_state["alphas"][n]
+    for p, saved in zip(norm_params, best_state["norms"]):
+        p.data = saved
+
+ce_phase2 = lm_ce(model, val_tokens)
+print(f"  After restore: CE={ce_phase2:.4f}  Δ={ce_phase2-T0:+.4f}")
 
 
 # ─── PHASE 3: K=1 binary projection on body ───
@@ -398,7 +435,11 @@ with open(RESULTS_PATH, "w") as f:
         "T0_base_ce": float(T0),
         "ce_after_project": float(ce_post_project),
         "ce_after_phase1": float(ce_phase1),
-        "ce_after_phase2": float(ce_phase2),
+        "ce_after_phase2_restored_best": float(ce_phase2),
+        "best_state_cycle": int(best_state["cycle"]),
+        "best_state_drift": float(best_state["drift"]),
+        "best_state_T_cap": float(best_state["T_cap"]),
+        "best_state_norm_max": float(best_state["norm_max"]),
         "ce_post_k1": float(ce_post_k1),
         "ce_after_refinement": float(ce_phase4),
         "drift_post_k1": float(drift_post_k1),
