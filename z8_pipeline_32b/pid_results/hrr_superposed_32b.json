@@ -1,0 +1,46 @@
+{
+  "model": "Qwen/Qwen3-32B",
+  "core_benchmark": [
+    {
+      "seq_len": 64,
+      "std_ms": 0.43,
+      "hrr_ms": 2.58,
+      "speedup": 0.17
+    },
+    {
+      "seq_len": 128,
+      "std_ms": 1.03,
+      "hrr_ms": 3.53,
+      "speedup": 0.29
+    },
+    {
+      "seq_len": 256,
+      "std_ms": 2.54,
+      "hrr_ms": 2.44,
+      "speedup": 1.04
+    },
+    {
+      "seq_len": 512,
+      "std_ms": 26.79,
+      "hrr_ms": 9.63,
+      "speedup": 2.78
+    },
+    {
+      "seq_len": 1024,
+      "std_ms": 97.07,
+      "hrr_ms": 16.09,
+      "speedup": 6.03
+    },
+    {
+      "seq_len": 2048,
+      "std_ms": 363.5,
+      "hrr_ms": 87.89,
+      "speedup": 4.14
+    }
+  ],
+  "baseline_ppl": 13.806172298383398,
+  "baseline_forward_ms": 15714.00544575105,
+  "n_heads": 40,
+  "n_kv_heads": 8,
+  "head_dim": 128
+}
