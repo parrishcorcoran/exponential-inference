@@ -1,0 +1,57 @@
+{
+  "model": "p2o6e100/nGPT_800m",
+  "teacher_ppl": 16.183531613392176,
+  "init_mean_norm": 1.08437842426279,
+  "init_cv": 0.2833585774853857,
+  "phase1": [
+    {
+      "round": 1,
+      "phase": 1,
+      "tau": 0.0,
+      "ppl": 16.18,
+      "ratio": 1.0,
+      "mean_norm": 1.0844,
+      "cv": 0.2834,
+      "pid_output": 0.0319,
+      "status": "FREE",
+      "elapsed_s": 14.4
+    },
+    {
+      "round": 2,
+      "phase": 1,
+      "tau": 0.0319,
+      "ppl": 17.18,
+      "ratio": 1.0614,
+      "mean_norm": 1.082,
+      "cv": 0.275,
+      "pid_output": 0.0,
+      "status": "OVER",
+      "elapsed_s": 646.6
+    },
+    {
+      "round": 3,
+      "phase": 1,
+      "tau": 0.0319,
+      "ppl": 17.97,
+      "ratio": 1.1106,
+      "mean_norm": 1.0822,
+      "cv": 0.2751,
+      "pid_output": 0.0,
+      "status": "OVER",
+      "elapsed_s": 1271.3
+    },
+    {
+      "round": 4,
+      "phase": 1,
+      "tau": 0.0319,
+      "ppl": 19.32,
+      "ratio": 1.1938,
+      "mean_norm": 1.0825,
+      "cv": 0.2751,
+      "pid_output": 0.0,
+      "status": "OVER",
+      "elapsed_s": 1893.8
+    }
+  ],
+  "phase2": []
+}

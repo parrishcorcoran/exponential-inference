@@ -1,0 +1,33 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "teacher_ppl": 46.94175146121235,
+  "history": [
+    {
+      "round": 1,
+      "fade": 1.0,
+      "ppl": 46.94,
+      "ratio": 1.0,
+      "res_pct": 0.0,
+      "status": "OK",
+      "elapsed_s": 3.6
+    },
+    {
+      "round": 2,
+      "fade": 0.9998,
+      "ppl": 47.68,
+      "ratio": 1.0156,
+      "res_pct": 0.0,
+      "status": "OK",
+      "elapsed_s": 165.1
+    },
+    {
+      "round": 3,
+      "fade": 0.9996,
+      "ppl": 47.3,
+      "ratio": 1.0077,
+      "res_pct": 0.0,
+      "status": "OK",
+      "elapsed_s": 328.7
+    }
+  ]
+}

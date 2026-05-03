@@ -54,9 +54,9 @@ class TauLinear(nn.Module):
         return F.linear(x, w_eff, self.bias)
 
 
-TARGET_PROJS = ("q_proj", "k_proj", "v_proj", "o_proj",
+TARGET_PROJS = ("qkv_proj", "q_proj", "k_proj", "v_proj", "o_proj",
                 "gate_proj", "up_proj", "down_proj")
-ATTN_PROJS = ["q_proj", "k_proj", "v_proj", "o_proj"]
+ATTN_PROJS = ["qkv_proj", "q_proj", "k_proj", "v_proj", "o_proj"]
 
 
 def convert_to_tau(model):
@@ -68,6 +68,8 @@ def convert_to_tau(model):
                 parent = layer.self_attn
             else:
                 parent = layer.mlp
+            if not hasattr(parent, name):
+                continue
             orig = getattr(parent, name)
             if isinstance(orig, nn.Linear):
                 tau_mod = TauLinear(orig, tau=0.0)
@@ -98,12 +100,35 @@ def get_mean_row_norm(model):
     return float(arr.mean()), float(arr.std() / arr.mean())
 
 
-def load_data(seq_len=256, max_train=2_000_000, max_val=100_000):
-    cache_path = "data/owt_tokens_50M.pt"
-    print(f"  Loading cached corpus from {cache_path}...", flush=True)
-    tokens = torch.load(cache_path, weights_only=True)
-    print(f"  {len(tokens)/1e6:.1f}M tokens from cache")
+def load_data(tokenizer, seq_len=256, max_train=2_000_000, max_val=100_000):
+    # Try model-specific cache first, fall back to retokenizing
+    model_tag = tokenizer.name_or_path.replace("/", "_")
+    cache_path = f"data/owt_tokens_{model_tag}.pt"
 
+    if os.path.exists(cache_path):
+        print(f"  Loading cached corpus from {cache_path}...", flush=True)
+        tokens = torch.load(cache_path, weights_only=True)
+    else:
+        # Retokenize from raw text
+        print(f"  No cache for this tokenizer, retokenizing from OpenWebText...", flush=True)
+        from datasets import load_dataset
+        ds = load_dataset("Skylion007/openwebtext", split="train", streaming=True)
+        texts = []
+        count = 0
+        for ex in ds:
+            texts.append(ex["text"])
+            count += len(ex["text"]) // 4
+            if count >= (max_train + max_val) * 1.5:
+                break
+            if len(texts) % 10000 == 0:
+                print(f"    {len(texts)} docs, ~{count/1e6:.0f}M tokens...", flush=True)
+        all_text = "\n\n".join(texts)
+        tokens = tokenizer(all_text, return_tensors="pt", truncation=False)["input_ids"][0]
+        os.makedirs("data", exist_ok=True)
+        torch.save(tokens, cache_path)
+        print(f"  Saved {len(tokens)/1e6:.1f}M tokens to {cache_path}")
+
+    print(f"  {len(tokens)/1e6:.1f}M tokens loaded")
     val_tokens = tokens[:max_val]
     train_tokens = tokens[max_val:max_val + max_train]
 
@@ -185,7 +210,13 @@ class PIDController:
 
 def main():
     torch.set_num_threads(32)
-    model_name = "Qwen/Qwen3-14B"
+
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--model", default="p2o6e100/nGPT_800m")
+    cli = ap.parse_args()
+
+    model_name = cli.model
     target_pct = 5.0
     phase1_target_tau = 0.2
     ft_steps_p1 = 200
@@ -215,7 +246,7 @@ def main():
         attn_implementation="eager").eval()
 
     print("Loading data...", flush=True)
-    train_chunks, val_chunks = load_data()
+    train_chunks, val_chunks = load_data(tokenizer)
 
     # Convert to TauLinear
     n_converted = convert_to_tau(model)
@@ -312,23 +343,13 @@ def main():
             set_tau_all(model, tau)
 
         # Fine-tune
-        if phase == 1:
-            # Norms only
-            for p in model.parameters():
-                p.requires_grad_(False)
-            norm_params = []
-            for name, p in model.named_parameters():
-                if "norm" in name.lower():
-                    p.requires_grad_(True)
-                    norm_params.append(p)
-            if norm_params:
-                train_steps(model, train_chunks, norm_params, ft_steps_p1, lr_p1)
-        else:
-            # All parameters
-            for p in model.parameters():
-                p.requires_grad_(True)
-            all_params = [p for p in model.parameters() if p.requires_grad]
-            train_steps(model, train_chunks, all_params, ft_steps_p2, lr_p2)
+        # Train all parameters (weights must be able to move)
+        for p in model.parameters():
+            p.requires_grad_(True)
+        all_params = [p for p in model.parameters() if p.requires_grad]
+        lr_use = lr_p1 if phase == 1 else lr_p2
+        ft_use = ft_steps_p1 if phase == 1 else ft_steps_p2
+        train_steps(model, train_chunks, all_params, ft_use, lr_use)
 
     # Final
     final_ppl = eval_ppl(model, val_chunks)
@@ -355,11 +376,13 @@ def main():
     with open(Path(save_dir) / "pid_tau_ngpt.json", "w") as f:
         json.dump(results, f, indent=2)
 
-    if nGPT:
-        save_path = Path(save_dir) / "ngpt_14b"
-        model.save_pretrained(str(save_path))
-        tokenizer.save_pretrained(str(save_path))
-        print(f"  Model saved: {save_path}")
+    # Always save the model
+    model_tag = model_name.split("/")[-1].replace("-", "_")
+    save_path = Path(save_dir) / f"ngpt_{model_tag}_tau{tau:.2f}"
+    save_path.mkdir(parents=True, exist_ok=True)
+    model.save_pretrained(str(save_path))
+    tokenizer.save_pretrained(str(save_path))
+    print(f"  Model saved: {save_path}")
 
 
 if __name__ == "__main__":

@@ -102,6 +102,26 @@
       "hrr_pct": 2.2,
       "status": "OVER",
       "elapsed_s": 8233.1
+    },
+    {
+      "round": 11,
+      "bias": 3.79,
+      "ppl": 45.75,
+      "ratio": 1.1739,
+      "std_pct": 97.8,
+      "hrr_pct": 2.2,
+      "status": "OVER",
+      "elapsed_s": 8887.9
+    },
+    {
+      "round": 12,
+      "bias": 3.79,
+      "ppl": 45.71,
+      "ratio": 1.1728,
+      "std_pct": 97.8,
+      "hrr_pct": 2.2,
+      "status": "OVER",
+      "elapsed_s": 9508.9
     }
   ]
 }
