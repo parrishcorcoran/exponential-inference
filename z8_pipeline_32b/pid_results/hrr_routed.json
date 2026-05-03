@@ -1,0 +1,27 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "teacher_ppl": 38.974506596424035,
+  "setpoint": 40.923231926245236,
+  "history": [
+    {
+      "round": 1,
+      "threshold": 0.5,
+      "ppl": 38.97,
+      "ratio": 1.0,
+      "hrr_pct": 0.0,
+      "pid_output": 0.0031,
+      "status": "ON TARGET",
+      "elapsed_s": 9.5
+    },
+    {
+      "round": 2,
+      "threshold": 0.5031,
+      "ppl": 59701918.07,
+      "ratio": 1531819.7273,
+      "hrr_pct": 100.0,
+      "pid_output": 0.0,
+      "status": "OVER",
+      "elapsed_s": 618.3
+    }
+  ]
+}

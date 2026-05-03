@@ -1,0 +1,25 @@
+{
+  "model": "Qwen/Qwen3-4B",
+  "teacher_ppl": 25.064188860433916,
+  "setpoint": 26.31739830345561,
+  "history": [
+    {
+      "round": 1,
+      "tau": 0.0,
+      "ppl": 25.06,
+      "ratio": 1.0,
+      "pid_output": 0.003,
+      "status": "FREE",
+      "elapsed_s": 32.4
+    },
+    {
+      "round": 2,
+      "tau": 0.003,
+      "ppl": 38.63,
+      "ratio": 1.5414,
+      "pid_output": 0.0,
+      "status": "OVER",
+      "elapsed_s": 19161.3
+    }
+  ]
+}

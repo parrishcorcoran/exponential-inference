@@ -1,0 +1,97 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "teacher_ppl": 38.97451170715993,
+  "setpoint": 40.923237292517925,
+  "history": [
+    {
+      "round": 1,
+      "fade": 1.0,
+      "ppl": 38.97,
+      "ratio": 1.0,
+      "hrr_pct": 0.0,
+      "status": "FREE",
+      "elapsed_s": 13.6
+    },
+    {
+      "round": 2,
+      "fade": 0.9998,
+      "ppl": 37.12,
+      "ratio": 0.9525,
+      "hrr_pct": 0.0,
+      "status": "FREE",
+      "elapsed_s": 668.8
+    },
+    {
+      "round": 3,
+      "fade": 0.9993,
+      "ppl": 38.89,
+      "ratio": 0.9977,
+      "hrr_pct": 0.1,
+      "status": "FREE",
+      "elapsed_s": 1339.7
+    },
+    {
+      "round": 4,
+      "fade": 0.999,
+      "ppl": 38.96,
+      "ratio": 0.9998,
+      "hrr_pct": 0.1,
+      "status": "FREE",
+      "elapsed_s": 2011.1
+    },
+    {
+      "round": 5,
+      "fade": 0.9988,
+      "ppl": 39.78,
+      "ratio": 1.0205,
+      "hrr_pct": 0.1,
+      "status": "ON TARGET",
+      "elapsed_s": 2970.3
+    },
+    {
+      "round": 6,
+      "fade": 0.9987,
+      "ppl": 40.28,
+      "ratio": 1.0335,
+      "hrr_pct": 0.1,
+      "status": "ON TARGET",
+      "elapsed_s": 3932.6
+    },
+    {
+      "round": 7,
+      "fade": 0.9986,
+      "ppl": 41.87,
+      "ratio": 1.0743,
+      "hrr_pct": 0.1,
+      "status": "OVER",
+      "elapsed_s": 4901.1
+    },
+    {
+      "round": 8,
+      "fade": 0.9986,
+      "ppl": 43.21,
+      "ratio": 1.1087,
+      "hrr_pct": 0.1,
+      "status": "OVER",
+      "elapsed_s": 5865.3
+    },
+    {
+      "round": 9,
+      "fade": 0.9986,
+      "ppl": 44.51,
+      "ratio": 1.1421,
+      "hrr_pct": 0.1,
+      "status": "OVER",
+      "elapsed_s": 6831.8
+    },
+    {
+      "round": 10,
+      "fade": 0.9986,
+      "ppl": 44.6,
+      "ratio": 1.1443,
+      "hrr_pct": 0.1,
+      "status": "OVER",
+      "elapsed_s": 7800.1
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "teacher_ppl": 38.97451170715993,
+  "setpoint": 40.923237292517925,
+  "history": [
+    {
+      "round": 1,
+      "bias": 4.0,
+      "ppl": 39.93,
+      "ratio": 1.0246,
+      "std_pct": 98.2,
+      "hrr_pct": 1.8,
+      "status": "ON TARGET",
+      "elapsed_s": 18.3
+    },
+    {
+      "round": 2,
+      "bias": 3.976,
+      "ppl": 36.54,
+      "ratio": 0.9374,
+      "std_pct": 98.2,
+      "hrr_pct": 1.8,
+      "status": "FREE",
+      "elapsed_s": 761.6
+    },
+    {
+      "round": 3,
+      "bias": 3.926,
+      "ppl": 37.58,
+      "ratio": 0.9643,
+      "std_pct": 98.1,
+      "hrr_pct": 1.9,
+      "status": "FREE",
+      "elapsed_s": 1691.7
+    },
+    {
+      "round": 4,
+      "bias": 3.876,
+      "ppl": 38.23,
+      "ratio": 0.981,
+      "std_pct": 98.0,
+      "hrr_pct": 2.0,
+      "status": "FREE",
+      "elapsed_s": 2631.1
+    },
+    {
+      "round": 5,
+      "bias": 3.826,
+      "ppl": 39.44,
+      "ratio": 1.012,
+      "std_pct": 97.9,
+      "hrr_pct": 2.1,
+      "status": "ON TARGET",
+      "elapsed_s": 3568.1
+    },
+    {
+      "round": 6,
+      "bias": 3.79,
+      "ppl": 41.07,
+      "ratio": 1.0538,
+      "std_pct": 97.8,
+      "hrr_pct": 2.2,
+      "status": "OVER",
+      "elapsed_s": 4499.2
+    },
+    {
+      "round": 7,
+      "bias": 3.79,
+      "ppl": 41.6,
+      "ratio": 1.0675,
+      "std_pct": 97.8,
+      "hrr_pct": 2.2,
+      "status": "OVER",
+      "elapsed_s": 5424.8
+    },
+    {
+      "round": 8,
+      "bias": 3.79,
+      "ppl": 41.37,
+      "ratio": 1.0615,
+      "std_pct": 97.8,
+      "hrr_pct": 2.2,
+      "status": "OVER",
+      "elapsed_s": 6358.2
+    },
+    {
+      "round": 9,
+      "bias": 3.79,
+      "ppl": 41.8,
+      "ratio": 1.0725,
+      "std_pct": 97.8,
+      "hrr_pct": 2.2,
+      "status": "OVER",
+      "elapsed_s": 7288.0
+    },
+    {
+      "round": 10,
+      "bias": 3.79,
+      "ppl": 44.35,
+      "ratio": 1.1379,
+      "std_pct": 97.8,
+      "hrr_pct": 2.2,
+      "status": "OVER",
+      "elapsed_s": 8233.1
+    }
+  ]
+}
