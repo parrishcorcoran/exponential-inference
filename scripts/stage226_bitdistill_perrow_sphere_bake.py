@@ -79,10 +79,10 @@ CKPT_EVERY = 500
 
 LR = 5e-5
 
-# Loss weights
+# Loss weights — Mac-trimmed: dropped hidden-state distillation to save memory
 ALPHA_CE = 1.0
 BETA_KL = 1.0
-GAMMA_HIDDEN = 0.5
+GAMMA_HIDDEN = 0.0   # 0 on Mac (storing both teacher+student hidden states OOMs); 0.5 on Z8
 
 # Targeted Linears — start with all 7 (BitDistill quantizes all body Linears).
 TARGET_NAMES = ("q_proj", "k_proj", "v_proj", "o_proj",
@@ -285,24 +285,32 @@ print(f"  CE = {ce_init:.4f}, drift vs teacher = {drift_init:+.4f}", flush=True)
 print(f"  (constraint already enforced — rows on per-row hyperspheres)", flush=True)
 
 
-# ─── Training setup ───
+# ─── Training setup — freeze embeddings + lm_head + ALL layer norms (Mac-friendly) ───
+n_frozen = 0
+for name, p in student.named_parameters():
+    if any(t in name for t in ("embed_tokens", "lm_head", "input_layernorm",
+                                 "post_attention_layernorm", "model.norm")):
+        p.requires_grad_(False)
+        n_frozen += p.numel()
 trainable_params = [p for p in student.parameters() if p.requires_grad]
 n_trainable = sum(p.numel() for p in trainable_params)
-print(f"\nTrainable params (student): {n_trainable:,}", flush=True)
+print(f"\nFrozen params:    {n_frozen:,}  (embeds, lm_head, layer norms)", flush=True)
+print(f"Trainable params: {n_trainable:,}  (PerRowSphereLinear weights, biases, SubLN gains)",
+      flush=True)
 optimizer = torch.optim.Adam(trainable_params, lr=LR)
 rng = np.random.default_rng(42)
 
 
 def bake_step(batch):
-    """One BitDistill-style bake step: CE + KL + hidden state distillation."""
+    """One BitDistill-style bake step: CE + KL (no hidden distill on Mac)."""
     student.train()
 
-    # Teacher forward (no grad)
+    # Teacher forward (no grad), logits only — saves storing hidden states
     with torch.no_grad():
-        teacher_logits, teacher_hidden = get_hidden_states(teacher, batch[:, :-1])
+        teacher_logits = teacher(batch[:, :-1], use_cache=False).logits
 
-    # Student forward
-    student_logits, student_hidden = get_hidden_states(student, batch[:, :-1])
+    # Student forward, logits only
+    student_logits = student(batch[:, :-1], use_cache=False).logits
 
     # Task CE
     L_ce = F.cross_entropy(
@@ -317,19 +325,14 @@ def bake_step(batch):
         teacher_log_probs.reshape(-1, teacher_log_probs.size(-1)),
         reduction='batchmean', log_target=True)
 
-    # Hidden state distillation (MSE across all layers)
-    L_hidden = 0.0
-    for h_s, h_t in zip(student_hidden, teacher_hidden):
-        L_hidden = L_hidden + F.mse_loss(h_s.float(), h_t.float())
-    L_hidden = L_hidden / max(len(student_hidden), 1)
-
-    L_total = ALPHA_CE * L_ce + BETA_KL * L_kl + GAMMA_HIDDEN * L_hidden
+    L_total = ALPHA_CE * L_ce + BETA_KL * L_kl
+    L_hidden = 0.0   # disabled on Mac
 
     optimizer.zero_grad()
     L_total.backward()
     optimizer.step()
 
-    return float(L_ce.item()), float(L_kl.item()), float(L_hidden.item()), float(L_total.item())
+    return float(L_ce.item()), float(L_kl.item()), float(L_hidden), float(L_total.item())
 
 
 # ─── Training loop ───
