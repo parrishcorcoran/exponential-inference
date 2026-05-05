@@ -1,134 +1,84 @@
 # Exponential-Inference — Roadmap
 
-Goal: post-hoc nGPT-form Qwen3 + 1-bit downstream as the IP/research artifact.
+**Thesis: magnitude is noise.**
 
-The plan below is sequenced. Each step builds on the previous — A0 is the foundation, everything else assumes A0 has been finalized.
+Pretraining naturally drives weight rows toward uniform magnitude (Qwen3-0.6B has mean row norm = 1.0001, but residual CV = 0.25–0.6 per layer). Adam + RMSNorm don't push the residual variance to zero because nothing in the loss landscape requires it — RMSNorm absorbs magnitude downstream, so weights drift in their non-uniformity without consequence.
+
+That residual is noise. The signal is the row *direction* on the hypersphere. The goal of this project is to remove the noise — produce a Qwen3 where every weight row has unit magnitude, with no per-row α anywhere — and demonstrate that the resulting model retains quality (because the body never *needed* the magnitude variance, just learned to live with it).
+
+If true, this is a new compression frontier beyond nGPT (per-row α) and BitNet (per-tensor α). No model on the planet currently has it.
 
 ---
 
-## A0 — Lossless nGPT-form conversion (foundation)
+## Sequence (in priority order)
 
-**Status:** validation works; needs HF packaging.
+### A0 — Lossless nGPT-form conversion (foundation, foundation only)
 
-Convert each targeted Linear in Qwen3-0.6B from `W` to a split parameterization:
+**Purpose:** extract W̃ (unit-norm directions) from base Qwen3-0.6B as the *initialization* for A2. The α we save is **noise to be discarded**, not signal to preserve.
 
-- `W̃[i, :]` = `W[i, :] / ‖W[i, :]‖` (unit-norm rows)
-- `α[i]` = `‖W[i, :]‖` (per-row scalar magnitude)
-- forward: `y = (x @ W̃ᵀ) · α + bias`
+Convert each targeted Linear (`q/k/v/o_proj`, `gate/up/down_proj`):
 
-Function is preserved by construction: `α[i] · W̃[i, :] = W[i, :]` exactly in fp32, +0.0014 nats noise in bf16.
-
-**Targets:** `q_proj`, `k_proj`, `v_proj`, `o_proj`, `gate_proj`, `up_proj`, `down_proj`.
-
-**Deliverable:** HF-loadable artifact at `model_package/Qwen3-0.6B-nGPT-form/`:
-
-- `config.json` with `auto_map` pointing to `modeling_qwen3_ngpt.py`
-- `modeling_qwen3_ngpt.py` defining `NGPTLinear` and the patched Qwen3 architecture
-- `model.safetensors` with split parameters (`*.weight` = W̃, `*.alpha` = α)
-- `tokenizer.json` etc.
-- Loaded via `AutoModelForCausalLM.from_pretrained(..., trust_remote_code=True)`
+- `W̃[i, :]` = `W[i, :] / ‖W[i, :]‖` (unit-norm rows — signal)
+- `α[i]` = `‖W[i, :]‖` (per-row magnitudes — noise we're recording but throwing out)
 
 **Acceptance:**
-
-- max abs logit diff vs base < 5e-3 on a 2K-token batch
+- max abs logit diff vs base < 5e-3
 - top-1 token agreement ≥ 99%
-- val_ce ≤ base + 0.005 nats on OWT validation tail
-- wikitext PPL within 0.5 of base
-- Coherency: 4/4 prompts match base completion
+- val_ce ≤ base + 0.005 nats
+- W̃ tensor saved separately so A2 can load it directly
 
-Once A0 is banked, this is the "first post-hoc nGPT conversion of Qwen3-0.6B" artifact, lossless to bf16 noise.
+A0 ships as a verified intermediate, but it is **not the artifact** — A2 is.
 
 ---
 
-## A1 — nGPT-style fine-tune (training-benefits demo)
+### A2 — Pure-direction Linear (the actual goal)
 
-Load A0. Fine-tune both `W̃` and `α` with the **unit-norm projection of W̃ rows after each optimizer step** — the constraint that makes it actually nGPT during training, not just relabeled parameters.
+Drop α entirely. Linear becomes:
 
-**Recipe:**
+- `y = x @ W̃ᵀ` — no α, no per-row magnitude factor
+- W̃ rows constrained to unit-norm during training (renormalize after each optimizer step)
+- All magnitude logic flows through RMSNorm and residuals — which is what they're for
 
-- Each training step: forward → backward → optimizer step → `W̃[i] ← W̃[i] / ‖W̃[i]‖` per row
-- Loss: KL distillation from frozen base Qwen3 teacher + CE + hidden state MSE
-- Corpus: diverse round-robin (OWT + wikitext-103 + C4)
-- LR: separate rates for W̃ and α (α typically higher)
-- Tokens: ~500M (~6 hours on local Z8 G4)
-
-**Comparison:** continue standard fine-tune of base Qwen3 on identical tokens for the same time budget.
+**Recipe (the discipline matters more than the architecture):**
+- Initialize W̃ from A0 (unit-norm directions extracted from base)
+- Loss: KL distillation from frozen base Qwen3 + CE + hidden state MSE
+- Corpus: diverse round-robin (OWT + wikitext-103 + C4) — never single-source
+- Optimizer: standard, with W̃ unit-norm projection after each step
+- **Critical measurement gate:** wikitext PPL + arc-easy spot-check every 30 min; kill on any explosion. April's failure was metric tunnel-vision (OWT val_ce looked great while wikitext exploded 26 → 670). We do not repeat that.
+- Tokens: 1B initially; scale to 5–10B if metrics hold
 
 **Acceptance:**
+- val_ce within 0.05 nats of base
+- wikitext PPL within 1.5× base
+- arc-easy / hellaswag / piqa within 3pts of base
+- All weight rows have ‖W̃[i]‖ = 1.0 ± 1e-6
+- Coherency checks at every save: 4/4 prompts produce non-degenerate completions
 
-- A0 + nGPT fine-tune reaches lower val_ce than base + standard fine-tune on identical tokens
-- Wikitext PPL improves vs base
-- Arc-easy / hellaswag / piqa within 1pt of base
-- Closes the +0.0014 nats bf16 split noise
-
-This becomes the publishable "post-hoc nGPT-form fine-tunes faster than base fine-tune" result.
-
----
-
-## A3 — 1-bit quantize W̃ (the IP story)
-
-On top of A0/A1, quantize `W̃` to sign-only:
-
-- `W̃_q[i, j] = sign(W̃[i, j]) ∈ {-1, +1}`
-- α stays fp16 (per-row magnitude scale)
-- forward: `y = (x @ W̃_qᵀ) · α + bias` — but `W̃_q` is now 1-bit-storable
-
-Because W̃ rows are unit-norm by construction (from A0), sign quantization is clean — no shared per-tensor or per-group scale needed beyond α.
-
-**Recipe:**
-
-- Initialize from A1 (clean nGPT-form weights)
-- Quantization-aware fine-tune: forward uses `sign(W̃)`, gradients use straight-through estimator
-- KL distillation from A1 (full-precision nGPT teacher) + base Qwen3 (text-quality anchor)
-- Diverse corpus, ~1B tokens
-
-**Comparison:** Bonsai (per-128-group 1.125-bit) and BitNet b1.58 on identical benchmarks at 0.6B scale.
-
-**Acceptance:**
-
-- arc-easy / hellaswag / piqa within 2pts of A1
-- Wikitext PPL ≤ 1.5× A1
-- Quality at 1-bit comparable or better than Bonsai/BitNet b1.58 at similar effective bit-rate
-
-This is the genuine PrismML / NVIDIA / Apple-relevant artifact — direct competitor to Bonsai with cleaner geometric structure.
+If achieved, this is the publishable result and the IP-defensible artifact.
 
 ---
 
-## A2 — Pure-direction Linear (moonshot)
+### A3 — 1-bit quantize W̃ (downstream, only if A2 succeeds)
 
-Run only after A0/A1/A3 are banked. This is the swing-for-the-fences experiment.
+Once A2 produces a clean unit-norm-only model, quantize W̃ rows to sign(W̃) ∈ {-1, +1}. No α anywhere (we already removed it in A2). This is genuinely 1-bit nGPT with no scale parameter — the bit-rate floor.
 
-**Drop α entirely.** Linear becomes:
+Compare against Bonsai (per-128-group 1.125-bit) and BitNet b1.58 on identical benchmarks at 0.6B scale.
 
-- `y = x @ W̃ᵀ` (no α, no per-row magnitude knob)
-- W̃ rows constrained to unit-norm during training
-- Body must learn to compute without per-row magnitude expressiveness — all magnitude logic flows through RMSNorm and residuals
+---
 
-**Why this matters if it works:** No model on the planet has this. nGPT keeps α. BitNet keeps per-tensor α. Bonsai keeps per-group α. A2 is genuinely pure-rotation Linear with no magnitude factor anywhere.
+### A1 — nGPT-style fine-tune (fallback, only if A2 fails)
 
-**Recipe:**
+If A2 explodes (wikitext PPL or downstream benchmarks won't recover), fall back to nGPT proper: keep α as a learnable per-row parameter, train W̃ + α with unit-norm projection on W̃. This is the "we couldn't strip magnitude entirely but we got the nGPT structure" outcome. Still publishable, just not the headline result.
 
-- Init from A0's W̃ (throw α away, keep only the unit-norm directions)
-- Train only W̃ with unit-norm projection per step
-- Frozen base Qwen3 teacher KL + hidden state MSE + diverse corpus
-- **Critical:** monitor wikitext PPL + arc-easy spot-check every 30 min; kill on explosion (April's tunnel-vision failure mode)
-- Initial budget 6–12 hours; scale to 24–48h only if metrics hold
-
-**Acceptance (high bar):**
-
-- Val_ce within 0.05 nats of A0
-- Wikitext PPL within 2× A0
-- All downstream benchmarks within 3pts of A0
-
-If this holds, the result is publishable as a new compression frontier beyond nGPT and BitNet. If it explodes (likely), kill early and extract whatever signal we can about which layers/rows resist uniformity.
+A1 is the safety net, not the destination.
 
 ---
 
 ## Sequencing rationale
 
-1. **A0 first** because every downstream task needs the W̃ + α split. It's the parameterization, not the change.
-2. **A1 next** because it produces a clean nGPT-form artifact (closes bf16 noise) AND the training-benefits demo, which is the publishable result that supports A0's value.
-3. **A3 in parallel/after A1** because it's the IP-defensible artifact (1-bit). PrismML's whole company is 1-bit; this is the room they care about.
-4. **A2 last** because it's high-risk research. A0+A1+A3 give the floor (publishable artifact + acquihire story). A2 is the moonshot on top.
+1. **A0 first** — necessary to extract W̃ as initialization for A2. Couple of hours.
+2. **A2 directly** — the actual goal. If magnitude is noise, this should converge with proper measurement gating (wikitext + benchmarks every 30 min, not just val_ce).
+3. **A3 if A2 succeeds** — the 1-bit story is much cleaner on top of A2's pure-direction model.
+4. **A1 if A2 fails** — fallback to nGPT proper. Floor outcome, not the moonshot.
 
-A0+A1+A3 = floor outcome. A2 succeeded = exceptional outcome.
+**Why this is different from previous attempts:** v8/v10/v10_linear were architectural compromises (per-tensor α + bake) that fought the body. April had the right pointing but broken measurement. A2 has the right pointing AND proper measurement gates. The thesis "magnitude is noise" predicts A2 should *not* require heroic recovery — the body never needed the magnitude variance to function.
