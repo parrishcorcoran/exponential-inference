@@ -84,9 +84,16 @@ ALPHA_CE = 1.0
 BETA_KL = 1.0
 GAMMA_HIDDEN = 0.0   # 0 on Mac (storing both teacher+student hidden states OOMs); 0.5 on Z8
 
-# Targeted Linears — start with all 7 (BitDistill quantizes all body Linears).
+# Targeted Linears — full coverage (PerRowSphereLinear constraint applied to all 7).
 TARGET_NAMES = ("q_proj", "k_proj", "v_proj", "o_proj",
                 "gate_proj", "up_proj", "down_proj")
+
+# Body-trainable subset — only o_proj and down_proj (Stage 189 scope, Mac-feasible).
+# All 196 Linears get the PerRowSphereLinear constraint in forward, but only
+# the body weights of o_proj + down_proj (56 Linears, ~110M params) actually
+# train via gradient. The other 140 Linears' constraint is enforced from frozen
+# init weights — same as Stage 189's setup.
+BODY_TRAINABLE_SUFFIXES = ("o_proj", "down_proj")
 
 RESULTS_PATH = Path("results/stage226_perrow_sphere_bake.json")
 CKPT_DIR = Path("checkpoints/Qwen_Qwen3-0.6B")
@@ -285,17 +292,21 @@ print(f"  CE = {ce_init:.4f}, drift vs teacher = {drift_init:+.4f}", flush=True)
 print(f"  (constraint already enforced — rows on per-row hyperspheres)", flush=True)
 
 
-# ─── Training setup — freeze embeddings + lm_head + ALL layer norms (Mac-friendly) ───
+# ─── Training setup — Stage 189 scope: only o_proj + down_proj body trainable ───
+# Plus all SubLN gains (small) and PerRowSphereLinear biases (small).
+# Everything else frozen.
 n_frozen = 0
 for name, p in student.named_parameters():
-    if any(t in name for t in ("embed_tokens", "lm_head", "input_layernorm",
-                                 "post_attention_layernorm", "model.norm")):
+    is_body_master = "weight" in name and any(s in name for s in BODY_TRAINABLE_SUFFIXES)
+    is_subln = "subln_gain" in name
+    is_bias = "bias" in name and "norm" not in name
+    if not (is_body_master or is_subln or is_bias):
         p.requires_grad_(False)
         n_frozen += p.numel()
 trainable_params = [p for p in student.parameters() if p.requires_grad]
 n_trainable = sum(p.numel() for p in trainable_params)
-print(f"\nFrozen params:    {n_frozen:,}  (embeds, lm_head, layer norms)", flush=True)
-print(f"Trainable params: {n_trainable:,}  (PerRowSphereLinear weights, biases, SubLN gains)",
+print(f"\nFrozen params:    {n_frozen:,}  (most of student)", flush=True)
+print(f"Trainable params: {n_trainable:,}  (o/down weights + SubLN gains + biases)",
       flush=True)
 optimizer = torch.optim.Adam(trainable_params, lr=LR)
 rng = np.random.default_rng(42)
