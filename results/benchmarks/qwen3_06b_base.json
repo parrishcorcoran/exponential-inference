@@ -1,0 +1,82 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "tag": "base",
+  "tasks": [
+    "hellaswag",
+    "arc_easy",
+    "arc_challenge",
+    "piqa",
+    "winogrande"
+  ],
+  "results": {
+    "arc_challenge": {
+      "alias": "arc_challenge",
+      "acc,none": 0.3165529010238908,
+      "acc_stderr,none": 0.013592431519068056,
+      "acc_norm,none": 0.34215017064846415,
+      "acc_norm_stderr,none": 0.013864152159177238
+    },
+    "arc_easy": {
+      "alias": "arc_easy",
+      "acc,none": 0.6039562289562289,
+      "acc_stderr,none": 0.010035580962097864,
+      "acc_norm,none": 0.5589225589225589,
+      "acc_norm_stderr,none": 0.010188293221040614
+    },
+    "hellaswag": {
+      "alias": "hellaswag",
+      "acc,none": 0.3748257319259112,
+      "acc_stderr,none": 0.00483088570438047,
+      "acc_norm,none": 0.47321250746863175,
+      "acc_norm_stderr,none": 0.004982615233056769
+    },
+    "piqa": {
+      "alias": "piqa",
+      "acc,none": 0.6713819368879217,
+      "acc_stderr,none": 0.010959127105167173,
+      "acc_norm,none": 0.6746463547334058,
+      "acc_norm_stderr,none": 0.010931036623525334
+    },
+    "winogrande": {
+      "alias": "winogrande",
+      "acc,none": 0.5524861878453039,
+      "acc_stderr,none": 0.013974847640536145
+    }
+  },
+  "n_samples": {
+    "winogrande": {
+      "original": 1267,
+      "effective": 1267
+    },
+    "piqa": {
+      "original": 1838,
+      "effective": 1838
+    },
+    "arc_challenge": {
+      "original": 1172,
+      "effective": 1172
+    },
+    "arc_easy": {
+      "original": 2376,
+      "effective": 2376
+    },
+    "hellaswag": {
+      "original": 10042,
+      "effective": 10042
+    }
+  },
+  "task_versions": {
+    "arc_challenge": 1.0,
+    "arc_easy": 1.0,
+    "hellaswag": 1.0,
+    "piqa": 1.0,
+    "winogrande": 1.0
+  },
+  "config": {
+    "model_args": null,
+    "batch_size": "8",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "limit": null
+  }
+}
