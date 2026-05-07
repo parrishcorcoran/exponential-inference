@@ -1,0 +1,124 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading OWT corpus...
+  val=4096  train=1000000
+
+Building TEACHER (frozen FP Qwen3-0.6B)...
+  Teacher T0 = 4.1372
+
+Building STUDENT (PerRowSphereLinear + SubLN)...
+  Replaced 196 Linears with PerRowSphereLinear
+  Sample radii summary (first 3 layers):
+    model.layers.0.self_attn.q_proj: radius range [0.181, 3.403] mean 0.960
+    model.layers.0.self_attn.k_proj: radius range [0.194, 3.552] mean 0.941
+    model.layers.0.self_attn.v_proj: radius range [0.479, 1.079] mean 0.847
+  Inserted SubLN before 56 Linears
+
+Student at init (after surgery, before bake):
+  CE = 7.0549, drift vs teacher = +2.9177
+  (constraint already enforced — rows on per-row hyperspheres)
+
+Frozen params:    449,249,280  (most of student)
+Trainable params: 146,944,000  (o/down weights + SubLN gains + biases)
+
+────────────────────────────────────────────────────────────
+Stage 226 — BitDistill bake on per-route per-layer hyperspheres
+  N_steps = 5000  LR = 5e-05  α/β/γ = 1.0/1.0/0.0
+────────────────────────────────────────────────────────────
+  step   100  L_ce=4.655  L_kl=1.0734  L_hidden=0.0000  val_ce=5.0034  drift=+0.8662  85s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.8662)
+  step   200  L_ce=4.921  L_kl=1.1310  L_hidden=0.0000  val_ce=4.8211  drift=+0.6839  173s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.6839)
+  step   300  L_ce=4.087  L_kl=0.9760  L_hidden=0.0000  val_ce=4.7714  drift=+0.6342  260s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.6342)
+  step   400  L_ce=4.690  L_kl=0.9951  L_hidden=0.0000  val_ce=4.7018  drift=+0.5646  347s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.5646)
+  step   500  L_ce=4.560  L_kl=0.8976  L_hidden=0.0000  val_ce=4.6680  drift=+0.5308  434s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.5308)
+    → saved checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_latest.pt
+  step   600  L_ce=4.285  L_kl=1.2018  L_hidden=0.0000  val_ce=4.6560  drift=+0.5189  525s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.5189)
+  step   700  L_ce=5.690  L_kl=2.0447  L_hidden=0.0000  val_ce=4.6507  drift=+0.5135  612s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.5135)
+  step   800  L_ce=4.478  L_kl=1.0065  L_hidden=0.0000  val_ce=4.6638  drift=+0.5266  699s
+  step   900  L_ce=4.070  L_kl=0.8065  L_hidden=0.0000  val_ce=4.5415  drift=+0.4043  783s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.4043)
+  step  1000  L_ce=5.356  L_kl=1.3710  L_hidden=0.0000  val_ce=4.5311  drift=+0.3939  872s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.3939)
+    → saved checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_latest.pt
+  step  1100  L_ce=3.992  L_kl=0.6736  L_hidden=0.0000  val_ce=4.5580  drift=+0.4209  969s
+  step  1200  L_ce=5.253  L_kl=1.2032  L_hidden=0.0000  val_ce=4.5329  drift=+0.3957  1059s
+  step  1300  L_ce=4.075  L_kl=0.6948  L_hidden=0.0000  val_ce=4.5019  drift=+0.3647  1149s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.3647)
+  step  1400  L_ce=3.967  L_kl=0.8316  L_hidden=0.0000  val_ce=4.5072  drift=+0.3700  1243s
+  step  1500  L_ce=4.200  L_kl=0.5845  L_hidden=0.0000  val_ce=4.4352  drift=+0.2981  1334s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.2981)
+    → saved checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_latest.pt
+  step  1600  L_ce=3.910  L_kl=0.6601  L_hidden=0.0000  val_ce=4.4168  drift=+0.2797  1432s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.2797)
+  step  1700  L_ce=3.391  L_kl=0.6522  L_hidden=0.0000  val_ce=4.4697  drift=+0.3325  1528s
+  step  1800  L_ce=5.025  L_kl=0.7383  L_hidden=0.0000  val_ce=4.4179  drift=+0.2807  1621s
+  step  1900  L_ce=4.332  L_kl=0.7042  L_hidden=0.0000  val_ce=4.4105  drift=+0.2733  1713s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.2733)
+  step  2000  L_ce=3.536  L_kl=0.7636  L_hidden=0.0000  val_ce=4.4447  drift=+0.3075  1807s
+    → saved checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_latest.pt
+  step  2100  L_ce=4.455  L_kl=0.9928  L_hidden=0.0000  val_ce=4.4168  drift=+0.2796  1906s
+  step  2200  L_ce=2.989  L_kl=0.6894  L_hidden=0.0000  val_ce=4.3841  drift=+0.2469  1999s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.2469)
+  step  2300  L_ce=4.192  L_kl=0.7607  L_hidden=0.0000  val_ce=4.3733  drift=+0.2362  2095s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.2362)
+  step  2400  L_ce=2.982  L_kl=0.8698  L_hidden=0.0000  val_ce=4.3610  drift=+0.2238  2191s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.2238)
+  step  2500  L_ce=5.079  L_kl=0.6916  L_hidden=0.0000  val_ce=4.3085  drift=+0.1713  2288s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.1713)
+    → saved checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_latest.pt
+  step  2600  L_ce=3.427  L_kl=0.7152  L_hidden=0.0000  val_ce=4.3797  drift=+0.2426  2387s
+  step  2700  L_ce=4.653  L_kl=0.9294  L_hidden=0.0000  val_ce=4.3891  drift=+0.2519  2479s
+  step  2800  L_ce=3.877  L_kl=0.5188  L_hidden=0.0000  val_ce=4.3813  drift=+0.2441  2571s
+  step  2900  L_ce=5.269  L_kl=1.1601  L_hidden=0.0000  val_ce=4.3346  drift=+0.1974  2664s
+  step  3000  L_ce=4.090  L_kl=0.6656  L_hidden=0.0000  val_ce=4.3141  drift=+0.1769  2757s
+    → saved checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_latest.pt
+  step  3100  L_ce=4.872  L_kl=0.7070  L_hidden=0.0000  val_ce=4.3184  drift=+0.1812  2854s
+  step  3200  L_ce=4.351  L_kl=0.6683  L_hidden=0.0000  val_ce=4.3582  drift=+0.2210  2946s
+  step  3300  L_ce=4.290  L_kl=0.6260  L_hidden=0.0000  val_ce=4.3039  drift=+0.1667  3039s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.1667)
+  step  3400  L_ce=3.662  L_kl=0.8392  L_hidden=0.0000  val_ce=4.3663  drift=+0.2292  3135s
+  step  3500  L_ce=4.242  L_kl=0.9579  L_hidden=0.0000  val_ce=4.3506  drift=+0.2134  3228s
+    → saved checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_latest.pt
+  step  3600  L_ce=3.319  L_kl=0.6201  L_hidden=0.0000  val_ce=4.3122  drift=+0.1751  3327s
+  step  3700  L_ce=1.184  L_kl=0.7402  L_hidden=0.0000  val_ce=4.3314  drift=+0.1942  3421s
+  step  3800  L_ce=4.818  L_kl=0.7711  L_hidden=0.0000  val_ce=4.3297  drift=+0.1925  3514s
+  step  3900  L_ce=4.155  L_kl=0.6292  L_hidden=0.0000  val_ce=4.3118  drift=+0.1746  3607s
+  step  4000  L_ce=3.967  L_kl=0.7514  L_hidden=0.0000  val_ce=4.3017  drift=+0.1645  3700s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.1645)
+    → saved checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_latest.pt
+  step  4100  L_ce=6.030  L_kl=2.0323  L_hidden=0.0000  val_ce=4.2984  drift=+0.1612  3799s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.1612)
+  step  4200  L_ce=4.472  L_kl=0.6403  L_hidden=0.0000  val_ce=4.3143  drift=+0.1772  3896s
+  step  4300  L_ce=4.092  L_kl=0.6577  L_hidden=0.0000  val_ce=4.2790  drift=+0.1418  3989s ⭐
+    → saved BEST checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt  (drift=+0.1418)
+  step  4400  L_ce=3.505  L_kl=0.9402  L_hidden=0.0000  val_ce=4.3213  drift=+0.1842  4084s
+  step  4500  L_ce=4.173  L_kl=0.7030  L_hidden=0.0000  val_ce=4.3471  drift=+0.2099  4177s
+    → saved checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_latest.pt
+  step  4600  L_ce=4.543  L_kl=0.9144  L_hidden=0.0000  val_ce=4.3067  drift=+0.1695  4276s
+  step  4700  L_ce=3.732  L_kl=0.5955  L_hidden=0.0000  val_ce=4.3357  drift=+0.1986  4369s
+  step  4800  L_ce=4.786  L_kl=0.9111  L_hidden=0.0000  val_ce=4.4019  drift=+0.2647  4462s
+  step  4900  L_ce=3.966  L_kl=0.7439  L_hidden=0.0000  val_ce=4.3879  drift=+0.2507  4554s
+  step  5000  L_ce=4.180  L_kl=0.6210  L_hidden=0.0000  val_ce=4.3344  drift=+0.1972  4647s
+    → saved checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_latest.pt
+
+────────────────────────────────────────────────────────────
+STAGE 226 RESULT:
+────────────────────────────────────────────────────────────
+  Teacher T0:     4.1372
+  Init drift:     +2.9177  (after surgery, before bake)
+  Final drift:    +0.1972  (after 5000 bake steps)
+  Best drift:     +0.1418  (step 4300, saved to perrow_sphere_bake_best.pt)
+  Architecture:   196 PerRowSphereLinear + 56 SubLN insertions
+
+This baked checkpoint preserves per-row natural radii while constraining
+directions to per-route hyperspheres. Foundation for downstream binary work.
+
+Saved final checkpoint to checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_latest.pt
+Saved results/stage226_perrow_sphere_bake.json

@@ -1,0 +1,31 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading OWT corpus...
+  val=4096  train=1000000
+
+Building TEACHER (frozen FP Qwen3-0.6B)...
+  Teacher T0 = 4.1372
+
+Building STUDENT (Stage 234 arch + load best)...
+  Built arch: 196 BinaryGroupLinearWithPerm, 56 SubLN
+  Loading Stage 234 best from checkpoints/Qwen_Qwen3-0.6B/stage234_ext232_best.pt ...
+    loaded; missing keys: 0
+    Stage 234 step=8800  drift_at_save=+1.2313
+  Drift after load: +1.2313  (should match ≈ +1.23)
+
+  Swapped 196 → BinaryGroupLinearWithPermAndCol
+  Added 286,720 learnable α_col params (init 1)
+  bpw with per-col α: 1.1458  (Stage 234 was 1.135)
+  Drift after swap (α_col=1, identical forward): +1.2313
+
+Frozen params:    449,249,280
+Trainable params: 147,230,720
+  alpha_col:      286,720
+
+────────────────────────────────────────────────────────────
+Stage 236 — Per-128 + per-col α
+  Cosine LR 1e-05 → 0e+00  Top-K=64  T=2.0
+  bpw = 1.1458
+────────────────────────────────────────────────────────────
+  step   100  L_ce=2.964  L_kl=0.9921  val_ce=5.5367  drift=+1.3995  lr=9.99e-06  3024s

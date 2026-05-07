@@ -1,0 +1,123 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading OWT corpus...
+  val=4096  train=1000000
+
+Building TEACHER (frozen FP Qwen3-0.6B)...
+  Teacher T0 = 4.1372
+
+Building STUDENT (raw FP, swap to binary, no bake)...
+  Swapped 196 nn.Linear → BinaryPerRowLinear
+  α scope: (layer, type, row)  → 1.0125 bits/weight
+  Inserted SubLN before 56 Linears
+  After binarize-from-raw-FP (PTQ pre-STE): drift=+11.4671
+
+Frozen params:    449,249,280
+Trainable params: 146,944,000
+
+────────────────────────────────────────────────────────────
+Stage 228 — STE-from-raw-FP (no bake)
+  N_steps = 5000  LR = 2e-05  α/β = 1.0/1.0
+  Compare to Stage 227 best: drift +1.6968 at step 4800
+────────────────────────────────────────────────────────────
+  step   100  L_ce=7.614  L_kl=3.9411  val_ce=7.8722  drift=+3.7350  59s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+3.7350)
+  step   200  L_ce=7.448  L_kl=4.1398  val_ce=7.4776  drift=+3.3404  124s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+3.3404)
+  step   300  L_ce=7.452  L_kl=4.3386  val_ce=7.4339  drift=+3.2967  189s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+3.2967)
+  step   400  L_ce=7.016  L_kl=3.0910  val_ce=7.1533  drift=+3.0161  254s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+3.0161)
+  step   500  L_ce=7.448  L_kl=3.6092  val_ce=7.1493  drift=+3.0121  318s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+3.0121)
+    → saved checkpoint to ste_raw_fp_latest.pt
+  step   600  L_ce=6.784  L_kl=3.4907  val_ce=7.1215  drift=+2.9843  394s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.9843)
+  step   700  L_ce=8.894  L_kl=4.4648  val_ce=6.8611  drift=+2.7239  460s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.7239)
+  step   800  L_ce=6.379  L_kl=3.0558  val_ce=6.9185  drift=+2.7813  525s
+  step   900  L_ce=6.351  L_kl=2.8495  val_ce=6.7684  drift=+2.6312  585s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.6312)
+  step  1000  L_ce=7.459  L_kl=3.5835  val_ce=6.7159  drift=+2.5787  652s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.5787)
+    → saved checkpoint to ste_raw_fp_latest.pt
+  step  1100  L_ce=6.480  L_kl=3.0621  val_ce=6.6750  drift=+2.5378  728s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.5378)
+  step  1200  L_ce=7.843  L_kl=3.6691  val_ce=6.5718  drift=+2.4346  795s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.4346)
+  step  1300  L_ce=6.194  L_kl=2.8599  val_ce=6.5676  drift=+2.4304  863s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.4304)
+  step  1400  L_ce=6.359  L_kl=3.4447  val_ce=6.5801  drift=+2.4429  932s
+  step  1500  L_ce=5.478  L_kl=1.7700  val_ce=6.4633  drift=+2.3261  996s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.3261)
+    → saved checkpoint to ste_raw_fp_latest.pt
+  step  1600  L_ce=5.354  L_kl=2.0488  val_ce=6.5134  drift=+2.3762  1073s
+  step  1700  L_ce=5.720  L_kl=2.4723  val_ce=6.5032  drift=+2.3660  1135s
+  step  1800  L_ce=6.707  L_kl=2.5686  val_ce=6.4265  drift=+2.2894  1198s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.2894)
+  step  1900  L_ce=5.699  L_kl=2.2613  val_ce=6.3928  drift=+2.2556  1267s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.2556)
+  step  2000  L_ce=5.759  L_kl=2.4625  val_ce=6.3966  drift=+2.2594  1337s
+    → saved checkpoint to ste_raw_fp_latest.pt
+  step  2100  L_ce=6.351  L_kl=3.2566  val_ce=6.3587  drift=+2.2215  1409s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.2215)
+  step  2200  L_ce=6.087  L_kl=3.5673  val_ce=6.4455  drift=+2.3083  1478s
+  step  2300  L_ce=5.852  L_kl=2.7509  val_ce=6.2547  drift=+2.1175  1542s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.1175)
+  step  2400  L_ce=6.824  L_kl=2.6256  val_ce=6.2764  drift=+2.1392  1610s
+  step  2500  L_ce=6.280  L_kl=2.1150  val_ce=6.2371  drift=+2.0999  1674s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.0999)
+    → saved checkpoint to ste_raw_fp_latest.pt
+  step  2600  L_ce=6.683  L_kl=3.4393  val_ce=6.2164  drift=+2.0792  1751s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.0792)
+  step  2700  L_ce=6.472  L_kl=3.1172  val_ce=6.2730  drift=+2.1358  1820s
+  step  2800  L_ce=5.980  L_kl=2.4220  val_ce=6.2596  drift=+2.1224  1884s
+  step  2900  L_ce=7.184  L_kl=2.9906  val_ce=6.2000  drift=+2.0628  1948s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+2.0628)
+  step  3000  L_ce=5.593  L_kl=2.6665  val_ce=6.1326  drift=+1.9954  2017s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+1.9954)
+    → saved checkpoint to ste_raw_fp_latest.pt
+  step  3100  L_ce=6.608  L_kl=2.6376  val_ce=6.1539  drift=+2.0167  2095s
+  step  3200  L_ce=6.447  L_kl=2.3368  val_ce=6.1484  drift=+2.0113  2157s
+  step  3300  L_ce=5.809  L_kl=2.4580  val_ce=6.1197  drift=+1.9825  2221s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+1.9825)
+  step  3400  L_ce=6.324  L_kl=2.8036  val_ce=6.2060  drift=+2.0688  2291s
+  step  3500  L_ce=5.878  L_kl=2.5573  val_ce=6.1414  drift=+2.0042  2354s
+    → saved checkpoint to ste_raw_fp_latest.pt
+  step  3600  L_ce=5.626  L_kl=1.9730  val_ce=6.1228  drift=+1.9856  2427s
+  step  3700  L_ce=3.157  L_kl=1.6700  val_ce=6.0395  drift=+1.9023  2491s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+1.9023)
+  step  3800  L_ce=6.092  L_kl=2.0205  val_ce=6.0274  drift=+1.8902  2562s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+1.8902)
+  step  3900  L_ce=5.954  L_kl=2.0587  val_ce=6.0516  drift=+1.9144  2632s
+  step  4000  L_ce=5.801  L_kl=2.5390  val_ce=6.1142  drift=+1.9770  2697s
+    → saved checkpoint to ste_raw_fp_latest.pt
+  step  4100  L_ce=8.960  L_kl=4.8296  val_ce=6.0412  drift=+1.9040  2771s
+  step  4200  L_ce=5.973  L_kl=2.3416  val_ce=5.9949  drift=+1.8577  2835s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+1.8577)
+  step  4300  L_ce=5.835  L_kl=1.9827  val_ce=5.9740  drift=+1.8368  2905s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+1.8368)
+  step  4400  L_ce=6.121  L_kl=2.7350  val_ce=6.0127  drift=+1.8755  2976s
+  step  4500  L_ce=6.415  L_kl=2.5291  val_ce=5.9700  drift=+1.8328  3040s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+1.8328)
+    → saved checkpoint to ste_raw_fp_latest.pt
+  step  4600  L_ce=6.365  L_kl=2.5556  val_ce=5.9172  drift=+1.7800  3117s ⭐
+    → saved BEST to ste_raw_fp_best.pt  (drift=+1.7800)
+  step  4700  L_ce=6.089  L_kl=2.4637  val_ce=5.9511  drift=+1.8139  3186s
+  step  4800  L_ce=6.574  L_kl=2.5253  val_ce=5.9574  drift=+1.8202  3252s
+  step  4900  L_ce=5.655  L_kl=2.5403  val_ce=5.9530  drift=+1.8158  3317s
+  step  5000  L_ce=5.532  L_kl=1.8718  val_ce=5.9898  drift=+1.8526  3382s
+    → saved checkpoint to ste_raw_fp_latest.pt
+
+────────────────────────────────────────────────────────────
+STAGE 228 RESULT (STE from raw FP, no bake):
+────────────────────────────────────────────────────────────
+  Teacher T0:               4.1372
+  Drift after binarize:     +11.4671  (PTQ pre-STE)
+  Drift final:              +1.8526
+  Drift best:               +1.7800  (step 4600)
+  Stage 227 best (with bake): +1.6968 at step 4800
+  Δ vs Stage 227:           +0.0832 (bake helped)
+  bits/weight:              1.0125
+Saved results/stage228_ste_raw_fp_ab.json

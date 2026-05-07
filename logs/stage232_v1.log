@@ -1,0 +1,94 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading OWT corpus...
+  val=4096  train=1000000
+
+Building TEACHER (frozen FP Qwen3-0.6B)...
+  Teacher T0 = 4.1372
+
+Building STUDENT (rebuild Stage 231 arch + load best)...
+  Built arch: 196 sphere → BinaryGroupLinear (g=128), 56 SubLN
+  Loading Stage 231 best from checkpoints/Qwen_Qwen3-0.6B/stage231_group_anneal_best.pt ...
+    loaded; missing keys: 0
+    Stage 231 step=7300  drift_at_save=+1.3992
+  Drift before permutation: +1.3992  (should match Stage 231 best ≈ +1.40)
+
+Applying magnitude-sort permutation per Linear...
+  Permuted 196 BinaryGroupLinear modules
+  Permutation overhead: 4,587,520 bits (0.0104 bits/weight added)
+  Effective bpw with permutation: 1.1354
+  Drift after permutation (no training yet): +1.8206
+  Δ from permutation alone: +0.4214 (permutation hurt)
+
+Frozen params:    449,249,280
+Trainable params: 146,944,000
+
+────────────────────────────────────────────────────────────
+Stage 232 — Magnitude-permuted per-128 + STE refinement
+  N_steps = 3000  Cosine LR 1e-05 → 0e+00
+  Top-K=64 KL, T=2.0
+────────────────────────────────────────────────────────────
+  step   100  L_ce=4.193  L_kl=1.2548  val_ce=5.6877  drift=+1.5505  lr=9.97e-06  63s ⭐
+    → saved BEST to stage232_magperm_best.pt  (drift=+1.5505)
+  step   200  L_ce=5.317  L_kl=1.6399  val_ce=5.6492  drift=+1.5120  lr=9.89e-06  130s ⭐
+    → saved BEST to stage232_magperm_best.pt  (drift=+1.5120)
+  step   300  L_ce=4.790  L_kl=1.6911  val_ce=5.6553  drift=+1.5181  lr=9.76e-06  195s
+  step   400  L_ce=5.443  L_kl=1.5399  val_ce=5.6294  drift=+1.4922  lr=9.57e-06  258s ⭐
+    → saved BEST to stage232_magperm_best.pt  (drift=+1.4922)
+  step   500  L_ce=5.456  L_kl=1.6999  val_ce=5.6208  drift=+1.4836  lr=9.33e-06  325s ⭐
+    → saved BEST to stage232_magperm_best.pt  (drift=+1.4836)
+    → saved checkpoint to stage232_magperm_latest.pt
+  step   600  L_ce=4.900  L_kl=1.7389  val_ce=5.6244  drift=+1.4873  lr=9.05e-06  395s
+  step   700  L_ce=6.062  L_kl=1.8887  val_ce=5.6188  drift=+1.4816  lr=8.72e-06  458s ⭐
+    → saved BEST to stage232_magperm_best.pt  (drift=+1.4816)
+  step   800  L_ce=4.890  L_kl=1.6241  val_ce=5.7180  drift=+1.5808  lr=8.35e-06  524s
+  step   900  L_ce=4.575  L_kl=1.5367  val_ce=5.5928  drift=+1.4556  lr=7.94e-06  586s ⭐
+    → saved BEST to stage232_magperm_best.pt  (drift=+1.4556)
+  step  1000  L_ce=6.018  L_kl=1.7895  val_ce=5.6333  drift=+1.4961  lr=7.50e-06  652s
+    → saved checkpoint to stage232_magperm_latest.pt
+  step  1100  L_ce=5.244  L_kl=1.6229  val_ce=5.6600  drift=+1.5229  lr=7.03e-06  720s
+  step  1200  L_ce=6.261  L_kl=1.9464  val_ce=5.5947  drift=+1.4575  lr=6.55e-06  783s
+  step  1300  L_ce=5.004  L_kl=1.6826  val_ce=5.5651  drift=+1.4279  lr=6.04e-06  847s ⭐
+    → saved BEST to stage232_magperm_best.pt  (drift=+1.4279)
+  step  1400  L_ce=4.655  L_kl=1.4762  val_ce=5.5706  drift=+1.4335  lr=5.52e-06  914s
+  step  1500  L_ce=4.598  L_kl=0.8653  val_ce=5.5381  drift=+1.4010  lr=5.00e-06  980s ⭐
+    → saved BEST to stage232_magperm_best.pt  (drift=+1.4010)
+    → saved checkpoint to stage232_magperm_latest.pt
+  step  1600  L_ce=4.449  L_kl=1.2030  val_ce=5.5671  drift=+1.4299  lr=4.48e-06  1057s
+  step  1700  L_ce=4.521  L_kl=1.2476  val_ce=5.5951  drift=+1.4579  lr=3.96e-06  1124s
+  step  1800  L_ce=5.492  L_kl=1.3943  val_ce=5.5419  drift=+1.4047  lr=3.45e-06  1191s
+  step  1900  L_ce=4.572  L_kl=1.2799  val_ce=5.5550  drift=+1.4178  lr=2.97e-06  1258s
+  step  2000  L_ce=4.711  L_kl=1.4461  val_ce=5.5863  drift=+1.4491  lr=2.50e-06  1325s
+    → saved checkpoint to stage232_magperm_latest.pt
+  step  2100  L_ce=5.292  L_kl=1.7080  val_ce=5.5590  drift=+1.4218  lr=2.06e-06  1399s
+  step  2200  L_ce=3.973  L_kl=1.5375  val_ce=5.5867  drift=+1.4495  lr=1.65e-06  1469s
+  step  2300  L_ce=4.371  L_kl=1.3928  val_ce=5.5520  drift=+1.4148  lr=1.28e-06  1538s
+  step  2400  L_ce=4.540  L_kl=1.3604  val_ce=5.5489  drift=+1.4117  lr=9.55e-07  1607s
+  step  2500  L_ce=4.954  L_kl=1.0088  val_ce=5.5179  drift=+1.3807  lr=6.70e-07  1677s ⭐
+    → saved BEST to stage232_magperm_best.pt  (drift=+1.3807)
+    → saved checkpoint to stage232_magperm_latest.pt
+  step  2600  L_ce=4.282  L_kl=1.9322  val_ce=5.5161  drift=+1.3789  lr=4.32e-07  1753s ⭐
+    → saved BEST to stage232_magperm_best.pt  (drift=+1.3789)
+  step  2700  L_ce=5.304  L_kl=2.0649  val_ce=5.5271  drift=+1.3899  lr=2.45e-07  1826s
+  step  2800  L_ce=4.461  L_kl=1.3144  val_ce=5.5290  drift=+1.3918  lr=1.09e-07  1897s
+  step  2900  L_ce=5.926  L_kl=1.8072  val_ce=5.5326  drift=+1.3954  lr=2.74e-08  1966s
+  step  3000  L_ce=4.487  L_kl=1.4337  val_ce=5.5325  drift=+1.3953  lr=0.00e+00  2036s
+    → saved checkpoint to stage232_magperm_latest.pt
+
+────────────────────────────────────────────────────────────
+STAGE 232 RESULT (magnitude-permuted per-128 + STE):
+────────────────────────────────────────────────────────────
+  Teacher T0:                    4.1372
+  Drift before permutation:      +1.3992  (Stage 231 baseline)
+  Drift after permutation only:  +1.8206  (Δ +0.4214)
+  Drift final:                   +1.3953
+  Drift best:                    +1.3789  (step 2600)
+  bpw (with perm overhead):      1.1354
+
+  Comparison points:
+    Stage 227 (per-row, bake+STE):       drift=+1.6968  bpw=1.0125
+    Stage 230 Bonsai PTQ-mean:           drift=+10.8249 bpw=1.1250
+    Stage 231 (per-128 anneal, RANDOM):  drift=+1.3992  bpw=1.1250
+    Stage 232 final (mag-permuted):      drift=+1.3789  bpw=1.1354
+Saved results/stage232_magnitude_permuted.json

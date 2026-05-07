@@ -1,0 +1,179 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading OWT corpus...
+  val=4096  train=1000000
+
+Building TEACHER (frozen FP Qwen3-0.6B)...
+  Teacher T0 = 4.1372
+
+Building STUDENT (Stage 232 arch + load best)...
+  Built arch: 196 BinaryGroupLinearWithPerm, 56 SubLN
+  Loading Stage 232 best from checkpoints/Qwen_Qwen3-0.6B/stage232_magperm_best.pt ...
+    loaded; missing keys: 0
+    Stage 232 step=2600  drift_at_save=+1.3789
+  bpw = 1.1354
+  Drift after load: +1.3789  (should match ≈ +1.38)
+
+Frozen params:    449,249,280
+Trainable params: 146,944,000
+
+────────────────────────────────────────────────────────────
+Stage 234 — Extended Stage 232 (10000 more steps)
+  Cosine LR 1e-05 → 0e+00  Top-K=64  T=2.0
+  bpw = 1.1354
+────────────────────────────────────────────────────────────
+  step   100  L_ce=3.344  L_kl=1.0577  val_ce=5.6332  drift=+1.4960  lr=1.00e-05  63s
+  step   200  L_ce=4.801  L_kl=1.3556  val_ce=5.5869  drift=+1.4497  lr=9.99e-06  126s
+  step   300  L_ce=4.214  L_kl=1.5084  val_ce=5.6278  drift=+1.4906  lr=9.98e-06  189s
+  step   400  L_ce=4.856  L_kl=1.4410  val_ce=5.6282  drift=+1.4910  lr=9.96e-06  251s
+  step   500  L_ce=4.880  L_kl=1.4528  val_ce=5.6106  drift=+1.4734  lr=9.94e-06  314s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step   600  L_ce=4.328  L_kl=1.6563  val_ce=5.5812  drift=+1.4440  lr=9.91e-06  382s
+  step   700  L_ce=5.198  L_kl=1.8055  val_ce=5.5978  drift=+1.4606  lr=9.88e-06  446s
+  step   800  L_ce=4.361  L_kl=1.4740  val_ce=5.7525  drift=+1.6153  lr=9.84e-06  513s
+  step   900  L_ce=4.031  L_kl=1.4047  val_ce=5.6163  drift=+1.4791  lr=9.80e-06  581s
+  step  1000  L_ce=5.333  L_kl=1.6093  val_ce=5.6647  drift=+1.5275  lr=9.76e-06  649s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  1100  L_ce=4.763  L_kl=1.5071  val_ce=5.7150  drift=+1.5778  lr=9.70e-06  721s
+  step  1200  L_ce=5.894  L_kl=1.8726  val_ce=5.6171  drift=+1.4799  lr=9.65e-06  790s
+  step  1300  L_ce=4.521  L_kl=1.4238  val_ce=5.5695  drift=+1.4323  lr=9.59e-06  861s
+  step  1400  L_ce=4.352  L_kl=1.4139  val_ce=5.6157  drift=+1.4785  lr=9.52e-06  932s
+  step  1500  L_ce=4.440  L_kl=0.8549  val_ce=5.5746  drift=+1.4375  lr=9.46e-06  1003s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  1600  L_ce=4.281  L_kl=1.2174  val_ce=5.6057  drift=+1.4685  lr=9.38e-06  1078s
+  step  1700  L_ce=4.168  L_kl=1.2544  val_ce=5.6494  drift=+1.5122  lr=9.30e-06  1149s
+  step  1800  L_ce=5.422  L_kl=1.4601  val_ce=5.5887  drift=+1.4515  lr=9.22e-06  1221s
+  step  1900  L_ce=4.494  L_kl=1.2933  val_ce=5.6035  drift=+1.4663  lr=9.14e-06  1293s
+  step  2000  L_ce=4.578  L_kl=1.4121  val_ce=5.6168  drift=+1.4796  lr=9.05e-06  1366s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  2100  L_ce=5.225  L_kl=1.7287  val_ce=5.6353  drift=+1.4981  lr=8.95e-06  1442s
+  step  2200  L_ce=3.775  L_kl=1.4967  val_ce=5.5940  drift=+1.4568  lr=8.85e-06  1516s
+  step  2300  L_ce=4.353  L_kl=1.4064  val_ce=5.5750  drift=+1.4378  lr=8.75e-06  1590s
+  step  2400  L_ce=4.121  L_kl=1.2560  val_ce=5.5242  drift=+1.3870  lr=8.64e-06  1664s
+  step  2500  L_ce=5.038  L_kl=1.0257  val_ce=5.5050  drift=+1.3678  lr=8.54e-06  1736s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.3678)
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  2600  L_ce=4.293  L_kl=1.9037  val_ce=5.4782  drift=+1.3410  lr=8.42e-06  1815s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.3410)
+  step  2700  L_ce=5.285  L_kl=2.0807  val_ce=5.5517  drift=+1.4145  lr=8.31e-06  1889s
+  step  2800  L_ce=4.427  L_kl=1.4109  val_ce=5.6068  drift=+1.4696  lr=8.19e-06  1961s
+  step  2900  L_ce=6.006  L_kl=1.8090  val_ce=5.5444  drift=+1.4072  lr=8.06e-06  2032s
+  step  3000  L_ce=4.440  L_kl=1.4806  val_ce=5.4613  drift=+1.3241  lr=7.94e-06  2103s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.3241)
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  3100  L_ce=5.511  L_kl=1.5245  val_ce=5.5072  drift=+1.3700  lr=7.81e-06  2180s
+  step  3200  L_ce=4.892  L_kl=1.3150  val_ce=5.4773  drift=+1.3401  lr=7.68e-06  2252s
+  step  3300  L_ce=4.792  L_kl=1.2116  val_ce=5.5335  drift=+1.3963  lr=7.55e-06  2324s
+  step  3400  L_ce=4.585  L_kl=1.5767  val_ce=5.5531  drift=+1.4160  lr=7.41e-06  2395s
+  step  3500  L_ce=4.810  L_kl=1.3852  val_ce=5.5274  drift=+1.3902  lr=7.27e-06  2466s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  3600  L_ce=3.853  L_kl=0.9715  val_ce=5.5336  drift=+1.3964  lr=7.13e-06  2542s
+  step  3700  L_ce=0.737  L_kl=1.0115  val_ce=5.5473  drift=+1.4101  lr=6.99e-06  2615s
+  step  3800  L_ce=5.269  L_kl=1.1996  val_ce=5.5003  drift=+1.3631  lr=6.84e-06  2688s
+  step  3900  L_ce=4.897  L_kl=1.1827  val_ce=5.4774  drift=+1.3402  lr=6.69e-06  2763s
+  step  4000  L_ce=4.747  L_kl=1.5047  val_ce=5.5155  drift=+1.3784  lr=6.55e-06  2836s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  4100  L_ce=6.984  L_kl=2.7842  val_ce=5.4805  drift=+1.3433  lr=6.39e-06  2913s
+  step  4200  L_ce=5.014  L_kl=1.3321  val_ce=5.4810  drift=+1.3439  lr=6.24e-06  2986s
+  step  4300  L_ce=4.923  L_kl=1.0586  val_ce=5.4642  drift=+1.3270  lr=6.09e-06  3059s
+  step  4400  L_ce=4.726  L_kl=1.5297  val_ce=5.4810  drift=+1.3438  lr=5.94e-06  3132s
+  step  4500  L_ce=5.471  L_kl=1.3421  val_ce=5.4994  drift=+1.3622  lr=5.78e-06  3206s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  4600  L_ce=5.818  L_kl=1.6015  val_ce=5.4927  drift=+1.3555  lr=5.63e-06  3284s
+  step  4700  L_ce=4.701  L_kl=1.4481  val_ce=5.5020  drift=+1.3648  lr=5.47e-06  3357s
+  step  4800  L_ce=5.990  L_kl=1.6523  val_ce=5.4922  drift=+1.3550  lr=5.31e-06  3433s
+  step  4900  L_ce=5.350  L_kl=1.5642  val_ce=5.4589  drift=+1.3217  lr=5.16e-06  3506s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.3217)
+  step  5000  L_ce=4.512  L_kl=1.1726  val_ce=5.4902  drift=+1.3530  lr=5.00e-06  3582s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  5100  L_ce=5.072  L_kl=1.1688  val_ce=5.4853  drift=+1.3482  lr=4.84e-06  3658s
+  step  5200  L_ce=6.596  L_kl=1.8482  val_ce=5.4809  drift=+1.3437  lr=4.69e-06  3729s
+  step  5300  L_ce=5.395  L_kl=1.1963  val_ce=5.4678  drift=+1.3306  lr=4.53e-06  3801s
+  step  5400  L_ce=6.377  L_kl=1.9027  val_ce=5.4503  drift=+1.3131  lr=4.37e-06  3874s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.3131)
+  step  5500  L_ce=4.242  L_kl=1.4503  val_ce=5.4598  drift=+1.3226  lr=4.22e-06  3952s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  5600  L_ce=6.207  L_kl=1.5341  val_ce=5.4536  drift=+1.3164  lr=4.06e-06  4034s
+  step  5700  L_ce=5.696  L_kl=1.6310  val_ce=5.4493  drift=+1.3121  lr=3.91e-06  4110s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.3121)
+  step  5800  L_ce=4.798  L_kl=1.1132  val_ce=5.4256  drift=+1.2884  lr=3.76e-06  4188s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.2884)
+  step  5900  L_ce=6.276  L_kl=1.4547  val_ce=5.4097  drift=+1.2725  lr=3.61e-06  4264s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.2725)
+  step  6000  L_ce=4.857  L_kl=1.1963  val_ce=5.4571  drift=+1.3199  lr=3.45e-06  4338s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  6100  L_ce=4.743  L_kl=1.5369  val_ce=5.4473  drift=+1.3101  lr=3.31e-06  4413s
+  step  6200  L_ce=6.150  L_kl=1.7650  val_ce=5.4613  drift=+1.3241  lr=3.16e-06  4484s
+  step  6300  L_ce=5.702  L_kl=1.2782  val_ce=5.4358  drift=+1.2986  lr=3.01e-06  4557s
+  step  6400  L_ce=4.810  L_kl=1.5839  val_ce=5.4666  drift=+1.3294  lr=2.87e-06  4629s
+  step  6500  L_ce=4.028  L_kl=2.1091  val_ce=5.4293  drift=+1.2922  lr=2.73e-06  4702s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  6600  L_ce=5.929  L_kl=1.5149  val_ce=5.4115  drift=+1.2743  lr=2.59e-06  4779s
+  step  6700  L_ce=4.585  L_kl=1.0231  val_ce=5.4072  drift=+1.2700  lr=2.45e-06  4851s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.2700)
+  step  6800  L_ce=5.140  L_kl=1.1042  val_ce=5.4057  drift=+1.2686  lr=2.32e-06  4926s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.2686)
+  step  6900  L_ce=1.939  L_kl=1.0227  val_ce=5.4046  drift=+1.2674  lr=2.19e-06  5001s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.2674)
+  step  7000  L_ce=5.637  L_kl=1.3531  val_ce=5.4237  drift=+1.2865  lr=2.06e-06  5077s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  7100  L_ce=4.075  L_kl=0.7965  val_ce=5.3941  drift=+1.2569  lr=1.94e-06  5157s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.2569)
+  step  7200  L_ce=4.716  L_kl=1.6053  val_ce=5.3994  drift=+1.2623  lr=1.81e-06  5246s
+  step  7300  L_ce=4.379  L_kl=0.9115  val_ce=5.3829  drift=+1.2457  lr=1.69e-06  5318s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.2457)
+  step  7400  L_ce=5.736  L_kl=1.3767  val_ce=5.4248  drift=+1.2876  lr=1.58e-06  5393s
+  step  7500  L_ce=4.895  L_kl=1.1813  val_ce=5.3769  drift=+1.2397  lr=1.46e-06  5467s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.2397)
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  7600  L_ce=4.819  L_kl=1.0115  val_ce=5.3889  drift=+1.2517  lr=1.36e-06  5548s
+  step  7700  L_ce=6.064  L_kl=1.4600  val_ce=5.3782  drift=+1.2410  lr=1.25e-06  5622s
+  step  7800  L_ce=4.676  L_kl=1.4614  val_ce=5.4049  drift=+1.2677  lr=1.15e-06  5694s
+  step  7900  L_ce=5.022  L_kl=1.4016  val_ce=5.3840  drift=+1.2468  lr=1.05e-06  5766s
+  step  8000  L_ce=5.589  L_kl=1.5024  val_ce=5.3958  drift=+1.2586  lr=9.55e-07  5838s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  8100  L_ce=4.417  L_kl=1.5541  val_ce=5.3848  drift=+1.2476  lr=8.65e-07  5916s
+  step  8200  L_ce=5.483  L_kl=2.0817  val_ce=5.3847  drift=+1.2475  lr=7.78e-07  5991s
+  step  8300  L_ce=5.286  L_kl=1.7952  val_ce=5.3928  drift=+1.2556  lr=6.96e-07  6064s
+  step  8400  L_ce=5.943  L_kl=2.3543  val_ce=5.3853  drift=+1.2481  lr=6.18e-07  6137s
+  step  8500  L_ce=5.200  L_kl=1.1456  val_ce=5.3784  drift=+1.2412  lr=5.45e-07  6210s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  8600  L_ce=5.204  L_kl=1.7955  val_ce=5.3862  drift=+1.2490  lr=4.76e-07  6289s
+  step  8700  L_ce=5.186  L_kl=1.8723  val_ce=5.3745  drift=+1.2373  lr=4.11e-07  6362s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.2373)
+  step  8800  L_ce=5.031  L_kl=1.1876  val_ce=5.3685  drift=+1.2313  lr=3.51e-07  6436s ⭐
+    → saved BEST to stage234_ext232_best.pt  (drift=+1.2313)
+  step  8900  L_ce=5.364  L_kl=1.5022  val_ce=5.3822  drift=+1.2450  lr=2.96e-07  6511s
+  step  9000  L_ce=5.396  L_kl=1.1437  val_ce=5.3831  drift=+1.2459  lr=2.45e-07  6583s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  9100  L_ce=5.128  L_kl=1.1269  val_ce=5.3812  drift=+1.2440  lr=1.99e-07  6658s
+  step  9200  L_ce=4.354  L_kl=1.5359  val_ce=5.3812  drift=+1.2440  lr=1.57e-07  6732s
+  step  9300  L_ce=4.857  L_kl=0.9764  val_ce=5.3791  drift=+1.2419  lr=1.20e-07  6805s
+  step  9400  L_ce=5.541  L_kl=1.6957  val_ce=5.3692  drift=+1.2320  lr=8.86e-08  6878s
+  step  9500  L_ce=5.752  L_kl=1.3685  val_ce=5.3709  drift=+1.2337  lr=6.16e-08  6950s
+    → saved checkpoint to stage234_ext232_latest.pt
+  step  9600  L_ce=0.949  L_kl=0.9575  val_ce=5.3709  drift=+1.2337  lr=3.94e-08  7027s
+  step  9700  L_ce=5.809  L_kl=1.2764  val_ce=5.3736  drift=+1.2364  lr=2.22e-08  7099s
+  step  9800  L_ce=5.529  L_kl=1.3049  val_ce=5.3736  drift=+1.2364  lr=9.87e-09  7173s
+  step  9900  L_ce=5.506  L_kl=1.6438  val_ce=5.3741  drift=+1.2369  lr=2.47e-09  7247s
+  step 10000  L_ce=7.023  L_kl=2.7925  val_ce=5.3741  drift=+1.2369  lr=0.00e+00  7319s
+    → saved checkpoint to stage234_ext232_latest.pt
+
+────────────────────────────────────────────────────────────
+STAGE 234 RESULT (extended Stage 232):
+────────────────────────────────────────────────────────────
+  Teacher T0:           4.1372
+  Init drift (Stage 232): +1.3789
+  Drift final:          +1.2369
+  Drift best:           +1.2313  (step 8800)
+  bpw:                  1.1354
+  Δ vs Stage 232 best:  -0.1476
+
+  Comparison points:
+    Stage 227:               drift=+1.6968  bpw=1.0125
+    Stage 231 (per-128):     drift=+1.3992  bpw=1.125
+    Stage 232 (mag-perm):    drift=+1.3789  bpw=1.135
+    Stage 233 v2 (factored): drift=+1.5814  bpw=1.023
+    Stage 234 (ext 232):     drift=+1.2313  bpw=1.1354
+Saved results/stage234_extended_232.json

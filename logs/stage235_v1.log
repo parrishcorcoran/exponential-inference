@@ -1,0 +1,95 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading OWT corpus...
+  val=4096  train=1000000
+
+Building TEACHER (frozen FP Qwen3-0.6B)...
+  Teacher T0 = 4.1372
+
+Building STUDENT (Stage 234 arch + load best)...
+  Built arch: 196 BinaryGroupLinearWithPerm, 56 SubLN
+  Loading Stage 234 best from checkpoints/Qwen_Qwen3-0.6B/stage234_ext232_best.pt ...
+    loaded; missing keys: 0
+    Stage 234 step=8800  drift_at_save=+1.2313
+  Drift after load: +1.2313  (should match ≈ +1.23)
+
+────────────────────────────────────────────────────────────
+PHASE 1 — SMOOTH BAKE  (3000 steps)
+  Replace BinaryGroupLinearWithPerm → Per128GroupSphereLinearWithPerm
+  Smooth per-group normalization, locked group radii
+  LR cosine 1e-05 → 1e-06
+────────────────────────────────────────────────────────────
+  Swapped 196 → Per128GroupSphereLinearWithPerm
+  Drift after swap to sphere: +0.2936
+  Δ from arch swap: -0.9377
+  Trainable params: 146,944,000
+  P1 step   100  L_ce=2.879  L_kl=0.6443  val_ce=4.3683  drift=+0.2311  lr=9.98e-06  90s ⭐
+    → saved BEST  (drift=+0.2311)
+  P1 step   200  L_ce=3.588  L_kl=0.7131  val_ce=4.3360  drift=+0.1988  lr=9.90e-06  183s ⭐
+    → saved BEST  (drift=+0.1988)
+  P1 step   300  L_ce=2.988  L_kl=0.6843  val_ce=4.3241  drift=+0.1869  lr=9.78e-06  275s ⭐
+    → saved BEST  (drift=+0.1869)
+  P1 step   400  L_ce=3.659  L_kl=0.7416  val_ce=4.2865  drift=+0.1493  lr=9.61e-06  367s ⭐
+    → saved BEST  (drift=+0.1493)
+  P1 step   500  L_ce=3.520  L_kl=0.7546  val_ce=4.2702  drift=+0.1330  lr=9.40e-06  459s ⭐
+    → saved BEST  (drift=+0.1330)
+    → saved checkpoint
+  P1 step   600  L_ce=3.087  L_kl=0.8949  val_ce=4.2764  drift=+0.1392  lr=9.14e-06  555s
+  P1 step   700  L_ce=2.676  L_kl=1.4031  val_ce=4.2738  drift=+0.1366  lr=8.84e-06  647s
+  P1 step   800  L_ce=3.392  L_kl=0.8050  val_ce=4.2693  drift=+0.1321  lr=8.51e-06  744s ⭐
+    → saved BEST  (drift=+0.1321)
+  P1 step   900  L_ce=3.225  L_kl=0.5037  val_ce=4.2457  drift=+0.1085  lr=8.15e-06  846s ⭐
+    → saved BEST  (drift=+0.1085)
+  P1 step  1000  L_ce=3.265  L_kl=0.9039  val_ce=4.2547  drift=+0.1175  lr=7.75e-06  949s
+    → saved checkpoint
+  P1 step  1100  L_ce=2.806  L_kl=0.6309  val_ce=4.2392  drift=+0.1020  lr=7.33e-06  1054s ⭐
+    → saved BEST  (drift=+0.1020)
+  P1 step  1200  L_ce=3.560  L_kl=0.9466  val_ce=4.2290  drift=+0.0918  lr=6.89e-06  1159s ⭐
+    → saved BEST  (drift=+0.0918)
+  P1 step  1300  L_ce=3.351  L_kl=0.5932  val_ce=4.2386  drift=+0.1014  lr=6.44e-06  1266s
+  P1 step  1400  L_ce=2.598  L_kl=0.7267  val_ce=4.2108  drift=+0.0736  lr=5.97e-06  1368s ⭐
+    → saved BEST  (drift=+0.0736)
+  P1 step  1500  L_ce=3.126  L_kl=0.4930  val_ce=4.2108  drift=+0.0736  lr=5.50e-06  1472s ⭐
+    → saved BEST  (drift=+0.0736)
+    → saved checkpoint
+  P1 step  1600  L_ce=3.034  L_kl=0.5553  val_ce=4.2193  drift=+0.0821  lr=5.03e-06  1586s
+  P1 step  1700  L_ce=2.616  L_kl=0.5571  val_ce=4.2109  drift=+0.0737  lr=4.56e-06  1689s
+  P1 step  1800  L_ce=3.652  L_kl=0.6397  val_ce=4.2109  drift=+0.0737  lr=4.11e-06  1790s
+  P1 step  1900  L_ce=3.062  L_kl=0.5019  val_ce=4.1978  drift=+0.0606  lr=3.67e-06  1890s ⭐
+    → saved BEST  (drift=+0.0606)
+  P1 step  2000  L_ce=2.596  L_kl=0.6895  val_ce=4.2108  drift=+0.0736  lr=3.25e-06  1997s
+    → saved checkpoint
+  P1 step  2100  L_ce=3.123  L_kl=0.7187  val_ce=4.2096  drift=+0.0724  lr=2.85e-06  2103s
+  P1 step  2200  L_ce=1.960  L_kl=0.7106  val_ce=4.2067  drift=+0.0695  lr=2.49e-06  2205s
+  P1 step  2300  L_ce=2.465  L_kl=0.6895  val_ce=4.2026  drift=+0.0654  lr=2.16e-06  2306s
+  P1 step  2400  L_ce=2.004  L_kl=0.8251  val_ce=4.1982  drift=+0.0610  lr=1.86e-06  2407s
+  P1 step  2500  L_ce=3.701  L_kl=0.6151  val_ce=4.2038  drift=+0.0666  lr=1.60e-06  2508s
+    → saved checkpoint
+  P1 step  2600  L_ce=1.756  L_kl=0.8791  val_ce=4.1959  drift=+0.0587  lr=1.39e-06  2614s ⭐
+    → saved BEST  (drift=+0.0587)
+  P1 step  2700  L_ce=3.154  L_kl=0.7857  val_ce=4.1952  drift=+0.0581  lr=1.22e-06  2719s ⭐
+    → saved BEST  (drift=+0.0581)
+  P1 step  2800  L_ce=2.542  L_kl=0.6847  val_ce=4.1919  drift=+0.0547  lr=1.10e-06  2823s ⭐
+    → saved BEST  (drift=+0.0547)
+  P1 step  2900  L_ce=3.420  L_kl=0.9617  val_ce=4.1918  drift=+0.0546  lr=1.02e-06  2929s ⭐
+    → saved BEST  (drift=+0.0546)
+  P1 step  3000  L_ce=2.730  L_kl=0.5434  val_ce=4.1913  drift=+0.0542  lr=1.00e-06  3036s ⭐
+    → saved BEST  (drift=+0.0542)
+    → saved checkpoint
+
+Phase 1 complete. Best drift: +0.0542
+
+────────────────────────────────────────────────────────────
+PHASE 2 — STE REFINEMENT  (7000 steps)
+  Swap Per128GroupSphereLinearWithPerm → BinaryGroupLinearWithPerm
+  Fresh cosine LR 1e-05 → 0e+00
+────────────────────────────────────────────────────────────
+  Swapped 196 back to BinaryGroupLinearWithPerm
+  bpw = 1.1354
+  Drift after swap to binary: +1.6290
+  Δ from binary swap: +1.5748
+  Trainable params: 146,944,000
+  P2 step   100 (g3100)  L_ce=5.014  L_kl=1.3935  val_ce=5.5152  drift=+1.3780  lr=9.99e-06  3664s
+  P2 step   200 (g3200)  L_ce=4.552  L_kl=1.2467  val_ce=5.4817  drift=+1.3445  lr=9.98e-06  4304s
+  P2 step   300 (g3300)  L_ce=4.440  L_kl=1.2055  val_ce=5.4995  drift=+1.3623  lr=9.95e-06  6821s

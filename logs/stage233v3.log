@@ -1,0 +1,30 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading OWT corpus...
+  val=4096  train=1000000
+
+Building TEACHER (frozen FP Qwen3-0.6B)...
+  Teacher T0 = 4.1372
+
+Building STUDENT (factored arch + load v2 best)...
+  Built arch: 196 sphere → factored, 56 SubLN
+  bpw = 1.0229
+  Loading Stage 233 v2 best from checkpoints/Qwen_Qwen3-0.6B/stage233_factored_alpha_best.pt ...
+    loaded; missing keys: 0
+    v2 step=2600  drift_at_save=+1.5814
+  Drift after load: +1.5814  (should match v2 best ≈ +1.58)
+
+Frozen params:       537,329,664
+Trainable params:    59,494,400
+  o_proj W params:   58,720,256
+  alpha params:      630,784
+  (rest: SubLN gains + biases)
+
+────────────────────────────────────────────────────────────
+Stage 233 v3 — Factored α + o_proj W training
+  N_steps = 3000  Cosine LR 1e-05 → 0e+00
+  Top-K=64 KL, T=2.0
+  bpw = 1.0229
+────────────────────────────────────────────────────────────
+  step   100  L_ce=4.829  L_kl=1.4380  val_ce=5.7966  drift=+1.6594  lr=9.97e-06  2962s

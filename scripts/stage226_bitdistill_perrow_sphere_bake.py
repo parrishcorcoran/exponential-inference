@@ -99,6 +99,7 @@ RESULTS_PATH = Path("results/stage226_perrow_sphere_bake.json")
 CKPT_DIR = Path("checkpoints/Qwen_Qwen3-0.6B")
 CKPT_DIR.mkdir(parents=True, exist_ok=True)
 CKPT_LATEST = CKPT_DIR / "perrow_sphere_bake_latest.pt"
+CKPT_BEST = CKPT_DIR / "perrow_sphere_bake_best.pt"
 
 
 if torch.cuda.is_available():
@@ -355,6 +356,7 @@ print(f"  N_steps = {N_TRAIN_STEPS}  LR = {LR}  α/β/γ = {ALPHA_CE}/{BETA_KL}/
 print('─'*60, flush=True)
 
 best_drift = drift_init
+best_step = 0
 for step in range(1, N_TRAIN_STEPS + 1):
     batch = sample_batch(train_tokens, BATCH_SIZE, SEQ_LEN, rng)
     L_ce, L_kl, L_hidden, L_total = bake_step(batch)
@@ -363,15 +365,25 @@ for step in range(1, N_TRAIN_STEPS + 1):
         val_ce = lm_ce(student, val_tokens, n_chunks=N_VAL_CHUNKS)
         drift = val_ce - T0
         elapsed = time.time() - t_start
-        marker = " ⭐" if drift < best_drift else ""
+        is_best = drift < best_drift
+        marker = " ⭐" if is_best else ""
         print(f"  step {step:>5}  L_ce={L_ce:.3f}  L_kl={L_kl:.4f}  "
               f"L_hidden={L_hidden:.4f}  val_ce={val_ce:.4f}  drift={drift:+.4f}  "
               f"{elapsed:.0f}s{marker}", flush=True)
         history.append({"step": step,
                         "L_ce": L_ce, "L_kl": L_kl, "L_hidden": L_hidden,
                         "val_ce": float(val_ce), "drift": float(drift)})
-        if drift < best_drift:
+        if is_best:
             best_drift = drift
+            best_step = step
+            torch.save({
+                "step": step,
+                "val_ce": val_ce,
+                "drift": drift,
+                "model": student.state_dict(),
+            }, CKPT_BEST)
+            print(f"    → saved BEST checkpoint to {CKPT_BEST}  (drift={drift:+.4f})",
+                  flush=True)
 
     if step % CKPT_EVERY == 0:
         torch.save({
@@ -393,7 +405,7 @@ print('─'*60)
 print(f"  Teacher T0:     {T0:.4f}")
 print(f"  Init drift:     {drift_init:+.4f}  (after surgery, before bake)")
 print(f"  Final drift:    {final_drift:+.4f}  (after {N_TRAIN_STEPS} bake steps)")
-print(f"  Best drift:     {best_drift:+.4f}")
+print(f"  Best drift:     {best_drift:+.4f}  (step {best_step}, saved to {CKPT_BEST.name})")
 print(f"  Architecture:   {n_replaced} PerRowSphereLinear + {n_subln} SubLN insertions")
 print(f"\nThis baked checkpoint preserves per-row natural radii while constraining")
 print(f"directions to per-route hyperspheres. Foundation for downstream binary work.")
@@ -415,6 +427,7 @@ with open(RESULTS_PATH, "w") as f:
         "drift_init_after_surgery": float(drift_init),
         "drift_final": float(final_drift),
         "drift_best": float(best_drift),
+        "best_step": int(best_step),
         "n_replaced_linears": int(n_replaced),
         "n_subln_inserted": int(n_subln),
         "n_trainable_params": int(n_trainable),

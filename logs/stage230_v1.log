@@ -1,0 +1,41 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading OWT corpus...
+  val_tokens=4096
+
+Building TEACHER (frozen FP Qwen3-0.6B)...
+  Teacher T0 = 4.1372
+
+============================================================
+Stage 230 — Bonsai Q1_0_g128 PTQ replica  (scale_rule='max')
+============================================================
+Building student (fresh FP Qwen3-0.6B)...
+  Pre-quantization CE: 4.1372  (drift=+0.0000)
+  Quantized 197 Linears + 1 Embeddings in 0.4s
+  Total quantized weights: 751,566,848
+  Bits/weight: 1.1250  (Bonsai disclosed: 1.125)
+  Post-quantization CE: 45.3895  drift=+41.2523
+
+============================================================
+Stage 230 — Bonsai Q1_0_g128 PTQ replica  (scale_rule='mean')
+============================================================
+Building student (fresh FP Qwen3-0.6B)...
+  Pre-quantization CE: 4.1372  (drift=+0.0000)
+  Quantized 197 Linears + 1 Embeddings in 0.2s
+  Total quantized weights: 751,566,848
+  Bits/weight: 1.1250  (Bonsai disclosed: 1.125)
+  Post-quantization CE: 14.9621  drift=+10.8249
+
+────────────────────────────────────────────────────────────
+STAGE 230 SUMMARY (Bonsai Q1_0_g128 PTQ on Qwen3-0.6B):
+────────────────────────────────────────────────────────────
+  Teacher T0:                    4.1372
+  scale=max    bpw=1.1250  drift=+41.2523
+  scale=mean   bpw=1.1250  drift=+10.8249
+
+  Reference points:
+    Stage 227 (per-row, bake+STE, body-only):  drift=+1.6968  bpw=1.0125
+    Stage 228 (per-row, no-bake STE, body-only): drift=+1.7800 bpw=1.0125
+
+Saved results/stage230_bonsai_replica_ptq.json

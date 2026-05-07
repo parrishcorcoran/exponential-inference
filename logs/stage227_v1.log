@@ -1,0 +1,127 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading OWT corpus...
+  val=4096  train=1000000
+
+Building TEACHER (frozen FP Qwen3-0.6B)...
+  Teacher T0 = 4.1372
+
+Building STUDENT (sphere arch, load bake, swap to binary)...
+  Built sphere arch: 196 PerRowSphereLinear, 56 SubLN
+  Loading bake state_dict from checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt ...
+    bake step=4300  drift=+0.1418
+  After load (sphere forward): drift=+0.1418
+  Swapped 196 PerRowSphereLinear → BinaryPerRowLinear
+  α scope: (layer, type, row)  → 1.0125 bits/weight at deployment (vs Bonsai's 1.125)
+  After binarization (PTQ pre-fine-tune): drift=+8.4387
+
+Frozen params:    449,249,280
+Trainable params: 146,944,000
+
+────────────────────────────────────────────────────────────
+Stage 227 — 1-bit STE fine-tune from per-row-sphere bake
+  N_steps = 5000  LR = 2e-05  α/β = 1.0/1.0
+────────────────────────────────────────────────────────────
+  step   100  L_ce=7.290  L_kl=3.7981  val_ce=7.5957  drift=+3.4585  59s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+3.4585)
+  step   200  L_ce=7.154  L_kl=3.9671  val_ce=7.2465  drift=+3.1093  122s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+3.1093)
+  step   300  L_ce=7.186  L_kl=4.0983  val_ce=7.2251  drift=+3.0879  184s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+3.0879)
+  step   400  L_ce=6.802  L_kl=2.9590  val_ce=6.9366  drift=+2.7994  246s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+2.7994)
+  step   500  L_ce=7.398  L_kl=3.4707  val_ce=6.9546  drift=+2.8174  308s
+    → saved checkpoint to binary_perrow_ste_latest.pt
+  step   600  L_ce=6.369  L_kl=3.1775  val_ce=6.8999  drift=+2.7627  372s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+2.7627)
+  step   700  L_ce=8.773  L_kl=4.2811  val_ce=6.6643  drift=+2.5271  434s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+2.5271)
+  step   800  L_ce=6.178  L_kl=2.9622  val_ce=6.7337  drift=+2.5965  497s
+  step   900  L_ce=6.208  L_kl=2.7149  val_ce=6.5938  drift=+2.4566  556s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+2.4566)
+  step  1000  L_ce=7.306  L_kl=3.4814  val_ce=6.5663  drift=+2.4291  618s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+2.4291)
+    → saved checkpoint to binary_perrow_ste_latest.pt
+  step  1100  L_ce=6.349  L_kl=2.8217  val_ce=6.4793  drift=+2.3421  686s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+2.3421)
+  step  1200  L_ce=7.712  L_kl=3.5056  val_ce=6.4319  drift=+2.2947  749s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+2.2947)
+  step  1300  L_ce=6.077  L_kl=2.7533  val_ce=6.3729  drift=+2.2357  811s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+2.2357)
+  step  1400  L_ce=6.255  L_kl=3.2794  val_ce=6.4093  drift=+2.2721  874s
+  step  1500  L_ce=5.453  L_kl=1.7035  val_ce=6.3026  drift=+2.1654  935s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+2.1654)
+    → saved checkpoint to binary_perrow_ste_latest.pt
+  step  1600  L_ce=5.246  L_kl=1.9982  val_ce=6.3865  drift=+2.2494  1005s
+  step  1700  L_ce=5.580  L_kl=2.3079  val_ce=6.3308  drift=+2.1936  1068s
+  step  1800  L_ce=6.683  L_kl=2.5727  val_ce=6.2584  drift=+2.1212  1132s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+2.1212)
+  step  1900  L_ce=5.503  L_kl=2.0856  val_ce=6.2288  drift=+2.0916  1200s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+2.0916)
+  step  2000  L_ce=5.778  L_kl=2.4563  val_ce=6.2574  drift=+2.1202  1268s
+    → saved checkpoint to binary_perrow_ste_latest.pt
+  step  2100  L_ce=6.400  L_kl=3.2569  val_ce=6.2114  drift=+2.0742  1340s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+2.0742)
+  step  2200  L_ce=5.895  L_kl=3.4669  val_ce=6.3026  drift=+2.1654  1407s
+  step  2300  L_ce=5.741  L_kl=2.5768  val_ce=6.1305  drift=+1.9933  1470s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+1.9933)
+  step  2400  L_ce=6.420  L_kl=2.4875  val_ce=6.1221  drift=+1.9849  1536s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+1.9849)
+  step  2500  L_ce=5.941  L_kl=1.9696  val_ce=6.1153  drift=+1.9781  1603s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+1.9781)
+    → saved checkpoint to binary_perrow_ste_latest.pt
+  step  2600  L_ce=6.457  L_kl=3.2018  val_ce=6.0914  drift=+1.9542  1675s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+1.9542)
+  step  2700  L_ce=6.440  L_kl=3.1292  val_ce=6.1383  drift=+2.0012  1743s
+  step  2800  L_ce=5.789  L_kl=2.2915  val_ce=6.1712  drift=+2.0340  1806s
+  step  2900  L_ce=7.047  L_kl=2.7287  val_ce=6.1037  drift=+1.9665  1869s
+  step  3000  L_ce=5.452  L_kl=2.5278  val_ce=6.0216  drift=+1.8844  1932s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+1.8844)
+    → saved checkpoint to binary_perrow_ste_latest.pt
+  step  3100  L_ce=6.532  L_kl=2.6083  val_ce=6.0072  drift=+1.8700  2004s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+1.8700)
+  step  3200  L_ce=6.270  L_kl=2.2175  val_ce=6.0275  drift=+1.8903  2071s
+  step  3300  L_ce=5.719  L_kl=2.3892  val_ce=6.0229  drift=+1.8857  2134s
+  step  3400  L_ce=6.096  L_kl=2.6574  val_ce=6.0780  drift=+1.9408  2197s
+  step  3500  L_ce=5.570  L_kl=2.4442  val_ce=6.0355  drift=+1.8983  2260s
+    → saved checkpoint to binary_perrow_ste_latest.pt
+  step  3600  L_ce=5.498  L_kl=1.9265  val_ce=6.0010  drift=+1.8638  2328s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+1.8638)
+  step  3700  L_ce=2.760  L_kl=1.6241  val_ce=5.9817  drift=+1.8445  2395s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+1.8445)
+  step  3800  L_ce=5.856  L_kl=1.9317  val_ce=5.9208  drift=+1.7836  2462s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+1.7836)
+  step  3900  L_ce=5.884  L_kl=2.0188  val_ce=5.9878  drift=+1.8506  2529s
+  step  4000  L_ce=5.452  L_kl=2.3505  val_ce=5.9981  drift=+1.8609  2592s
+    → saved checkpoint to binary_perrow_ste_latest.pt
+  step  4100  L_ce=8.437  L_kl=4.4836  val_ce=5.9358  drift=+1.7986  2660s
+  step  4200  L_ce=5.915  L_kl=2.3267  val_ce=5.8940  drift=+1.7568  2724s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+1.7568)
+  step  4300  L_ce=5.685  L_kl=1.9018  val_ce=5.8524  drift=+1.7152  2790s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+1.7152)
+  step  4400  L_ce=6.089  L_kl=2.6657  val_ce=5.8781  drift=+1.7409  2857s
+  step  4500  L_ce=6.467  L_kl=2.4589  val_ce=5.8979  drift=+1.7607  2921s
+    → saved checkpoint to binary_perrow_ste_latest.pt
+  step  4600  L_ce=6.406  L_kl=2.5146  val_ce=5.8483  drift=+1.7111  2990s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+1.7111)
+  step  4700  L_ce=5.927  L_kl=2.3459  val_ce=5.8396  drift=+1.7024  3056s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+1.7024)
+  step  4800  L_ce=6.432  L_kl=2.4081  val_ce=5.8340  drift=+1.6968  3126s ⭐
+    → saved BEST to binary_perrow_ste_best.pt  (drift=+1.6968)
+  step  4900  L_ce=5.544  L_kl=2.4959  val_ce=5.8352  drift=+1.6980  3194s
+  step  5000  L_ce=5.151  L_kl=1.6879  val_ce=5.8987  drift=+1.7615  3257s
+    → saved checkpoint to binary_perrow_ste_latest.pt
+
+────────────────────────────────────────────────────────────
+STAGE 227 RESULT:
+────────────────────────────────────────────────────────────
+  Teacher T0:           4.1372
+  Drift after bake load:+0.1418
+  Drift after binarize: +8.4387  (PTQ pre-STE)
+  Drift final:          +1.7615  (after 5000 STE steps)
+  Drift best:           +1.6968  (step 4800)
+
+Forward IS exact 1-bit math (sign·α_row).
+Deployment artifact: 1 sign-bit/weight + fp16 α/row = 1.0125 bits/weight  (vs Bonsai 1.125)
+Saved results/stage227_binary_perrow_ste.json

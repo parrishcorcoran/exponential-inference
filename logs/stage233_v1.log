@@ -1,0 +1,32 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading OWT corpus...
+  val=4096  train=1000000
+
+Building TEACHER (frozen FP Qwen3-0.6B)...
+  Teacher T0 = 4.1372
+
+Building STUDENT (sphere arch + load Stage 227 best)...
+  Built sphere arch: 196 sphere, 56 SubLN
+  Loading Stage 227 state_dict from checkpoints/Qwen_Qwen3-0.6B/binary_perrow_ste_best.pt ...
+    loaded; missing keys: 196 (expected: row_radius)
+    Stage 227 step=4800  drift_at_save=+1.6968
+  After load (sphere forward): drift=+0.2522
+  Swapped 196 sphere → BinaryFactoredLinear
+  bpw with factored α: 1.0229  (vs Bonsai 1.125, Stage 227 1.0125)
+  After swap to factored α (α_col=1, init): drift=+1.6968
+  (should be ≈ Stage 227 +1.6968 since α_col=1 makes it identical)
+
+Frozen params:       449,249,280
+Trainable params:    147,574,784
+  alpha_row params:  344,064
+  alpha_col params:  286,720
+
+────────────────────────────────────────────────────────────
+Stage 233 — Factored α (per-row × per-col)
+  N_steps = 5000  Cosine LR 2e-05 → 0e+00
+  Top-K=64 KL, T=2.0
+  bpw = 1.0229
+────────────────────────────────────────────────────────────
+  step   100  L_ce=5.214  L_kl=1.7136  val_ce=5.9866  drift=+1.8494  lr=2.00e-05  4428s

@@ -1,0 +1,52 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading OWT corpus...
+  val=4096  train=1000000
+
+Building TEACHER (frozen FP Qwen3-0.6B)...
+  Teacher T0 = 4.1372
+
+Building STUDENT (sphere arch, load bake, swap to binary)...
+  Built sphere arch: 196 PerRowSphereLinear, 56 SubLN
+  Loading bake state_dict from checkpoints/Qwen_Qwen3-0.6B/perrow_sphere_bake_best.pt ...
+    bake step=4300  drift=+0.1418
+  After load (sphere forward): drift=+0.1418
+  Swapped 196 PerRowSphereLinear → BinaryPerRowLinear
+  α scope: (layer, type, row)  → 1.0125 bits/weight
+  After binarization (PTQ pre-fine-tune): drift=+8.4387
+
+Frozen params:    449,249,280
+Trainable params: 146,944,000
+
+────────────────────────────────────────────────────────────
+Stage 229 — STE with cosine LR decay 2e-05 → 0e+00
+  N_steps = 5000  α/β = 1.0/1.0
+  Compare to Stage 227 (constant LR=2e-05): best +1.6968 at step 4800
+────────────────────────────────────────────────────────────
+  step   100  L_ce=7.288  L_kl=3.8003  val_ce=7.5959  drift=+3.4587  lr=2.00e-05  59s ⭐
+    → saved BEST to binary_perrow_ste_cosine_best.pt  (drift=+3.4587)
+  step   200  L_ce=7.148  L_kl=3.9527  val_ce=7.2476  drift=+3.1104  lr=1.99e-05  125s ⭐
+    → saved BEST to binary_perrow_ste_cosine_best.pt  (drift=+3.1104)
+  step   300  L_ce=7.189  L_kl=4.1000  val_ce=7.2273  drift=+3.0901  lr=1.98e-05  190s ⭐
+    → saved BEST to binary_perrow_ste_cosine_best.pt  (drift=+3.0901)
+  step   400  L_ce=6.810  L_kl=2.9510  val_ce=6.9415  drift=+2.8043  lr=1.97e-05  256s ⭐
+    → saved BEST to binary_perrow_ste_cosine_best.pt  (drift=+2.8043)
+  step   500  L_ce=7.409  L_kl=3.4809  val_ce=6.9608  drift=+2.8237  lr=1.95e-05  322s
+Traceback (most recent call last):
+  File "/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/torch/serialization.py", line 967, in save
+    _save(
+  File "/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/torch/serialization.py", line 1268, in _save
+    zip_file.write_record(name, storage, num_bytes)
+RuntimeError: [enforce fail at inline_container.cc:863] . PytorchStreamWriter failed writing file data/568: file write failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/abundancemachine/Exponential-Inference/scripts/stage229_cosine_lr_ste.py", line 380, in <module>
+    torch.save({
+  File "/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/torch/serialization.py", line 974, in save
+    return
+  File "/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/torch/serialization.py", line 798, in __exit__
+    self.file_like.write_end_of_file()
+RuntimeError: [enforce fail at inline_container.cc:664] . unexpected pos 3073508352 vs 3073508244

@@ -1,0 +1,1799 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "T0_teacher": 4.137191742658615,
+  "drift_init_after_surgery": 2.917704254388809,
+  "drift_final": 0.19718113541603088,
+  "drift_best": 0.14177992939949036,
+  "best_step": 4300,
+  "n_replaced_linears": 196,
+  "n_subln_inserted": 56,
+  "n_trainable_params": 146944000,
+  "loss_weights": {
+    "alpha_ce": 1.0,
+    "beta_kl": 1.0,
+    "gamma_hidden": 0.0
+  },
+  "n_train_steps": 5000,
+  "lr": 5e-05,
+  "radii_summary": [
+    {
+      "name": "model.layers.0.self_attn.q_proj",
+      "radius_min": 0.18105986714363098,
+      "radius_max": 3.4026660919189453,
+      "radius_mean": 0.9601722955703735,
+      "radius_std": 0.28975898027420044
+    },
+    {
+      "name": "model.layers.0.self_attn.k_proj",
+      "radius_min": 0.19387540221214294,
+      "radius_max": 3.552215099334717,
+      "radius_mean": 0.9412004947662354,
+      "radius_std": 0.27404269576072693
+    },
+    {
+      "name": "model.layers.0.self_attn.v_proj",
+      "radius_min": 0.47860053181648254,
+      "radius_max": 1.07892644405365,
+      "radius_mean": 0.8467233180999756,
+      "radius_std": 0.0958639457821846
+    },
+    {
+      "name": "model.layers.0.self_attn.o_proj",
+      "radius_min": 0.5908845663070679,
+      "radius_max": 2.903750419616699,
+      "radius_mean": 1.1555507183074951,
+      "radius_std": 0.16893374919891357
+    },
+    {
+      "name": "model.layers.0.mlp.gate_proj",
+      "radius_min": 0.6955541968345642,
+      "radius_max": 2.356853723526001,
+      "radius_mean": 1.143591284751892,
+      "radius_std": 0.2571440041065216
+    },
+    {
+      "name": "model.layers.0.mlp.up_proj",
+      "radius_min": 0.5695262551307678,
+      "radius_max": 1.1404685974121094,
+      "radius_mean": 0.8259960412979126,
+      "radius_std": 0.04746398329734802
+    },
+    {
+      "name": "model.layers.0.mlp.down_proj",
+      "radius_min": 0.7521606683731079,
+      "radius_max": 3.4794821739196777,
+      "radius_mean": 1.4498693943023682,
+      "radius_std": 0.11446035653352737
+    },
+    {
+      "name": "model.layers.1.self_attn.q_proj",
+      "radius_min": 0.11951868236064911,
+      "radius_max": 3.134688377380371,
+      "radius_mean": 0.9233876466751099,
+      "radius_std": 0.33880534768104553
+    },
+    {
+      "name": "model.layers.1.self_attn.k_proj",
+      "radius_min": 0.3068482577800751,
+      "radius_max": 1.9553872346878052,
+      "radius_mean": 0.8872019052505493,
+      "radius_std": 0.267172247171402
+    },
+    {
+      "name": "model.layers.1.self_attn.v_proj",
+      "radius_min": 0.7124881744384766,
+      "radius_max": 1.2427079677581787,
+      "radius_mean": 0.905549943447113,
+      "radius_std": 0.0858001634478569
+    },
+    {
+      "name": "model.layers.1.self_attn.o_proj",
+      "radius_min": 0.6192604899406433,
+      "radius_max": 2.8595874309539795,
+      "radius_mean": 1.2003915309906006,
+      "radius_std": 0.1789657324552536
+    },
+    {
+      "name": "model.layers.1.mlp.gate_proj",
+      "radius_min": 0.30174505710601807,
+      "radius_max": 2.195519208908081,
+      "radius_mean": 1.3719823360443115,
+      "radius_std": 0.28205472230911255
+    },
+    {
+      "name": "model.layers.1.mlp.up_proj",
+      "radius_min": 0.3783668875694275,
+      "radius_max": 1.446801781654358,
+      "radius_mean": 0.7375759482383728,
+      "radius_std": 0.1255386471748352
+    },
+    {
+      "name": "model.layers.1.mlp.down_proj",
+      "radius_min": 0.6262895464897156,
+      "radius_max": 3.334679365158081,
+      "radius_mean": 1.255411148071289,
+      "radius_std": 0.12303529679775238
+    },
+    {
+      "name": "model.layers.2.self_attn.q_proj",
+      "radius_min": 0.1874009072780609,
+      "radius_max": 3.001265287399292,
+      "radius_mean": 0.9009224772453308,
+      "radius_std": 0.3367002308368683
+    },
+    {
+      "name": "model.layers.2.self_attn.k_proj",
+      "radius_min": 0.10087815672159195,
+      "radius_max": 2.2646985054016113,
+      "radius_mean": 0.8508650660514832,
+      "radius_std": 0.28660714626312256
+    },
+    {
+      "name": "model.layers.2.self_attn.v_proj",
+      "radius_min": 0.5361102223396301,
+      "radius_max": 1.302878499031067,
+      "radius_mean": 0.8776416182518005,
+      "radius_std": 0.1639469414949417
+    },
+    {
+      "name": "model.layers.2.self_attn.o_proj",
+      "radius_min": 0.5679466724395752,
+      "radius_max": 3.0542819499969482,
+      "radius_mean": 1.155029058456421,
+      "radius_std": 0.1492028683423996
+    },
+    {
+      "name": "model.layers.2.mlp.gate_proj",
+      "radius_min": 0.42792418599128723,
+      "radius_max": 2.471377372741699,
+      "radius_mean": 1.2383795976638794,
+      "radius_std": 0.2885192334651947
+    },
+    {
+      "name": "model.layers.2.mlp.up_proj",
+      "radius_min": 0.4579414129257202,
+      "radius_max": 2.4975626468658447,
+      "radius_mean": 0.7512161135673523,
+      "radius_std": 0.0962289422750473
+    },
+    {
+      "name": "model.layers.2.mlp.down_proj",
+      "radius_min": 0.6041315197944641,
+      "radius_max": 3.5813632011413574,
+      "radius_mean": 1.3072491884231567,
+      "radius_std": 0.1248648539185524
+    },
+    {
+      "name": "model.layers.3.self_attn.q_proj",
+      "radius_min": 0.2025204300880432,
+      "radius_max": 3.2529759407043457,
+      "radius_mean": 0.9046251773834229,
+      "radius_std": 0.33416640758514404
+    },
+    {
+      "name": "model.layers.3.self_attn.k_proj",
+      "radius_min": 0.1424017995595932,
+      "radius_max": 2.0973405838012695,
+      "radius_mean": 0.8709024786949158,
+      "radius_std": 0.2997812032699585
+    },
+    {
+      "name": "model.layers.3.self_attn.v_proj",
+      "radius_min": 0.6113476157188416,
+      "radius_max": 1.3633651733398438,
+      "radius_mean": 0.9548105001449585,
+      "radius_std": 0.12445136904716492
+    },
+    {
+      "name": "model.layers.3.self_attn.o_proj",
+      "radius_min": 0.4986034035682678,
+      "radius_max": 2.8035194873809814,
+      "radius_mean": 1.2492893934249878,
+      "radius_std": 0.19531100988388062
+    },
+    {
+      "name": "model.layers.3.mlp.gate_proj",
+      "radius_min": 0.39784082770347595,
+      "radius_max": 2.596627950668335,
+      "radius_mean": 1.2491083145141602,
+      "radius_std": 0.25729209184646606
+    },
+    {
+      "name": "model.layers.3.mlp.up_proj",
+      "radius_min": 0.407774418592453,
+      "radius_max": 1.402498722076416,
+      "radius_mean": 0.7815572619438171,
+      "radius_std": 0.09481526911258698
+    },
+    {
+      "name": "model.layers.3.mlp.down_proj",
+      "radius_min": 0.5244152545928955,
+      "radius_max": 2.8726541996002197,
+      "radius_mean": 1.321581244468689,
+      "radius_std": 0.1406722217798233
+    },
+    {
+      "name": "model.layers.4.self_attn.q_proj",
+      "radius_min": 0.2510423958301544,
+      "radius_max": 3.024489402770996,
+      "radius_mean": 0.8967247605323792,
+      "radius_std": 0.28313764929771423
+    },
+    {
+      "name": "model.layers.4.self_attn.k_proj",
+      "radius_min": 0.11790775507688522,
+      "radius_max": 1.8901350498199463,
+      "radius_mean": 0.8616701364517212,
+      "radius_std": 0.26888400316238403
+    },
+    {
+      "name": "model.layers.4.self_attn.v_proj",
+      "radius_min": 0.5360413789749146,
+      "radius_max": 1.1712170839309692,
+      "radius_mean": 0.938305139541626,
+      "radius_std": 0.12412060797214508
+    },
+    {
+      "name": "model.layers.4.self_attn.o_proj",
+      "radius_min": 0.4970955550670624,
+      "radius_max": 2.64509654045105,
+      "radius_mean": 1.2147271633148193,
+      "radius_std": 0.1513928920030594
+    },
+    {
+      "name": "model.layers.4.mlp.gate_proj",
+      "radius_min": 0.3964727520942688,
+      "radius_max": 1.9481980800628662,
+      "radius_mean": 1.1972516775131226,
+      "radius_std": 0.24602842330932617
+    },
+    {
+      "name": "model.layers.4.mlp.up_proj",
+      "radius_min": 0.38886362314224243,
+      "radius_max": 1.3973873853683472,
+      "radius_mean": 0.7908148169517517,
+      "radius_std": 0.09335555136203766
+    },
+    {
+      "name": "model.layers.4.mlp.down_proj",
+      "radius_min": 0.5327933430671692,
+      "radius_max": 3.0602145195007324,
+      "radius_mean": 1.3317475318908691,
+      "radius_std": 0.14255502820014954
+    },
+    {
+      "name": "model.layers.5.self_attn.q_proj",
+      "radius_min": 0.2793075740337372,
+      "radius_max": 3.215308904647827,
+      "radius_mean": 0.9255478382110596,
+      "radius_std": 0.31007668375968933
+    },
+    {
+      "name": "model.layers.5.self_attn.k_proj",
+      "radius_min": 0.30331939458847046,
+      "radius_max": 2.1952364444732666,
+      "radius_mean": 0.8605638146400452,
+      "radius_std": 0.23574961721897125
+    },
+    {
+      "name": "model.layers.5.self_attn.v_proj",
+      "radius_min": 0.6884790062904358,
+      "radius_max": 1.1817246675491333,
+      "radius_mean": 0.8959071040153503,
+      "radius_std": 0.07935736328363419
+    },
+    {
+      "name": "model.layers.5.self_attn.o_proj",
+      "radius_min": 0.5663251876831055,
+      "radius_max": 2.6375110149383545,
+      "radius_mean": 1.2090084552764893,
+      "radius_std": 0.10815467685461044
+    },
+    {
+      "name": "model.layers.5.mlp.gate_proj",
+      "radius_min": 0.4253446161746979,
+      "radius_max": 2.0080270767211914,
+      "radius_mean": 1.0802509784698486,
+      "radius_std": 0.21542641520500183
+    },
+    {
+      "name": "model.layers.5.mlp.up_proj",
+      "radius_min": 0.4718407392501831,
+      "radius_max": 1.3735898733139038,
+      "radius_mean": 0.8348098993301392,
+      "radius_std": 0.08891663700342178
+    },
+    {
+      "name": "model.layers.5.mlp.down_proj",
+      "radius_min": 0.6308326125144958,
+      "radius_max": 3.221391439437866,
+      "radius_mean": 1.4054844379425049,
+      "radius_std": 0.145321786403656
+    },
+    {
+      "name": "model.layers.6.self_attn.q_proj",
+      "radius_min": 0.1647692173719406,
+      "radius_max": 3.9682350158691406,
+      "radius_mean": 0.87294602394104,
+      "radius_std": 0.41170427203178406
+    },
+    {
+      "name": "model.layers.6.self_attn.k_proj",
+      "radius_min": 0.13901053369045258,
+      "radius_max": 2.0457229614257812,
+      "radius_mean": 0.8160516023635864,
+      "radius_std": 0.3365708887577057
+    },
+    {
+      "name": "model.layers.6.self_attn.v_proj",
+      "radius_min": 0.6229820847511292,
+      "radius_max": 1.3652368783950806,
+      "radius_mean": 0.8921680450439453,
+      "radius_std": 0.13017602264881134
+    },
+    {
+      "name": "model.layers.6.self_attn.o_proj",
+      "radius_min": 0.4076916575431824,
+      "radius_max": 2.823960065841675,
+      "radius_mean": 1.1218717098236084,
+      "radius_std": 0.17175227403640747
+    },
+    {
+      "name": "model.layers.6.mlp.gate_proj",
+      "radius_min": 0.4131023585796356,
+      "radius_max": 2.049177885055542,
+      "radius_mean": 1.0506649017333984,
+      "radius_std": 0.21079692244529724
+    },
+    {
+      "name": "model.layers.6.mlp.up_proj",
+      "radius_min": 0.45880284905433655,
+      "radius_max": 1.5392612218856812,
+      "radius_mean": 0.8325810432434082,
+      "radius_std": 0.09574244171380997
+    },
+    {
+      "name": "model.layers.6.mlp.down_proj",
+      "radius_min": 0.567374587059021,
+      "radius_max": 3.3250043392181396,
+      "radius_mean": 1.3817309141159058,
+      "radius_std": 0.18324099481105804
+    },
+    {
+      "name": "model.layers.7.self_attn.q_proj",
+      "radius_min": 0.29166024923324585,
+      "radius_max": 3.30876088142395,
+      "radius_mean": 0.8778157234191895,
+      "radius_std": 0.276045024394989
+    },
+    {
+      "name": "model.layers.7.self_attn.k_proj",
+      "radius_min": 0.11967036873102188,
+      "radius_max": 1.8181791305541992,
+      "radius_mean": 0.812005877494812,
+      "radius_std": 0.2179052233695984
+    },
+    {
+      "name": "model.layers.7.self_attn.v_proj",
+      "radius_min": 0.626242995262146,
+      "radius_max": 1.2020940780639648,
+      "radius_mean": 0.8830714225769043,
+      "radius_std": 0.07326378673315048
+    },
+    {
+      "name": "model.layers.7.self_attn.o_proj",
+      "radius_min": 0.3540170192718506,
+      "radius_max": 2.6338727474212646,
+      "radius_mean": 1.1292917728424072,
+      "radius_std": 0.1886129528284073
+    },
+    {
+      "name": "model.layers.7.mlp.gate_proj",
+      "radius_min": 0.24296613037586212,
+      "radius_max": 2.3238396644592285,
+      "radius_mean": 1.051612138748169,
+      "radius_std": 0.2363896667957306
+    },
+    {
+      "name": "model.layers.7.mlp.up_proj",
+      "radius_min": 0.43510639667510986,
+      "radius_max": 1.6678372621536255,
+      "radius_mean": 0.8246463537216187,
+      "radius_std": 0.11199354380369186
+    },
+    {
+      "name": "model.layers.7.mlp.down_proj",
+      "radius_min": 0.47761568427085876,
+      "radius_max": 3.8413426876068115,
+      "radius_mean": 1.351133108139038,
+      "radius_std": 0.214949369430542
+    },
+    {
+      "name": "model.layers.8.self_attn.q_proj",
+      "radius_min": 0.18822026252746582,
+      "radius_max": 2.747154712677002,
+      "radius_mean": 0.8846880197525024,
+      "radius_std": 0.36992454528808594
+    },
+    {
+      "name": "model.layers.8.self_attn.k_proj",
+      "radius_min": 0.2810512185096741,
+      "radius_max": 4.23886251449585,
+      "radius_mean": 0.8117722272872925,
+      "radius_std": 0.2914353013038635
+    },
+    {
+      "name": "model.layers.8.self_attn.v_proj",
+      "radius_min": 0.7711674571037292,
+      "radius_max": 1.289570927619934,
+      "radius_mean": 0.8813488483428955,
+      "radius_std": 0.07183778285980225
+    },
+    {
+      "name": "model.layers.8.self_attn.o_proj",
+      "radius_min": 0.3278982639312744,
+      "radius_max": 3.2062830924987793,
+      "radius_mean": 1.1014128923416138,
+      "radius_std": 0.2046496570110321
+    },
+    {
+      "name": "model.layers.8.mlp.gate_proj",
+      "radius_min": 0.3545790910720825,
+      "radius_max": 2.2464325428009033,
+      "radius_mean": 1.025144338607788,
+      "radius_std": 0.24342337250709534
+    },
+    {
+      "name": "model.layers.8.mlp.up_proj",
+      "radius_min": 0.5005826950073242,
+      "radius_max": 1.4422332048416138,
+      "radius_mean": 0.8263771533966064,
+      "radius_std": 0.10151997208595276
+    },
+    {
+      "name": "model.layers.8.mlp.down_proj",
+      "radius_min": 0.4530382454395294,
+      "radius_max": 3.8643882274627686,
+      "radius_mean": 1.3684338331222534,
+      "radius_std": 0.22861500084400177
+    },
+    {
+      "name": "model.layers.9.self_attn.q_proj",
+      "radius_min": 0.21860648691654205,
+      "radius_max": 3.300826072692871,
+      "radius_mean": 0.8854104280471802,
+      "radius_std": 0.3634184002876282
+    },
+    {
+      "name": "model.layers.9.self_attn.k_proj",
+      "radius_min": 0.13151705265045166,
+      "radius_max": 1.933447241783142,
+      "radius_mean": 0.8154035210609436,
+      "radius_std": 0.2478015273809433
+    },
+    {
+      "name": "model.layers.9.self_attn.v_proj",
+      "radius_min": 0.5942241549491882,
+      "radius_max": 1.2375999689102173,
+      "radius_mean": 0.8533453941345215,
+      "radius_std": 0.13916119933128357
+    },
+    {
+      "name": "model.layers.9.self_attn.o_proj",
+      "radius_min": 0.4501959979534149,
+      "radius_max": 3.102583408355713,
+      "radius_mean": 1.1206234693527222,
+      "radius_std": 0.18487973511219025
+    },
+    {
+      "name": "model.layers.9.mlp.gate_proj",
+      "radius_min": 0.2997952699661255,
+      "radius_max": 2.0736536979675293,
+      "radius_mean": 1.0420905351638794,
+      "radius_std": 0.2847573161125183
+    },
+    {
+      "name": "model.layers.9.mlp.up_proj",
+      "radius_min": 0.43007031083106995,
+      "radius_max": 1.5675238370895386,
+      "radius_mean": 0.8376913070678711,
+      "radius_std": 0.12061546742916107
+    },
+    {
+      "name": "model.layers.9.mlp.down_proj",
+      "radius_min": 0.5884634852409363,
+      "radius_max": 3.554198980331421,
+      "radius_mean": 1.3347008228302002,
+      "radius_std": 0.22117455303668976
+    },
+    {
+      "name": "model.layers.10.self_attn.q_proj",
+      "radius_min": 0.28088730573654175,
+      "radius_max": 2.805145025253296,
+      "radius_mean": 0.8868693113327026,
+      "radius_std": 0.26800480484962463
+    },
+    {
+      "name": "model.layers.10.self_attn.k_proj",
+      "radius_min": 0.14195123314857483,
+      "radius_max": 2.6199145317077637,
+      "radius_mean": 0.8332308530807495,
+      "radius_std": 0.223286971449852
+    },
+    {
+      "name": "model.layers.10.self_attn.v_proj",
+      "radius_min": 0.6787607073783875,
+      "radius_max": 1.244431734085083,
+      "radius_mean": 0.8597174286842346,
+      "radius_std": 0.08155669271945953
+    },
+    {
+      "name": "model.layers.10.self_attn.o_proj",
+      "radius_min": 0.40425583720207214,
+      "radius_max": 2.7149641513824463,
+      "radius_mean": 1.0933418273925781,
+      "radius_std": 0.2071831226348877
+    },
+    {
+      "name": "model.layers.10.mlp.gate_proj",
+      "radius_min": 0.3266441822052002,
+      "radius_max": 2.135145664215088,
+      "radius_mean": 1.0232380628585815,
+      "radius_std": 0.3255133330821991
+    },
+    {
+      "name": "model.layers.10.mlp.up_proj",
+      "radius_min": 0.42218098044395447,
+      "radius_max": 1.3029433488845825,
+      "radius_mean": 0.8278272151947021,
+      "radius_std": 0.12437786906957626
+    },
+    {
+      "name": "model.layers.10.mlp.down_proj",
+      "radius_min": 0.5777640342712402,
+      "radius_max": 3.424450635910034,
+      "radius_mean": 1.2945547103881836,
+      "radius_std": 0.19965222477912903
+    },
+    {
+      "name": "model.layers.11.self_attn.q_proj",
+      "radius_min": 0.1875084638595581,
+      "radius_max": 3.5398128032684326,
+      "radius_mean": 0.8961861729621887,
+      "radius_std": 0.4451684355735779
+    },
+    {
+      "name": "model.layers.11.self_attn.k_proj",
+      "radius_min": 0.19808149337768555,
+      "radius_max": 1.6538499593734741,
+      "radius_mean": 0.8019905090332031,
+      "radius_std": 0.2869848310947418
+    },
+    {
+      "name": "model.layers.11.self_attn.v_proj",
+      "radius_min": 0.4675023555755615,
+      "radius_max": 1.2031441926956177,
+      "radius_mean": 0.8114818334579468,
+      "radius_std": 0.13003307580947876
+    },
+    {
+      "name": "model.layers.11.self_attn.o_proj",
+      "radius_min": 0.3988320827484131,
+      "radius_max": 2.75993275642395,
+      "radius_mean": 1.0404608249664307,
+      "radius_std": 0.1691158413887024
+    },
+    {
+      "name": "model.layers.11.mlp.gate_proj",
+      "radius_min": 0.3534841537475586,
+      "radius_max": 2.1131837368011475,
+      "radius_mean": 0.9583829641342163,
+      "radius_std": 0.2638172209262848
+    },
+    {
+      "name": "model.layers.11.mlp.up_proj",
+      "radius_min": 0.4491523504257202,
+      "radius_max": 1.477640986442566,
+      "radius_mean": 0.852439284324646,
+      "radius_std": 0.13498669862747192
+    },
+    {
+      "name": "model.layers.11.mlp.down_proj",
+      "radius_min": 0.5837357044219971,
+      "radius_max": 4.1753764152526855,
+      "radius_mean": 1.3714532852172852,
+      "radius_std": 0.22345153987407684
+    },
+    {
+      "name": "model.layers.12.self_attn.q_proj",
+      "radius_min": 0.22204537689685822,
+      "radius_max": 3.0871999263763428,
+      "radius_mean": 0.8905707597732544,
+      "radius_std": 0.37970098853111267
+    },
+    {
+      "name": "model.layers.12.self_attn.k_proj",
+      "radius_min": 0.2850213944911957,
+      "radius_max": 1.6164100170135498,
+      "radius_mean": 0.7842311859130859,
+      "radius_std": 0.24546559154987335
+    },
+    {
+      "name": "model.layers.12.self_attn.v_proj",
+      "radius_min": 0.5722542405128479,
+      "radius_max": 1.2223944664001465,
+      "radius_mean": 0.8381843566894531,
+      "radius_std": 0.09077415615320206
+    },
+    {
+      "name": "model.layers.12.self_attn.o_proj",
+      "radius_min": 0.3310724198818207,
+      "radius_max": 2.6236867904663086,
+      "radius_mean": 1.0290956497192383,
+      "radius_std": 0.22076091170310974
+    },
+    {
+      "name": "model.layers.12.mlp.gate_proj",
+      "radius_min": 0.37665557861328125,
+      "radius_max": 2.0329885482788086,
+      "radius_mean": 0.9187130928039551,
+      "radius_std": 0.24448727071285248
+    },
+    {
+      "name": "model.layers.12.mlp.up_proj",
+      "radius_min": 0.5435601472854614,
+      "radius_max": 1.411668300628662,
+      "radius_mean": 0.8417169451713562,
+      "radius_std": 0.12934628129005432
+    },
+    {
+      "name": "model.layers.12.mlp.down_proj",
+      "radius_min": 0.5367169380187988,
+      "radius_max": 4.332283020019531,
+      "radius_mean": 1.3635045289993286,
+      "radius_std": 0.23658038675785065
+    },
+    {
+      "name": "model.layers.13.self_attn.q_proj",
+      "radius_min": 0.2090611308813095,
+      "radius_max": 2.9741599559783936,
+      "radius_mean": 0.8481483459472656,
+      "radius_std": 0.3858882486820221
+    },
+    {
+      "name": "model.layers.13.self_attn.k_proj",
+      "radius_min": 0.12084105610847473,
+      "radius_max": 1.5134950876235962,
+      "radius_mean": 0.7410407662391663,
+      "radius_std": 0.23287977278232574
+    },
+    {
+      "name": "model.layers.13.self_attn.v_proj",
+      "radius_min": 0.6066223978996277,
+      "radius_max": 1.243673324584961,
+      "radius_mean": 0.8362884521484375,
+      "radius_std": 0.09116686880588531
+    },
+    {
+      "name": "model.layers.13.self_attn.o_proj",
+      "radius_min": 0.2907704710960388,
+      "radius_max": 2.7047653198242188,
+      "radius_mean": 0.9947629570960999,
+      "radius_std": 0.22441193461418152
+    },
+    {
+      "name": "model.layers.13.mlp.gate_proj",
+      "radius_min": 0.4283987283706665,
+      "radius_max": 2.1000325679779053,
+      "radius_mean": 0.8792551755905151,
+      "radius_std": 0.24470317363739014
+    },
+    {
+      "name": "model.layers.13.mlp.up_proj",
+      "radius_min": 0.5156378746032715,
+      "radius_max": 1.363232135772705,
+      "radius_mean": 0.8068973422050476,
+      "radius_std": 0.12749361991882324
+    },
+    {
+      "name": "model.layers.13.mlp.down_proj",
+      "radius_min": 0.48674458265304565,
+      "radius_max": 4.116669654846191,
+      "radius_mean": 1.3101388216018677,
+      "radius_std": 0.2337118536233902
+    },
+    {
+      "name": "model.layers.14.self_attn.q_proj",
+      "radius_min": 0.12321613729000092,
+      "radius_max": 2.7259156703948975,
+      "radius_mean": 0.8410203456878662,
+      "radius_std": 0.3577875792980194
+    },
+    {
+      "name": "model.layers.14.self_attn.k_proj",
+      "radius_min": 0.06690733879804611,
+      "radius_max": 1.7655869722366333,
+      "radius_mean": 0.7310751676559448,
+      "radius_std": 0.2534589469432831
+    },
+    {
+      "name": "model.layers.14.self_attn.v_proj",
+      "radius_min": 0.6284427046775818,
+      "radius_max": 1.0319901704788208,
+      "radius_mean": 0.7905763983726501,
+      "radius_std": 0.08208253234624863
+    },
+    {
+      "name": "model.layers.14.self_attn.o_proj",
+      "radius_min": 0.2886984944343567,
+      "radius_max": 2.656498670578003,
+      "radius_mean": 0.9710358381271362,
+      "radius_std": 0.20419226586818695
+    },
+    {
+      "name": "model.layers.14.mlp.gate_proj",
+      "radius_min": 0.2758028209209442,
+      "radius_max": 1.9680182933807373,
+      "radius_mean": 0.840009868144989,
+      "radius_std": 0.23581792414188385
+    },
+    {
+      "name": "model.layers.14.mlp.up_proj",
+      "radius_min": 0.46577131748199463,
+      "radius_max": 1.449474811553955,
+      "radius_mean": 0.7790249586105347,
+      "radius_std": 0.11921811103820801
+    },
+    {
+      "name": "model.layers.14.mlp.down_proj",
+      "radius_min": 0.48377618193626404,
+      "radius_max": 3.7782578468322754,
+      "radius_mean": 1.2893080711364746,
+      "radius_std": 0.22329264879226685
+    },
+    {
+      "name": "model.layers.15.self_attn.q_proj",
+      "radius_min": 0.06383407115936279,
+      "radius_max": 2.6974802017211914,
+      "radius_mean": 0.8498275279998779,
+      "radius_std": 0.38242247700691223
+    },
+    {
+      "name": "model.layers.15.self_attn.k_proj",
+      "radius_min": 0.2737562656402588,
+      "radius_max": 1.3884835243225098,
+      "radius_mean": 0.7003745436668396,
+      "radius_std": 0.2072359323501587
+    },
+    {
+      "name": "model.layers.15.self_attn.v_proj",
+      "radius_min": 0.6386684775352478,
+      "radius_max": 1.2142512798309326,
+      "radius_mean": 0.8223821520805359,
+      "radius_std": 0.09062062203884125
+    },
+    {
+      "name": "model.layers.15.self_attn.o_proj",
+      "radius_min": 0.2867903709411621,
+      "radius_max": 2.3686225414276123,
+      "radius_mean": 1.0215339660644531,
+      "radius_std": 0.21450351178646088
+    },
+    {
+      "name": "model.layers.15.mlp.gate_proj",
+      "radius_min": 0.3342891037464142,
+      "radius_max": 2.3496148586273193,
+      "radius_mean": 0.8390772342681885,
+      "radius_std": 0.25408416986465454
+    },
+    {
+      "name": "model.layers.15.mlp.up_proj",
+      "radius_min": 0.3461337089538574,
+      "radius_max": 1.353700876235962,
+      "radius_mean": 0.7937132716178894,
+      "radius_std": 0.12885203957557678
+    },
+    {
+      "name": "model.layers.15.mlp.down_proj",
+      "radius_min": 0.4434114396572113,
+      "radius_max": 3.37471342086792,
+      "radius_mean": 1.287928581237793,
+      "radius_std": 0.2211574763059616
+    },
+    {
+      "name": "model.layers.16.self_attn.q_proj",
+      "radius_min": 0.1317412406206131,
+      "radius_max": 3.0100595951080322,
+      "radius_mean": 0.8795732259750366,
+      "radius_std": 0.49633675813674927
+    },
+    {
+      "name": "model.layers.16.self_attn.k_proj",
+      "radius_min": 0.1201179027557373,
+      "radius_max": 2.670834541320801,
+      "radius_mean": 0.7049506902694702,
+      "radius_std": 0.286816269159317
+    },
+    {
+      "name": "model.layers.16.self_attn.v_proj",
+      "radius_min": 0.49894019961357117,
+      "radius_max": 1.2111376523971558,
+      "radius_mean": 0.8148254156112671,
+      "radius_std": 0.10888054966926575
+    },
+    {
+      "name": "model.layers.16.self_attn.o_proj",
+      "radius_min": 0.2789819836616516,
+      "radius_max": 2.403873920440674,
+      "radius_mean": 1.012920618057251,
+      "radius_std": 0.21483562886714935
+    },
+    {
+      "name": "model.layers.16.mlp.gate_proj",
+      "radius_min": 0.3302631378173828,
+      "radius_max": 1.9239593744277954,
+      "radius_mean": 0.8338927030563354,
+      "radius_std": 0.242976114153862
+    },
+    {
+      "name": "model.layers.16.mlp.up_proj",
+      "radius_min": 0.45748671889305115,
+      "radius_max": 1.3910363912582397,
+      "radius_mean": 0.8218774795532227,
+      "radius_std": 0.12070180475711823
+    },
+    {
+      "name": "model.layers.16.mlp.down_proj",
+      "radius_min": 0.7400339841842651,
+      "radius_max": 3.6952507495880127,
+      "radius_mean": 1.3168818950653076,
+      "radius_std": 0.107709139585495
+    },
+    {
+      "name": "model.layers.17.self_attn.q_proj",
+      "radius_min": 0.12676182389259338,
+      "radius_max": 2.807185173034668,
+      "radius_mean": 0.8640174865722656,
+      "radius_std": 0.3977207541465759
+    },
+    {
+      "name": "model.layers.17.self_attn.k_proj",
+      "radius_min": 0.3432130813598633,
+      "radius_max": 1.3493844270706177,
+      "radius_mean": 0.7162925004959106,
+      "radius_std": 0.20103232562541962
+    },
+    {
+      "name": "model.layers.17.self_attn.v_proj",
+      "radius_min": 0.5587145090103149,
+      "radius_max": 1.1684726476669312,
+      "radius_mean": 0.8428851366043091,
+      "radius_std": 0.11913788318634033
+    },
+    {
+      "name": "model.layers.17.self_attn.o_proj",
+      "radius_min": 0.4519481658935547,
+      "radius_max": 2.0349762439727783,
+      "radius_mean": 1.0218900442123413,
+      "radius_std": 0.1879369020462036
+    },
+    {
+      "name": "model.layers.17.mlp.gate_proj",
+      "radius_min": 0.32535797357559204,
+      "radius_max": 1.973836898803711,
+      "radius_mean": 0.840418815612793,
+      "radius_std": 0.23210453987121582
+    },
+    {
+      "name": "model.layers.17.mlp.up_proj",
+      "radius_min": 0.45844557881355286,
+      "radius_max": 1.5764249563217163,
+      "radius_mean": 0.8481234312057495,
+      "radius_std": 0.13761219382286072
+    },
+    {
+      "name": "model.layers.17.mlp.down_proj",
+      "radius_min": 0.6611939072608948,
+      "radius_max": 3.123731851577759,
+      "radius_mean": 1.3208801746368408,
+      "radius_std": 0.1602516770362854
+    },
+    {
+      "name": "model.layers.18.self_attn.q_proj",
+      "radius_min": 0.14724493026733398,
+      "radius_max": 3.105232000350952,
+      "radius_mean": 0.8581222295761108,
+      "radius_std": 0.45132291316986084
+    },
+    {
+      "name": "model.layers.18.self_attn.k_proj",
+      "radius_min": 0.10143189877271652,
+      "radius_max": 1.502844214439392,
+      "radius_mean": 0.6891078948974609,
+      "radius_std": 0.2322482317686081
+    },
+    {
+      "name": "model.layers.18.self_attn.v_proj",
+      "radius_min": 0.6767250299453735,
+      "radius_max": 1.1049021482467651,
+      "radius_mean": 0.8111522197723389,
+      "radius_std": 0.05669168010354042
+    },
+    {
+      "name": "model.layers.18.self_attn.o_proj",
+      "radius_min": 0.4234735369682312,
+      "radius_max": 2.2041454315185547,
+      "radius_mean": 0.9831976294517517,
+      "radius_std": 0.17328962683677673
+    },
+    {
+      "name": "model.layers.18.mlp.gate_proj",
+      "radius_min": 0.3243847191333771,
+      "radius_max": 1.853394627571106,
+      "radius_mean": 0.8401632308959961,
+      "radius_std": 0.23171651363372803
+    },
+    {
+      "name": "model.layers.18.mlp.up_proj",
+      "radius_min": 0.432384192943573,
+      "radius_max": 1.8710033893585205,
+      "radius_mean": 0.8563851118087769,
+      "radius_std": 0.14089319109916687
+    },
+    {
+      "name": "model.layers.18.mlp.down_proj",
+      "radius_min": 0.7395064234733582,
+      "radius_max": 3.1378374099731445,
+      "radius_mean": 1.3772602081298828,
+      "radius_std": 0.16999158263206482
+    },
+    {
+      "name": "model.layers.19.self_attn.q_proj",
+      "radius_min": 0.0937073826789856,
+      "radius_max": 3.0116968154907227,
+      "radius_mean": 0.8744233846664429,
+      "radius_std": 0.5149562954902649
+    },
+    {
+      "name": "model.layers.19.self_attn.k_proj",
+      "radius_min": 0.06155308336019516,
+      "radius_max": 1.6942453384399414,
+      "radius_mean": 0.6989467740058899,
+      "radius_std": 0.22252140939235687
+    },
+    {
+      "name": "model.layers.19.self_attn.v_proj",
+      "radius_min": 0.5221254825592041,
+      "radius_max": 1.128055453300476,
+      "radius_mean": 0.8219666481018066,
+      "radius_std": 0.08691325038671494
+    },
+    {
+      "name": "model.layers.19.self_attn.o_proj",
+      "radius_min": 0.4228540062904358,
+      "radius_max": 2.0442817211151123,
+      "radius_mean": 1.0372562408447266,
+      "radius_std": 0.1737077683210373
+    },
+    {
+      "name": "model.layers.19.mlp.gate_proj",
+      "radius_min": 0.3175000548362732,
+      "radius_max": 3.479722261428833,
+      "radius_mean": 0.8255674839019775,
+      "radius_std": 0.23191602528095245
+    },
+    {
+      "name": "model.layers.19.mlp.up_proj",
+      "radius_min": 0.47107669711112976,
+      "radius_max": 3.8870928287506104,
+      "radius_mean": 0.8948018550872803,
+      "radius_std": 0.1565980464220047
+    },
+    {
+      "name": "model.layers.19.mlp.down_proj",
+      "radius_min": 0.7557134628295898,
+      "radius_max": 3.440426826477051,
+      "radius_mean": 1.4573981761932373,
+      "radius_std": 0.17794302105903625
+    },
+    {
+      "name": "model.layers.20.self_attn.q_proj",
+      "radius_min": 0.14230205118656158,
+      "radius_max": 3.2896156311035156,
+      "radius_mean": 0.9274457097053528,
+      "radius_std": 0.5225578546524048
+    },
+    {
+      "name": "model.layers.20.self_attn.k_proj",
+      "radius_min": 0.1777973771095276,
+      "radius_max": 1.6777626276016235,
+      "radius_mean": 0.7614306211471558,
+      "radius_std": 0.22143806517124176
+    },
+    {
+      "name": "model.layers.20.self_attn.v_proj",
+      "radius_min": 0.5742388367652893,
+      "radius_max": 1.2515939474105835,
+      "radius_mean": 0.8580383062362671,
+      "radius_std": 0.11141877621412277
+    },
+    {
+      "name": "model.layers.20.self_attn.o_proj",
+      "radius_min": 0.5123844146728516,
+      "radius_max": 2.406536340713501,
+      "radius_mean": 1.09523606300354,
+      "radius_std": 0.179571732878685
+    },
+    {
+      "name": "model.layers.20.mlp.gate_proj",
+      "radius_min": 0.405243456363678,
+      "radius_max": 2.0437369346618652,
+      "radius_mean": 0.8542946577072144,
+      "radius_std": 0.20291002094745636
+    },
+    {
+      "name": "model.layers.20.mlp.up_proj",
+      "radius_min": 0.5104470252990723,
+      "radius_max": 1.6462938785552979,
+      "radius_mean": 0.9450441598892212,
+      "radius_std": 0.14877448976039886
+    },
+    {
+      "name": "model.layers.20.mlp.down_proj",
+      "radius_min": 0.5612136125564575,
+      "radius_max": 3.3914802074432373,
+      "radius_mean": 1.5412523746490479,
+      "radius_std": 0.22728754580020905
+    },
+    {
+      "name": "model.layers.21.self_attn.q_proj",
+      "radius_min": 0.12337478250265121,
+      "radius_max": 3.1502320766448975,
+      "radius_mean": 0.9557487368583679,
+      "radius_std": 0.5082024335861206
+    },
+    {
+      "name": "model.layers.21.self_attn.k_proj",
+      "radius_min": 0.050629980862140656,
+      "radius_max": 1.903401255607605,
+      "radius_mean": 0.7574101686477661,
+      "radius_std": 0.28964799642562866
+    },
+    {
+      "name": "model.layers.21.self_attn.v_proj",
+      "radius_min": 0.5555310249328613,
+      "radius_max": 1.7999621629714966,
+      "radius_mean": 0.899080753326416,
+      "radius_std": 0.20422261953353882
+    },
+    {
+      "name": "model.layers.21.self_attn.o_proj",
+      "radius_min": 0.505545437335968,
+      "radius_max": 2.526711940765381,
+      "radius_mean": 1.15460205078125,
+      "radius_std": 0.20399482548236847
+    },
+    {
+      "name": "model.layers.21.mlp.gate_proj",
+      "radius_min": 0.47024473547935486,
+      "radius_max": 2.035459518432617,
+      "radius_mean": 0.8767639398574829,
+      "radius_std": 0.1903114765882492
+    },
+    {
+      "name": "model.layers.21.mlp.up_proj",
+      "radius_min": 0.5098470449447632,
+      "radius_max": 1.6721019744873047,
+      "radius_mean": 1.010348916053772,
+      "radius_std": 0.15360568463802338
+    },
+    {
+      "name": "model.layers.21.mlp.down_proj",
+      "radius_min": 0.5449270606040955,
+      "radius_max": 3.320326328277588,
+      "radius_mean": 1.6489008665084839,
+      "radius_std": 0.2879173159599304
+    },
+    {
+      "name": "model.layers.22.self_attn.q_proj",
+      "radius_min": 0.10362518578767776,
+      "radius_max": 2.787696599960327,
+      "radius_mean": 0.9508893489837646,
+      "radius_std": 0.4812239110469818
+    },
+    {
+      "name": "model.layers.22.self_attn.k_proj",
+      "radius_min": 0.0762672945857048,
+      "radius_max": 1.6594899892807007,
+      "radius_mean": 0.7849777936935425,
+      "radius_std": 0.2710570693016052
+    },
+    {
+      "name": "model.layers.22.self_attn.v_proj",
+      "radius_min": 0.620169997215271,
+      "radius_max": 1.204287052154541,
+      "radius_mean": 0.9155089259147644,
+      "radius_std": 0.11580197513103485
+    },
+    {
+      "name": "model.layers.22.self_attn.o_proj",
+      "radius_min": 0.4832318127155304,
+      "radius_max": 2.6071927547454834,
+      "radius_mean": 1.1639999151229858,
+      "radius_std": 0.1790609359741211
+    },
+    {
+      "name": "model.layers.22.mlp.gate_proj",
+      "radius_min": 0.4797843098640442,
+      "radius_max": 2.151414155960083,
+      "radius_mean": 0.9086577296257019,
+      "radius_std": 0.17176023125648499
+    },
+    {
+      "name": "model.layers.22.mlp.up_proj",
+      "radius_min": 0.4106866121292114,
+      "radius_max": 1.5937540531158447,
+      "radius_mean": 1.0550470352172852,
+      "radius_std": 0.1364128738641739
+    },
+    {
+      "name": "model.layers.22.mlp.down_proj",
+      "radius_min": 0.44982078671455383,
+      "radius_max": 3.377746820449829,
+      "radius_mean": 1.7327094078063965,
+      "radius_std": 0.3449232280254364
+    },
+    {
+      "name": "model.layers.23.self_attn.q_proj",
+      "radius_min": 0.2287404090166092,
+      "radius_max": 3.3058359622955322,
+      "radius_mean": 0.902054488658905,
+      "radius_std": 0.3572077453136444
+    },
+    {
+      "name": "model.layers.23.self_attn.k_proj",
+      "radius_min": 0.2229701727628708,
+      "radius_max": 1.4608525037765503,
+      "radius_mean": 0.7795059680938721,
+      "radius_std": 0.20905594527721405
+    },
+    {
+      "name": "model.layers.23.self_attn.v_proj",
+      "radius_min": 0.5168284177780151,
+      "radius_max": 1.1613924503326416,
+      "radius_mean": 0.8928028345108032,
+      "radius_std": 0.1084364727139473
+    },
+    {
+      "name": "model.layers.23.self_attn.o_proj",
+      "radius_min": 0.47233524918556213,
+      "radius_max": 2.5601696968078613,
+      "radius_mean": 1.173497200012207,
+      "radius_std": 0.1721758395433426
+    },
+    {
+      "name": "model.layers.23.mlp.gate_proj",
+      "radius_min": 0.5473446249961853,
+      "radius_max": 1.9922466278076172,
+      "radius_mean": 0.9307357668876648,
+      "radius_std": 0.15202634036540985
+    },
+    {
+      "name": "model.layers.23.mlp.up_proj",
+      "radius_min": 0.46340906620025635,
+      "radius_max": 1.6654386520385742,
+      "radius_mean": 1.0796083211898804,
+      "radius_std": 0.1255427747964859
+    },
+    {
+      "name": "model.layers.23.mlp.down_proj",
+      "radius_min": 0.411516010761261,
+      "radius_max": 3.130624771118164,
+      "radius_mean": 1.7815649509429932,
+      "radius_std": 0.37212440371513367
+    },
+    {
+      "name": "model.layers.24.self_attn.q_proj",
+      "radius_min": 0.17576849460601807,
+      "radius_max": 3.1728923320770264,
+      "radius_mean": 0.9411035180091858,
+      "radius_std": 0.4565020799636841
+    },
+    {
+      "name": "model.layers.24.self_attn.k_proj",
+      "radius_min": 0.18127693235874176,
+      "radius_max": 1.5294175148010254,
+      "radius_mean": 0.7673848867416382,
+      "radius_std": 0.2597617506980896
+    },
+    {
+      "name": "model.layers.24.self_attn.v_proj",
+      "radius_min": 0.4378858506679535,
+      "radius_max": 1.3287379741668701,
+      "radius_mean": 0.8870627880096436,
+      "radius_std": 0.0950566828250885
+    },
+    {
+      "name": "model.layers.24.self_attn.o_proj",
+      "radius_min": 0.33832818269729614,
+      "radius_max": 2.677154302597046,
+      "radius_mean": 1.1761528253555298,
+      "radius_std": 0.21686209738254547
+    },
+    {
+      "name": "model.layers.24.mlp.gate_proj",
+      "radius_min": 0.5547412633895874,
+      "radius_max": 2.112337350845337,
+      "radius_mean": 0.9200155138969421,
+      "radius_std": 0.13558416068553925
+    },
+    {
+      "name": "model.layers.24.mlp.up_proj",
+      "radius_min": 0.3959193527698517,
+      "radius_max": 1.8078116178512573,
+      "radius_mean": 1.0945649147033691,
+      "radius_std": 0.11876960843801498
+    },
+    {
+      "name": "model.layers.24.mlp.down_proj",
+      "radius_min": 0.4388924539089203,
+      "radius_max": 2.9045820236206055,
+      "radius_mean": 1.8097888231277466,
+      "radius_std": 0.3595370650291443
+    },
+    {
+      "name": "model.layers.25.self_attn.q_proj",
+      "radius_min": 0.12084025889635086,
+      "radius_max": 2.850388288497925,
+      "radius_mean": 0.9383814334869385,
+      "radius_std": 0.48965930938720703
+    },
+    {
+      "name": "model.layers.25.self_attn.k_proj",
+      "radius_min": 0.15109987556934357,
+      "radius_max": 1.4123824834823608,
+      "radius_mean": 0.7219163775444031,
+      "radius_std": 0.23470129072666168
+    },
+    {
+      "name": "model.layers.25.self_attn.v_proj",
+      "radius_min": 0.7290877103805542,
+      "radius_max": 1.3115291595458984,
+      "radius_mean": 0.9801933169364929,
+      "radius_std": 0.0865543931722641
+    },
+    {
+      "name": "model.layers.25.self_attn.o_proj",
+      "radius_min": 0.2982233166694641,
+      "radius_max": 2.467005968093872,
+      "radius_mean": 1.2438408136367798,
+      "radius_std": 0.19238238036632538
+    },
+    {
+      "name": "model.layers.25.mlp.gate_proj",
+      "radius_min": 0.5502463579177856,
+      "radius_max": 2.3985605239868164,
+      "radius_mean": 0.8969022035598755,
+      "radius_std": 0.13446348905563354
+    },
+    {
+      "name": "model.layers.25.mlp.up_proj",
+      "radius_min": 0.46214720606803894,
+      "radius_max": 2.027409553527832,
+      "radius_mean": 1.1000795364379883,
+      "radius_std": 0.12466064095497131
+    },
+    {
+      "name": "model.layers.25.mlp.down_proj",
+      "radius_min": 0.5605366826057434,
+      "radius_max": 2.5396125316619873,
+      "radius_mean": 1.8130059242248535,
+      "radius_std": 0.2819211781024933
+    },
+    {
+      "name": "model.layers.26.self_attn.q_proj",
+      "radius_min": 0.08962690085172653,
+      "radius_max": 2.623138189315796,
+      "radius_mean": 1.0065395832061768,
+      "radius_std": 0.5455905199050903
+    },
+    {
+      "name": "model.layers.26.self_attn.k_proj",
+      "radius_min": 0.08771117031574249,
+      "radius_max": 1.4716371297836304,
+      "radius_mean": 0.711129903793335,
+      "radius_std": 0.226889967918396
+    },
+    {
+      "name": "model.layers.26.self_attn.v_proj",
+      "radius_min": 0.5406507253646851,
+      "radius_max": 1.175687313079834,
+      "radius_mean": 0.940398097038269,
+      "radius_std": 0.1010325476527214
+    },
+    {
+      "name": "model.layers.26.self_attn.o_proj",
+      "radius_min": 0.29578647017478943,
+      "radius_max": 2.7952382564544678,
+      "radius_mean": 1.2219252586364746,
+      "radius_std": 0.23567816615104675
+    },
+    {
+      "name": "model.layers.26.mlp.gate_proj",
+      "radius_min": 0.5151335000991821,
+      "radius_max": 5.585793495178223,
+      "radius_mean": 0.8782944083213806,
+      "radius_std": 0.17378827929496765
+    },
+    {
+      "name": "model.layers.26.mlp.up_proj",
+      "radius_min": 0.3552144467830658,
+      "radius_max": 6.026073932647705,
+      "radius_mean": 1.0812795162200928,
+      "radius_std": 0.1648818403482437
+    },
+    {
+      "name": "model.layers.26.mlp.down_proj",
+      "radius_min": 0.3926321864128113,
+      "radius_max": 2.9710350036621094,
+      "radius_mean": 1.7449299097061157,
+      "radius_std": 0.21324414014816284
+    },
+    {
+      "name": "model.layers.27.self_attn.q_proj",
+      "radius_min": 0.38172587752342224,
+      "radius_max": 2.770028829574585,
+      "radius_mean": 0.9366576671600342,
+      "radius_std": 0.29571375250816345
+    },
+    {
+      "name": "model.layers.27.self_attn.k_proj",
+      "radius_min": 0.27476322650909424,
+      "radius_max": 1.7548799514770508,
+      "radius_mean": 0.8925739526748657,
+      "radius_std": 0.19258679449558258
+    },
+    {
+      "name": "model.layers.27.self_attn.v_proj",
+      "radius_min": 0.5345825552940369,
+      "radius_max": 1.200850248336792,
+      "radius_mean": 1.0318922996520996,
+      "radius_std": 0.0656382367014885
+    },
+    {
+      "name": "model.layers.27.self_attn.o_proj",
+      "radius_min": 0.23984910547733307,
+      "radius_max": 2.1496176719665527,
+      "radius_mean": 1.3108456134796143,
+      "radius_std": 0.12284429371356964
+    },
+    {
+      "name": "model.layers.27.mlp.gate_proj",
+      "radius_min": 0.4488750398159027,
+      "radius_max": 8.098831176757812,
+      "radius_mean": 0.9248892068862915,
+      "radius_std": 0.3252958059310913
+    },
+    {
+      "name": "model.layers.27.mlp.up_proj",
+      "radius_min": 0.483558714389801,
+      "radius_max": 8.3766450881958,
+      "radius_mean": 1.0163054466247559,
+      "radius_std": 0.24905863404273987
+    },
+    {
+      "name": "model.layers.27.mlp.down_proj",
+      "radius_min": 1.0750815868377686,
+      "radius_max": 2.861858606338501,
+      "radius_mean": 1.4915440082550049,
+      "radius_std": 0.1060451790690422
+    }
+  ],
+  "history": [
+    {
+      "event": "init",
+      "ce": 7.054895997047424,
+      "drift": 2.917704254388809
+    },
+    {
+      "step": 100,
+      "L_ce": 4.655089855194092,
+      "L_kl": 1.0733572244644165,
+      "L_hidden": 0.0,
+      "val_ce": 5.003367394208908,
+      "drift": 0.866175651550293
+    },
+    {
+      "step": 200,
+      "L_ce": 4.921095848083496,
+      "L_kl": 1.1309571266174316,
+      "L_hidden": 0.0,
+      "val_ce": 4.821083813905716,
+      "drift": 0.6838920712471008
+    },
+    {
+      "step": 300,
+      "L_ce": 4.086953163146973,
+      "L_kl": 0.9760057926177979,
+      "L_hidden": 0.0,
+      "val_ce": 4.771409213542938,
+      "drift": 0.6342174708843231
+    },
+    {
+      "step": 400,
+      "L_ce": 4.690402030944824,
+      "L_kl": 0.9951086640357971,
+      "L_hidden": 0.0,
+      "val_ce": 4.701810896396637,
+      "drift": 0.5646191537380219
+    },
+    {
+      "step": 500,
+      "L_ce": 4.5604095458984375,
+      "L_kl": 0.8975675106048584,
+      "L_hidden": 0.0,
+      "val_ce": 4.66803415119648,
+      "drift": 0.5308424085378647
+    },
+    {
+      "step": 600,
+      "L_ce": 4.284786701202393,
+      "L_kl": 1.201769232749939,
+      "L_hidden": 0.0,
+      "val_ce": 4.656045198440552,
+      "drift": 0.5188534557819366
+    },
+    {
+      "step": 700,
+      "L_ce": 5.690192222595215,
+      "L_kl": 2.0447444915771484,
+      "L_hidden": 0.0,
+      "val_ce": 4.650651976466179,
+      "drift": 0.5134602338075638
+    },
+    {
+      "step": 800,
+      "L_ce": 4.478398323059082,
+      "L_kl": 1.0065116882324219,
+      "L_hidden": 0.0,
+      "val_ce": 4.663776278495789,
+      "drift": 0.5265845358371735
+    },
+    {
+      "step": 900,
+      "L_ce": 4.070076942443848,
+      "L_kl": 0.8065212368965149,
+      "L_hidden": 0.0,
+      "val_ce": 4.541539251804352,
+      "drift": 0.4043475091457367
+    },
+    {
+      "step": 1000,
+      "L_ce": 5.355807781219482,
+      "L_kl": 1.3709685802459717,
+      "L_hidden": 0.0,
+      "val_ce": 4.531067788600922,
+      "drift": 0.3938760459423065
+    },
+    {
+      "step": 1100,
+      "L_ce": 3.9920778274536133,
+      "L_kl": 0.673557460308075,
+      "L_hidden": 0.0,
+      "val_ce": 4.558049410581589,
+      "drift": 0.42085766792297363
+    },
+    {
+      "step": 1200,
+      "L_ce": 5.252610206604004,
+      "L_kl": 1.203201413154602,
+      "L_hidden": 0.0,
+      "val_ce": 4.532914444804192,
+      "drift": 0.3957227021455765
+    },
+    {
+      "step": 1300,
+      "L_ce": 4.075323104858398,
+      "L_kl": 0.6948280930519104,
+      "L_hidden": 0.0,
+      "val_ce": 4.501926749944687,
+      "drift": 0.3647350072860718
+    },
+    {
+      "step": 1400,
+      "L_ce": 3.967434883117676,
+      "L_kl": 0.8315855264663696,
+      "L_hidden": 0.0,
+      "val_ce": 4.507236987352371,
+      "drift": 0.3700452446937561
+    },
+    {
+      "step": 1500,
+      "L_ce": 4.199686527252197,
+      "L_kl": 0.5844544172286987,
+      "L_hidden": 0.0,
+      "val_ce": 4.435246974229813,
+      "drift": 0.2980552315711975
+    },
+    {
+      "step": 1600,
+      "L_ce": 3.9102323055267334,
+      "L_kl": 0.6600896120071411,
+      "L_hidden": 0.0,
+      "val_ce": 4.416841834783554,
+      "drift": 0.27965009212493896
+    },
+    {
+      "step": 1700,
+      "L_ce": 3.3906898498535156,
+      "L_kl": 0.6522453427314758,
+      "L_hidden": 0.0,
+      "val_ce": 4.469694495201111,
+      "drift": 0.3325027525424957
+    },
+    {
+      "step": 1800,
+      "L_ce": 5.02463960647583,
+      "L_kl": 0.7382606267929077,
+      "L_hidden": 0.0,
+      "val_ce": 4.417917191982269,
+      "drift": 0.2807254493236542
+    },
+    {
+      "step": 1900,
+      "L_ce": 4.3323211669921875,
+      "L_kl": 0.7041972875595093,
+      "L_hidden": 0.0,
+      "val_ce": 4.41053232550621,
+      "drift": 0.2733405828475952
+    },
+    {
+      "step": 2000,
+      "L_ce": 3.535891056060791,
+      "L_kl": 0.7636404037475586,
+      "L_hidden": 0.0,
+      "val_ce": 4.444709956645966,
+      "drift": 0.30751821398735046
+    },
+    {
+      "step": 2100,
+      "L_ce": 4.455389976501465,
+      "L_kl": 0.9928430318832397,
+      "L_hidden": 0.0,
+      "val_ce": 4.416755825281143,
+      "drift": 0.2795640826225281
+    },
+    {
+      "step": 2200,
+      "L_ce": 2.989243268966675,
+      "L_kl": 0.6893783807754517,
+      "L_hidden": 0.0,
+      "val_ce": 4.384064540266991,
+      "drift": 0.24687279760837555
+    },
+    {
+      "step": 2300,
+      "L_ce": 4.19213342666626,
+      "L_kl": 0.7606667280197144,
+      "L_hidden": 0.0,
+      "val_ce": 4.373343259096146,
+      "drift": 0.23615151643753052
+    },
+    {
+      "step": 2400,
+      "L_ce": 2.981949806213379,
+      "L_kl": 0.8697847723960876,
+      "L_hidden": 0.0,
+      "val_ce": 4.36096066236496,
+      "drift": 0.2237689197063446
+    },
+    {
+      "step": 2500,
+      "L_ce": 5.079293251037598,
+      "L_kl": 0.6915551424026489,
+      "L_hidden": 0.0,
+      "val_ce": 4.308479592204094,
+      "drift": 0.17128784954547882
+    },
+    {
+      "step": 2600,
+      "L_ce": 3.4273135662078857,
+      "L_kl": 0.715151846408844,
+      "L_hidden": 0.0,
+      "val_ce": 4.379743039608002,
+      "drift": 0.2425512969493866
+    },
+    {
+      "step": 2700,
+      "L_ce": 4.653203964233398,
+      "L_kl": 0.9294091463088989,
+      "L_hidden": 0.0,
+      "val_ce": 4.389122664928436,
+      "drift": 0.25193092226982117
+    },
+    {
+      "step": 2800,
+      "L_ce": 3.8769495487213135,
+      "L_kl": 0.51883864402771,
+      "L_hidden": 0.0,
+      "val_ce": 4.381293103098869,
+      "drift": 0.2441013604402542
+    },
+    {
+      "step": 2900,
+      "L_ce": 5.268828392028809,
+      "L_kl": 1.16007399559021,
+      "L_hidden": 0.0,
+      "val_ce": 4.334588125348091,
+      "drift": 0.197396382689476
+    },
+    {
+      "step": 3000,
+      "L_ce": 4.089572429656982,
+      "L_kl": 0.6656193733215332,
+      "L_hidden": 0.0,
+      "val_ce": 4.314112231135368,
+      "drift": 0.17692048847675323
+    },
+    {
+      "step": 3100,
+      "L_ce": 4.872492790222168,
+      "L_kl": 0.7069555521011353,
+      "L_hidden": 0.0,
+      "val_ce": 4.3183577954769135,
+      "drift": 0.18116605281829834
+    },
+    {
+      "step": 3200,
+      "L_ce": 4.351450443267822,
+      "L_kl": 0.6682623028755188,
+      "L_hidden": 0.0,
+      "val_ce": 4.358229637145996,
+      "drift": 0.22103789448738098
+    },
+    {
+      "step": 3300,
+      "L_ce": 4.290020942687988,
+      "L_kl": 0.6259609460830688,
+      "L_hidden": 0.0,
+      "val_ce": 4.303856506943703,
+      "drift": 0.16666476428508759
+    },
+    {
+      "step": 3400,
+      "L_ce": 3.661618709564209,
+      "L_kl": 0.8391931056976318,
+      "L_hidden": 0.0,
+      "val_ce": 4.366344407200813,
+      "drift": 0.22915266454219818
+    },
+    {
+      "step": 3500,
+      "L_ce": 4.241823196411133,
+      "L_kl": 0.9579187035560608,
+      "L_hidden": 0.0,
+      "val_ce": 4.350588887929916,
+      "drift": 0.21339714527130127
+    },
+    {
+      "step": 3600,
+      "L_ce": 3.31864333152771,
+      "L_kl": 0.6201368570327759,
+      "L_hidden": 0.0,
+      "val_ce": 4.312247112393379,
+      "drift": 0.1750553697347641
+    },
+    {
+      "step": 3700,
+      "L_ce": 1.1843814849853516,
+      "L_kl": 0.7401808500289917,
+      "L_hidden": 0.0,
+      "val_ce": 4.331377401947975,
+      "drift": 0.19418565928936005
+    },
+    {
+      "step": 3800,
+      "L_ce": 4.817793846130371,
+      "L_kl": 0.7711224555969238,
+      "L_hidden": 0.0,
+      "val_ce": 4.329740032553673,
+      "drift": 0.19254828989505768
+    },
+    {
+      "step": 3900,
+      "L_ce": 4.154980659484863,
+      "L_kl": 0.629209041595459,
+      "L_hidden": 0.0,
+      "val_ce": 4.311831787228584,
+      "drift": 0.17464004456996918
+    },
+    {
+      "step": 4000,
+      "L_ce": 3.967215061187744,
+      "L_kl": 0.7514280080795288,
+      "L_hidden": 0.0,
+      "val_ce": 4.301735907793045,
+      "drift": 0.16454416513442993
+    },
+    {
+      "step": 4100,
+      "L_ce": 6.029655456542969,
+      "L_kl": 2.0323338508605957,
+      "L_hidden": 0.0,
+      "val_ce": 4.29841873049736,
+      "drift": 0.16122698783874512
+    },
+    {
+      "step": 4200,
+      "L_ce": 4.4722747802734375,
+      "L_kl": 0.6403293013572693,
+      "L_hidden": 0.0,
+      "val_ce": 4.3143468499183655,
+      "drift": 0.17715510725975037
+    },
+    {
+      "step": 4300,
+      "L_ce": 4.091881275177002,
+      "L_kl": 0.6576842069625854,
+      "L_hidden": 0.0,
+      "val_ce": 4.2789716720581055,
+      "drift": 0.14177992939949036
+    },
+    {
+      "step": 4400,
+      "L_ce": 3.5053529739379883,
+      "L_kl": 0.940160870552063,
+      "L_hidden": 0.0,
+      "val_ce": 4.321348577737808,
+      "drift": 0.18415683507919312
+    },
+    {
+      "step": 4500,
+      "L_ce": 4.17330265045166,
+      "L_kl": 0.7030491828918457,
+      "L_hidden": 0.0,
+      "val_ce": 4.3471047431230545,
+      "drift": 0.2099130004644394
+    },
+    {
+      "step": 4600,
+      "L_ce": 4.542794227600098,
+      "L_kl": 0.9144138097763062,
+      "L_hidden": 0.0,
+      "val_ce": 4.306671142578125,
+      "drift": 0.1694793999195099
+    },
+    {
+      "step": 4700,
+      "L_ce": 3.731827735900879,
+      "L_kl": 0.5954842567443848,
+      "L_hidden": 0.0,
+      "val_ce": 4.335746452212334,
+      "drift": 0.19855470955371857
+    },
+    {
+      "step": 4800,
+      "L_ce": 4.786258220672607,
+      "L_kl": 0.9110743999481201,
+      "L_hidden": 0.0,
+      "val_ce": 4.401892960071564,
+      "drift": 0.2647012174129486
+    },
+    {
+      "step": 4900,
+      "L_ce": 3.9659667015075684,
+      "L_kl": 0.743904709815979,
+      "L_hidden": 0.0,
+      "val_ce": 4.387860089540482,
+      "drift": 0.25066834688186646
+    },
+    {
+      "step": 5000,
+      "L_ce": 4.180032730102539,
+      "L_kl": 0.621037483215332,
+      "L_hidden": 0.0,
+      "val_ce": 4.334372878074646,
+      "drift": 0.19718113541603088
+    }
+  ]
+}

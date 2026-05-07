@@ -1,0 +1,38 @@
+{
+  "checkpoint": "Qwen/Qwen3-0.6B",
+  "T0_teacher": 4.137191742658615,
+  "n_val_chunks": 16,
+  "seq_len": 64,
+  "configs": [
+    {
+      "scale_rule": "max",
+      "group_size": 128,
+      "n_linear_quantized": 197,
+      "n_embed_quantized": 1,
+      "total_quantized_weights": 751566848,
+      "bits_per_weight": 1.125,
+      "ce_pre_quant": 4.137191742658615,
+      "ce_post_quant": 45.38951349258423,
+      "drift": 41.25232174992561,
+      "quant_time_s": 0.4084591865539551
+    },
+    {
+      "scale_rule": "mean",
+      "group_size": 128,
+      "n_linear_quantized": 197,
+      "n_embed_quantized": 1,
+      "total_quantized_weights": 751566848,
+      "bits_per_weight": 1.125,
+      "ce_pre_quant": 4.137191742658615,
+      "ce_post_quant": 14.962051689624786,
+      "drift": 10.824859946966171,
+      "quant_time_s": 0.20989108085632324
+    }
+  ],
+  "comparison": {
+    "stage227_per_row_bake_ste_body_drift": 1.6968,
+    "stage227_bpw": 1.0125,
+    "stage228_per_row_no_bake_ste_body_drift": 1.78,
+    "stage228_bpw": 1.0125
+  }
+}

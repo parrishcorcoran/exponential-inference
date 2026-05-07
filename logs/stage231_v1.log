@@ -1,0 +1,168 @@
+/Users/abundancemachine/Exponential-Inference/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+device=mps dtype=torch.float32
+Loading OWT corpus...
+  val=4096  train=1000000
+
+Building TEACHER (frozen FP Qwen3-0.6B)...
+  Teacher T0 = 4.1372
+
+Building STUDENT (sphere arch, load Stage 227 best, swap to binary-group)...
+  Built sphere arch: 196 PerRowSphereLinear, 56 SubLN
+  Loading Stage 227 state_dict from checkpoints/Qwen_Qwen3-0.6B/binary_perrow_ste_best.pt ...
+    loaded; missing keys: 196 (expected: row_radius buffers)
+    bake step=4800  drift_at_save=+1.6968
+  Swapped 196 PerRowSphereLinear → BinaryGroupLinear
+  After load + swap (per-row): bpw=1.0125  drift=+1.6968
+  (should match Stage 227 best ≈ +1.70)
+
+Frozen params:    449,249,280
+Trainable params: 146,944,000
+
+────────────────────────────────────────────────────────────
+Stage 231 — Group-anneal + richer distillation (0.6B teacher)
+  Schedule: 5 phases × 1500 steps = 7500 total
+  Cosine LR 2e-05 → 0e+00
+  Top-K=64 KL, temperature T=2.0
+────────────────────────────────────────────────────────────
+
+  ── Phase 1/5 starts at step 1 ──
+     in=1024 group→1024  in=3072 group→3072  bpw=1.0125
+     drift at phase start: +1.6968
+  step   100 P1  L_ce=5.219  L_kl=1.7168  val_ce=5.9830  drift=+1.8459  lr=2.00e-05  66s
+  step   200 P1  L_ce=5.790  L_kl=1.9582  val_ce=5.9428  drift=+1.8056  lr=2.00e-05  128s
+  step   300 P1  L_ce=5.450  L_kl=2.0121  val_ce=6.0311  drift=+1.8939  lr=1.99e-05  189s
+  step   400 P1  L_ce=5.986  L_kl=1.7527  val_ce=5.9397  drift=+1.8025  lr=1.99e-05  251s
+  step   500 P1  L_ce=6.101  L_kl=2.0621  val_ce=5.9196  drift=+1.7824  lr=1.98e-05  313s
+    → saved checkpoint to stage231_group_anneal_latest.pt
+  step   600 P1  L_ce=5.469  L_kl=1.8840  val_ce=5.9429  drift=+1.8057  lr=1.97e-05  379s
+  step   700 P1  L_ce=7.361  L_kl=2.1023  val_ce=6.0709  drift=+1.9337  lr=1.96e-05  441s
+  step   800 P1  L_ce=5.464  L_kl=1.9554  val_ce=6.0176  drift=+1.8804  lr=1.94e-05  503s
+  step   900 P1  L_ce=5.250  L_kl=1.7587  val_ce=5.8833  drift=+1.7461  lr=1.93e-05  565s
+  step  1000 P1  L_ce=6.767  L_kl=2.0878  val_ce=5.9193  drift=+1.7821  lr=1.91e-05  627s
+    → saved checkpoint to stage231_group_anneal_latest.pt
+  step  1100 P1  L_ce=5.786  L_kl=1.8943  val_ce=5.9074  drift=+1.7702  lr=1.90e-05  693s
+  step  1200 P1  L_ce=6.796  L_kl=2.0860  val_ce=5.8764  drift=+1.7392  lr=1.88e-05  756s
+  step  1300 P1  L_ce=5.419  L_kl=2.1477  val_ce=5.7963  drift=+1.6591  lr=1.86e-05  821s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.6591)
+  step  1400 P1  L_ce=5.532  L_kl=1.7740  val_ce=5.9205  drift=+1.7833  lr=1.83e-05  889s
+  step  1500 P1  L_ce=5.068  L_kl=0.9218  val_ce=5.8646  drift=+1.7274  lr=1.81e-05  956s
+    → saved checkpoint to stage231_group_anneal_latest.pt
+
+  ── Phase 2/5 starts at step 1501 ──
+     in=1024 group→512  in=3072 group→1536  bpw=1.0250
+     drift at phase start: +1.7327
+  step  1600 P2  L_ce=4.903  L_kl=1.3554  val_ce=5.8802  drift=+1.7431  lr=1.78e-05  1032s
+  step  1700 P2  L_ce=4.936  L_kl=1.4334  val_ce=5.9365  drift=+1.7993  lr=1.76e-05  1100s
+  step  1800 P2  L_ce=6.054  L_kl=1.6129  val_ce=5.8337  drift=+1.6965  lr=1.73e-05  1169s
+  step  1900 P2  L_ce=4.934  L_kl=1.3892  val_ce=5.8185  drift=+1.6813  lr=1.70e-05  1237s
+  step  2000 P2  L_ce=5.275  L_kl=1.6539  val_ce=5.9108  drift=+1.7736  lr=1.67e-05  1305s
+    → saved checkpoint to stage231_group_anneal_latest.pt
+  step  2100 P2  L_ce=5.942  L_kl=1.8649  val_ce=5.8531  drift=+1.7159  lr=1.64e-05  1375s
+  step  2200 P2  L_ce=5.026  L_kl=2.0291  val_ce=5.8300  drift=+1.6928  lr=1.60e-05  1442s
+  step  2300 P2  L_ce=5.019  L_kl=1.7327  val_ce=5.7498  drift=+1.6126  lr=1.57e-05  1510s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.6126)
+  step  2400 P2  L_ce=5.046  L_kl=1.6082  val_ce=5.7395  drift=+1.6023  lr=1.54e-05  1578s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.6023)
+  step  2500 P2  L_ce=5.355  L_kl=1.1037  val_ce=5.7249  drift=+1.5877  lr=1.50e-05  1647s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.5877)
+    → saved checkpoint to stage231_group_anneal_latest.pt
+  step  2600 P2  L_ce=5.209  L_kl=2.3238  val_ce=5.6806  drift=+1.5434  lr=1.46e-05  1718s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.5434)
+  step  2700 P2  L_ce=5.805  L_kl=2.4424  val_ce=5.7422  drift=+1.6051  lr=1.43e-05  1787s
+  step  2800 P2  L_ce=5.140  L_kl=1.6378  val_ce=5.8076  drift=+1.6705  lr=1.39e-05  1853s
+  step  2900 P2  L_ce=6.378  L_kl=1.9953  val_ce=5.7297  drift=+1.5925  lr=1.35e-05  1919s
+  step  3000 P2  L_ce=4.769  L_kl=1.6149  val_ce=5.6916  drift=+1.5544  lr=1.31e-05  1985s
+    → saved checkpoint to stage231_group_anneal_latest.pt
+
+  ── Phase 3/5 starts at step 3001 ──
+     in=1024 group→256  in=3072 group→768  bpw=1.0500
+     drift at phase start: +1.5889
+  step  3100 P3  L_ce=5.915  L_kl=1.6249  val_ce=5.7349  drift=+1.5978  lr=1.27e-05  2060s
+  step  3200 P3  L_ce=5.513  L_kl=1.4247  val_ce=5.7310  drift=+1.5938  lr=1.23e-05  2127s
+  step  3300 P3  L_ce=5.318  L_kl=1.3397  val_ce=5.7278  drift=+1.5906  lr=1.19e-05  2194s
+  step  3400 P3  L_ce=5.497  L_kl=1.8654  val_ce=5.7402  drift=+1.6030  lr=1.15e-05  2261s
+  step  3500 P3  L_ce=5.151  L_kl=1.5303  val_ce=5.7185  drift=+1.5813  lr=1.10e-05  2328s
+    → saved checkpoint to stage231_group_anneal_latest.pt
+  step  3600 P3  L_ce=4.816  L_kl=1.3011  val_ce=5.7619  drift=+1.6247  lr=1.06e-05  2397s
+  step  3700 P3  L_ce=1.157  L_kl=1.3127  val_ce=5.7267  drift=+1.5895  lr=1.02e-05  2465s
+  step  3800 P3  L_ce=5.413  L_kl=1.2992  val_ce=5.7191  drift=+1.5819  lr=9.79e-06  2532s
+  step  3900 P3  L_ce=5.229  L_kl=1.2742  val_ce=5.7036  drift=+1.5664  lr=9.37e-06  2600s
+  step  4000 P3  L_ce=4.953  L_kl=1.6485  val_ce=5.6853  drift=+1.5481  lr=8.95e-06  2667s
+    → saved checkpoint to stage231_group_anneal_latest.pt
+  step  4100 P3  L_ce=7.390  L_kl=2.7973  val_ce=5.6737  drift=+1.5365  lr=8.54e-06  2738s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.5365)
+  step  4200 P3  L_ce=5.183  L_kl=1.4009  val_ce=5.6863  drift=+1.5491  lr=8.13e-06  2807s
+  step  4300 P3  L_ce=5.225  L_kl=1.1237  val_ce=5.6408  drift=+1.5036  lr=7.72e-06  2874s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.5036)
+  step  4400 P3  L_ce=5.224  L_kl=1.6520  val_ce=5.6824  drift=+1.5452  lr=7.31e-06  2943s
+  step  4500 P3  L_ce=5.731  L_kl=1.4504  val_ce=5.6789  drift=+1.5417  lr=6.91e-06  3010s
+    → saved checkpoint to stage231_group_anneal_latest.pt
+
+  ── Phase 4/5 starts at step 4501 ──
+     in=1024 group→128  in=3072 group→384  bpw=1.1000
+     drift at phase start: +1.5916
+  step  4600 P4  L_ce=6.188  L_kl=1.7781  val_ce=5.6557  drift=+1.5185  lr=6.51e-06  3085s
+  step  4700 P4  L_ce=5.383  L_kl=1.7335  val_ce=5.6607  drift=+1.5235  lr=6.12e-06  3153s
+  step  4800 P4  L_ce=6.220  L_kl=1.7357  val_ce=5.6493  drift=+1.5121  lr=5.74e-06  3220s
+  step  4900 P4  L_ce=5.562  L_kl=1.7593  val_ce=5.6027  drift=+1.4655  lr=5.37e-06  3287s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.4655)
+  step  5000 P4  L_ce=4.846  L_kl=1.3425  val_ce=5.6214  drift=+1.4842  lr=5.00e-06  3356s
+    → saved checkpoint to stage231_group_anneal_latest.pt
+  step  5100 P4  L_ce=5.117  L_kl=1.1974  val_ce=5.6300  drift=+1.4928  lr=4.64e-06  3426s
+  step  5200 P4  L_ce=6.822  L_kl=1.8504  val_ce=5.6455  drift=+1.5083  lr=4.29e-06  3492s
+  step  5300 P4  L_ce=5.929  L_kl=1.3639  val_ce=5.6012  drift=+1.4640  lr=3.95e-06  3561s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.4640)
+  step  5400 P4  L_ce=6.590  L_kl=1.9227  val_ce=5.5909  drift=+1.4537  lr=3.63e-06  3632s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.4537)
+  step  5500 P4  L_ce=4.451  L_kl=1.4876  val_ce=5.5888  drift=+1.4516  lr=3.31e-06  3704s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.4516)
+    → saved checkpoint to stage231_group_anneal_latest.pt
+  step  5600 P4  L_ce=6.440  L_kl=1.6885  val_ce=5.6118  drift=+1.4746  lr=3.00e-06  3777s
+  step  5700 P4  L_ce=5.841  L_kl=1.6764  val_ce=5.5879  drift=+1.4507  lr=2.71e-06  3844s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.4507)
+  step  5800 P4  L_ce=4.874  L_kl=1.1148  val_ce=5.5540  drift=+1.4168  lr=2.43e-06  3913s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.4168)
+  step  5900 P4  L_ce=6.346  L_kl=1.4905  val_ce=5.5541  drift=+1.4169  lr=2.16e-06  3981s
+  step  6000 P4  L_ce=4.892  L_kl=1.2476  val_ce=5.5676  drift=+1.4305  lr=1.91e-06  4048s
+    → saved checkpoint to stage231_group_anneal_latest.pt
+
+  ── Phase 5/5 starts at step 6001 ──
+     in=1024 group→128  in=3072 group→128  bpw=1.1250
+     drift at phase start: +1.4397
+  step  6100 P5  L_ce=5.061  L_kl=1.7234  val_ce=5.5838  drift=+1.4466  lr=1.67e-06  4122s
+  step  6200 P5  L_ce=6.504  L_kl=1.9575  val_ce=5.5988  drift=+1.4616  lr=1.45e-06  4189s
+  step  6300 P5  L_ce=5.966  L_kl=1.3571  val_ce=5.5708  drift=+1.4336  lr=1.24e-06  4256s
+  step  6400 P5  L_ce=5.598  L_kl=1.8453  val_ce=5.5691  drift=+1.4319  lr=1.04e-06  4323s
+  step  6500 P5  L_ce=4.198  L_kl=2.3312  val_ce=5.5560  drift=+1.4189  lr=8.65e-07  4390s
+    → saved checkpoint to stage231_group_anneal_latest.pt
+  step  6600 P5  L_ce=6.069  L_kl=1.5727  val_ce=5.5464  drift=+1.4092  lr=7.02e-07  4460s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.4092)
+  step  6700 P5  L_ce=4.709  L_kl=1.0885  val_ce=5.5466  drift=+1.4094  lr=5.56e-07  4529s
+  step  6800 P5  L_ce=5.398  L_kl=1.1712  val_ce=5.5477  drift=+1.4105  lr=4.27e-07  4597s
+  step  6900 P5  L_ce=2.664  L_kl=1.8101  val_ce=5.5401  drift=+1.4029  lr=3.14e-07  4666s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.4029)
+  step  7000 P5  L_ce=6.032  L_kl=1.4732  val_ce=5.5460  drift=+1.4088  lr=2.19e-07  4739s
+    → saved checkpoint to stage231_group_anneal_latest.pt
+  step  7100 P5  L_ce=4.284  L_kl=0.8636  val_ce=5.5441  drift=+1.4069  lr=1.40e-07  4812s
+  step  7200 P5  L_ce=4.851  L_kl=1.7459  val_ce=5.5373  drift=+1.4001  lr=7.89e-08  4879s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.4001)
+  step  7300 P5  L_ce=4.490  L_kl=0.9660  val_ce=5.5364  drift=+1.3992  lr=3.51e-08  4948s ⭐
+    → saved BEST to stage231_group_anneal_best.pt  (drift=+1.3992)
+  step  7400 P5  L_ce=5.877  L_kl=1.3929  val_ce=5.5375  drift=+1.4003  lr=8.77e-09  5016s
+  step  7500 P5  L_ce=5.043  L_kl=1.3088  val_ce=5.5388  drift=+1.4016  lr=0.00e+00  5083s
+    → saved checkpoint to stage231_group_anneal_latest.pt
+
+────────────────────────────────────────────────────────────
+STAGE 231 RESULT (group-anneal + richer distill, 0.6B teacher):
+────────────────────────────────────────────────────────────
+  Teacher T0:           4.1372
+  Init drift (Stage 227 load + per-row): +1.6968
+  Final drift:          +1.4016  bpw=1.1250
+  Best drift:           +1.3992  (step 7300)
+
+  Comparison points:
+    Stage 227 (per-row, bake+STE):         drift=+1.6968  bpw=1.0125
+    Stage 230 Bonsai-PTQ-mean (no train):  drift=+10.8249 bpw=1.1250
+    Stage 231 final (per-128, full anneal):drift=+1.4016 bpw=1.1250
+Saved results/stage231_group_anneal_richer_distill.json
